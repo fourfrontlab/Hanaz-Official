@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Products — Hanaz Official | Premium Skincare</title>
+  <meta name="description" content="Browse our complete collection of premium skincare products. Vitamin C serums, face washes, moisturizers, and more. Free shipping on orders over 5000 PKR.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/products.css">
+</head>
+<body>
+
+  <!-- ===== ANNOUNCEMENT BAR ===== -->
+  <div class="announcement-bar" id="announcement-bar">
+    <p>✓ Free Shipping on Orders Over 5000 PKR <span class="announcement-divider"></span> 🔥 Sale - Up to 36% Off!</p>
+  </div>
+
+  <!-- ===== NAVIGATION BAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <button class="hamburger-btn" id="hamburger-btn" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <a href="index.html" class="nav-logo">Hanaz Official</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html" class="active">Our Products</a></li>
+        <li><a href="collections.html">Our Collections</a></li>
+        <li><a href="index.html#our-story">Our Story</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+      <div class="nav-icons">
+        <button class="nav-icon-btn" aria-label="Search">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+        <a href="#" class="nav-icon-btn" aria-label="Account">
+          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </a>
+        <a href="#" class="nav-icon-btn" aria-label="Wishlist">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </a>
+        <button class="nav-icon-btn" data-open-cart aria-label="Shopping cart">
+          <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <span class="cart-badge">0</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== MOBILE NAV DRAWER ===== -->
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+  <div class="mobile-nav-drawer" id="mobile-nav-drawer">
+    <div class="mobile-nav-header">
+      <a href="index.html" class="nav-logo">Hanaz Official</a>
+      <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="index.html">Home</a>
+      <a href="products.html" class="active">Our Products</a>
+      <a href="collections.html">Our Collections</a>
+      <a href="index.html#our-story">Our Story</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+    <div class="mobile-nav-footer">
+      <button class="nav-icon-btn" aria-label="Search">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <a href="#" class="nav-icon-btn" aria-label="Account">
+        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </a>
+      <a href="#" class="nav-icon-btn" aria-label="Wishlist">
+        <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- ===== CART DRAWER ===== -->
+  <div class="cart-overlay" id="cart-overlay"></div>
+  <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-drawer-header">
+      <h3>Shopping Cart</h3>
+      <button class="cart-close-btn" aria-label="Close cart">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="cart-drawer-body">
+      <div class="cart-empty">
+        <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <p>Your cart is currently empty</p>
+        <a href="products.html" class="btn-continue">Continue Shopping →</a>
+      </div>
+    </div>
+    <div class="cart-drawer-footer">
+      <div class="cart-subtotal">
+        <span>Subtotal</span>
+        <strong>Rs. 0</strong>
+      </div>
+      <p class="cart-note">Shipping & taxes calculated at checkout</p>
+      <a href="#" class="btn-checkout">Check out</a>
+      <a href="#" class="btn-view-cart">View Cart</a>
+    </div>
+  </div>
+
+  <!-- ===== TOAST CONTAINER ===== -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- ===== MOBILE FILTER DRAWER ===== -->
+  <div class="filter-drawer-overlay" id="filter-drawer-overlay"></div>
+  <div class="filter-drawer" id="filter-drawer">
+    <div class="filter-drawer-header">
+      <h3>Filters</h3>
+      <button class="filter-drawer-close" id="filter-drawer-close" aria-label="Close filters">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="filter-drawer-body">
+      <!-- Availability -->
+      <div class="filter-group">
+        <div class="filter-group-title">
+          Availability
+          <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="filter-group-body">
+          <label class="filter-checkbox">
+            <input type="checkbox" checked>
+            In stock
+            <span class="filter-count">(1)</span>
+          </label>
+          <label class="filter-checkbox">
+            <input type="checkbox">
+            Out of stock
+            <span class="filter-count">(0)</span>
+          </label>
+        </div>
+      </div>
+      <!-- Price -->
+      <div class="filter-group">
+        <div class="filter-group-title">
+          Price
+          <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="filter-group-body">
+          <div class="price-range-inputs">
+            <div class="price-input-wrap">
+              <span>₨</span>
+              <input type="number" placeholder="From" min="0">
+            </div>
+            <span class="price-range-sep">–</span>
+            <div class="price-input-wrap">
+              <span>₨</span>
+              <input type="number" placeholder="To" min="0">
+            </div>
+          </div>
+          <button class="btn-filter-price">Filter</button>
+        </div>
+      </div>
+    </div>
+    <div class="filter-drawer-footer">
+      <button class="btn btn-secondary" onclick="this.closest('.filter-drawer').classList.remove('active');document.getElementById('filter-drawer-overlay').classList.remove('active');document.body.classList.remove('drawer-open');">Clear All</button>
+      <button class="btn btn-primary" id="filter-apply-btn">Apply Filters</button>
+    </div>
+  </div>
+
+  <!-- ================================================================
+       MAIN CONTENT
+       ================================================================ -->
+  <main>
+
+    <!-- ===== SECTION 1 — PAGE HEADER ===== -->
+    <section class="page-header">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="breadcrumb-sep">›</span>
+          <span>Products</span>
+        </div>
+        <h1>Products</h1>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 2 — FILTER + SORT BAR ===== -->
+    <section class="container">
+      <div class="products-toolbar">
+        <div style="display:flex;align-items:center;gap:var(--space-md);">
+          <button class="filter-toggle-btn" id="filter-toggle-btn">
+            <svg viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/><circle cx="8" cy="6" r="2" fill="currentColor"/><circle cx="16" cy="12" r="2" fill="currentColor"/><circle cx="10" cy="18" r="2" fill="currentColor"/></svg>
+            Filters
+          </button>
+          <span class="product-count">1 product</span>
+        </div>
+
+        <div class="toolbar-right">
+          <div class="sort-wrapper">
+            <label for="sort-select">Sort by:</label>
+            <select id="sort-select" class="sort-select">
+              <option value="featured">Featured</option>
+              <option value="relevant">Most relevant</option>
+              <option value="best-selling">Best selling</option>
+              <option value="alpha-asc">Alphabetically, A–Z</option>
+              <option value="alpha-desc">Alphabetically, Z–A</option>
+              <option value="price-asc">Price, low to high</option>
+              <option value="price-desc">Price, high to low</option>
+              <option value="date-asc">Date, old to new</option>
+              <option value="date-desc">Date, new to old</option>
+            </select>
+          </div>
+
+          <div class="view-toggles">
+            <!-- List -->
+            <button class="view-toggle-btn" data-view="1" aria-label="List view">
+              <svg viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+            </button>
+            <!-- 2 col -->
+            <button class="view-toggle-btn" data-view="2" aria-label="2 column view">
+              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+            </button>
+            <!-- 3 col (default) -->
+            <button class="view-toggle-btn active" data-view="3" aria-label="3 column view">
+              <svg viewBox="0 0 24 24"><rect x="2" y="3" width="5" height="7"/><rect x="9.5" y="3" width="5" height="7"/><rect x="17" y="3" width="5" height="7"/><rect x="2" y="14" width="5" height="7"/><rect x="9.5" y="14" width="5" height="7"/><rect x="17" y="14" width="5" height="7"/></svg>
+            </button>
+            <!-- 4 col -->
+            <button class="view-toggle-btn" data-view="4" aria-label="4 column view">
+              <svg viewBox="0 0 24 24"><rect x="1" y="3" width="4" height="7"/><rect x="7" y="3" width="4" height="7"/><rect x="13" y="3" width="4" height="7"/><rect x="19" y="3" width="4" height="7"/><rect x="1" y="14" width="4" height="7"/><rect x="7" y="14" width="4" height="7"/><rect x="13" y="14" width="4" height="7"/><rect x="19" y="14" width="4" height="7"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTIONS 3 & 4 — PRODUCT GRID + FILTER SIDEBAR ===== -->
+    <section class="container">
+      <div class="products-layout">
+
+        <!-- Filter Sidebar (Desktop) -->
+        <aside class="filter-sidebar">
+          <!-- Availability -->
+          <div class="filter-group">
+            <div class="filter-group-title">
+              Availability
+              <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="filter-group-body">
+              <label class="filter-checkbox">
+                <input type="checkbox" checked>
+                In stock
+                <span class="filter-count">(1)</span>
+              </label>
+              <label class="filter-checkbox">
+                <input type="checkbox">
+                Out of stock
+                <span class="filter-count">(0)</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Price Range -->
+          <div class="filter-group">
+            <div class="filter-group-title">
+              Price
+              <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="filter-group-body">
+              <div class="price-range-inputs">
+                <div class="price-input-wrap">
+                  <span>₨</span>
+                  <input type="number" id="price-from" placeholder="From" min="0">
+                </div>
+                <span class="price-range-sep">–</span>
+                <div class="price-input-wrap">
+                  <span>₨</span>
+                  <input type="number" id="price-to" placeholder="To" min="0">
+                </div>
+              </div>
+              <button class="btn-filter-price" id="btn-filter-price">Filter</button>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Product Grid -->
+        <div class="products-grid view-3">
+
+          <!-- Sale Banner Strip -->
+          <div class="grid-sale-banner">
+            <h3>🔥 SALE UP TO 25% OFF</h3>
+            <a href="product-detail.html">Shop The Sale →</a>
+          </div>
+
+          <!-- Product Card 1 -->
+          <div class="product-card" data-product-id="hanaz-vitamin-c-serum">
+            <div class="product-card-image">
+              <img src="images/vitamin-c-serum.png" alt="Hanaz Vitamin C Serum">
+
+              <!-- Sale Badge -->
+              <div class="product-badge">
+                <span class="badge-sale">-36%</span>
+              </div>
+
+              <!-- Wishlist -->
+              <button class="product-wishlist" aria-label="Add to wishlist">
+                <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </button>
+
+              <!-- Quick View -->
+              <div class="product-quickview">
+                <a href="product-detail.html" class="btn-quickview">Quick View</a>
+              </div>
+            </div>
+
+            <div class="product-card-body">
+              <h3 class="product-card-name">
+                <a href="product-detail.html">Hanaz Vitamin C Serum</a>
+              </h3>
+              <div class="product-card-price">
+                <span class="price-sale">Rs.1,599.00</span>
+                <span class="price-original">Rs.2,499.00</span>
+              </div>
+            </div>
+
+            <div class="product-card-footer">
+              <button class="btn-quick-add">
+                <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                Quick Add
+              </button>
+            </div>
+
+            <!-- Quick Add Expanded -->
+            <div class="quick-add-expanded">
+              <div class="quick-add-qty">
+                <button class="qa-minus" aria-label="Decrease">−</button>
+                <span class="qa-qty">1</span>
+                <button class="qa-plus" aria-label="Increase">+</button>
+              </div>
+              <button class="btn-confirm-add">Add to Cart</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 5 — REVIEWS ===== -->
+    <section class="products-reviews reveal">
+      <div class="container">
+        <div class="section-header">
+          <h2>Loved by 10,000+ Happy Customers</h2>
+          <p>Join thousands of satisfied customers who trust Hanaz Official for their skincare needs.</p>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="reviews-grid">
+          <!-- Review 1 -->
+          <div class="review-grid-card">
+            <div class="review-grid-stars">★★★★★</div>
+            <p class="review-grid-text">"My skin has never looked better! The Vitamin C Serum transformed my complexion in just one week. I can see visible brightness and my dark spots are fading away."</p>
+            <div class="review-grid-author">
+              <div class="review-grid-avatar">AK</div>
+              <div>
+                <div class="review-grid-name">Ayesha K.</div>
+                <div class="review-grid-verified">✓ Verified Customer</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 2 -->
+          <div class="review-grid-card">
+            <div class="review-grid-stars">★★★★★</div>
+            <p class="review-grid-text">"Finally found skincare that actually works! The products are authentic, high-quality, and the delivery was super fast. My go-to skincare brand from now on."</p>
+            <div class="review-grid-author">
+              <div class="review-grid-avatar">FR</div>
+              <div>
+                <div class="review-grid-name">Fatima R.</div>
+                <div class="review-grid-verified">✓ Verified Customer</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 3 -->
+          <div class="review-grid-card">
+            <div class="review-grid-stars">★★★★★</div>
+            <p class="review-grid-text">"The quality is outstanding. These have become my go-to products for my daily skincare routine. My skin feels softer and more hydrated than ever before."</p>
+            <div class="review-grid-author">
+              <div class="review-grid-avatar">SM</div>
+              <div>
+                <div class="review-grid-name">Sara M.</div>
+                <div class="review-grid-verified">✓ Verified Customer</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 4 -->
+          <div class="review-grid-card">
+            <div class="review-grid-stars">★★★★★</div>
+            <p class="review-grid-text">"I've tried many skincare brands, but Hanaz Official stands out. The ingredients are clean, the results are real, and the customer service is exceptional."</p>
+            <div class="review-grid-author">
+              <div class="review-grid-avatar">ZH</div>
+              <div>
+                <div class="review-grid-name">Zainab H.</div>
+                <div class="review-grid-verified">✓ Verified Customer</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 5 -->
+          <div class="review-grid-card">
+            <div class="review-grid-stars">★★★★★</div>
+            <p class="review-grid-text">"Absolutely love this brand! The skincare routine has completely transformed my skin. No more breakouts, just clear, glowing skin every single day."</p>
+            <div class="review-grid-author">
+              <div class="review-grid-avatar">HL</div>
+              <div>
+                <div class="review-grid-name">Hira L.</div>
+                <div class="review-grid-verified">✓ Verified Customer</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 6 -->
+          <div class="review-grid-card">
+            <div class="review-grid-stars">★★★★★</div>
+            <p class="review-grid-text">"Short dress in a printed viscose weave with a round neckline, opening at the back of the neck with a button. The quality and presentation is premium."</p>
+            <div class="review-grid-author">
+              <div class="review-grid-avatar">DD</div>
+              <div>
+                <div class="review-grid-name">Dean D.</div>
+                <div class="review-grid-verified">✓ Verified Customer</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 6 — RECENTLY VIEWED ===== -->
+    <section class="recently-viewed" id="recently-viewed-section" style="display:none">
+      <div class="container">
+        <div class="section-header">
+          <h2>Recently Viewed Products</h2>
+          <div class="section-line"></div>
+        </div>
+        <div class="recently-viewed-scroll" id="recently-viewed-scroll">
+          <!-- Populated by JS from localStorage -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 7 — PAYMENT METHODS ===== -->
+    <section class="payment-section reveal">
+      <div class="container">
+        <h2>Our Payment Methods</h2>
+        <p>We accept JazzCash, EasyPaisa, Cash on Delivery, and Allied Bank</p>
+
+        <div class="payment-logos-row">
+          <div class="payment-logo-item">
+            <svg viewBox="0 0 24 24" width="24" height="24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2" fill="none" stroke="#e74c3c" stroke-width="1.5"/><line x1="1" y1="10" x2="23" y2="10" stroke="#e74c3c" stroke-width="1.5"/></svg>
+            JazzCash
+          </div>
+          <div class="payment-logo-item">
+            <svg viewBox="0 0 24 24" width="24" height="24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2" fill="none" stroke="#00b300" stroke-width="1.5"/><line x1="1" y1="10" x2="23" y2="10" stroke="#00b300" stroke-width="1.5"/></svg>
+            EasyPaisa
+          </div>
+          <div class="payment-logo-item">
+            <svg viewBox="0 0 24 24" width="24" height="24"><rect x="2" y="6" width="20" height="12" rx="2" fill="none" stroke="#f4a261" stroke-width="1.5"/><circle cx="12" cy="12" r="3" fill="none" stroke="#f4a261" stroke-width="1.5"/></svg>
+            Cash on Delivery
+          </div>
+          <div class="payment-logo-item">
+            <svg viewBox="0 0 24 24" width="24" height="24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2" fill="none" stroke="#2d6a4f" stroke-width="1.5"/><line x1="1" y1="10" x2="23" y2="10" stroke="#2d6a4f" stroke-width="1.5"/><line x1="7" y1="15" x2="11" y2="15" stroke="#2d6a4f" stroke-width="1.5"/></svg>
+            Allied Bank
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <!-- Footer Top -->
+      <div class="footer-top">
+        <div class="footer-newsletter">
+          <h3>Join Our Skincare Community</h3>
+          <p>Subscribe for exclusive deals, skincare tips, and new product launches straight to your inbox.</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Enter your email" required aria-label="Email address">
+            <button type="submit">Subscribe now</button>
+          </form>
+        </div>
+        <div class="footer-social">
+          <span>Follow Us</span>
+          <div class="social-icons">
+            <a href="#" class="social-icon" aria-label="Pinterest">
+              <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.024 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="Facebook">
+              <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="Twitter">
+              <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="Snapchat">
+              <svg viewBox="0 0 24 24"><path d="M12.206.793c.99 0 4.347.276 5.93 3.821.529 1.193.403 3.219.299 4.847l-.003.06c-.012.18-.022.345-.03.51.075.045.203.09.401.09.3-.016.659-.12.959-.289.291-.154.773-.347 1.143-.207.384.144.57.42.563.674-.012.479-.555.779-.931.993-.068.036-.141.075-.2.117-.42.314-.637.431-.67.611-.029.142.053.283.143.417.022.038.058.07.082.104a9.907 9.907 0 011.7 3.31c.167.592.048 1.089-.345 1.44-.446.399-1.104.54-1.607.623-.17.027-.338.058-.492.096-.246.059-.399.187-.421.305-.039.196.098.42.181.527l.024.032c.197.276.206.592-.003.872-.357.477-1.101.718-2.21.718-.36 0-.717-.03-.96-.049a8.98 8.98 0 00-.382-.035c-.236 0-.419.087-.636.186-.39.179-.91.417-1.846.417-.11 0-.221-.006-.332-.019-.927 0-1.447-.238-1.837-.417-.216-.099-.4-.186-.636-.186a8.98 8.98 0 00-.382.035c-.244.02-.6.049-.96.049-1.109 0-1.853-.241-2.21-.718-.209-.28-.2-.596-.004-.872l.025-.032c.083-.107.22-.331.18-.527-.021-.118-.174-.246-.42-.305a8.07 8.07 0 00-.493-.096c-.502-.083-1.161-.224-1.607-.623-.393-.351-.512-.848-.345-1.44a9.907 9.907 0 011.7-3.31c.024-.034.06-.066.082-.104.09-.134.172-.275.143-.417-.033-.18-.25-.297-.67-.611-.059-.042-.132-.081-.2-.117-.376-.214-.919-.514-.931-.993-.007-.254.179-.53.563-.674.37-.14.852.053 1.143.207.3.169.659.305.959.289.198 0 .326-.045.401-.09-.008-.165-.018-.33-.03-.51l-.003-.06c-.104-1.628-.23-3.654.3-4.847C7.86 1.069 11.216.793 12.206.793z"/></svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="YouTube">
+              <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="TikTok">
+              <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+            </a>
+            <a href="https://wa.me/923225386807" class="social-icon" aria-label="WhatsApp" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Columns -->
+      <div class="footer-columns">
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Our Products</a></li>
+            <li><a href="collections.html">Our Collections</a></li>
+            <li><a href="index.html#our-story">Our Story</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Customer Service</h4>
+          <ul>
+            <li><a href="#">Search</a></li>
+            <li><a href="#">Shipping Policy</a></li>
+            <li><a href="#">Return Policy</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Hanaz Official</h4>
+          <p style="font-size:14px;color:rgba(255,255,255,0.5);line-height:1.7;">Premium Pakistani skincare crafted with the finest natural ingredients and scientific innovation. Your journey to radiant skin starts here.</p>
+        </div>
+      </div>
+
+      <!-- Payment -->
+      <div class="footer-payment">
+        <h4>Our Payment Methods — We accept JazzCash, EasyPaisa, Cash on Delivery, and Allied Bank</h4>
+        <div class="payment-methods">
+          <div class="payment-method">💳 JazzCash</div>
+          <div class="payment-method">📱 EasyPaisa</div>
+          <div class="payment-method">🏦 Allied Bank</div>
+          <div class="payment-method">💵 Cash on Delivery</div>
+        </div>
+      </div>
+
+      <!-- Bottom -->
+      <div class="footer-bottom">
+        <p>© 2025 Hanaz Official. Premium Skincare for Radiant Skin.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/products.js"></script>
+
+</body>
+</html>
