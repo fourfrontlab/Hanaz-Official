@@ -1429,3 +1429,79 @@ body.drawer-open {
     gap: var(--space-sm);
   }
 }
+
+/* ==========================================================================
+   GLOBAL UTILITIES & INTEGRATIONS
+   ========================================================================== */
+
+/* Fade-in Page Transition */
+.fade-in-page {
+  animation: fadeInPage 0.4s ease-out forwards;
+}
+
+@keyframes fadeInPage {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Floating WhatsApp Button */
+.floating-whatsapp {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 60px;
+  height: 60px;
+  background-color: #25d366;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+  z-index: 1000;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: pulse-wa 2s infinite;
+}
+
+.floating-whatsapp:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.5);
+  animation: none;
+}
+
+.floating-whatsapp svg {
+  width: 35px;
+  height: 35px;
+  fill: currentColor;
+}
+
+@keyframes pulse-wa {
+  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+  70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+/* Tooltip for WhatsApp */
+.floating-whatsapp::before {
+  content: "Chat with us";
+  position: absolute;
+  right: 75px;
+  background-color: #333;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 13px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.floating-whatsapp:hover::before {
+  opacity: 1;
+  visibility: visible;
+}
