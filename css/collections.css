@@ -1,173 +1,128 @@
 /* ==========================================================================
-   COLLECTIONS / REGIMENS PAGE
+   REGIMENS PAGE CSS
    ========================================================================== */
 
-.regimens-header {
-  padding: var(--space-lg) 0 var(--space-2xl);
+.breadcrumb {
+  padding: var(--space-xl) var(--space-lg);
+  font-size: 13px;
+  color: var(--text-muted);
+}
+.breadcrumb a {
+  color: var(--text-heading);
+  transition: opacity var(--duration-fast);
+}
+.breadcrumb a:hover {
+  opacity: 0.6;
+}
+.breadcrumb .sep {
+  margin: 0 8px;
 }
 
-.regimens-header h1 {
-  margin-bottom: var(--space-sm);
+.regimen-header h1 {
+  margin-bottom: var(--space-md);
 }
 
-.regimens-header p {
-  font-size: 14px;
-  color: var(--color-text-muted);
+/* Collection Tiles reused from home, adding disabled state */
+.collection-tile.disabled {
+  pointer-events: none;
+}
+.collection-tile.disabled .tile-img {
+  background: var(--bg-card);
+  opacity: 0.5;
+}
+.coming-soon {
+  display: block;
+  font-size: 11px;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 4px;
+}
+.item-count {
+  display: block;
+  font-size: 11px;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 4px;
 }
 
-/* ===== REGIMEN SUGGESTION CARD ===== */
-.regimen-suggestion {
-  padding: 0 0 var(--space-section);
+/* Regimen Builder */
+.regimen-builder {
+  background: var(--bg-card);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
-
-.regimen-card {
-  border: 1px solid var(--color-border);
-  background: var(--color-bg-card);
-  padding: var(--space-2xl);
-}
-
-.regimen-card-header {
-  margin-bottom: var(--space-xl);
-}
-
-.regimen-card-header .eyebrow {
-  margin-bottom: var(--space-sm);
-}
-
-.regimen-card-header h2 {
-  margin-bottom: var(--space-sm);
-}
-
-.regimen-card-header p {
-  font-size: 14px;
-  color: var(--color-text-muted);
-}
-
 .regimen-steps {
   display: flex;
-  align-items: flex-start;
-  gap: var(--space-md);
+  flex-direction: column;
 }
-
 .regimen-step {
-  flex: 1;
   display: flex;
-  align-items: flex-start;
-  gap: var(--space-md);
-  padding: var(--space-lg);
-  border: 1px solid var(--color-border);
-  background: var(--color-bg);
+  gap: var(--space-2xl);
+  padding: var(--space-2xl) 0;
+  border-bottom: 1px solid var(--border);
 }
-
-.regimen-step-active {
-  border-color: var(--color-primary);
+.regimen-step:last-child {
+  border-bottom: none;
 }
-
 .step-number {
-  width: 28px;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--color-text-muted);
-  border: 1px solid var(--color-border);
-  flex-shrink: 0;
-}
-
-.regimen-step-active .step-number {
-  background: var(--color-primary);
-  border-color: var(--color-primary);
-  color: #fff;
-}
-
-.step-info h4 {
-  font-size: 13px;
-  font-weight: 600;
-  margin-bottom: 4px;
-}
-
-.step-info p {
-  font-size: 12px;
-  color: var(--color-text-body);
-  margin-bottom: 6px;
-  line-height: 1.5;
-}
-
-.coming-soon {
   font-size: 11px;
-  color: var(--color-text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  width: 80px;
+}
+.step-content {
+  flex: 1;
+}
+.step-content h3 {
+  font-size: 18px;
+  margin-bottom: var(--space-sm);
+}
+.step-content p {
+  font-size: 14px;
+  color: var(--text-body);
+  margin-bottom: var(--space-lg);
+}
+
+.step-product .coming-soon {
+  text-align: left;
   font-style: italic;
 }
-
-.step-link {
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--color-primary);
-  border-bottom: 1px solid var(--color-primary);
-  padding-bottom: 1px;
-}
-
-.regimen-step-arrow {
+.product-mini {
   display: flex;
   align-items: center;
-  padding-top: var(--space-xl);
-  font-size: 16px;
-  color: var(--color-text-light);
-  flex-shrink: 0;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  max-width: 320px;
+  transition: border-color var(--duration-fast);
 }
-
-/* ===== ALL PRODUCTS GRID ===== */
-.all-products-section {
-  padding: var(--space-section) 0;
-  border-top: 1px solid var(--color-border);
+.product-mini:hover {
+  border-color: var(--text-heading);
 }
-
-.collections-product-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-lg);
+.product-mini img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  background: var(--bg);
+  border: 1px solid var(--border);
 }
-
-/* Reuse product-card styles from home.css */
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 1024px) {
-  .regimen-steps {
-    flex-wrap: wrap;
-  }
-
-  .regimen-step {
-    flex: 1 1 calc(50% - var(--space-md));
-  }
-
-  .regimen-step-arrow {
-    display: none;
-  }
-
-  .collections-product-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.mini-info h5 {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.mini-info span {
+  font-size: 13px;
+  color: var(--text-muted);
 }
 
 @media (max-width: 768px) {
-  .regimen-card {
-    padding: var(--space-lg);
-  }
-
   .regimen-step {
-    flex: 1 1 100%;
-  }
-
-  .collections-product-grid {
-    grid-template-columns: repeat(2, 1fr);
+    flex-direction: column;
     gap: var(--space-md);
-  }
-}
-
-@media (max-width: 480px) {
-  .collections-product-grid {
-    grid-template-columns: 1fr;
   }
 }

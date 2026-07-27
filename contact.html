@@ -3,26 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact | Hanaz Official</title>
-  <meta name="description" content="Get in touch with Hanaz Official. We'd love to hear from you. Find our address, phone number, and email.">
-  <meta property="og:title" content="Contact | Hanaz Official">
-  <meta property="og:description" content="Get in touch with Hanaz Official. We'd love to hear from you.">
-  <meta property="og:image" content="images/vitamin-c-serum.png">
+  <title>Contact Us | Hanaz Official</title>
+  <meta name="description" content="Get in touch with Hanaz Official for support and inquiries.">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/contact.css">
 </head>
 <body class="fade-in-page">
 
-  <!-- ===== ANNOUNCEMENT BAR ===== -->
+  <!-- ===== UTILITY BAR ===== -->
   <div class="announcement-bar" id="announcement-bar">
-    <p>Free shipping on orders over Rs. 5,000 <span class="announcement-divider"></span> Cash on Delivery available</p>
+    <p>Free Shipping on Orders Over Rs. 5,000 — Cash on Delivery Available</p>
   </div>
 
   <!-- ===== NAVIGATION ===== -->
   <nav class="navbar" id="navbar">
     <div class="container">
       <button class="hamburger-btn" id="hamburger-btn" aria-label="Open menu"><span></span><span></span><span></span></button>
-      <a href="index.html" class="nav-logo">Hanaz</a>
+      <a href="index.html" class="nav-logo">HANAZ</a>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="products.html">Shop</a></li>
@@ -30,6 +27,7 @@
         <li><a href="contact.html">Contact</a></li>
       </ul>
       <div class="nav-icons">
+        <a href="collections.html" class="btn btn-sm btn-primary nav-cta-desktop" style="border-radius:var(--radius-pill); border: 1px solid var(--text-heading);">Build My Regimen</a>
         <button class="nav-icon-btn" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
         <button class="nav-icon-btn" data-open-cart aria-label="Shopping cart">
           <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
@@ -39,128 +37,115 @@
     </div>
   </nav>
 
-  <!-- Mobile nav -->
-  <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
-  <div class="mobile-nav-drawer" id="mobile-nav-drawer">
-    <div class="mobile-nav-header"><a href="index.html" class="nav-logo">Hanaz</a><button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
-    <div class="mobile-nav-links"><a href="index.html">Home</a><a href="products.html">Shop</a><a href="collections.html">Regimens</a><a href="contact.html">Contact</a></div>
-  </div>
-
-  <!-- Cart drawer -->
-  <div class="cart-overlay" id="cart-overlay"></div>
-  <div class="cart-drawer" id="cart-drawer">
-    <div class="cart-drawer-header"><h3>Shopping Cart</h3><button class="cart-close-btn" aria-label="Close cart"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
-    <div class="cart-drawer-body"><div class="cart-empty"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><p>Your cart is currently empty</p><a href="products.html" class="btn-continue">Continue Shopping</a></div></div>
-    <div class="cart-drawer-footer"><div class="cart-subtotal"><span>Subtotal</span><strong>Rs. 0</strong></div><p class="cart-note">Shipping & taxes calculated at checkout</p><a href="#" class="btn-checkout">Check out</a></div>
-  </div>
+  <!-- Mobile nav & cart -->
+  <div class="overlay" id="mobile-nav-overlay"></div>
+  <div class="mobile-nav-drawer" id="mobile-nav-drawer"><div class="mobile-nav-header"><a href="index.html" class="nav-logo">HANAZ</a><button class="mobile-nav-close" id="mobile-nav-close"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div><div class="mobile-nav-links"><a href="index.html">Home</a><a href="products.html">Shop</a><a href="collections.html">Regimens</a><a href="contact.html">Contact</a></div></div>
+  <div class="overlay" id="cart-overlay"></div>
+  <div class="cart-drawer" id="cart-drawer"><div class="cart-drawer-header"><h3>Shopping Cart</h3><button class="cart-close-btn"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div><div class="cart-drawer-body"></div><div class="cart-drawer-footer"><div class="cart-subtotal"><span>Subtotal</span><strong>Rs. 0</strong></div><p class="cart-note">Shipping & taxes calculated at checkout</p><a href="#" class="btn btn-primary btn-checkout">Check out</a></div></div>
   <div class="toast-container" id="toast-container"></div>
 
   <main>
-    <!-- Breadcrumb -->
-    <div class="breadcrumb">
-      <div class="container">
-        <a href="index.html">Home</a>
-        <span class="breadcrumb-sep">›</span>
-        <span>Contact</span>
-      </div>
+    <div class="breadcrumb container">
+      <a href="index.html">Home</a>
+      <span class="sep">/</span>
+      <span>Contact</span>
     </div>
 
-    <!-- ===== PAGE HEADING ===== -->
-    <section class="contact-header">
+    <section class="contact-section section-padding" style="padding-top:0;">
       <div class="container">
-        <h1>Contact</h1>
-        <p>Have a question or want to work with us? We'd love to hear from you.</p>
-      </div>
-    </section>
+        
+        <div class="contact-header">
+          <h1>Contact Us</h1>
+          <p>We're here to help. Reach out to us for any questions regarding products, orders, or your skincare routine.</p>
+        </div>
 
-    <!-- ===== CONTACT LAYOUT ===== -->
-    <section class="contact-section">
-      <div class="container">
         <div class="contact-grid">
-
-          <!-- LEFT — Form -->
-          <div class="contact-form-container">
-            <form class="contact-form" id="contactForm">
-              <input type="text" name="name" placeholder="Name" required>
-              <input type="email" name="email" placeholder="Email" required>
-              <input type="tel" name="phone" placeholder="Phone number" required>
-              <textarea name="message" rows="5" placeholder="Message" required></textarea>
-              <button type="submit" class="btn btn-primary btn-block">Send Message</button>
-            </form>
+          <!-- Info Cards -->
+          <div class="contact-info">
+            <div class="info-card">
+              <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+              <div>
+                <h4>WhatsApp Support</h4>
+                <p>Mon–Sat, 9 AM – 6 PM PKT</p>
+                <a href="https://wa.me/923225386807" target="_blank" rel="noopener">+92 322 538 6807</a>
+              </div>
+            </div>
+            
+            <div class="info-card">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <div>
+                <h4>Email Us</h4>
+                <p>Expect a reply within 24 hours</p>
+                <a href="mailto:support@hanazofficial.com">support@hanazofficial.com</a>
+              </div>
+            </div>
+            
+            <div class="info-card">
+              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div>
+                <h4>Headquarters</h4>
+                <p>Lahore, Pakistan<br>Online Store Only</p>
+              </div>
+            </div>
           </div>
 
-          <!-- RIGHT — Info Cards -->
-          <div class="contact-info">
-            <div class="info-card reveal">
-              <div class="info-icon">
-                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <!-- Form -->
+          <div class="contact-form-wrap">
+            <form id="contact-form" class="contact-form">
+              <h3>Send a Message</h3>
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" required>
               </div>
-              <div class="info-content">
-                <h4>Address</h4>
-                <p>Margla Town, Islamabad</p>
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" required>
               </div>
-            </div>
-
-            <div class="info-card reveal">
-              <div class="info-icon">
-                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <select id="subject" required>
+                  <option value="" disabled selected>Select an option</option>
+                  <option value="order">Order Inquiry</option>
+                  <option value="product">Product Question</option>
+                  <option value="return">Returns & Refunds</option>
+                  <option value="other">Other</option>
+                </select>
               </div>
-              <div class="info-content">
-                <h4>Phone & Email</h4>
-                <a href="tel:+923225386807">+92 322 538 6807</a>
-                <a href="mailto:haseebbadshah32@gmail.com">haseebbadshah32@gmail.com</a>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" rows="5" required></textarea>
               </div>
-            </div>
-
-            <div class="info-card reveal">
-              <div class="info-icon">
-                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              </div>
-              <div class="info-content">
-                <h4>Working Hours</h4>
-                <p>Available 24/7 for inquiries</p>
-              </div>
-            </div>
+              <button type="submit" class="btn btn-primary btn-block">Submit</button>
+            </form>
           </div>
 
         </div>
       </div>
     </section>
-
   </main>
 
-  <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top">
-        <div class="footer-newsletter"><h3>Stay Updated</h3><p>Subscribe for skincare tips and new product launches.</p><form class="newsletter-form" id="footer-newsletter-form"><input type="email" placeholder="Enter your email" required aria-label="Email address"><button type="submit">Subscribe</button></form></div>
-        <div class="footer-social"><span>Follow Us</span><div class="social-icons"><a href="#" class="social-icon" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a><a href="https://wa.me/923225386807" class="social-icon" aria-label="WhatsApp" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a></div></div>
+        <div class="footer-newsletter"><h3>Join Our Skincare Community</h3><p>Subscribe for exclusive deals, skincare tips, and new product launches straight to your inbox.</p><form class="newsletter-form" id="footer-newsletter-form"><input type="email" placeholder="Enter your email" required aria-label="Email address"><button type="submit">Subscribe</button></form></div>
+        <div class="footer-social"><span>Follow Us</span><div class="social-links" style="flex-direction:row; gap:16px; margin-top:8px;"><a href="#">Instagram</a><a href="#">Facebook</a><a href="https://wa.me/923225386807">WhatsApp</a><a href="#">TikTok</a></div></div>
       </div>
       <div class="footer-columns">
-        <div class="footer-col"><h4>Shop</h4><ul><li><a href="products.html">All Products</a></li><li><a href="collections.html">Regimens</a></li></ul></div>
-        <div class="footer-col"><h4>Help</h4><ul><li><a href="contact.html">Contact Us</a></li><li><a href="#">Shipping Policy</a></li><li><a href="#">Return Policy</a></li></ul></div>
-        <div class="footer-col"><h4>About</h4><p>Premium Pakistani skincare crafted with clinically tested ingredients.</p></div>
+        <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="products.html">Shop</a></li><li><a href="collections.html">Regimens</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+        <div class="footer-col"><h4>Customer Service</h4><ul><li><a href="#">Search</a></li><li><a href="#">FAQ</a></li><li><a href="#">Return Policy</a></li></ul></div>
+        <div class="footer-col"><h4>About</h4><p style="color:#A0A0A0; font-size:14px;">Premium Pakistani skincare crafted with the finest natural ingredients and scientific innovation.</p></div>
       </div>
-      <div class="footer-payment"><h4>JazzCash · EasyPaisa · Cash on Delivery · Allied Bank</h4></div>
-      <div class="footer-bottom"><p>&copy; 2025 Hanaz Official. All rights reserved.</p></div>
+      <div class="footer-payment"><p>We accept JazzCash, EasyPaisa, Cash on Delivery, and Allied Bank</p></div>
+      <div class="footer-bottom"><p>&copy; 2026 Hanaz Official. Premium Skincare for Radiant Skin.</p></div>
     </div>
   </footer>
 
   <script src="js/main.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const contactForm = document.getElementById('contactForm');
-      if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-          e.preventDefault();
-          if (window.HanazToast) {
-            window.HanazToast("Thank you! We'll get back to you soon.", "success");
-          } else {
-            alert("Thank you! We'll get back to you soon.");
-          }
-          contactForm.reset();
-        });
-      }
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      window.HanazToast("Message sent successfully. We'll be in touch soon!");
+      this.reset();
     });
   </script>
 </body>

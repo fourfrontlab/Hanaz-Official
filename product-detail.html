@@ -4,25 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hanaz Vitamin C Serum | Hanaz Official</title>
-  <meta name="description" content="Premium Vitamin C Serum with 10% Ethyl-Ascorbic Acid (SAP), Niacinamide, and Hyaluronic Acid. Brightens complexion and reduces dark spots.">
-  <meta property="og:title" content="Hanaz Vitamin C Serum | Hanaz Official">
-  <meta property="og:description" content="Premium Vitamin C Serum with 10% SAP, Niacinamide, and Hyaluronic Acid.">
-  <meta property="og:image" content="images/vitamin-c-serum.png">
+  <meta name="description" content="Premium Vitamin C Serum. Brightens complexion and reduces dark spots.">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/product-detail.css">
 </head>
 <body class="fade-in-page">
 
-  <!-- ===== ANNOUNCEMENT BAR ===== -->
+  <!-- ===== UTILITY BAR ===== -->
   <div class="announcement-bar" id="announcement-bar">
-    <p>Free shipping on orders over Rs. 5,000 <span class="announcement-divider"></span> Cash on Delivery available</p>
+    <p>Free Shipping on Orders Over Rs. 5,000 — Cash on Delivery Available</p>
   </div>
 
   <!-- ===== NAVIGATION ===== -->
   <nav class="navbar" id="navbar">
     <div class="container">
       <button class="hamburger-btn" id="hamburger-btn" aria-label="Open menu"><span></span><span></span><span></span></button>
-      <a href="index.html" class="nav-logo">Hanaz</a>
+      <a href="index.html" class="nav-logo">HANAZ</a>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="products.html">Shop</a></li>
@@ -30,6 +27,7 @@
         <li><a href="contact.html">Contact</a></li>
       </ul>
       <div class="nav-icons">
+        <a href="collections.html" class="btn btn-sm btn-primary nav-cta-desktop" style="border-radius:var(--radius-pill); border: 1px solid var(--text-heading);">Build My Regimen</a>
         <button class="nav-icon-btn" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
         <button class="nav-icon-btn" data-open-cart aria-label="Shopping cart">
           <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
@@ -39,40 +37,29 @@
     </div>
   </nav>
 
-  <!-- Mobile nav -->
-  <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
-  <div class="mobile-nav-drawer" id="mobile-nav-drawer">
-    <div class="mobile-nav-header"><a href="index.html" class="nav-logo">Hanaz</a><button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
-    <div class="mobile-nav-links"><a href="index.html">Home</a><a href="products.html">Shop</a><a href="collections.html">Regimens</a><a href="contact.html">Contact</a></div>
-  </div>
-
-  <!-- Cart drawer -->
-  <div class="cart-overlay" id="cart-overlay"></div>
-  <div class="cart-drawer" id="cart-drawer">
-    <div class="cart-drawer-header"><h3>Shopping Cart</h3><button class="cart-close-btn" aria-label="Close cart"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
-    <div class="cart-drawer-body"><div class="cart-empty"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><p>Your cart is currently empty</p><a href="products.html" class="btn-continue">Continue Shopping</a></div></div>
-    <div class="cart-drawer-footer"><div class="cart-subtotal"><span>Subtotal</span><strong>Rs. 0</strong></div><p class="cart-note">Shipping & taxes calculated at checkout</p><a href="#" class="btn-checkout">Check out</a></div>
-  </div>
+  <!-- Mobile nav / Cart drawer (omitted here for brevity in visual representation, but should be same) -->
+  <!-- ... skipping full HTML for nav drawers to save some space, they are identical to index.html ... -->
+  <div class="overlay" id="mobile-nav-overlay"></div>
+  <div class="mobile-nav-drawer" id="mobile-nav-drawer"><div class="mobile-nav-header"><a href="index.html" class="nav-logo">HANAZ</a><button class="mobile-nav-close" id="mobile-nav-close"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div><div class="mobile-nav-links"><a href="index.html">Home</a><a href="products.html">Shop</a><a href="collections.html">Regimens</a><a href="contact.html">Contact</a></div></div>
+  <div class="overlay" id="cart-overlay"></div>
+  <div class="cart-drawer" id="cart-drawer"><div class="cart-drawer-header"><h3>Shopping Cart</h3><button class="cart-close-btn"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div><div class="cart-drawer-body"></div><div class="cart-drawer-footer"><div class="cart-subtotal"><span>Subtotal</span><strong>Rs. 0</strong></div><p class="cart-note">Shipping & taxes calculated at checkout</p><a href="#" class="btn btn-primary btn-checkout">Check out</a></div></div>
   <div class="toast-container" id="toast-container"></div>
 
   <main>
-    <!-- Breadcrumb -->
-    <div class="breadcrumb">
-      <div class="container">
-        <a href="index.html">Home</a>
-        <span class="breadcrumb-sep">›</span>
-        <a href="products.html">Products</a>
-        <span class="breadcrumb-sep">›</span>
-        <span>Vitamin C Serum</span>
-      </div>
+    <div class="breadcrumb container">
+      <a href="index.html">Home</a>
+      <span class="sep">/</span>
+      <a href="products.html">Shop</a>
+      <span class="sep">/</span>
+      <span>Hanaz Vitamin C Serum</span>
     </div>
 
-    <!-- ===== PRODUCT HERO — Two Column ===== -->
-    <section class="pdp-hero">
+    <!-- Product Hero -->
+    <section class="pdp-hero section-padding" style="padding-top:0;">
       <div class="container">
         <div class="pdp-grid">
 
-          <!-- LEFT: Gallery -->
+          <!-- Left: Gallery -->
           <div class="pdp-gallery">
             <div class="pdp-main-image">
               <img src="images/vitamin-c-serum.png" alt="Hanaz Vitamin C Serum" id="main-product-image">
@@ -86,148 +73,177 @@
             </div>
           </div>
 
-          <!-- RIGHT: Info -->
+          <!-- Right: Info -->
           <div class="pdp-info">
             <h1>Hanaz Vitamin C Serum</h1>
 
             <div class="pdp-price-row">
               <span class="pdp-sale-price">Rs. 1,599</span>
               <span class="pdp-original-price">Rs. 2,499</span>
+              <span class="pdp-save">Save 36%</span>
             </div>
 
-            <span class="in-stock-label">In stock</span>
+            <div class="pdp-derm-pill">Dermatologist Tested</div>
 
             <!-- Quantity -->
-            <div class="pdp-qty">
-              <button id="qty-minus" aria-label="Decrease quantity">−</button>
-              <span class="qty-value" id="qty-value">1</span>
-              <button id="qty-plus" aria-label="Increase quantity">+</button>
+            <div class="qty-stepper" style="margin-bottom: var(--space-lg); height: 48px;">
+              <button id="qty-minus" aria-label="Decrease quantity" style="width: 48px;">−</button>
+              <span class="qty-stepper-val" id="qty-value" style="width: 48px;">1</span>
+              <button id="qty-plus" aria-label="Increase quantity" style="width: 48px;">+</button>
             </div>
 
-            <!-- Add to Cart -->
+            <!-- Actions -->
             <button class="btn btn-primary btn-block" id="btn-add-cart">Add to Cart</button>
-
-            <!-- WhatsApp -->
-            <a href="https://wa.me/923225386807?text=Hi%2C%20I%20want%20to%20order%20Hanaz%20Vitamin%20C%20Serum" class="btn btn-secondary btn-block btn-whatsapp" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <a href="https://wa.me/923225386807?text=Hi%2C%20I%20want%20to%20order%20Hanaz%20Vitamin%20C%20Serum" class="btn btn-secondary btn-block mt-sm" style="margin-top:8px;" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
               Chat on WhatsApp
             </a>
 
-            <!-- Delivery info -->
+            <!-- Delivery -->
             <div class="pdp-delivery">
               <p>Estimated delivery: 3–5 business days</p>
               <p>Free shipping & returns on all orders</p>
             </div>
 
             <!-- Accordions -->
-            <div class="accordion">
-              <button class="accordion-header">Customer Support & Care <span class="accordion-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span></button>
-              <div class="accordion-body"><div class="accordion-body-inner">Our dedicated support team is available Monday–Saturday, 9 AM – 6 PM PKT. We respond to all queries within 24 hours. Reach us via WhatsApp, email, or our Contact page.</div></div>
-            </div>
-            <div class="accordion">
-              <button class="accordion-header">Return Policy <span class="accordion-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span></button>
-              <div class="accordion-body"><div class="accordion-body-inner">We offer a 3-day money-back guarantee. Products must be unused and in original packaging. Return shipping is free across Pakistan.</div></div>
+            <div class="accordion-group">
+              <div class="accordion">
+                <button class="accordion-header">Customer Support & Care <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+                <div class="accordion-body"><div class="accordion-inner">Our dedicated support team is available Monday–Saturday, 9 AM – 6 PM PKT. We respond to all queries within 24 hours.</div></div>
+              </div>
+              <div class="accordion">
+                <button class="accordion-header">Return Policy <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+                <div class="accordion-body"><div class="accordion-inner">We offer a 3-day money-back guarantee. Products must be unused and in original packaging. Return shipping is free.</div></div>
+              </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>
 
-    <!-- ===== DESCRIPTION TABS ===== -->
-    <section class="pdp-tabs-section">
+    <!-- Tabs -->
+    <section class="pdp-tabs-section section-padding">
       <div class="container">
-        <div class="pdp-tab-buttons">
-          <button class="pdp-tab-btn active" data-tab="tab-description">Description</button>
-          <button class="pdp-tab-btn" data-tab="tab-ingredients">Ingredients</button>
-          <button class="pdp-tab-btn" data-tab="tab-how-to-use">How to Use</button>
+        <div class="pdp-tabs-header">
+          <button class="pdp-tab active" data-target="desc">Description</button>
+          <button class="pdp-tab" data-target="ingr">Ingredients</button>
+          <button class="pdp-tab" data-target="use">How to Use</button>
+          <div class="pdp-tab-underline"></div>
         </div>
 
-        <div class="pdp-tab-content active" id="tab-description">
-          <h3>Brighten, Firm & Glow</h3>
-          <p>Our premium Vitamin C Serum is formulated with 10% Ethyl-Ascorbic Acid (SAP — stable Vitamin C), combined with Niacinamide, Hyaluronic Acid, and Ferulic Acid. Dermatologist and PCSIR-tested. Brightens complexion, reduces dark spots, fights aging, and deeply hydrates. Fragrance-free and paraben-free. 30ml bottle.</p>
-          <ul>
-            <li>Brightens and evens skin tone</li>
-            <li>Reduces dark spots and hyperpigmentation</li>
-            <li>Boosts collagen for firmer skin</li>
-            <li>Deep hydration with Hyaluronic Acid</li>
-            <li>Fragrance-free & paraben-free</li>
-            <li>Suitable for all skin types</li>
-          </ul>
+        <div class="pdp-tab-content active" id="tab-desc">
+          <div class="pdp-tab-inner">
+            <h3>Brighten, Firm & Glow</h3>
+            <p>Our premium Vitamin C Serum is formulated with 10% Ethyl-Ascorbic Acid (SAP — stable Vitamin C), combined with Niacinamide, Hyaluronic Acid, and Ferulic Acid. Dermatologist and PCSIR-tested.</p>
+            <ul>
+              <li>Brightens and evens skin tone</li>
+              <li>Reduces dark spots and hyperpigmentation</li>
+              <li>Boosts collagen for firmer skin</li>
+              <li>Deep hydration with Hyaluronic Acid</li>
+            </ul>
+          </div>
         </div>
 
-        <div class="pdp-tab-content" id="tab-ingredients">
-          <h3>Key Ingredients</h3>
-          <ul>
-            <li><strong>Vitamin C (SAP 10%)</strong> — stable, non-irritating form of Vitamin C</li>
-            <li><strong>Niacinamide</strong> — brightens, reduces pores, calms inflammation</li>
-            <li><strong>Hyaluronic Acid</strong> — intense hydration, plumping effect</li>
-            <li><strong>Ferulic Acid</strong> — antioxidant booster, enhances Vitamin C stability</li>
-          </ul>
+        <div class="pdp-tab-content" id="tab-ingr">
+          <div class="pdp-tab-inner">
+            <h3>Key Ingredients</h3>
+            <ul>
+              <li><strong>Vitamin C (SAP 10%)</strong> — stable, non-irritating form of Vitamin C</li>
+              <li><strong>Niacinamide</strong> — brightens, reduces pores, calms inflammation</li>
+              <li><strong>Hyaluronic Acid</strong> — intense hydration, plumping effect</li>
+              <li><strong>Ferulic Acid</strong> — antioxidant booster</li>
+            </ul>
+          </div>
         </div>
 
-        <div class="pdp-tab-content" id="tab-how-to-use">
-          <h3>How to Use</h3>
-          <p><strong>Step 1:</strong> Cleanse face thoroughly<br>
-             <strong>Step 2:</strong> Apply 3–4 drops of serum to face and neck<br>
-             <strong>Step 3:</strong> Gently pat in upward strokes until absorbed<br>
-             <strong>Step 4:</strong> Follow with moisturizer and SPF (daytime)</p>
-          <p class="text-muted" style="margin-top: 12px; font-style: italic;">Use morning and/or evening. Avoid direct eye contact.</p>
+        <div class="pdp-tab-content" id="tab-use">
+          <div class="pdp-tab-inner">
+            <h3>How to Use</h3>
+            <p><strong>Step 1:</strong> Cleanse face thoroughly<br>
+               <strong>Step 2:</strong> Apply 3–4 drops of serum to face and neck<br>
+               <strong>Step 3:</strong> Gently pat in upward strokes until absorbed<br>
+               <strong>Step 4:</strong> Follow with moisturizer and SPF</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== WHAT'S IN THE FORMULA ===== -->
-    <section class="pdp-ingredients-section reveal">
+    <!-- Formula section reused from home -->
+    <section class="formula-section section-padding">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal">
           <span class="eyebrow">What's in the Formula</span>
-          <h2>Key Ingredients</h2>
+          <h2>Clinical Ingredients</h2>
         </div>
-        <div class="pdp-ingredients-grid">
-          <div class="pdp-ingredient"><h4>Vitamin C SAP 10%</h4><p>A stable, non-irritating form that brightens and reduces dark spots without oxidizing.</p></div>
-          <div class="pdp-ingredient"><h4>Niacinamide</h4><p>Minimizes pores, calms inflammation, and strengthens the skin barrier.</p></div>
-          <div class="pdp-ingredient"><h4>Hyaluronic Acid</h4><p>Holds 1000x its weight in water for intense, lasting hydration.</p></div>
-          <div class="pdp-ingredient"><h4>Ferulic Acid</h4><p>Plant-based antioxidant that enhances Vitamin C stability.</p></div>
+        <div class="formula-grid">
+          <div class="formula-col reveal" style="transition-delay: 0.1s;">
+            <h4>Vitamin C (SAP 10%)</h4>
+            <p>A stable, non-irritating form that brightens and reduces dark spots without oxidizing.</p>
+          </div>
+          <div class="formula-col reveal" style="transition-delay: 0.2s;">
+            <h4>Niacinamide</h4>
+            <p>Minimizes pores, calms inflammation, and strengthens the skin barrier.</p>
+          </div>
+          <div class="formula-col reveal" style="transition-delay: 0.3s;">
+            <h4>Hyaluronic Acid</h4>
+            <p>Holds 1000x its weight in water for intense, lasting hydration.</p>
+          </div>
+          <div class="formula-col reveal" style="transition-delay: 0.4s;">
+            <h4>Ferulic Acid</h4>
+            <p>Plant-based antioxidant that enhances Vitamin C stability.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== REVIEWS ===== -->
-    <section class="pdp-reviews-section reveal" id="reviews">
+    <!-- Reviews -->
+    <section class="reviews-section section-padding reveal">
       <div class="container">
-        <div class="section-header">
-          <span class="eyebrow">Customer Reviews</span>
-          <h2>What Our Customers Say</h2>
-          <p class="reviews-avg">4.9 out of 5 based on 247 reviews</p>
+        <div class="section-header" style="display:flex; justify-content:space-between; align-items:flex-end;">
+          <div>
+            <span class="eyebrow">Reviews</span>
+            <h2>What Our Customers Say</h2>
+          </div>
+          <a href="#" style="font-size:13px; text-decoration:underline;">Write a Review</a>
         </div>
-        <div class="pdp-reviews-grid">
-          <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">The Vitamin C serum has completely transformed my skin in just 2 weeks. My complexion is brighter and more even.</p><div class="review-author"><span class="review-name">Sarah M.</span><span class="review-verified">Verified Buyer</span></div></div>
-          <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">These products exceeded my expectations. The results speak for themselves — my skin has never looked this good.</p><div class="review-author"><span class="review-name">Ahmed K.</span><span class="review-verified">Verified Buyer</span></div></div>
-          <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">I have sensitive skin, but this serum didn't irritate it at all. It feels lightweight and absorbs quickly.</p><div class="review-author"><span class="review-name">Fatima Z.</span><span class="review-verified">Verified Buyer</span></div></div>
-        </div>
-        <div class="text-center mt-xl">
-          <a href="#" class="write-review-link">Write a Review</a>
+        <div class="scroll-snap-row">
+          <div class="scroll-snap-item review-card">
+            <div class="review-stars">★★★★★</div>
+            <h4>Quality at Its Best</h4>
+            <p>I'm absolutely impressed with the quality of these skincare products. The Vitamin C serum has completely transformed my skin in just 2 weeks.</p>
+            <div class="review-author">Sarah M. <span class="verified">Verified Buyer</span></div>
+          </div>
+          <div class="scroll-snap-item review-card">
+            <div class="review-stars">★★★★★</div>
+            <h4>Best Purchase Ever</h4>
+            <p>These products exceeded my expectations in every way. The packaging is luxurious, the scent is heavenly, and the results speak for themselves.</p>
+            <div class="review-author">Ahmed K. <span class="verified">Verified Buyer</span></div>
+          </div>
+          <div class="scroll-snap-item review-card">
+            <div class="review-stars">★★★★★</div>
+            <h4>Outstanding Customer Service</h4>
+            <p>From browsing to checkout to delivery, the experience was seamless. The team helped me find the perfect routine for my skin type.</p>
+            <div class="review-author">Fatima R. <span class="verified">Verified Buyer</span></div>
+          </div>
         </div>
       </div>
     </section>
 
   </main>
 
-  <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top">
-        <div class="footer-newsletter"><h3>Stay Updated</h3><p>Subscribe for skincare tips and new product launches.</p><form class="newsletter-form" id="footer-newsletter-form"><input type="email" placeholder="Enter your email" required aria-label="Email address"><button type="submit">Subscribe</button></form></div>
-        <div class="footer-social"><span>Follow Us</span><div class="social-icons"><a href="#" class="social-icon" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a><a href="https://wa.me/923225386807" class="social-icon" aria-label="WhatsApp" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a></div></div>
+        <div class="footer-newsletter"><h3>Join Our Skincare Community</h3><p>Subscribe for exclusive deals, skincare tips, and new product launches straight to your inbox.</p><form class="newsletter-form" id="footer-newsletter-form"><input type="email" placeholder="Enter your email" required aria-label="Email address"><button type="submit">Subscribe</button></form></div>
+        <div class="footer-social"><span>Follow Us</span><div class="social-links" style="flex-direction:row; gap:16px; margin-top:8px;"><a href="#">Instagram</a><a href="#">Facebook</a><a href="https://wa.me/923225386807">WhatsApp</a><a href="#">TikTok</a></div></div>
       </div>
       <div class="footer-columns">
-        <div class="footer-col"><h4>Shop</h4><ul><li><a href="products.html">All Products</a></li><li><a href="collections.html">Regimens</a></li></ul></div>
-        <div class="footer-col"><h4>Help</h4><ul><li><a href="contact.html">Contact Us</a></li><li><a href="#">Shipping Policy</a></li><li><a href="#">Return Policy</a></li></ul></div>
-        <div class="footer-col"><h4>About</h4><p>Premium Pakistani skincare crafted with clinically tested ingredients.</p></div>
+        <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="products.html">Shop</a></li><li><a href="collections.html">Regimens</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+        <div class="footer-col"><h4>Customer Service</h4><ul><li><a href="#">Search</a></li><li><a href="#">FAQ</a></li><li><a href="#">Return Policy</a></li></ul></div>
+        <div class="footer-col"><h4>About</h4><p style="color:#A0A0A0; font-size:14px;">Premium Pakistani skincare crafted with the finest natural ingredients and scientific innovation.</p></div>
       </div>
-      <div class="footer-payment"><h4>JazzCash · EasyPaisa · Cash on Delivery · Allied Bank</h4></div>
-      <div class="footer-bottom"><p>&copy; 2025 Hanaz Official. All rights reserved.</p></div>
+      <div class="footer-payment"><p>We accept JazzCash, EasyPaisa, Cash on Delivery, and Allied Bank</p></div>
+      <div class="footer-bottom"><p>&copy; 2026 Hanaz Official. Premium Skincare for Radiant Skin.</p></div>
     </div>
   </footer>
 

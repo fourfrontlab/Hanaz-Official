@@ -4,25 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Regimens | Hanaz Official</title>
-  <meta name="description" content="Find your perfect skincare regimen with Hanaz Official. Suggested routines and product combinations for every skin type.">
-  <meta property="og:title" content="Regimens | Hanaz Official">
-  <meta property="og:description" content="Find your perfect skincare regimen with Hanaz Official.">
-  <meta property="og:image" content="images/vitamin-c-serum.png">
+  <meta name="description" content="Build your perfect skincare regimen with Hanaz Official.">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/collections.css">
 </head>
 <body class="fade-in-page">
 
-  <!-- ===== ANNOUNCEMENT BAR ===== -->
+  <!-- ===== UTILITY BAR ===== -->
   <div class="announcement-bar" id="announcement-bar">
-    <p>Free shipping on orders over Rs. 5,000 <span class="announcement-divider"></span> Cash on Delivery available</p>
+    <p>Free Shipping on Orders Over Rs. 5,000 — Cash on Delivery Available</p>
   </div>
 
   <!-- ===== NAVIGATION ===== -->
   <nav class="navbar" id="navbar">
     <div class="container">
       <button class="hamburger-btn" id="hamburger-btn" aria-label="Open menu"><span></span><span></span><span></span></button>
-      <a href="index.html" class="nav-logo">Hanaz</a>
+      <a href="index.html" class="nav-logo">HANAZ</a>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="products.html">Shop</a></li>
@@ -30,6 +27,7 @@
         <li><a href="contact.html">Contact</a></li>
       </ul>
       <div class="nav-icons">
+        <a href="collections.html" class="btn btn-sm btn-primary nav-cta-desktop" style="border-radius:var(--radius-pill); border: 1px solid var(--text-heading);">Build My Regimen</a>
         <button class="nav-icon-btn" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
         <button class="nav-icon-btn" data-open-cart aria-label="Shopping cart">
           <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
@@ -39,159 +37,149 @@
     </div>
   </nav>
 
-  <!-- ===== MOBILE NAV ===== -->
-  <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+  <!-- Mobile nav -->
+  <div class="overlay" id="mobile-nav-overlay"></div>
   <div class="mobile-nav-drawer" id="mobile-nav-drawer">
-    <div class="mobile-nav-header">
-      <a href="index.html" class="nav-logo">Hanaz</a>
-      <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
-    </div>
-    <div class="mobile-nav-links">
-      <a href="index.html">Home</a>
-      <a href="products.html">Shop</a>
-      <a href="collections.html">Regimens</a>
-      <a href="contact.html">Contact</a>
-    </div>
+    <div class="mobile-nav-header"><a href="index.html" class="nav-logo">HANAZ</a><button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+    <div class="mobile-nav-links"><a href="index.html">Home</a><a href="products.html">Shop</a><a href="collections.html">Regimens</a><a href="contact.html">Contact</a></div>
   </div>
 
-  <!-- ===== CART DRAWER ===== -->
-  <div class="cart-overlay" id="cart-overlay"></div>
+  <!-- Cart drawer -->
+  <div class="overlay" id="cart-overlay"></div>
   <div class="cart-drawer" id="cart-drawer">
     <div class="cart-drawer-header"><h3>Shopping Cart</h3><button class="cart-close-btn" aria-label="Close cart"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
-    <div class="cart-drawer-body"><div class="cart-empty"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><p>Your cart is currently empty</p><a href="products.html" class="btn-continue">Continue Shopping</a></div></div>
-    <div class="cart-drawer-footer"><div class="cart-subtotal"><span>Subtotal</span><strong>Rs. 0</strong></div><p class="cart-note">Shipping & taxes calculated at checkout</p><a href="#" class="btn-checkout">Check out</a></div>
+    <div class="cart-drawer-body"></div>
+    <div class="cart-drawer-footer"><div class="cart-subtotal"><span>Subtotal</span><strong>Rs. 0</strong></div><p class="cart-note">Shipping & taxes calculated at checkout</p><a href="#" class="btn btn-primary btn-checkout">Check out</a><a href="products.html" class="btn btn-secondary btn-block">View Cart</a></div>
   </div>
-
   <div class="toast-container" id="toast-container"></div>
 
   <main>
-    <!-- Breadcrumb -->
-    <div class="breadcrumb">
-      <div class="container">
-        <a href="index.html">Home</a>
-        <span class="breadcrumb-sep">›</span>
-        <span>Regimens</span>
-      </div>
+    <div class="breadcrumb container">
+      <a href="index.html">Home</a>
+      <span class="sep">/</span>
+      <span>Regimens</span>
     </div>
 
-    <!-- ===== PAGE HEADING ===== -->
-    <section class="regimens-header">
+    <section class="regimen-header">
       <div class="container">
-        <h1>Find Your Regimen</h1>
-        <p>Suggested routines built around our formulas.</p>
+        <h1>Build My Regimen</h1>
+        <p style="max-width:500px; color:var(--text-body); margin-bottom:var(--space-2xl);">A good skincare routine is built on consistency and the right steps. Explore our categories or follow the foundational regimen below.</p>
       </div>
     </section>
 
-    <!-- ===== REGIMEN CARD ===== -->
-    <section class="regimen-suggestion reveal">
+    <!-- Categories -->
+    <section class="collections-section section-padding" style="padding-top:0;">
       <div class="container">
-        <div class="regimen-card">
-          <div class="regimen-card-header">
-            <span class="eyebrow">Suggested Routine</span>
-            <h2>The Brightening Regimen</h2>
-            <p>A morning routine targeting dark spots, uneven tone, and dull complexion.</p>
+        <div class="collection-tiles">
+          <!-- Coming soon state -->
+          <div class="collection-tile disabled">
+            <div class="tile-img"></div>
+            <h4>Glazing Milk</h4>
+            <span class="coming-soon">Coming Soon</span>
           </div>
-          <div class="regimen-steps">
-            <div class="regimen-step">
-              <span class="step-number">1</span>
-              <div class="step-info">
-                <h4>Cleanse</h4>
-                <p>Gentle hydrating cleanser</p>
-                <span class="coming-soon">Coming Soon</span>
-              </div>
-            </div>
-            <div class="regimen-step-arrow">→</div>
-            <div class="regimen-step regimen-step-active">
-              <span class="step-number">2</span>
-              <div class="step-info">
-                <h4>Treat</h4>
-                <p>Vitamin C Serum (10% SAP)</p>
-                <a href="product-detail.html" class="step-link">Shop now →</a>
-              </div>
-            </div>
-            <div class="regimen-step-arrow">→</div>
-            <div class="regimen-step">
-              <span class="step-number">3</span>
-              <div class="step-info">
-                <h4>Moisturize</h4>
-                <p>Lightweight barrier cream</p>
-                <span class="coming-soon">Coming Soon</span>
-              </div>
-            </div>
-            <div class="regimen-step-arrow">→</div>
-            <div class="regimen-step">
-              <span class="step-number">4</span>
-              <div class="step-info">
-                <h4>Protect</h4>
-                <p>Broad spectrum SPF 50</p>
-                <span class="coming-soon">Coming Soon</span>
-              </div>
-            </div>
+          <div class="collection-tile disabled">
+            <div class="tile-img"></div>
+            <h4>Face Washes</h4>
+            <span class="coming-soon">Coming Soon</span>
           </div>
+          <div class="collection-tile disabled">
+            <div class="tile-img"></div>
+            <h4>Lotions</h4>
+            <span class="coming-soon">Coming Soon</span>
+          </div>
+          <div class="collection-tile disabled">
+            <div class="tile-img"></div>
+            <h4>Moisturizers</h4>
+            <span class="coming-soon">Coming Soon</span>
+          </div>
+          <a href="products.html" class="collection-tile">
+            <div class="tile-img"><img src="images/vitamin-c-serum.png" alt="Vitamin C Serum"></div>
+            <h4>Vitamin C Serum</h4>
+            <span class="item-count">1 Item</span>
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- ===== ALL PRODUCTS GRID ===== -->
-    <section class="all-products-section reveal">
+    <!-- Regimen Builder -->
+    <section class="regimen-builder section-padding reveal">
       <div class="container">
         <div class="section-header">
-          <span class="eyebrow">Shop All</span>
-          <h2>The Full Lineup</h2>
+          <h2>The Foundational Regimen</h2>
+          <p style="color:var(--text-body); margin-top:var(--space-sm);">A simple 4-step routine for healthy skin.</p>
         </div>
-        <div class="collections-product-grid">
-          <a href="product-detail.html" class="product-card">
-            <div class="product-card-image"><img src="images/vitamin-c-serum.png" alt="Vitamin C Serum"></div>
-            <div class="product-card-body">
-              <h3 class="product-card-name">Vitamin C Serum</h3>
-              <p class="product-card-desc">Brightening serum with 10% SAP</p>
-              <div class="product-card-price"><span class="price-current">Rs. 1,599</span><span class="price-original">Rs. 2,499</span></div>
+        
+        <div class="regimen-steps">
+          
+          <div class="regimen-step">
+            <div class="step-number">Step 1</div>
+            <div class="step-content">
+              <h3>Cleanse</h3>
+              <p>Remove impurities without stripping the skin.</p>
+              <div class="step-product">
+                <span class="coming-soon">Face Wash (Coming Soon)</span>
+              </div>
             </div>
-          </a>
-          <a href="product-detail.html" class="product-card">
-            <div class="product-card-image"><img src="images/vitamin-c-serum.png" alt="Niacinamide Serum"></div>
-            <div class="product-card-body">
-              <h3 class="product-card-name">Niacinamide Serum</h3>
-              <p class="product-card-desc">Pore refining & calming formula</p>
-              <div class="product-card-price"><span class="price-current">Rs. 1,499</span><span class="price-original">Rs. 2,299</span></div>
+          </div>
+
+          <div class="regimen-step">
+            <div class="step-number">Step 2</div>
+            <div class="step-content">
+              <h3>Treat</h3>
+              <p>Target specific concerns like dullness or texture.</p>
+              <div class="step-product">
+                <a href="product-detail.html" class="product-mini">
+                  <img src="images/vitamin-c-serum.png" alt="Vitamin C Serum">
+                  <div class="mini-info">
+                    <h5>Vitamin C Serum</h5>
+                    <span>Rs. 1,599</span>
+                  </div>
+                </a>
+              </div>
             </div>
-          </a>
-          <a href="product-detail.html" class="product-card">
-            <div class="product-card-image"><img src="images/vitamin-c-serum.png" alt="Hyaluronic Acid"></div>
-            <div class="product-card-body">
-              <h3 class="product-card-name">Hyaluronic Acid</h3>
-              <p class="product-card-desc">Intense hydration booster</p>
-              <div class="product-card-price"><span class="price-current">Rs. 1,399</span><span class="price-original">Rs. 1,999</span></div>
+          </div>
+
+          <div class="regimen-step">
+            <div class="step-number">Step 3</div>
+            <div class="step-content">
+              <h3>Moisturize</h3>
+              <p>Lock in hydration and support the skin barrier.</p>
+              <div class="step-product">
+                <span class="coming-soon">Moisturizer (Coming Soon)</span>
+              </div>
             </div>
-          </a>
-          <a href="product-detail.html" class="product-card">
-            <div class="product-card-image"><img src="images/vitamin-c-serum.png" alt="Ferulic Acid Serum"></div>
-            <div class="product-card-body">
-              <h3 class="product-card-name">Ferulic Acid Serum</h3>
-              <p class="product-card-desc">Antioxidant stability booster</p>
-              <div class="product-card-price"><span class="price-current">Rs. 1,699</span><span class="price-original">Rs. 2,599</span></div>
+          </div>
+
+          <div class="regimen-step">
+            <div class="step-number">Step 4</div>
+            <div class="step-content">
+              <h3>Protect</h3>
+              <p>Defend against UV damage daily.</p>
+              <div class="step-product">
+                <span class="coming-soon">SPF (Coming Soon)</span>
+              </div>
             </div>
-          </a>
+          </div>
+
         </div>
       </div>
     </section>
 
   </main>
 
-  <!-- ===== FOOTER ===== -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top">
-        <div class="footer-newsletter"><h3>Stay Updated</h3><p>Subscribe for skincare tips and new product launches.</p><form class="newsletter-form" id="footer-newsletter-form"><input type="email" placeholder="Enter your email" required aria-label="Email address"><button type="submit">Subscribe</button></form></div>
-        <div class="footer-social"><span>Follow Us</span><div class="social-icons"><a href="#" class="social-icon" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a><a href="https://wa.me/923225386807" class="social-icon" aria-label="WhatsApp" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a></div></div>
+        <div class="footer-newsletter"><h3>Join Our Skincare Community</h3><p>Subscribe for exclusive deals, skincare tips, and new product launches straight to your inbox.</p><form class="newsletter-form" id="footer-newsletter-form"><input type="email" placeholder="Enter your email" required aria-label="Email address"><button type="submit">Subscribe</button></form></div>
+        <div class="footer-social"><span>Follow Us</span><div class="social-links" style="flex-direction:row; gap:16px; margin-top:8px;"><a href="#">Instagram</a><a href="#">Facebook</a><a href="https://wa.me/923225386807">WhatsApp</a><a href="#">TikTok</a></div></div>
       </div>
       <div class="footer-columns">
-        <div class="footer-col"><h4>Shop</h4><ul><li><a href="products.html">All Products</a></li><li><a href="collections.html">Regimens</a></li></ul></div>
-        <div class="footer-col"><h4>Help</h4><ul><li><a href="contact.html">Contact Us</a></li><li><a href="#">Shipping Policy</a></li><li><a href="#">Return Policy</a></li></ul></div>
-        <div class="footer-col"><h4>About</h4><p>Premium Pakistani skincare crafted with clinically tested ingredients.</p></div>
+        <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="products.html">Shop</a></li><li><a href="collections.html">Regimens</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+        <div class="footer-col"><h4>Customer Service</h4><ul><li><a href="#">Search</a></li><li><a href="#">FAQ</a></li><li><a href="#">Return Policy</a></li></ul></div>
+        <div class="footer-col"><h4>About</h4><p style="color:#A0A0A0; font-size:14px;">Premium Pakistani skincare crafted with the finest natural ingredients and scientific innovation.</p></div>
       </div>
-      <div class="footer-payment"><h4>JazzCash · EasyPaisa · Cash on Delivery · Allied Bank</h4></div>
-      <div class="footer-bottom"><p>&copy; 2025 Hanaz Official. All rights reserved.</p></div>
+      <div class="footer-payment"><p>We accept JazzCash, EasyPaisa, Cash on Delivery, and Allied Bank</p></div>
+      <div class="footer-bottom"><p>&copy; 2026 Hanaz Official. Premium Skincare for Radiant Skin.</p></div>
     </div>
   </footer>
 

@@ -4,27 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shop All | Hanaz Official</title>
-  <meta name="description" content="Browse the complete Hanaz Official skincare regimen. Vitamin C serums, niacinamide treatments, and clinically tested formulas. Free shipping on orders over Rs. 5,000.">
-  <meta property="og:title" content="Shop All | Hanaz Official">
-  <meta property="og:description" content="Browse the complete Hanaz Official skincare regimen.">
-  <meta property="og:image" content="images/vitamin-c-serum.png">
+  <meta name="description" content="Shop the complete Hanaz Official skincare collection.">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/products.css">
 </head>
 <body class="fade-in-page">
 
-  <!-- ===== ANNOUNCEMENT BAR ===== -->
+  <!-- ===== UTILITY BAR ===== -->
   <div class="announcement-bar" id="announcement-bar">
-    <p>Free shipping on orders over Rs. 5,000 <span class="announcement-divider"></span> Cash on Delivery available</p>
+    <p>Free Shipping on Orders Over Rs. 5,000 — Cash on Delivery Available</p>
   </div>
 
-  <!-- ===== NAVIGATION BAR ===== -->
+  <!-- ===== NAVIGATION ===== -->
   <nav class="navbar" id="navbar">
     <div class="container">
-      <button class="hamburger-btn" id="hamburger-btn" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
-      <a href="index.html" class="nav-logo">Hanaz</a>
+      <button class="hamburger-btn" id="hamburger-btn" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <a href="index.html" class="nav-logo">HANAZ</a>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="products.html">Shop</a></li>
@@ -32,213 +27,213 @@
         <li><a href="contact.html">Contact</a></li>
       </ul>
       <div class="nav-icons">
-        <button class="nav-icon-btn" aria-label="Search">
-          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        </button>
+        <a href="collections.html" class="btn btn-sm btn-primary nav-cta-desktop" style="border-radius:var(--radius-pill); border: 1px solid var(--text-heading);">Build My Regimen</a>
+        <button class="nav-icon-btn" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
         <button class="nav-icon-btn" data-open-cart aria-label="Shopping cart">
           <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-          <span class="cart-badge">0</span>
+          <span class="cart-badge" id="cart-badge-nav">0</span>
         </button>
       </div>
     </div>
   </nav>
 
-  <!-- ===== MOBILE NAV ===== -->
-  <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+  <!-- Mobile nav -->
+  <div class="overlay" id="mobile-nav-overlay"></div>
   <div class="mobile-nav-drawer" id="mobile-nav-drawer">
-    <div class="mobile-nav-header">
-      <a href="index.html" class="nav-logo">Hanaz</a>
-      <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu">
-        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-      </button>
-    </div>
-    <div class="mobile-nav-links">
-      <a href="index.html">Home</a>
-      <a href="products.html">Shop</a>
-      <a href="collections.html">Regimens</a>
-      <a href="contact.html">Contact</a>
-    </div>
+    <div class="mobile-nav-header"><a href="index.html" class="nav-logo">HANAZ</a><button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+    <div class="mobile-nav-links"><a href="index.html">Home</a><a href="products.html">Shop</a><a href="collections.html">Regimens</a><a href="contact.html">Contact</a></div>
   </div>
 
-  <!-- ===== CART DRAWER ===== -->
-  <div class="cart-overlay" id="cart-overlay"></div>
+  <!-- Cart drawer -->
+  <div class="overlay" id="cart-overlay"></div>
   <div class="cart-drawer" id="cart-drawer">
-    <div class="cart-drawer-header">
-      <h3>Shopping Cart</h3>
-      <button class="cart-close-btn" aria-label="Close cart">
-        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-      </button>
-    </div>
-    <div class="cart-drawer-body">
-      <div class="cart-empty">
-        <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-        <p>Your cart is currently empty</p>
-        <a href="products.html" class="btn-continue">Continue Shopping</a>
-      </div>
-    </div>
-    <div class="cart-drawer-footer">
-      <div class="cart-subtotal"><span>Subtotal</span><strong>Rs. 0</strong></div>
-      <p class="cart-note">Shipping & taxes calculated at checkout</p>
-      <a href="#" class="btn-checkout">Check out</a>
-    </div>
+    <div class="cart-drawer-header"><h3>Shopping Cart</h3><button class="cart-close-btn" aria-label="Close cart"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+    <div class="cart-drawer-body"></div>
+    <div class="cart-drawer-footer"><div class="cart-subtotal"><span>Subtotal</span><strong>Rs. 0</strong></div><p class="cart-note">Shipping & taxes calculated at checkout</p><a href="#" class="btn btn-primary btn-checkout">Check out</a><a href="products.html" class="btn btn-secondary btn-block">View Cart</a></div>
   </div>
-
   <div class="toast-container" id="toast-container"></div>
 
   <main>
-    <!-- ===== BREADCRUMB ===== -->
-    <div class="breadcrumb">
-      <div class="container">
-        <a href="index.html">Home</a>
-        <span class="breadcrumb-sep">›</span>
-        <span>Products</span>
-      </div>
+    <!-- Breadcrumb -->
+    <div class="breadcrumb container">
+      <a href="index.html">Home</a>
+      <span class="sep">/</span>
+      <span>Shop</span>
     </div>
 
-    <!-- ===== PAGE HEADING ===== -->
     <section class="shop-header">
       <div class="container">
-        <span class="eyebrow">Shop All</span>
-        <h1>The Regimen</h1>
-        <p>Our complete skincare lineup, formulated for radiant results.</p>
-      </div>
-    </section>
-
-    <!-- ===== SORT ROW ===== -->
-    <section class="container">
-      <div class="sort-row">
-        <span class="product-count">4 products</span>
-        <div class="sort-options">
-          <span class="sort-label">Sort by:</span>
-          <a href="#" class="sort-link active" data-sort="featured">Featured</a>
-          <a href="#" class="sort-link" data-sort="price-asc">Price, low to high</a>
-          <a href="#" class="sort-link" data-sort="price-desc">Price, high to low</a>
-          <a href="#" class="sort-link" data-sort="name-asc">Name, A–Z</a>
+        <h1>Shop All</h1>
+        <!-- Filters -->
+        <div class="filter-chips">
+          <button class="filter-chip active" data-filter="all">All Products</button>
+          <button class="filter-chip" data-filter="brightening">Brightening</button>
+          <button class="filter-chip" data-filter="hydration">Hydration</button>
+          <button class="filter-chip" data-filter="acne">Acne</button>
         </div>
       </div>
     </section>
 
-    <!-- ===== PRODUCT GRID ===== -->
-    <section class="container">
-      <div class="shop-grid" id="shop-grid">
-
-        <!-- Product 1 -->
-        <div class="shop-product-card" data-product-id="hanaz-vitamin-c-serum" data-price="1599" data-name="Vitamin C Serum">
-          <a href="product-detail.html" class="shop-card-image">
-            <img src="images/vitamin-c-serum.png" alt="Hanaz Vitamin C Serum">
-          </a>
-          <div class="shop-card-body">
-            <h3><a href="product-detail.html">Vitamin C Serum</a></h3>
-            <p class="shop-card-desc">Brightening serum with 10% Ethyl-Ascorbic Acid (SAP)</p>
-            <div class="shop-card-price">
-              <span class="price-current">Rs. 1,599</span>
-              <span class="price-original">Rs. 2,499</span>
+    <!-- Product Grid -->
+    <section class="shop-grid-section section-padding">
+      <div class="container">
+        <div class="product-grid" id="main-product-grid">
+          
+          <!-- Product 1 -->
+          <a href="product-detail.html" class="product-card" data-category="brightening">
+            <div class="product-card-image hover-swap">
+              <img src="images/vitamin-c-serum.png" alt="Vitamin C Serum" class="img-front">
+              <img src="images/vitamin-c-packaging.png" alt="Vitamin C Texture" class="img-back">
             </div>
-            <span class="in-stock-text">In stock</span>
-            <button class="btn-add-to-cart btn btn-secondary btn-block" data-id="hanaz-vitamin-c-serum" data-name="Vitamin C Serum" data-price="1599" data-image="images/vitamin-c-serum.png">Add to Cart</button>
-          </div>
-        </div>
-
-        <!-- Product 2 -->
-        <div class="shop-product-card" data-product-id="hanaz-niacinamide-serum" data-price="1499" data-name="Niacinamide Serum">
-          <a href="product-detail.html" class="shop-card-image">
-            <img src="images/vitamin-c-serum.png" alt="Hanaz Niacinamide Serum">
-          </a>
-          <div class="shop-card-body">
-            <h3><a href="product-detail.html">Niacinamide Serum</a></h3>
-            <p class="shop-card-desc">Pore refining & calming formula with 10% Niacinamide</p>
-            <div class="shop-card-price">
-              <span class="price-current">Rs. 1,499</span>
-              <span class="price-original">Rs. 2,299</span>
+            <div class="product-card-info">
+              <h3>Hanaz Vitamin C Serum</h3>
+              <p class="in-stock-text">In stock</p>
+              <div class="price">
+                <strong>Rs. 1,599</strong>
+                <span class="price-strikethrough">Rs. 2,499</span>
+                <span class="price-save">Save 36%</span>
+              </div>
             </div>
-            <span class="in-stock-text">In stock</span>
-            <button class="btn-add-to-cart btn btn-secondary btn-block" data-id="hanaz-niacinamide-serum" data-name="Niacinamide Serum" data-price="1499" data-image="images/vitamin-c-serum.png">Add to Cart</button>
-          </div>
-        </div>
-
-        <!-- Product 3 -->
-        <div class="shop-product-card" data-product-id="hanaz-hyaluronic-acid" data-price="1399" data-name="Hyaluronic Acid">
-          <a href="product-detail.html" class="shop-card-image">
-            <img src="images/vitamin-c-serum.png" alt="Hanaz Hyaluronic Acid">
           </a>
-          <div class="shop-card-body">
-            <h3><a href="product-detail.html">Hyaluronic Acid</a></h3>
-            <p class="shop-card-desc">Intense hydration booster with multi-weight HA</p>
-            <div class="shop-card-price">
-              <span class="price-current">Rs. 1,399</span>
-              <span class="price-original">Rs. 1,999</span>
-            </div>
-            <span class="in-stock-text">In stock</span>
-            <button class="btn-add-to-cart btn btn-secondary btn-block" data-id="hanaz-hyaluronic-acid" data-name="Hyaluronic Acid" data-price="1399" data-image="images/vitamin-c-serum.png">Add to Cart</button>
-          </div>
-        </div>
 
-        <!-- Product 4 -->
-        <div class="shop-product-card" data-product-id="hanaz-ferulic-acid" data-price="1699" data-name="Ferulic Acid Serum">
-          <a href="product-detail.html" class="shop-card-image">
-            <img src="images/vitamin-c-serum.png" alt="Hanaz Ferulic Acid Serum">
+          <!-- Product 2 (Placeholder) -->
+          <a href="#" class="product-card" data-category="hydration">
+            <div class="product-card-image hover-swap">
+              <img src="images/vitamin-c-serum.png" alt="Hydrating Serum" class="img-front" style="filter: hue-rotate(180deg);">
+              <img src="images/vitamin-c-packaging.png" alt="Hydrating Texture" class="img-back" style="filter: hue-rotate(180deg);">
+            </div>
+            <div class="product-card-info">
+              <h3>Hanaz Hyaluronic Serum</h3>
+              <p class="in-stock-text">In stock</p>
+              <div class="price">
+                <strong>Rs. 1,299</strong>
+              </div>
+            </div>
           </a>
-          <div class="shop-card-body">
-            <h3><a href="product-detail.html">Ferulic Acid Serum</a></h3>
-            <p class="shop-card-desc">Antioxidant stability booster with Ferulic Acid</p>
-            <div class="shop-card-price">
-              <span class="price-current">Rs. 1,699</span>
-              <span class="price-original">Rs. 2,599</span>
-            </div>
-            <span class="in-stock-text">In stock</span>
-            <button class="btn-add-to-cart btn btn-secondary btn-block" data-id="hanaz-ferulic-acid" data-name="Ferulic Acid Serum" data-price="1699" data-image="images/vitamin-c-serum.png">Add to Cart</button>
-          </div>
-        </div>
 
+          <!-- Product 3 (Placeholder) -->
+          <a href="#" class="product-card" data-category="acne">
+            <div class="product-card-image hover-swap">
+              <img src="images/vitamin-c-serum.png" alt="Acne Control" class="img-front" style="filter: hue-rotate(90deg);">
+              <img src="images/vitamin-c-packaging.png" alt="Acne Texture" class="img-back" style="filter: hue-rotate(90deg);">
+            </div>
+            <div class="product-card-info">
+              <h3>Hanaz Niacinamide + Zinc</h3>
+              <p class="in-stock-text">In stock</p>
+              <div class="price">
+                <strong>Rs. 1,199</strong>
+              </div>
+            </div>
+          </a>
+
+          <!-- Product 4 (Placeholder) -->
+          <a href="#" class="product-card" data-category="brightening hydration">
+            <div class="product-card-image hover-swap">
+              <img src="images/vitamin-c-serum.png" alt="Moisturizer" class="img-front" style="filter: grayscale(100%);">
+              <img src="images/vitamin-c-packaging.png" alt="Moisturizer Texture" class="img-back" style="filter: grayscale(100%);">
+            </div>
+            <div class="product-card-info">
+              <h3>Natural Moisturizing Factors</h3>
+              <p class="in-stock-text">In stock</p>
+              <div class="price">
+                <strong>Rs. 999</strong>
+              </div>
+            </div>
+          </a>
+
+        </div>
       </div>
     </section>
 
-    <!-- ===== RECENTLY VIEWED ===== -->
-    <section class="recently-viewed-section" id="recently-viewed-section" style="display:none">
+    <!-- Recently Viewed -->
+    <section class="recently-viewed section-padding">
       <div class="container">
         <div class="section-header">
-          <span class="eyebrow">Recently Viewed</span>
-          <h2>Continue Browsing</h2>
+          <h2>Recently Viewed</h2>
         </div>
-        <div class="recently-viewed-scroll" id="recently-viewed-scroll"></div>
+        <div class="product-grid" id="recently-viewed-grid">
+          <!-- Populated by JS -->
+        </div>
       </div>
     </section>
 
   </main>
 
-  <!-- ===== FOOTER ===== -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top">
-        <div class="footer-newsletter">
-          <h3>Stay Updated</h3>
-          <p>Subscribe for skincare tips and new product launches.</p>
-          <form class="newsletter-form">
-            <input type="email" placeholder="Enter your email" required aria-label="Email address">
-            <button type="submit">Subscribe</button>
-          </form>
-        </div>
-        <div class="footer-social">
-          <span>Follow Us</span>
-          <div class="social-icons">
-            <a href="#" class="social-icon" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
-            <a href="#" class="social-icon" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-            <a href="https://wa.me/923225386807" class="social-icon" aria-label="WhatsApp" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
-          </div>
-        </div>
+        <div class="footer-newsletter"><h3>Join Our Skincare Community</h3><p>Subscribe for exclusive deals, skincare tips, and new product launches straight to your inbox.</p><form class="newsletter-form" id="footer-newsletter-form"><input type="email" placeholder="Enter your email" required aria-label="Email address"><button type="submit">Subscribe</button></form></div>
+        <div class="footer-social"><span>Follow Us</span><div class="social-links" style="flex-direction:row; gap:16px; margin-top:8px;"><a href="#">Instagram</a><a href="#">Facebook</a><a href="https://wa.me/923225386807">WhatsApp</a><a href="#">TikTok</a></div></div>
       </div>
       <div class="footer-columns">
-        <div class="footer-col"><h4>Shop</h4><ul><li><a href="products.html">All Products</a></li><li><a href="collections.html">Regimens</a></li></ul></div>
-        <div class="footer-col"><h4>Help</h4><ul><li><a href="contact.html">Contact Us</a></li><li><a href="#">Shipping Policy</a></li><li><a href="#">Return Policy</a></li></ul></div>
-        <div class="footer-col"><h4>About</h4><p>Premium Pakistani skincare crafted with clinically tested ingredients.</p></div>
+        <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="products.html">Shop</a></li><li><a href="collections.html">Regimens</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+        <div class="footer-col"><h4>Customer Service</h4><ul><li><a href="#">Search</a></li><li><a href="#">FAQ</a></li><li><a href="#">Return Policy</a></li></ul></div>
+        <div class="footer-col"><h4>About</h4><p style="color:#A0A0A0; font-size:14px;">Premium Pakistani skincare crafted with the finest natural ingredients and scientific innovation.</p></div>
       </div>
-      <div class="footer-payment"><h4>JazzCash · EasyPaisa · Cash on Delivery · Allied Bank</h4></div>
-      <div class="footer-bottom"><p>&copy; 2025 Hanaz Official. All rights reserved.</p></div>
+      <div class="footer-payment"><p>We accept JazzCash, EasyPaisa, Cash on Delivery, and Allied Bank</p></div>
+      <div class="footer-bottom"><p>&copy; 2026 Hanaz Official. Premium Skincare for Radiant Skin.</p></div>
     </div>
   </footer>
 
   <script src="js/main.js"></script>
-  <script src="js/products.js"></script>
+  <script>
+    // Filter Logic
+    const filterBtns = document.querySelectorAll('.filter-chip');
+    const products = document.querySelectorAll('.product-card[data-category]');
 
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        const filter = btn.dataset.filter;
+        products.forEach(p => {
+          if (filter === 'all' || p.dataset.category.includes(filter)) {
+            p.style.display = 'block';
+            p.style.opacity = '1'; // In a real app we'd animate this, but block is fine for now
+          } else {
+            p.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Recently Viewed Logic
+    function renderRecentlyViewed() {
+      const grid = document.getElementById('recently-viewed-grid');
+      if (!grid) return;
+
+      try {
+        const stored = localStorage.getItem('hanazRecentlyViewed');
+        if (stored) {
+          const items = JSON.parse(stored);
+          if (items.length > 0) {
+            let html = '';
+            items.forEach(item => {
+              html += `
+                <a href="${item.link}" class="product-card">
+                  <div class="product-card-image hover-swap">
+                    <img src="${item.image}" alt="${item.name}" class="img-front">
+                    <img src="${item.image}" alt="${item.name}" class="img-back">
+                  </div>
+                  <div class="product-card-info">
+                    <h3>${item.name}</h3>
+                    <div class="price">
+                      <strong>Rs. ${item.price.toLocaleString()}</strong>
+                    </div>
+                  </div>
+                </a>
+              `;
+            });
+            grid.innerHTML = html;
+          } else {
+            grid.innerHTML = '<p style="color:var(--text-muted); font-size:14px;">You haven\'t viewed any products yet.</p>';
+          }
+        }
+      } catch (e) {}
+    }
+
+    document.addEventListener('DOMContentLoaded', renderRecentlyViewed);
+  </script>
 </body>
 </html>
