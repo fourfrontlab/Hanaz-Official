@@ -277,6 +277,19 @@ h4 {
 .mb-lg { margin-bottom: var(--space-lg); }
 .mt-lg { margin-top: var(--space-lg); }
 
+.section-padding {
+  padding: var(--space-section) 0;
+}
+
+.section-header {
+  margin-bottom: var(--space-2xl);
+}
+.section-header h2 {
+  font-size: clamp(24px, 4vw, 28px);
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
 /* ==========================================================================
    TOP BAR & NAVBAR
    ========================================================================== */

@@ -195,8 +195,18 @@
   margin-bottom: var(--space-md);
 }
 .pdp-tab-inner li {
-  margin-bottom: 8px;
+  margin-bottom: 16px;
   font-size: 15px;
+}
+
+.how-to-use-steps {
+  margin-top: var(--space-md);
+}
+.how-to-use__step {
+  margin-bottom: 16px;
+}
+.how-to-use__step:last-child {
+  margin-bottom: 0;
 }
 
 @media (max-width: 768px) {

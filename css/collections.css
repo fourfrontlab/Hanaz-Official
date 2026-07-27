@@ -60,6 +60,7 @@
   gap: var(--space-2xl);
   padding: var(--space-2xl) 0;
   border-bottom: 1px solid var(--border);
+  margin-bottom: 64px;
 }
 .regimen-step:last-child {
   border-bottom: none;
@@ -72,13 +73,14 @@
   color: var(--text-muted);
   flex-shrink: 0;
   width: 80px;
+  margin-bottom: 4px;
 }
 .step-content {
   flex: 1;
 }
 .step-content h3 {
   font-size: 18px;
-  margin-bottom: var(--space-sm);
+  margin-bottom: 12px;
 }
 .step-content p {
   font-size: 14px;

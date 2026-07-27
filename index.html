@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hanaz Official | Clinical Skincare</title>
-  <meta name="description" content="Discover premium Pakistani skincare by Hanaz Official. Clinically tested formulas for radiant, healthy skin.">
+  <meta name="description"
+    content="Discover premium Pakistani skincare by Hanaz Official. Clinically tested formulas for radiant, healthy skin.">
   <meta property="og:title" content="Hanaz Official | Clinical Skincare">
-  <meta property="og:description" content="Discover premium Pakistani skincare by Hanaz Official. Clinically tested formulas for radiant, healthy skin.">
+  <meta property="og:description"
+    content="Discover premium Pakistani skincare by Hanaz Official. Clinically tested formulas for radiant, healthy skin.">
   <meta property="og:image" content="images/vitamin-c-serum.png">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/home.css">
 </head>
+
 <body class="fade-in-page">
 
   <!-- ===== UTILITY BAR ===== -->
@@ -21,9 +25,10 @@
   <!-- ===== NAVIGATION ===== -->
   <nav class="navbar" id="navbar">
     <div class="container">
-      <button class="hamburger-btn" id="hamburger-btn" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <button class="hamburger-btn" id="hamburger-btn"
+        aria-label="Open menu"><span></span><span></span><span></span></button>
       <a href="index.html" class="nav-logo">HANAZ</a>
-      
+
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="products.html">Shop</a></li>
@@ -32,10 +37,18 @@
       </ul>
 
       <div class="nav-icons">
-        <a href="collections.html" class="btn btn-sm btn-primary nav-cta-desktop" style="border-radius:var(--radius-pill); border: 1px solid var(--text-heading);">Build My Regimen</a>
-        <button class="nav-icon-btn" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+        <a href="collections.html" class="btn btn-sm btn-primary nav-cta-desktop"
+          style="border-radius:var(--radius-pill); border: 1px solid var(--text-heading);">Build My Regimen</a>
+        <button class="nav-icon-btn" aria-label="Search"><svg viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg></button>
         <button class="nav-icon-btn" data-open-cart aria-label="Shopping cart">
-          <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <svg viewBox="0 0 24 24">
+            <circle cx="9" cy="21" r="1" />
+            <circle cx="20" cy="21" r="1" />
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+          </svg>
           <span class="cart-badge" id="cart-badge-nav">0</span>
         </button>
       </div>
@@ -45,7 +58,11 @@
   <!-- Mobile nav -->
   <div class="overlay" id="mobile-nav-overlay"></div>
   <div class="mobile-nav-drawer" id="mobile-nav-drawer">
-    <div class="mobile-nav-header"><a href="index.html" class="nav-logo">HANAZ</a><button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+    <div class="mobile-nav-header"><a href="index.html" class="nav-logo">HANAZ</a><button class="mobile-nav-close"
+        id="mobile-nav-close" aria-label="Close menu"><svg viewBox="0 0 24 24">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg></button></div>
     <div class="mobile-nav-links">
       <a href="index.html">Home</a>
       <a href="products.html">Shop</a>
@@ -57,7 +74,12 @@
   <!-- Cart drawer -->
   <div class="overlay" id="cart-overlay"></div>
   <div class="cart-drawer" id="cart-drawer">
-    <div class="cart-drawer-header"><h3>Shopping Cart</h3><button class="cart-close-btn" aria-label="Close cart"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+    <div class="cart-drawer-header">
+      <h3>Shopping Cart</h3><button class="cart-close-btn" aria-label="Close cart"><svg viewBox="0 0 24 24">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg></button>
+    </div>
     <div class="cart-drawer-body"></div>
     <div class="cart-drawer-footer">
       <div class="cart-subtotal"><span>Subtotal</span><strong>Rs. 0</strong></div>
@@ -71,8 +93,12 @@
   <div class="toast-container" id="toast-container"></div>
 
   <!-- Floating WhatsApp -->
-  <a href="https://wa.me/923225386807" class="floating-whatsapp" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
-    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <a href="https://wa.me/923225386807" class="floating-whatsapp" target="_blank" rel="noopener"
+    aria-label="Chat with us on WhatsApp">
+    <svg viewBox="0 0 24 24">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
   </a>
 
   <main>
@@ -80,11 +106,12 @@
     <section class="hero">
       <div class="hero-split">
         <div class="hero-image">
-          <img src="images/hero-banner.png" alt="Hanaz Vitamin C Serum">
+          <img src="images/hanaz_banner.png" alt="Hanaz Vitamin C Serum">
         </div>
         <div class="hero-text reveal">
           <h1>Brighten.<br>Even.<br>Hydrate.</h1>
-          <p>Unlock your skin's natural glow with our clinically tested, dermatologist-approved formulas crafted for radiant results.</p>
+          <p>Unlock your skin's natural glow with our clinically tested, dermatologist-approved formulas crafted for
+            radiant results.</p>
           <a href="products.html" class="btn btn-primary">Shop Now</a>
         </div>
       </div>
@@ -107,7 +134,8 @@
               <h3>Vitamin C Serum</h3>
               <div class="price">
                 <strong>Rs. 1,599</strong>
-                <span style="text-decoration: line-through; color: var(--text-muted); margin-left: 8px;">Rs. 2,499</span>
+                <span style="text-decoration: line-through; color: var(--text-muted); margin-left: 8px;">Rs.
+                  2,499</span>
                 <span style="font-size: 12px; margin-left: 8px; color: var(--text-muted);">Save 36%</span>
               </div>
             </div>
@@ -162,25 +190,29 @@
           <div class="scroll-snap-item review-card">
             <div class="review-stars">★★★★★</div>
             <h4>Quality at Its Best</h4>
-            <p>I'm absolutely impressed with the quality of these skincare products. The Vitamin C serum has completely transformed my skin in just 2 weeks.</p>
+            <p>I'm absolutely impressed with the quality of these skincare products. The Vitamin C serum has completely
+              transformed my skin in just 2 weeks.</p>
             <div class="review-author">Sarah M. <span class="verified">Verified Buyer</span></div>
           </div>
           <div class="scroll-snap-item review-card">
             <div class="review-stars">★★★★★</div>
             <h4>Best Purchase Ever</h4>
-            <p>These products exceeded my expectations in every way. The packaging is luxurious, the scent is heavenly, and the results speak for themselves.</p>
+            <p>These products exceeded my expectations in every way. The packaging is luxurious, the scent is heavenly,
+              and the results speak for themselves.</p>
             <div class="review-author">Ahmed K. <span class="verified">Verified Buyer</span></div>
           </div>
           <div class="scroll-snap-item review-card">
             <div class="review-stars">★★★★★</div>
             <h4>Outstanding Customer Service</h4>
-            <p>From browsing to checkout to delivery, the experience was seamless. The team helped me find the perfect routine for my skin type.</p>
+            <p>From browsing to checkout to delivery, the experience was seamless. The team helped me find the perfect
+              routine for my skin type.</p>
             <div class="review-author">Fatima R. <span class="verified">Verified Buyer</span></div>
           </div>
           <div class="scroll-snap-item review-card">
             <div class="review-stars">★★★★★</div>
             <h4>Worth Every Penny</h4>
-            <p>I was skeptical at first, but after using the products for a month, I can honestly say this is the best investment I've made for my skin.</p>
+            <p>I was skeptical at first, but after using the products for a month, I can honestly say this is the best
+              investment I've made for my skin.</p>
             <div class="review-author">Hassan A. <span class="verified">Verified Buyer</span></div>
           </div>
         </div>
@@ -194,8 +226,12 @@
           <div class="story-content reveal">
             <span class="eyebrow">Crafted with Purpose</span>
             <h2>Discover Our Journey</h2>
-            <p>At Hanaz Official, we believe in the power of quality skincare to transform lives. Our story began with a simple mission: to create premium, effective beauty solutions that celebrate natural ingredients and scientific innovation.</p>
-            <p>Every product is carefully formulated with the finest ingredients, tested rigorously, and crafted with passion. Join us on this journey as we continue to redefine beauty standards and empower our community to feel confident in their own skin.</p>
+            <p>At Hanaz Official, we believe in the power of quality skincare to transform lives. Our story began with a
+              simple mission: to create premium, effective beauty solutions that celebrate natural ingredients and
+              scientific innovation.</p>
+            <p>Every product is carefully formulated with the finest ingredients, tested rigorously, and crafted with
+              passion. Join us on this journey as we continue to redefine beauty standards and empower our community to
+              feel confident in their own skin.</p>
           </div>
           <div class="story-image reveal" style="transition-delay: 0.2s;">
             <img src="images/brand-story.png" alt="Hanaz Official — Our Journey">
@@ -213,7 +249,7 @@
             <p>Take our personalized skin analysis quiz to find products tailored to your unique skin needs.</p>
             <button class="btn btn-primary" id="quiz-start">Start Quiz</button>
           </div>
-          
+
           <div class="quiz-flow" id="quiz-flow">
             <div class="quiz-step" data-step="0">
               <h3>1. What is your skin type?</h3>
@@ -224,7 +260,7 @@
                 <button class="quiz-pill" data-val="sensitive">Sensitive</button>
               </div>
             </div>
-            
+
             <div class="quiz-step" data-step="1">
               <h3>2. What is your primary concern?</h3>
               <div class="quiz-options">
@@ -234,7 +270,7 @@
                 <button class="quiz-pill" data-val="texture">Texture</button>
               </div>
             </div>
-            
+
             <div class="quiz-step" data-step="2">
               <h3>3. Sun exposure daily?</h3>
               <div class="quiz-options">
@@ -244,7 +280,7 @@
                 <button class="quiz-pill" data-val="min">Mostly indoors</button>
               </div>
             </div>
-            
+
             <div class="quiz-step" data-step="3">
               <h3>4. Current routine?</h3>
               <div class="quiz-options">
@@ -254,7 +290,7 @@
                 <button class="quiz-pill" data-val="none">No routine</button>
               </div>
             </div>
-            
+
             <div class="quiz-step" data-step="4">
               <h3>5. Stress levels?</h3>
               <div class="quiz-options">
@@ -272,7 +308,9 @@
                 <div class="quiz-result-info">
                   <h4>Vitamin C Serum</h4>
                   <p>Brightens, protects, and rejuvenates. Perfect for your skin type.</p>
-                  <button class="btn btn-primary btn-sm mt-lg" onclick="window.HanazCart.add({id:'hanaz-vitamin-c-serum',name:'Vitamin C Serum',price:1599,image:'images/vitamin-c-serum.png',qty:1})">Add to Cart</button>
+                  <button class="btn btn-primary btn-sm mt-lg"
+                    onclick="window.HanazCart.add({id:'hanaz-vitamin-c-serum',name:'Vitamin C Serum',price:1599,image:'images/vitamin-c-serum.png',qty:1})">Add
+                    to Cart</button>
                 </div>
               </div>
               <button class="btn btn-secondary mt-lg" id="quiz-retake">Retake Quiz</button>
@@ -319,7 +357,7 @@
         <div class="section-header">
           <h2>Transform Your Skin</h2>
         </div>
-        
+
         <div class="transform-tabs">
           <button class="transform-tab active" data-tab="acne">Acne</button>
           <button class="transform-tab" data-tab="aging">Aging</button>
@@ -412,7 +450,7 @@
           </div>
         </div>
       </div>
-      
+
       <div class="footer-columns">
         <div class="footer-col">
           <h4>Quick Links</h4>
@@ -433,10 +471,11 @@
         </div>
         <div class="footer-col">
           <h4>About</h4>
-          <p style="color:#A0A0A0; font-size:14px;">Premium Pakistani skincare crafted with the finest natural ingredients and scientific innovation.</p>
+          <p style="color:#A0A0A0; font-size:14px;">Premium Pakistani skincare crafted with the finest natural
+            ingredients and scientific innovation.</p>
         </div>
       </div>
-      
+
       <div class="footer-payment">
         <p>We accept JazzCash, EasyPaisa, Cash on Delivery, and Allied Bank</p>
       </div>
@@ -449,4 +488,5 @@
   <script src="js/main.js"></script>
   <script src="js/home.js"></script>
 </body>
+
 </html>

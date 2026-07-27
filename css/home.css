@@ -2,18 +2,6 @@
    HOME PAGE CSS
    ========================================================================== */
 
-.section-padding {
-  padding: var(--space-section) 0;
-}
-
-.section-header {
-  margin-bottom: var(--space-2xl);
-}
-.section-header h2 {
-  font-size: 28px;
-  font-weight: 500;
-  margin-bottom: 0;
-}
 
 /* ===== HERO SPLIT ===== */
 .hero {
