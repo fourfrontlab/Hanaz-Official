@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/contact.css">
 </head>
+
 <body class="fade-in-page">
 
   <!-- ===== UTILITY BAR ===== -->
@@ -18,7 +20,8 @@
   <!-- ===== NAVIGATION ===== -->
   <nav class="navbar" id="navbar">
     <div class="container">
-      <button class="hamburger-btn" id="hamburger-btn" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <button class="hamburger-btn" id="hamburger-btn"
+        aria-label="Open menu"><span></span><span></span><span></span></button>
       <a href="index.html" class="nav-logo">HANAZ</a>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
@@ -27,10 +30,18 @@
         <li><a href="contact.html">Contact</a></li>
       </ul>
       <div class="nav-icons">
-        <a href="collections.html" class="btn btn-sm btn-primary nav-cta-desktop" style="border-radius:var(--radius-pill); border: 1px solid var(--text-heading);">Build My Regimen</a>
-        <button class="nav-icon-btn" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+        <a href="collections.html" class="btn btn-sm btn-primary nav-cta-desktop"
+          style="border-radius:var(--radius-pill); border: 1px solid var(--text-heading);">Build My Regimen</a>
+        <button class="nav-icon-btn" aria-label="Search"><svg viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg></button>
         <button class="nav-icon-btn" data-open-cart aria-label="Shopping cart">
-          <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <svg viewBox="0 0 24 24">
+            <circle cx="9" cy="21" r="1" />
+            <circle cx="20" cy="21" r="1" />
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+          </svg>
           <span class="cart-badge" id="cart-badge-nav">0</span>
         </button>
       </div>
@@ -39,9 +50,30 @@
 
   <!-- Mobile nav & cart -->
   <div class="overlay" id="mobile-nav-overlay"></div>
-  <div class="mobile-nav-drawer" id="mobile-nav-drawer"><div class="mobile-nav-header"><a href="index.html" class="nav-logo">HANAZ</a><button class="mobile-nav-close" id="mobile-nav-close"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div><div class="mobile-nav-links"><a href="index.html">Home</a><a href="products.html">Shop</a><a href="collections.html">Regimens</a><a href="contact.html">Contact</a></div></div>
+  <div class="mobile-nav-drawer" id="mobile-nav-drawer">
+    <div class="mobile-nav-header"><a href="index.html" class="nav-logo">HANAZ</a><button class="mobile-nav-close"
+        id="mobile-nav-close"><svg viewBox="0 0 24 24">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg></button></div>
+    <div class="mobile-nav-links"><a href="index.html">Home</a><a href="products.html">Shop</a><a
+        href="collections.html">Regimens</a><a href="contact.html">Contact</a></div>
+  </div>
   <div class="overlay" id="cart-overlay"></div>
-  <div class="cart-drawer" id="cart-drawer"><div class="cart-drawer-header"><h3>Shopping Cart</h3><button class="cart-close-btn"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div><div class="cart-drawer-body"></div><div class="cart-drawer-footer"><div class="cart-subtotal"><span>Subtotal</span><strong>Rs. 0</strong></div><p class="cart-note">Shipping & taxes calculated at checkout</p><a href="#" class="btn btn-primary btn-checkout">Check out</a></div></div>
+  <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-drawer-header">
+      <h3>Shopping Cart</h3><button class="cart-close-btn"><svg viewBox="0 0 24 24">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg></button>
+    </div>
+    <div class="cart-drawer-body"></div>
+    <div class="cart-drawer-footer">
+      <div class="cart-subtotal"><span>Subtotal</span><strong>Rs. 0</strong></div>
+      <p class="cart-note">Shipping & taxes calculated at checkout</p><a href="#"
+        class="btn btn-primary btn-checkout">Check out</a>
+    </div>
+  </div>
   <div class="toast-container" id="toast-container"></div>
 
   <main>
@@ -53,38 +85,48 @@
 
     <section class="contact-section section-padding" style="padding-top:0;">
       <div class="container">
-        
+
         <div class="contact-header">
           <h1>Contact Us</h1>
-          <p>We're here to help. Reach out to us for any questions regarding products, orders, or your skincare routine.</p>
+          <p>We're here to help. Reach out to us for any questions regarding products, orders, or your skincare routine.
+          </p>
         </div>
 
         <div class="contact-grid">
           <!-- Info Cards -->
           <div class="contact-info">
             <div class="info-card">
-              <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+              </svg>
               <div>
                 <h4>WhatsApp Support</h4>
                 <p>Mon–Sat, 9 AM – 6 PM PKT</p>
                 <a href="https://wa.me/923225386807" target="_blank" rel="noopener">+92 322 538 6807</a>
               </div>
             </div>
-            
+
             <div class="info-card">
-              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <svg viewBox="0 0 24 24">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
               <div>
                 <h4>Email Us</h4>
                 <p>Expect a reply within 24 hours</p>
-                <a href="mailto:support@hanazofficial.com">support@hanazofficial.com</a>
+                <a href="mailto:support@hanazofficial.com">haseebbadshah32@gmail.com</a>
               </div>
             </div>
-            
+
             <div class="info-card">
-              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <svg viewBox="0 0 24 24">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
               <div>
                 <h4>Headquarters</h4>
-                <p>Lahore, Pakistan<br>Online Store Only</p>
+                <p>Margla Town, Islamabad<br>Online Store Only</p>
               </div>
             </div>
           </div>
@@ -127,26 +169,58 @@
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top">
-        <div class="footer-newsletter"><h3>Join Our Skincare Community</h3><p>Subscribe for exclusive deals, skincare tips, and new product launches straight to your inbox.</p><form class="newsletter-form" id="footer-newsletter-form"><input type="email" placeholder="Enter your email" required aria-label="Email address"><button type="submit">Subscribe</button></form></div>
-        <div class="footer-social"><span>Follow Us</span><div class="social-links" style="flex-direction:row; gap:16px; margin-top:8px;"><a href="#">Instagram</a><a href="#">Facebook</a><a href="https://wa.me/923225386807">WhatsApp</a><a href="#">TikTok</a></div></div>
+        <div class="footer-newsletter">
+          <h3>Join Our Skincare Community</h3>
+          <p>Subscribe for exclusive deals, skincare tips, and new product launches straight to your inbox.</p>
+          <form class="newsletter-form" id="footer-newsletter-form"><input type="email" placeholder="Enter your email"
+              required aria-label="Email address"><button type="submit">Subscribe</button></form>
+        </div>
+        <div class="footer-social"><span>Follow Us</span>
+          <div class="social-links" style="flex-direction:row; gap:16px; margin-top:8px;"><a href="#">Instagram</a><a
+              href="#">Facebook</a><a href="https://wa.me/923225386807">WhatsApp</a><a href="#">TikTok</a></div>
+        </div>
       </div>
       <div class="footer-columns">
-        <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="products.html">Shop</a></li><li><a href="collections.html">Regimens</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
-        <div class="footer-col"><h4>Customer Service</h4><ul><li><a href="#">Search</a></li><li><a href="#">FAQ</a></li><li><a href="#">Return Policy</a></li></ul></div>
-        <div class="footer-col"><h4>About</h4><p style="color:#A0A0A0; font-size:14px;">Premium Pakistani skincare crafted with the finest natural ingredients and scientific innovation.</p></div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Shop</a></li>
+            <li><a href="collections.html">Regimens</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Customer Service</h4>
+          <ul>
+            <li><a href="#">Search</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Return Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>About</h4>
+          <p style="color:#A0A0A0; font-size:14px;">Premium Pakistani skincare crafted with the finest natural
+            ingredients and scientific innovation.</p>
+        </div>
       </div>
-      <div class="footer-payment"><p>We accept JazzCash, EasyPaisa, Cash on Delivery, and Allied Bank</p></div>
-      <div class="footer-bottom"><p>&copy; 2026 Hanaz Official. Premium Skincare for Radiant Skin.</p></div>
+      <div class="footer-payment">
+        <p>We accept JazzCash, EasyPaisa, Cash on Delivery, and Allied Bank</p>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Hanaz Official. Premium Skincare for Radiant Skin.</p>
+      </div>
     </div>
   </footer>
 
   <script src="js/main.js"></script>
   <script>
-    document.getElementById('contact-form').addEventListener('submit', function(e) {
+    document.getElementById('contact-form').addEventListener('submit', function (e) {
       e.preventDefault();
       window.HanazToast("Message sent successfully. We'll be in touch soon!");
       this.reset();
     });
   </script>
 </body>
+
 </html>
