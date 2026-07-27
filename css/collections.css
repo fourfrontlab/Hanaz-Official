@@ -1,118 +1,173 @@
-/* css/collections.css */
+/* ==========================================================================
+   COLLECTIONS / REGIMENS PAGE
+   ========================================================================== */
 
-/* Page Header */
-.collections-header {
-  text-align: center;
-  padding: 80px 20px 40px;
-  background-color: var(--color-bg);
+.regimens-header {
+  padding: var(--space-lg) 0 var(--space-2xl);
 }
 
-.collections-header h1 {
-  font-family: var(--font-heading);
-  font-size: 2.5rem;
-  margin-bottom: 16px;
-  color: var(--color-text);
-  font-weight: 500;
-  letter-spacing: -0.02em;
+.regimens-header h1 {
+  margin-bottom: var(--space-sm);
 }
 
-.collections-header p {
+.regimens-header p {
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
+
+/* ===== REGIMEN SUGGESTION CARD ===== */
+.regimen-suggestion {
+  padding: 0 0 var(--space-section);
+}
+
+.regimen-card {
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-card);
+  padding: var(--space-2xl);
+}
+
+.regimen-card-header {
+  margin-bottom: var(--space-xl);
+}
+
+.regimen-card-header .eyebrow {
+  margin-bottom: var(--space-sm);
+}
+
+.regimen-card-header h2 {
+  margin-bottom: var(--space-sm);
+}
+
+.regimen-card-header p {
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
+
+.regimen-steps {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+}
+
+.regimen-step {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  padding: var(--space-lg);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+}
+
+.regimen-step-active {
+  border-color: var(--color-primary);
+}
+
+.step-number {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+
+.regimen-step-active .step-number {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+
+.step-info h4 {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.step-info p {
+  font-size: 12px;
+  color: var(--color-text-body);
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+.coming-soon {
+  font-size: 11px;
   color: var(--color-text-light);
-  max-width: 600px;
-  margin: 0 auto;
-  font-size: 1.1rem;
-  line-height: 1.6;
+  font-style: italic;
 }
 
-/* Collections Grid Section */
-.collections-grid-section {
-  padding: 40px 20px 100px;
-  background-color: var(--color-bg);
+.step-link {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-primary);
+  border-bottom: 1px solid var(--color-primary);
+  padding-bottom: 1px;
 }
 
-.collections-grid {
+.regimen-step-arrow {
+  display: flex;
+  align-items: center;
+  padding-top: var(--space-xl);
+  font-size: 16px;
+  color: var(--color-text-light);
+  flex-shrink: 0;
+}
+
+/* ===== ALL PRODUCTS GRID ===== */
+.all-products-section {
+  padding: var(--space-section) 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.collections-product-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px 30px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
 }
 
-@media (max-width: 992px) {
-  .collections-grid {
+/* Reuse product-card styles from home.css */
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .regimen-steps {
+    flex-wrap: wrap;
+  }
+
+  .regimen-step {
+    flex: 1 1 calc(50% - var(--space-md));
+  }
+
+  .regimen-step-arrow {
+    display: none;
+  }
+
+  .collections-product-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 576px) {
-  .collections-grid {
-    grid-template-columns: 1fr;
-    gap: 32px;
+@media (max-width: 768px) {
+  .regimen-card {
+    padding: var(--space-lg);
+  }
+
+  .regimen-step {
+    flex: 1 1 100%;
+  }
+
+  .collections-product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
   }
 }
 
-/* Collection Card */
-.collection-card {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  cursor: pointer;
-  group: collection; /* Conceptually grouping */
-}
-
-.collection-card-image {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  overflow: hidden;
-  border-radius: 12px;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
-  position: relative;
-}
-
-.collection-card-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.collection-card:hover .collection-card-image img {
-  transform: scale(1.06);
-}
-
-.collection-card-info {
-  text-align: center;
-}
-
-.collection-card-info h3 {
-  font-family: var(--font-heading);
-  font-size: 1.35rem;
-  margin: 0 0 6px 0;
-  color: var(--color-text);
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.collection-card:hover .collection-card-info h3 {
-  color: var(--color-primary);
-}
-
-.collection-card-info p {
-  font-size: 0.95rem;
-  color: var(--color-text-light);
-  margin: 0;
-  letter-spacing: 0.02em;
-}
-
-/* Animation utilities for the cards if not present in style.css */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeUp 0.8s ease forwards;
-}
-
-@keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
+@media (max-width: 480px) {
+  .collections-product-grid {
+    grid-template-columns: 1fr;
   }
 }

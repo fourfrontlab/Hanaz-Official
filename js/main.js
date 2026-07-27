@@ -1,6 +1,6 @@
 /* ==========================================================================
    HANAZ OFFICIAL — Shared JavaScript
-   Premium Pakistani Skincare Brand
+   "The Ordinary" Minimalist Aesthetic
    ========================================================================== */
 
 (function () {
@@ -28,30 +28,15 @@
   };
 
   /* ========================================================================
-     2. STICKY NAV — add "scrolled" class on scroll
+     2. STICKY NAV
      ======================================================================== */
   function initStickyNav() {
     if (!DOM.navbar) return;
-
-    let ticking = false;
-
-    function onScroll() {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          DOM.navbar.classList.toggle('scrolled', window.scrollY > 10);
-          ticking = false;
-        });
-        ticking = true;
-      }
-    }
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    // Run once on load in case the page is already scrolled
-    onScroll();
+    // Navbar always has a bottom border — no scroll-based shadow changes needed
   }
 
   /* ========================================================================
-     3. MOBILE NAV DRAWER — open / close
+     3. MOBILE NAV DRAWER
      ======================================================================== */
   function initMobileNav() {
     const { hamburgerBtn, mobileNavOverlay, mobileNavDrawer, mobileNavClose } = DOM;
@@ -68,7 +53,6 @@
       mobileNavDrawer.classList.remove('active');
       if (mobileNavOverlay) mobileNavOverlay.classList.remove('active');
       hamburgerBtn.classList.remove('active');
-      // Only remove body lock if cart isn't also open
       if (!DOM.cartDrawer || !DOM.cartDrawer.classList.contains('active')) {
         DOM.body.classList.remove('drawer-open');
       }
@@ -81,19 +65,17 @@
     if (mobileNavClose)   mobileNavClose.addEventListener('click', close);
     if (mobileNavOverlay) mobileNavOverlay.addEventListener('click', close);
 
-    // Close on Escape
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && mobileNavDrawer.classList.contains('active')) close();
     });
 
-    // Close when a link is clicked
     mobileNavDrawer.querySelectorAll('a').forEach((link) => {
       link.addEventListener('click', close);
     });
   }
 
   /* ========================================================================
-     4. CART DRAWER — open / close / render
+     4. CART DRAWER
      ======================================================================== */
   function initCartDrawer() {
     const { cartOverlay, cartDrawer, cartOpenBtns, cartCloseBtn } = DOM;
@@ -109,7 +91,6 @@
     function close() {
       cartDrawer.classList.remove('active');
       if (cartOverlay) cartOverlay.classList.remove('active');
-      // Only remove body lock if mobile nav isn't also open
       if (!DOM.mobileNavDrawer || !DOM.mobileNavDrawer.classList.contains('active')) {
         DOM.body.classList.remove('drawer-open');
       }
@@ -119,12 +100,10 @@
     if (cartCloseBtn) cartCloseBtn.addEventListener('click', close);
     if (cartOverlay)  cartOverlay.addEventListener('click', close);
 
-    // Close on Escape
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && cartDrawer.classList.contains('active')) close();
     });
 
-    // Expose globally so page-specific scripts can trigger it
     window.HanazCart = window.HanazCart || {};
     window.HanazCart.open = open;
     window.HanazCart.close = close;
@@ -132,7 +111,7 @@
   }
 
   /* ========================================================================
-     5. CART DATA — localStorage helpers
+     5. CART DATA — localStorage
      ======================================================================== */
   const CART_KEY = 'hanazCart';
 
@@ -151,7 +130,6 @@
   }
 
   function addToCart(item) {
-    // item: { id, name, price, image, variant?, qty? }
     const cart = getCart();
     const existing = cart.find((c) => c.id === item.id);
     if (existing) {
@@ -160,7 +138,7 @@
       cart.push({ ...item, qty: item.qty || 1 });
     }
     saveCart(cart);
-    showToast(`"${item.name}" added to cart! 🛒`);
+    showToast(`Added to cart`);
   }
 
   function removeFromCart(id) {
@@ -189,7 +167,7 @@
   }
 
   /* ========================================================================
-     6. CART BADGE — update the small count bubble
+     6. CART BADGE
      ======================================================================== */
   function updateBadge() {
     const count = getCartCount();
@@ -200,7 +178,7 @@
   }
 
   /* ========================================================================
-     7. CART DRAWER RENDER — build items list or empty state
+     7. CART DRAWER RENDER
      ======================================================================== */
   function renderCart() {
     const { cartBody, cartSubtotalEl } = DOM;
@@ -213,7 +191,7 @@
         <div class="cart-empty">
           <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
           <p>Your cart is currently empty</p>
-          <a href="products.html" class="btn-continue">Continue Shopping →</a>
+          <a href="products.html" class="btn-continue">Continue Shopping</a>
         </div>
       `;
       if (cartSubtotalEl) cartSubtotalEl.textContent = 'Rs. 0';
@@ -264,7 +242,7 @@
   });
 
   /* ========================================================================
-     8. NEWSLETTER SUBSCRIBE — toast on submit
+     8. NEWSLETTER
      ======================================================================== */
   function initNewsletter() {
     DOM.newsletterForms.forEach((form) => {
@@ -275,7 +253,7 @@
           showToast('Please enter a valid email address.', 'error');
           return;
         }
-        showToast('Thanks for subscribing! 🎉', 'success');
+        showToast('Thanks for subscribing!', 'success');
         input.value = '';
       });
     });
@@ -284,8 +262,7 @@
   /* ========================================================================
      9. TOAST NOTIFICATIONS
      ======================================================================== */
-  function showToast(message, type = 'success', duration = 3500) {
-    // Create container if it doesn't exist in the DOM
+  function showToast(message, type = 'success', duration = 3000) {
     let container = DOM.toastContainer;
     if (!container) {
       container = document.createElement('div');
@@ -299,68 +276,23 @@
     toast.textContent = message;
     container.appendChild(toast);
 
-    // Trigger show animation
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
         toast.classList.add('show');
       });
     });
 
-    // Auto-dismiss
     setTimeout(() => {
       toast.classList.remove('show');
       toast.addEventListener('transitionend', () => toast.remove(), { once: true });
-      // Fallback removal
       setTimeout(() => toast.remove(), 500);
     }, duration);
   }
 
-  // Expose toast globally
   window.HanazToast = showToast;
 
   /* ========================================================================
-     10. COUNTDOWN TIMER UTILITY
-     ======================================================================== */
-  /**
-   * Creates a countdown timer.
-   * @param {string|Date} targetDate — The target date/time to count down to.
-   * @param {Function}    onTick    — Callback receiving { days, hours, mins, secs, total }.
-   * @param {Function}    [onEnd]   — Optional callback when countdown reaches zero.
-   * @returns {{ stop: Function }} — Call stop() to clear the interval.
-   */
-  function createCountdown(targetDate, onTick, onEnd) {
-    const target = new Date(targetDate).getTime();
-
-    function tick() {
-      const now = Date.now();
-      const total = Math.max(0, target - now);
-
-      const days  = Math.floor(total / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((total % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const mins  = Math.floor((total % (1000 * 60 * 60)) / (1000 * 60));
-      const secs  = Math.floor((total % (1000 * 60)) / 1000);
-
-      onTick({ days, hours, mins, secs, total });
-
-      if (total <= 0) {
-        clearInterval(interval);
-        if (typeof onEnd === 'function') onEnd();
-      }
-    }
-
-    tick(); // immediate first tick
-    const interval = setInterval(tick, 1000);
-
-    return {
-      stop: () => clearInterval(interval),
-    };
-  }
-
-  // Expose globally
-  window.HanazCountdown = createCountdown;
-
-  /* ========================================================================
-     11. SMOOTH SCROLL FOR ANCHOR LINKS
+     10. SMOOTH SCROLL
      ======================================================================== */
   function initSmoothScroll() {
     document.addEventListener('click', (e) => {
@@ -380,16 +312,13 @@
       const offset         = announcementH + navH + 16;
 
       const top = target.getBoundingClientRect().top + window.scrollY - offset;
-
       window.scrollTo({ top, behavior: 'smooth' });
-
-      // Update URL hash without jumping
       history.pushState(null, '', hash);
     });
   }
 
   /* ========================================================================
-     12. SCROLL REVEAL ANIMATION
+     11. SCROLL REVEAL
      ======================================================================== */
   function initScrollReveal() {
     const reveals = document.querySelectorAll('.reveal');
@@ -411,15 +340,20 @@
   }
 
   /* ========================================================================
-     13. ACTIVE NAV LINK — highlight current page
+     12. ACTIVE NAV LINK
      ======================================================================== */
   function initActiveNavLink() {
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 
+    // Remove all hardcoded active classes first
+    document.querySelectorAll('.nav-links a, .mobile-nav-links a').forEach((link) => {
+      link.classList.remove('active');
+    });
+
     document.querySelectorAll('.nav-links a, .mobile-nav-links a').forEach((link) => {
       const href = link.getAttribute('href');
       if (!href) return;
-      const linkPage = href.split('/').pop();
+      const linkPage = href.split('/').pop().split('#')[0];
       if (linkPage === currentPage) {
         link.classList.add('active');
       }
@@ -427,7 +361,7 @@
   }
 
   /* ========================================================================
-     14. WHATSAPP FLOATING BUTTON
+     13. WHATSAPP FLOATING BUTTON — monochrome outlined
      ======================================================================== */
   function initWhatsAppButton() {
     const waBtn = document.createElement('a');
@@ -435,13 +369,13 @@
     waBtn.target = "_blank";
     waBtn.rel = "noopener";
     waBtn.className = "floating-whatsapp";
-    waBtn.setAttribute('aria-label', 'Chat with us on WhatsApp');
+    waBtn.setAttribute('aria-label', 'Chat on WhatsApp');
     waBtn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>';
     document.body.appendChild(waBtn);
   }
 
   /* ========================================================================
-     15. CHECKOUT ALERT
+     14. CHECKOUT ALERT
      ======================================================================== */
   function initCheckoutAlert() {
     const checkoutBtn = document.querySelector('.btn-checkout');
@@ -459,7 +393,7 @@
   }
 
   /* ========================================================================
-     16. RECENTLY VIEWED (RENDER)
+     15. RECENTLY VIEWED (RENDER)
      ======================================================================== */
   function renderRecentlyViewed() {
     const container = document.getElementById('recently-viewed-scroll');
@@ -479,15 +413,15 @@
     section.style.display = 'block';
     container.innerHTML = recentlyViewed.map(item => `
       <div class="product-card" data-product-id="${item.id}">
-        <div class="product-card-image">
+        <a href="${item.link}" class="product-card-image">
           <img src="${item.image}" alt="${item.name}">
-        </div>
+        </a>
         <div class="product-card-body">
           <h3 class="product-card-name">
             <a href="${item.link}">${item.name}</a>
           </h3>
           <div class="product-card-price">
-            <span class="price-sale">Rs.${item.price.toLocaleString()}</span>
+            <span class="price-current">Rs. ${item.price.toLocaleString()}</span>
           </div>
         </div>
       </div>
@@ -495,7 +429,32 @@
   }
 
   /* ========================================================================
-     17. INIT — run everything on DOM ready
+     16. ACCORDION TOGGLES
+     ======================================================================== */
+  function initAccordions() {
+    document.querySelectorAll('.accordion-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const accordion = header.closest('.accordion') || header.closest('.accordion-item');
+        if (!accordion) return;
+
+        const body = accordion.querySelector('.accordion-body');
+        if (!body) return;
+
+        const isOpen = accordion.classList.contains('open');
+
+        if (isOpen) {
+          body.style.maxHeight = '0';
+          accordion.classList.remove('open');
+        } else {
+          body.style.maxHeight = body.scrollHeight + 'px';
+          accordion.classList.add('open');
+        }
+      });
+    });
+  }
+
+  /* ========================================================================
+     17. INIT
      ======================================================================== */
   function init() {
     initStickyNav();
@@ -510,9 +469,9 @@
     initWhatsAppButton();
     initCheckoutAlert();
     renderRecentlyViewed();
+    initAccordions();
   }
 
-  // Wait for DOM
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
