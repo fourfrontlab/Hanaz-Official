@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/products.css">
 </head>
+
 <body class="fade-in-page">
 
   <!-- ===== UTILITY BAR ===== -->
@@ -18,7 +20,8 @@
   <!-- ===== NAVIGATION ===== -->
   <nav class="navbar" id="navbar">
     <div class="container">
-      <button class="hamburger-btn" id="hamburger-btn" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <button class="hamburger-btn" id="hamburger-btn"
+        aria-label="Open menu"><span></span><span></span><span></span></button>
       <a href="index.html" class="nav-logo">HANAZ</a>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
@@ -27,10 +30,18 @@
         <li><a href="contact.html">Contact</a></li>
       </ul>
       <div class="nav-icons">
-        <a href="collections.html" class="btn btn-sm btn-primary nav-cta-desktop" style="border-radius:var(--radius-pill); border: 1px solid var(--text-heading);">Build My Regimen</a>
-        <button class="nav-icon-btn" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+        <a href="collections.html" class="btn btn-sm btn-primary nav-cta-desktop"
+          style="border-radius:var(--radius-pill); border: 1px solid var(--text-heading);">Build My Regimen</a>
+        <button class="nav-icon-btn" aria-label="Search"><svg viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg></button>
         <button class="nav-icon-btn" data-open-cart aria-label="Shopping cart">
-          <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <svg viewBox="0 0 24 24">
+            <circle cx="9" cy="21" r="1" />
+            <circle cx="20" cy="21" r="1" />
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+          </svg>
           <span class="cart-badge" id="cart-badge-nav">0</span>
         </button>
       </div>
@@ -40,16 +51,31 @@
   <!-- Mobile nav -->
   <div class="overlay" id="mobile-nav-overlay"></div>
   <div class="mobile-nav-drawer" id="mobile-nav-drawer">
-    <div class="mobile-nav-header"><a href="index.html" class="nav-logo">HANAZ</a><button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
-    <div class="mobile-nav-links"><a href="index.html">Home</a><a href="products.html">Shop</a><a href="collections.html">Regimens</a><a href="contact.html">Contact</a></div>
+    <div class="mobile-nav-header"><a href="index.html" class="nav-logo">HANAZ</a><button class="mobile-nav-close"
+        id="mobile-nav-close" aria-label="Close menu"><svg viewBox="0 0 24 24">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg></button></div>
+    <div class="mobile-nav-links"><a href="index.html">Home</a><a href="products.html">Shop</a><a
+        href="collections.html">Regimens</a><a href="contact.html">Contact</a></div>
   </div>
 
   <!-- Cart drawer -->
   <div class="overlay" id="cart-overlay"></div>
   <div class="cart-drawer" id="cart-drawer">
-    <div class="cart-drawer-header"><h3>Shopping Cart</h3><button class="cart-close-btn" aria-label="Close cart"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div>
+    <div class="cart-drawer-header">
+      <h3>Shopping Cart</h3><button class="cart-close-btn" aria-label="Close cart"><svg viewBox="0 0 24 24">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg></button>
+    </div>
     <div class="cart-drawer-body"></div>
-    <div class="cart-drawer-footer"><div class="cart-subtotal"><span>Subtotal</span><strong>Rs. 0</strong></div><p class="cart-note">Shipping & taxes calculated at checkout</p><a href="#" class="btn btn-primary btn-checkout">Check out</a><a href="products.html" class="btn btn-secondary btn-block">View Cart</a></div>
+    <div class="cart-drawer-footer">
+      <div class="cart-subtotal"><span>Subtotal</span><strong>Rs. 0</strong></div>
+      <p class="cart-note">Shipping & taxes calculated at checkout</p><a href="#"
+        class="btn btn-primary btn-checkout">Check out</a><a href="products.html"
+        class="btn btn-secondary btn-block">View Cart</a>
+    </div>
   </div>
   <div class="toast-container" id="toast-container"></div>
 
@@ -78,12 +104,12 @@
     <section class="shop-grid-section section-padding">
       <div class="container">
         <div class="product-grid" id="main-product-grid">
-          
+
           <!-- Product 1 -->
           <a href="product-detail.html" class="product-card" data-category="brightening">
             <div class="product-card-image hover-swap">
-              <img src="images/vitamin-c-serum.png" alt="Vitamin C Serum" class="img-front">
-              <img src="images/vitamin-c-packaging.png" alt="Vitamin C Texture" class="img-back">
+              <img src="images/vitamin-c-serum.jpg" alt="Vitamin C Serum" class="img-front">
+              <img src="images/vitamin-c-packaging.jpg" alt="Vitamin C Texture" class="img-back">
             </div>
             <div class="product-card-info">
               <h3>Hanaz Vitamin C Serum</h3>
@@ -99,8 +125,10 @@
           <!-- Product 2 (Placeholder) -->
           <a href="#" class="product-card" data-category="hydration">
             <div class="product-card-image hover-swap">
-              <img src="images/vitamin-c-serum.png" alt="Hydrating Serum" class="img-front" style="filter: hue-rotate(180deg);">
-              <img src="images/vitamin-c-packaging.png" alt="Hydrating Texture" class="img-back" style="filter: hue-rotate(180deg);">
+              <img src="images/vitamin-c-serum.jpg" alt="Hydrating Serum" class="img-front"
+                style="filter: hue-rotate(180deg);">
+              <img src="images/vitamin-c-packaging.jpg" alt="Hydrating Texture" class="img-back"
+                style="filter: hue-rotate(180deg);">
             </div>
             <div class="product-card-info">
               <h3>Hanaz Hyaluronic Serum</h3>
@@ -114,8 +142,10 @@
           <!-- Product 3 (Placeholder) -->
           <a href="#" class="product-card" data-category="acne">
             <div class="product-card-image hover-swap">
-              <img src="images/vitamin-c-serum.png" alt="Acne Control" class="img-front" style="filter: hue-rotate(90deg);">
-              <img src="images/vitamin-c-packaging.png" alt="Acne Texture" class="img-back" style="filter: hue-rotate(90deg);">
+              <img src="images/vitamin-c-serum.jpg" alt="Acne Control" class="img-front"
+                style="filter: hue-rotate(90deg);">
+              <img src="images/vitamin-c-packaging.jpg" alt="Acne Texture" class="img-back"
+                style="filter: hue-rotate(90deg);">
             </div>
             <div class="product-card-info">
               <h3>Hanaz Niacinamide + Zinc</h3>
@@ -129,8 +159,10 @@
           <!-- Product 4 (Placeholder) -->
           <a href="#" class="product-card" data-category="brightening hydration">
             <div class="product-card-image hover-swap">
-              <img src="images/vitamin-c-serum.png" alt="Moisturizer" class="img-front" style="filter: grayscale(100%);">
-              <img src="images/vitamin-c-packaging.png" alt="Moisturizer Texture" class="img-back" style="filter: grayscale(100%);">
+              <img src="images/vitamin-c-serum.jpg" alt="Moisturizer" class="img-front"
+                style="filter: grayscale(100%);">
+              <img src="images/vitamin-c-packaging.jpg" alt="Moisturizer Texture" class="img-back"
+                style="filter: grayscale(100%);">
             </div>
             <div class="product-card-info">
               <h3>Natural Moisturizing Factors</h3>
@@ -162,16 +194,47 @@
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top">
-        <div class="footer-newsletter"><h3>Join Our Skincare Community</h3><p>Subscribe for exclusive deals, skincare tips, and new product launches straight to your inbox.</p><form class="newsletter-form" id="footer-newsletter-form"><input type="email" placeholder="Enter your email" required aria-label="Email address"><button type="submit">Subscribe</button></form></div>
-        <div class="footer-social"><span>Follow Us</span><div class="social-links" style="flex-direction:row; gap:16px; margin-top:8px;"><a href="#">Instagram</a><a href="#">Facebook</a><a href="https://wa.me/923225386807">WhatsApp</a><a href="#">TikTok</a></div></div>
+        <div class="footer-newsletter">
+          <h3>Join Our Skincare Community</h3>
+          <p>Subscribe for exclusive deals, skincare tips, and new product launches straight to your inbox.</p>
+          <form class="newsletter-form" id="footer-newsletter-form"><input type="email" placeholder="Enter your email"
+              required aria-label="Email address"><button type="submit">Subscribe</button></form>
+        </div>
+        <div class="footer-social"><span>Follow Us</span>
+          <div class="social-links" style="flex-direction:row; gap:16px; margin-top:8px;"><a href="#">Instagram</a><a
+              href="#">Facebook</a><a href="https://wa.me/923225386807">WhatsApp</a><a href="#">TikTok</a></div>
+        </div>
       </div>
       <div class="footer-columns">
-        <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="products.html">Shop</a></li><li><a href="collections.html">Regimens</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
-        <div class="footer-col"><h4>Customer Service</h4><ul><li><a href="#">Search</a></li><li><a href="#">FAQ</a></li><li><a href="#">Return Policy</a></li></ul></div>
-        <div class="footer-col"><h4>About</h4><p style="color:#A0A0A0; font-size:14px;">Premium Pakistani skincare crafted with the finest natural ingredients and scientific innovation.</p></div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Shop</a></li>
+            <li><a href="collections.html">Regimens</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Customer Service</h4>
+          <ul>
+            <li><a href="#">Search</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Return Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>About</h4>
+          <p style="color:#A0A0A0; font-size:14px;">Premium Pakistani skincare crafted with the finest natural
+            ingredients and scientific innovation.</p>
+        </div>
       </div>
-      <div class="footer-payment"><p>We accept JazzCash, EasyPaisa, Cash on Delivery, and Allied Bank</p></div>
-      <div class="footer-bottom"><p>&copy; 2026 Hanaz Official. Premium Skincare for Radiant Skin.</p></div>
+      <div class="footer-payment">
+        <p>We accept JazzCash, EasyPaisa, Cash on Delivery, and Allied Bank</p>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Hanaz Official. Premium Skincare for Radiant Skin.</p>
+      </div>
     </div>
   </footer>
 
@@ -185,7 +248,7 @@
       btn.addEventListener('click', () => {
         filterBtns.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        
+
         const filter = btn.dataset.filter;
         products.forEach(p => {
           if (filter === 'all' || p.dataset.category.includes(filter)) {
@@ -230,10 +293,11 @@
             grid.innerHTML = '<p style="color:var(--text-muted); font-size:14px;">You haven\'t viewed any products yet.</p>';
           }
         }
-      } catch (e) {}
+      } catch (e) { }
     }
 
     document.addEventListener('DOMContentLoaded', renderRecentlyViewed);
   </script>
 </body>
+
 </html>

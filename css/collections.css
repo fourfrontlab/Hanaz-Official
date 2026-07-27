@@ -7,13 +7,16 @@
   font-size: 13px;
   color: var(--text-muted);
 }
+
 .breadcrumb a {
   color: var(--text-heading);
   transition: opacity var(--duration-fast);
 }
+
 .breadcrumb a:hover {
   opacity: 0.6;
 }
+
 .breadcrumb .sep {
   margin: 0 8px;
 }
@@ -26,10 +29,12 @@
 .collection-tile.disabled {
   pointer-events: none;
 }
+
 .collection-tile.disabled .tile-img {
   background: var(--bg-card);
   opacity: 0.5;
 }
+
 .coming-soon {
   display: block;
   font-size: 11px;
@@ -37,6 +42,7 @@
   text-align: center;
   margin-top: 4px;
 }
+
 .item-count {
   display: block;
   font-size: 11px;
@@ -51,10 +57,12 @@
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
+
 .regimen-steps {
   display: flex;
   flex-direction: column;
 }
+
 .regimen-step {
   display: flex;
   gap: var(--space-2xl);
@@ -62,9 +70,11 @@
   border-bottom: 1px solid var(--border);
   margin-bottom: 64px;
 }
+
 .regimen-step:last-child {
   border-bottom: none;
 }
+
 .step-number {
   font-size: 11px;
   text-transform: uppercase;
@@ -75,13 +85,16 @@
   width: 80px;
   margin-bottom: 4px;
 }
+
 .step-content {
   flex: 1;
 }
+
 .step-content h3 {
   font-size: 18px;
   margin-bottom: 12px;
 }
+
 .step-content p {
   font-size: 14px;
   color: var(--text-body);
@@ -92,6 +105,7 @@
   text-align: left;
   font-style: italic;
 }
+
 .product-mini {
   display: flex;
   align-items: center;
@@ -102,9 +116,11 @@
   max-width: 320px;
   transition: border-color var(--duration-fast);
 }
+
 .product-mini:hover {
   border-color: var(--text-heading);
 }
+
 .product-mini img {
   width: 64px;
   height: 64px;
@@ -112,11 +128,13 @@
   background: var(--bg);
   border: 1px solid var(--border);
 }
+
 .mini-info h5 {
   font-size: 14px;
   font-weight: 500;
   margin-bottom: 4px;
 }
+
 .mini-info span {
   font-size: 13px;
   color: var(--text-muted);
@@ -134,9 +152,11 @@
   grid-template-columns: repeat(5, 1fr);
   gap: var(--space-md);
 }
+
 .collection-tile {
   display: block;
 }
+
 .tile-img {
   aspect-ratio: 1 / 1;
   width: 100%;
@@ -148,21 +168,28 @@
   border: 1px solid var(--border);
   margin-bottom: var(--space-md);
 }
+
 .tile-img img {
   width: 100%;
   height: 100%;
   object-fit: contain;
   transition: transform 0.3s ease;
   position: absolute;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
 }
+
 .collection-tile:hover .tile-img img {
   transform: scale(1.03);
 }
+
 .collection-tile h4 {
   font-size: 14px;
   text-align: center;
 }
+
 @media (max-width: 768px) {
-  .collection-tiles { grid-template-columns: repeat(2, 1fr); }
+  .collection-tiles {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
