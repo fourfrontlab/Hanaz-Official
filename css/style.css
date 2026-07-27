@@ -379,6 +379,13 @@ h4 {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--text-heading);
+  display: flex;
+  align-items: center;
+}
+.nav-logo img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
 }
 
 .nav-links {
