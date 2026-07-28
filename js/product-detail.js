@@ -176,6 +176,30 @@
     } catch (e) {}
   }
 
+  /* ========================================================================
+     7. STICKY CART BAR
+     ======================================================================== */
+  function initStickyCart() {
+    const stickyBar = document.getElementById('sticky-cart-bar');
+    const mainSection = document.querySelector('.pdp-hero');
+    
+    if (!stickyBar || !mainSection) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      // If the pdp-hero section is out of view (scrolled past it)
+      if (!entries[0].isIntersecting && entries[0].boundingClientRect.top < 0) {
+        stickyBar.classList.add('active');
+      } else {
+        stickyBar.classList.remove('active');
+      }
+    }, {
+      root: null,
+      threshold: 0
+    });
+
+    observer.observe(mainSection);
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     initGallery();
     initQty();
@@ -183,6 +207,7 @@
     initAccordions();
     initTabs();
     saveRecentlyViewed();
+    initStickyCart();
   });
 
 })();

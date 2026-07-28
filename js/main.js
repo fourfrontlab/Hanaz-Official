@@ -382,16 +382,69 @@
     if (footerForm) {
       footerForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        window.HanazToast("Thank you for subscribing!");
-        footerForm.reset();
+        const originalHTML = footerForm.innerHTML;
+        
+        footerForm.style.transition = 'opacity 0.3s ease';
+        footerForm.style.opacity = '0';
+        
+        setTimeout(() => {
+          footerForm.innerHTML = `<div style="display:flex; align-items:center; gap:8px; color:var(--bg-card);"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> <span>You're subscribed</span></div>`;
+          footerForm.style.opacity = '1';
+          
+          setTimeout(() => {
+            footerForm.style.opacity = '0';
+            setTimeout(() => {
+              footerForm.innerHTML = originalHTML;
+              footerForm.reset();
+              footerForm.style.opacity = '1';
+            }, 300);
+          }, 4000);
+        }, 300);
       });
     }
+  }
+
+  /* ========================================================================
+     4. WISHLIST LOGIC
+     ======================================================================== */
+  function initWishlist() {
+    const btns = document.querySelectorAll('.wishlist-btn');
+    if (!btns.length) return;
+
+    let wishlist = [];
+    try {
+      const stored = localStorage.getItem('hanazWishlist');
+      if (stored) wishlist = JSON.parse(stored);
+    } catch (e) {}
+
+    btns.forEach(btn => {
+      const id = btn.dataset.productId;
+      if (wishlist.includes(id)) {
+        btn.classList.add('active');
+      }
+
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        if (btn.classList.contains('active')) {
+          btn.classList.remove('active');
+          wishlist = wishlist.filter(item => item !== id);
+        } else {
+          btn.classList.add('active');
+          if (!wishlist.includes(id)) wishlist.push(id);
+        }
+        
+        localStorage.setItem('hanazWishlist', JSON.stringify(wishlist));
+      });
+    });
   }
 
   document.addEventListener('DOMContentLoaded', () => {
     loadCart();
     renderCart();
     initUI();
+    initWishlist();
   });
 
 })();

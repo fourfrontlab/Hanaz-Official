@@ -284,6 +284,54 @@ h4 {
   opacity: 1;
 }
 
+.icon-actions {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 5;
+  opacity: 0;
+  transform: translateX(10px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.hover-swap:hover .icon-actions {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.icon-btn {
+  width: 36px;
+  height: 36px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-heading);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.icon-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.icon-btn:hover {
+  background: var(--text-heading);
+  color: var(--bg-card);
+  border-color: var(--text-heading);
+}
+
+.icon-btn.wishlist-btn.active svg {
+  fill: currentColor;
+}
+
 /* Product Cards Base */
 .product-card {
   display: block;
@@ -1124,5 +1172,69 @@ h4 {
 
   .newsletter-form input {
     width: 100%;
+  }
+}
+
+/* ==========================================================================
+   STICKY CART BAR (Product Detail)
+   ========================================================================== */
+.sticky-cart-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: var(--bg-card);
+  border-top: 1px solid var(--border);
+  padding: var(--space-sm) 0;
+  z-index: 1000;
+  transform: translateY(100%);
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.sticky-cart-bar.active {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.sticky-cart-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sticky-cart-info {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.sticky-cart-img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+}
+
+.sticky-cart-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 0 2px 0;
+}
+
+.sticky-cart-price {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+@media (max-width: 480px) {
+  .sticky-cart-info .sticky-cart-title {
+    font-size: 12px;
+  }
+  .sticky-cart-info .sticky-cart-img {
+    display: none;
   }
 }
