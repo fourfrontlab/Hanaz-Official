@@ -244,20 +244,51 @@
   color: var(--text-heading);
 }
 
-/* ===== LOGISTICS STRIP ===== */
-.logistics-strip {
+/* ===== BENEFITS GRID ===== */
+.benefits-section {
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
-  padding: var(--space-lg) 0;
-  text-align: center;
   background: var(--bg);
 }
 
-.logistics-strip p {
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-xl);
+  text-align: center;
+}
+
+.benefit-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.benefit-icon {
+  width: 32px;
+  height: 32px;
   color: var(--text-heading);
+  margin-bottom: var(--space-xs);
+}
+
+.benefit-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.benefit-col h4 {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.benefit-col p {
+  font-size: 13px;
+  color: var(--text-muted);
+  max-width: 200px;
   margin: 0;
 }
 
@@ -627,6 +658,11 @@
   .concern-img-wrap {
     width: 100px;
     height: 100px;
+  }
+
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
   }
 
   .formula-grid {
