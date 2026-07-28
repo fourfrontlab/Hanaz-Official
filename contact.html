@@ -129,6 +129,10 @@
                 <p>Margla Town, Islamabad<br>Online Store Only</p>
               </div>
             </div>
+
+            <div class="map-card" style="border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; height: 250px; background: #eee;">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13280.970597321686!2d73.0805374!3d33.6766624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfc0a21356f9f3%3A0xc3fec3f31cc5b825!2sMargala%20Town%2C%20Islamabad%2C%20Islamabad%20Capital%20Territory%2C%20Pakistan!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
           </div>
 
           <!-- Form -->
@@ -159,6 +163,16 @@
               </div>
               <button type="submit" class="btn btn-primary btn-block">Submit</button>
             </form>
+            
+            <div id="contact-success" style="display:none; text-align:center; padding: 60px 20px;">
+              <svg viewBox="0 0 24 24" width="48" height="48" stroke="var(--accent)" stroke-width="1.5" fill="none" style="margin-bottom:16px;">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+              <h3 style="margin-bottom:12px; font-size: 24px;">Message Sent</h3>
+              <p style="color:var(--text-body); margin-bottom: 24px;">Thanks, we'll get back to you within 24 hours.</p>
+              <button class="btn btn-secondary" onclick="document.getElementById('contact-success').style.display='none'; document.getElementById('contact-form').style.display='block';">Send Another</button>
+            </div>
           </div>
 
         </div>
@@ -229,8 +243,10 @@
   <script>
     document.getElementById('contact-form').addEventListener('submit', function (e) {
       e.preventDefault();
-      window.HanazToast("Message sent successfully. We'll be in touch soon!");
+      this.style.display = 'none';
+      document.getElementById('contact-success').style.display = 'block';
       this.reset();
+      window.scrollTo({ top: document.querySelector('.contact-form-wrap').offsetTop - 100, behavior: 'smooth' });
     });
   </script>
 </body>
