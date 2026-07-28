@@ -306,6 +306,120 @@ h4 {
   color: var(--text-heading);
 }
 
+/* Product Badge */
+.product-badge {
+  position: absolute;
+  top: var(--space-sm);
+  left: var(--space-sm);
+  z-index: 3;
+  background: var(--text-heading);
+  color: var(--bg-card);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  line-height: 1;
+}
+
+/* Star Rating */
+.product-rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+
+.product-rating .stars {
+  font-size: 12px;
+  color: var(--text-heading);
+  letter-spacing: 1px;
+  line-height: 1;
+}
+
+.product-rating .star-empty {
+  color: var(--border);
+}
+
+.product-rating .rating-value {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+/* Benefit Tag */
+.product-benefit {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: var(--space-sm);
+}
+
+/* Size Chips */
+.size-chips {
+  display: flex;
+  gap: 6px;
+  margin-bottom: var(--space-sm);
+}
+
+.size-chip {
+  display: inline-block;
+  padding: 3px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-muted);
+  line-height: 1.4;
+  transition: all var(--duration-fast) ease;
+}
+
+.size-chip.active {
+  border-color: var(--text-heading);
+  color: var(--text-heading);
+}
+
+/* Add to Cart Button on Card */
+.btn-add-cart {
+  width: 100%;
+  margin-top: var(--space-sm);
+  text-align: center;
+}
+
+/* Out of Stock Button */
+.btn-out-of-stock {
+  width: 100%;
+  margin-top: var(--space-sm);
+  text-align: center;
+  background: var(--bg);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Section Header Row (with View All) */
+.section-header-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.view-all-link {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-heading);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: opacity var(--duration-fast) ease;
+}
+
+.view-all-link:hover {
+  opacity: 0.6;
+}
+
 /* Utilities */
 .text-center {
   text-align: center;

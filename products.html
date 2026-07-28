@@ -109,21 +109,32 @@
           <!-- Product 1 -->
           <a href="product-detail.html" class="product-card" data-category="brightening">
             <div class="product-card-image hover-swap">
+              <span class="product-badge">Bestseller</span>
               <img src="images/vitamin-c-serum.jpg" alt="Vitamin C Serum" class="img-front">
               <img src="images/vitamin-c-packaging.jpg" alt="Vitamin C Texture" class="img-back">
             </div>
             <div class="product-card-info">
               <h3>Hanaz Vitamin C Serum</h3>
-              <p class="in-stock-text">In stock</p>
+              <div class="product-rating">
+                <span class="stars">★★★★★</span>
+                <span class="rating-value">4.9</span>
+              </div>
+              <p class="product-benefit">Brightening</p>
+              <div class="size-chips">
+                <span class="size-chip active">30ml</span>
+              </div>
               <div class="price">
                 <strong>Rs. 1,599</strong>
                 <span class="price-strikethrough">Rs. 2,499</span>
                 <span class="price-save">Save 36%</span>
               </div>
+              <button class="btn btn-primary btn-sm btn-add-cart"
+                onclick="event.preventDefault(); window.HanazCart && window.HanazCart.add({id:'hanaz-vitamin-c-serum',name:'Vitamin C Serum',price:1599,image:'images/vitamin-c-serum.jpg',qty:1})">Add
+                to Cart</button>
             </div>
           </a>
 
-          <!-- Product 2 (Placeholder) -->
+          <!-- Product 2 -->
           <a href="#" class="product-card" data-category="hydration">
             <div class="product-card-image hover-swap">
               <img src="images/vitamin-c-serum.jpg" alt="Hydrating Serum" class="img-front"
@@ -133,14 +144,24 @@
             </div>
             <div class="product-card-info">
               <h3>Hanaz Hyaluronic Serum</h3>
-              <p class="in-stock-text">In stock</p>
+              <div class="product-rating">
+                <span class="stars">★★★★<span class="star-empty">★</span></span>
+                <span class="rating-value">4.5</span>
+              </div>
+              <p class="product-benefit">Hydration</p>
+              <div class="size-chips">
+                <span class="size-chip active">30ml</span>
+              </div>
               <div class="price">
                 <strong>Rs. 1,299</strong>
               </div>
+              <button class="btn btn-primary btn-sm btn-add-cart"
+                onclick="event.preventDefault(); window.HanazCart && window.HanazCart.add({id:'hanaz-hyaluronic-serum',name:'Hyaluronic Serum',price:1299,image:'images/vitamin-c-serum.jpg',qty:1})">Add
+                to Cart</button>
             </div>
           </a>
 
-          <!-- Product 3 (Placeholder) -->
+          <!-- Product 3 -->
           <a href="#" class="product-card" data-category="acne">
             <div class="product-card-image hover-swap">
               <img src="images/vitamin-c-serum.jpg" alt="Acne Control" class="img-front"
@@ -150,14 +171,24 @@
             </div>
             <div class="product-card-info">
               <h3>Hanaz Niacinamide + Zinc</h3>
-              <p class="in-stock-text">In stock</p>
+              <div class="product-rating">
+                <span class="stars">★★★★<span class="star-empty">★</span></span>
+                <span class="rating-value">4.7</span>
+              </div>
+              <p class="product-benefit">Acne Control</p>
+              <div class="size-chips">
+                <span class="size-chip active">30ml</span>
+              </div>
               <div class="price">
                 <strong>Rs. 1,199</strong>
               </div>
+              <button class="btn btn-primary btn-sm btn-add-cart"
+                onclick="event.preventDefault(); window.HanazCart && window.HanazCart.add({id:'hanaz-niacinamide-zinc',name:'Niacinamide + Zinc',price:1199,image:'images/vitamin-c-serum.jpg',qty:1})">Add
+                to Cart</button>
             </div>
           </a>
 
-          <!-- Product 4 (Placeholder) -->
+          <!-- Product 4 (Out of Stock) -->
           <a href="#" class="product-card" data-category="brightening hydration">
             <div class="product-card-image hover-swap">
               <img src="images/vitamin-c-serum.jpg" alt="Moisturizer" class="img-front"
@@ -167,10 +198,18 @@
             </div>
             <div class="product-card-info">
               <h3>Natural Moisturizing Factors</h3>
-              <p class="in-stock-text">In stock</p>
+              <div class="product-rating">
+                <span class="stars">★★★★★</span>
+                <span class="rating-value">4.8</span>
+              </div>
+              <p class="product-benefit">Hydration</p>
+              <div class="size-chips">
+                <span class="size-chip active">30ml</span>
+              </div>
               <div class="price">
                 <strong>Rs. 999</strong>
               </div>
+              <button class="btn btn-sm btn-out-of-stock" disabled>Out of Stock</button>
             </div>
           </a>
 

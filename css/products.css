@@ -49,13 +49,8 @@
   padding-top: 0;
 }
 
-.in-stock-text {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-muted);
-  margin-bottom: var(--space-sm);
-}
+
+
 
 .product-card-info .price {
   display: flex;
