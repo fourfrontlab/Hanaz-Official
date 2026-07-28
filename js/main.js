@@ -63,9 +63,26 @@
       });
     });
 
+    const cartCloseBtns = document.querySelectorAll('.cart-close-btn');
+    const cartOverlay = document.getElementById('cart-overlay');
 
+    cartCloseBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (window.HanazCart) window.HanazCart.closeDrawer();
+      });
+    });
 
-    // Mobile Nav Toggle
+    if (cartOverlay) {
+      cartOverlay.addEventListener('click', () => {
+        if (window.HanazCart) window.HanazCart.closeDrawer();
+      });
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && window.HanazCart) {
+        window.HanazCart.closeDrawer();
+      }
+    });    // Mobile Nav Toggle
     const mobileBtn = document.getElementById('hamburger-btn');
     const mobileClose = document.getElementById('mobile-nav-close');
     const mobileOverlay = document.getElementById('mobile-nav-overlay');
