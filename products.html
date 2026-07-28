@@ -295,6 +295,8 @@
 
       try {
         const stored = localStorage.getItem('hanazRecentlyViewed');
+        const emptyState = '<div style="grid-column: 1 / -1; color:var(--text-muted); font-size:14px;">You haven\'t viewed any products yet.</div>';
+        
         if (stored) {
           const items = JSON.parse(stored);
           if (items.length > 0) {
@@ -317,10 +319,14 @@
             });
             grid.innerHTML = html;
           } else {
-            grid.innerHTML = '<p style="color:var(--text-muted); font-size:14px;">You haven\'t viewed any products yet.</p>';
+            grid.innerHTML = emptyState;
           }
+        } else {
+          grid.innerHTML = emptyState;
         }
-      } catch (e) { }
+      } catch (e) {
+        grid.innerHTML = '<div style="grid-column: 1 / -1; color:var(--text-muted); font-size:14px;">You haven\'t viewed any products yet.</div>';
+      }
     }
 
     document.addEventListener('DOMContentLoaded', renderRecentlyViewed);

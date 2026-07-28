@@ -160,12 +160,23 @@
       let viewed = localStorage.getItem('hanazRecentlyViewed');
       viewed = viewed ? JSON.parse(viewed) : [];
       
+      const titleEl = document.querySelector('h1');
+      const priceEl = document.querySelector('.pdp-sale-price');
+      const imgEl = document.getElementById('main-product-image');
+      
+      if (!titleEl || !priceEl || !imgEl) return;
+
+      const priceText = priceEl.textContent.replace(/[^0-9]/g, '');
+      const priceVal = parseInt(priceText, 10) || 0;
+      
+      let pageUrl = window.location.pathname.split('/').pop() || 'product-detail.html';
+      
       const item = {
-        id: 'hanaz-vitamin-c-serum',
-        name: 'Hanaz Vitamin C Serum',
-        price: 1599,
-        image: 'images/vitamin-c-serum.png',
-        link: 'product-detail.html'
+        id: pageUrl,
+        name: titleEl.textContent.trim(),
+        price: priceVal,
+        image: imgEl.getAttribute('src'),
+        link: pageUrl
       };
 
       viewed = viewed.filter(i => i.id !== item.id);
