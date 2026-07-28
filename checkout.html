@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout | Hanaz Official</title>
+  <meta name="description" content="Secure checkout for Hanaz Official skincare products.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/checkout.css">
+</head>
+
+<body class="fade-in-page">
+
+  <!-- ===== UTILITY BAR ===== -->
+  <div class="announcement-bar" id="announcement-bar">
+    <p>Free Shipping on Orders Over Rs. 5,000 — Cash on Delivery Available</p>
+  </div>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <button class="hamburger-btn" id="hamburger-btn"
+        aria-label="Open menu"><span></span><span></span><span></span></button>
+      <a href="index.html" class="nav-logo"><img src="images/hanaz-logo.jpg" alt="Hanaz Official"></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Shop</a></li>
+        <li><a href="collections.html">Regimens</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-icons">
+        <a href="collections.html" class="btn btn-sm btn-primary nav-cta-desktop"
+          style="border-radius:var(--radius-pill); border: 1px solid var(--text-heading);">Build My Regimen</a>
+        <button class="nav-icon-btn" aria-label="Search"><svg viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg></button>
+        <button class="nav-icon-btn" data-open-cart aria-label="Shopping cart">
+          <svg viewBox="0 0 24 24">
+            <circle cx="9" cy="21" r="1" />
+            <circle cx="20" cy="21" r="1" />
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+          </svg>
+          <span class="cart-badge" id="cart-badge-nav">0</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile nav & cart -->
+  <div class="overlay" id="mobile-nav-overlay"></div>
+  <div class="mobile-nav-drawer" id="mobile-nav-drawer">
+    <div class="mobile-nav-header"><a href="index.html" class="nav-logo"><img src="images/hanaz-logo.jpg"
+          alt="Hanaz Official"></a><button class="mobile-nav-close" id="mobile-nav-close"><svg viewBox="0 0 24 24">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg></button></div>
+    <div class="mobile-nav-links"><a href="index.html">Home</a><a href="products.html">Shop</a><a
+        href="collections.html">Regimens</a><a href="contact.html">Contact</a></div>
+  </div>
+  <div class="overlay" id="cart-overlay"></div>
+  <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-drawer-header">
+      <h3>Shopping Cart</h3><button class="cart-close-btn"><svg viewBox="0 0 24 24">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg></button>
+    </div>
+    <div class="cart-drawer-body"></div>
+    <div class="cart-drawer-footer">
+      <div class="cart-subtotal"><span>Subtotal</span><strong>Rs. 0</strong></div>
+      <p class="cart-note">Shipping & taxes calculated at checkout</p><a href="checkout.html"
+        class="btn btn-primary btn-checkout">Check out</a>
+    </div>
+  </div>
+  <div class="toast-container" id="toast-container"></div>
+
+  <main id="checkout-main">
+    <div class="breadcrumb container">
+      <a href="index.html">Home</a>
+      <span class="sep">/</span>
+      <a href="products.html">Shop</a>
+      <span class="sep">/</span>
+      <span>Checkout</span>
+    </div>
+
+    <section class="checkout-section">
+      <div class="container">
+        
+        <div class="checkout-grid" id="checkout-grid">
+          
+          <!-- Left Column: Form -->
+          <div class="checkout-form-col">
+            <h2>Checkout</h2>
+            
+            <form id="checkout-page-form">
+              <!-- Contact Information -->
+              <fieldset class="checkout-fieldset">
+                <legend>Contact Information</legend>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="co-name">Full Name</label>
+                    <input type="text" id="co-name" required placeholder="Jane Doe">
+                  </div>
+                  <div class="form-group">
+                    <label for="co-phone">Phone Number</label>
+                    <input type="tel" id="co-phone" required placeholder="0300 1234567">
+                  </div>
+                </div>
+              </fieldset>
+
+              <!-- Shipping Address -->
+              <fieldset class="checkout-fieldset">
+                <legend>Shipping Address</legend>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="co-address">Address</label>
+                    <input type="text" id="co-address" required placeholder="House 123, Street 4">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="co-city">City</label>
+                    <input type="text" id="co-city" required placeholder="Islamabad">
+                  </div>
+                  <div class="form-group">
+                    <label for="co-postal">Postal Code (Optional)</label>
+                    <input type="text" id="co-postal" placeholder="44000">
+                  </div>
+                </div>
+              </fieldset>
+
+              <!-- Payment Method -->
+              <fieldset class="checkout-fieldset">
+                <legend>Payment Method</legend>
+                <div class="payment-methods">
+                  <label class="payment-method">
+                    <input type="radio" name="payment_method" value="COD" checked required>
+                    <span>Cash on Delivery (COD)</span>
+                  </label>
+                  <label class="payment-method">
+                    <input type="radio" name="payment_method" value="JazzCash">
+                    <span>JazzCash</span>
+                  </label>
+                  <label class="payment-method">
+                    <input type="radio" name="payment_method" value="EasyPaisa">
+                    <span>EasyPaisa</span>
+                  </label>
+                  <label class="payment-method">
+                    <input type="radio" name="payment_method" value="Allied Bank">
+                    <span>Allied Bank Transfer</span>
+                  </label>
+                </div>
+              </fieldset>
+
+              <button type="submit" class="btn btn-primary btn-block" style="font-size: 16px; padding: 16px;">Place Order</button>
+            </form>
+          </div>
+
+          <!-- Right Column: Summary -->
+          <div class="checkout-summary-col">
+            <h3>Order Summary</h3>
+            <div id="checkout-summary-items" class="summary-items">
+              <!-- Rendered via JS -->
+            </div>
+            
+            <div class="summary-totals">
+              <div class="summary-row">
+                <span>Subtotal</span>
+                <span id="co-subtotal">Rs. 0</span>
+              </div>
+              <div class="summary-row">
+                <span>Shipping</span>
+                <span id="co-shipping">Rs. 0</span>
+              </div>
+              <div class="summary-row total">
+                <span>Total</span>
+                <span id="co-total">Rs. 0</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Success State (Hidden initially) -->
+        <div id="checkout-success" class="checkout-success" style="display:none;">
+          <div class="success-icon">
+            <svg viewBox="0 0 24 24" width="40" height="40" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+          </div>
+          <h1>Order Confirmed!</h1>
+          <p>Thank you for your purchase. We've received your order and will contact you shortly to confirm delivery details.</p>
+          <a href="index.html" class="btn btn-primary">Return to Home</a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-newsletter">
+          <h3>Join Our Skincare Community</h3>
+          <p>Subscribe for exclusive deals, skincare tips, and new product launches straight to your inbox.</p>
+          <form class="newsletter-form" id="footer-newsletter-form"><input type="email" placeholder="Enter your email"
+              required aria-label="Email address"><button type="submit">Subscribe</button></form>
+        </div>
+        <div class="footer-social"><span>Follow Us</span>
+          <div class="social-links" style="flex-direction:row; gap:16px; margin-top:8px;"><a
+              href="https://instagram.com/thehanazofficial">Instagram</a><a
+              href="https://facebook.com/thehanaz">Facebook</a><a href="https://wa.me/923225386807">WhatsApp</a><a
+              href="https://tiktok.com/@thehanazofficial">TikTok</a></div>
+        </div>
+      </div>
+      <div class="footer-columns">
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="index.html#our-story">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Our Commitments</h4>
+          <ul>
+            <li><a href="#">Sustainability</a></li>
+            <li><a href="index.html#our-story">Our Story</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Customer Care</h4>
+          <ul>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="return-policy.html">Return Policy</a></li>
+            <li><a href="shipping-info.html">Shipping Info</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Get in Touch</h4>
+          <ul>
+            <li><a href="https://wa.me/923225386807" target="_blank" rel="noopener">WhatsApp</a></li>
+            <li><a href="https://instagram.com/thehanazofficial" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://facebook.com/thehanaz" target="_blank" rel="noopener">Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Hanaz Official. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="terms.html">Terms &amp; Conditions</a>
+          <a href="privacy.html">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      const grid = document.getElementById('checkout-grid');
+      const success = document.getElementById('checkout-success');
+      const form = document.getElementById('checkout-page-form');
+      const itemsContainer = document.getElementById('checkout-summary-items');
+      const subtotalEl = document.getElementById('co-subtotal');
+      const shippingEl = document.getElementById('co-shipping');
+      const totalEl = document.getElementById('co-total');
+      
+      function renderCheckout() {
+        if (!window.HanazCart) return;
+
+        const cartItems = window.HanazCart.getItems();
+        console.log("DEBUG: Checkout cart items loaded from window.HanazCart.getItems():", cartItems);
+
+        if (!cartItems || cartItems.length === 0) {
+          grid.innerHTML = '<div style="text-align:center; padding: 60px 20px; grid-column: 1 / -1;"><p style="margin-bottom:24px;">Your cart is empty.</p><a href="products.html" class="btn btn-primary">Continue Shopping</a></div>';
+          return;
+        }
+
+        let html = '';
+        cartItems.forEach(item => {
+          html += `
+            <div class="summary-item">
+              <div class="summary-item-img">
+                <img src="${item.image}" alt="${item.name}">
+                <div class="summary-item-qty">${item.qty}</div>
+              </div>
+              <div class="summary-item-info">
+                <h4>${item.name}</h4>
+                <div class="summary-item-price">Rs. ${(item.price * item.qty).toLocaleString()}</div>
+              </div>
+            </div>
+          `;
+        });
+
+        itemsContainer.innerHTML = html;
+
+        // Shipping logic: Free over 5000, else 200
+        const subtotal = window.HanazCart.getSubtotal();
+        let shipping = subtotal >= 5000 ? 0 : 200;
+        let total = subtotal + shipping;
+
+        subtotalEl.textContent = 'Rs. ' + subtotal.toLocaleString();
+        shippingEl.textContent = shipping === 0 ? 'Free' : 'Rs. ' + shipping.toLocaleString();
+        totalEl.textContent = 'Rs. ' + total.toLocaleString();
+      }
+      
+      renderCheckout();
+      window.addEventListener('hanazCartUpdated', renderCheckout);
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // Show success state
+        grid.style.display = 'none';
+        success.style.display = 'block';
+        
+        // Clear cart
+        if (window.HanazCart && window.HanazCart.clear) {
+          window.HanazCart.clear();
+        } else {
+          localStorage.removeItem('hanazCart');
+        }
+        
+        // In a real app we'd send data to backend here.
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+      
+    });
+  </script>
+</body>
+
+</html>
