@@ -77,7 +77,7 @@
           id: 'hanaz-vitamin-c-serum',
           name: 'Hanaz Vitamin C Serum',
           price: 1599,
-          image: 'images/vitamin-c-serum.png',
+          image: 'images/vitamin-c-serum.jpg',
           qty: currentQty
         });
       }

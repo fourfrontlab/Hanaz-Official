@@ -35,6 +35,12 @@
     const stored = localStorage.getItem('hanaz_cart');
     if (stored) {
       cartState.items = JSON.parse(stored);
+      // Hotfix: Ensure legacy .png images point to .jpg
+      cartState.items.forEach(item => {
+        if (item.image && item.image.includes('.png') && item.image.includes('vitamin-c-serum')) {
+          item.image = item.image.replace('.png', '.jpg');
+        }
+      });
     }
   } catch (e) {
     console.error('Cart load failed', e);
