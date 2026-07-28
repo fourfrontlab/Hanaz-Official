@@ -440,11 +440,64 @@
     });
   }
 
+  /* ========================================================================
+     5. SEARCH LOGIC
+     ======================================================================== */
+  function initSearch() {
+    const searchHTML = `
+      <div class="overlay" id="search-overlay" style="z-index: 1999;"></div>
+      <div class="search-modal" id="search-modal" style="position:fixed; top:0; left:0; width:100%; padding:24px; background:var(--bg-primary); z-index:2000; transform:translateY(-100%); transition:transform 0.3s ease; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+        <div class="container" style="position:relative; max-width:600px;">
+          <button id="search-close" style="position:absolute; right:0; top:50%; transform:translateY(-50%); background:none; border:none; cursor:pointer; color:var(--text-heading);"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+          <form id="search-form" style="display:flex; border-bottom:1px solid var(--border); padding-bottom:8px; margin-right:40px;">
+            <input type="text" name="q" placeholder="Search for products, categories..." style="flex:1; border:none; background:transparent; font-size:18px; outline:none; font-family:inherit; color:var(--text-heading);" required>
+            <button type="submit" style="background:none; border:none; cursor:pointer; color:var(--text-heading);"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+          </form>
+        </div>
+      </div>
+    `;
+    document.body.insertAdjacentHTML('beforeend', searchHTML);
+
+    const searchOverlay = document.getElementById('search-overlay');
+    const searchModal = document.getElementById('search-modal');
+    const searchBtns = document.querySelectorAll('.nav-icon-btn[aria-label="Search"]');
+    const searchClose = document.getElementById('search-close');
+    const searchForm = document.getElementById('search-form');
+    const searchInput = searchForm.querySelector('input');
+
+    function openSearch() {
+      searchOverlay.classList.add('active');
+      searchModal.style.transform = 'translateY(0)';
+      setTimeout(() => searchInput.focus(), 300);
+    }
+
+    function closeSearch() {
+      searchOverlay.classList.remove('active');
+      searchModal.style.transform = 'translateY(-100%)';
+    }
+
+    searchBtns.forEach(btn => btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openSearch();
+    }));
+    searchClose.addEventListener('click', closeSearch);
+    searchOverlay.addEventListener('click', closeSearch);
+
+    searchForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const q = searchInput.value.trim();
+      if (q) {
+        window.location.href = `products.html?q=${encodeURIComponent(q)}`;
+      }
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     loadCart();
     renderCart();
     initUI();
     initWishlist();
+    initSearch();
   });
 
 })();
