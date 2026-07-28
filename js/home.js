@@ -143,7 +143,88 @@
     });
   }
 
+  /* ========================================================================
+     4. HERO CAROUSEL (crossfade, 6s auto-advance, pause on hover)
+     ======================================================================== */
+  function initHeroCarousel() {
+    const carousel = document.getElementById('hero-carousel');
+    if (!carousel) return;
+
+    const slides = carousel.querySelectorAll('.hero-slide');
+    const dots = carousel.querySelectorAll('.hero-dot');
+    const prevBtn = document.getElementById('hero-prev');
+    const nextBtn = document.getElementById('hero-next');
+    const totalSlides = slides.length;
+
+    let current = 0;
+    let autoTimer = null;
+    const INTERVAL = 6000; // 6 seconds
+
+    function goTo(index) {
+      // Wrap around
+      if (index < 0) index = totalSlides - 1;
+      if (index >= totalSlides) index = 0;
+
+      // Deactivate current
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+
+      // Activate new
+      current = index;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+    }
+
+    function nextSlide() {
+      goTo(current + 1);
+    }
+
+    function prevSlide() {
+      goTo(current - 1);
+    }
+
+    // Auto-advance
+    function startAuto() {
+      stopAuto();
+      autoTimer = setInterval(nextSlide, INTERVAL);
+    }
+
+    function stopAuto() {
+      if (autoTimer) {
+        clearInterval(autoTimer);
+        autoTimer = null;
+      }
+    }
+
+    // Arrow buttons
+    nextBtn.addEventListener('click', () => {
+      nextSlide();
+      startAuto(); // Reset timer on manual interaction
+    });
+
+    prevBtn.addEventListener('click', () => {
+      prevSlide();
+      startAuto();
+    });
+
+    // Dot buttons
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        goTo(parseInt(dot.dataset.dot, 10));
+        startAuto();
+      });
+    });
+
+    // Pause on hover, resume on leave
+    carousel.addEventListener('mouseenter', stopAuto);
+    carousel.addEventListener('mouseleave', startAuto);
+
+    // Start auto-advance
+    startAuto();
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
+    initHeroCarousel();
     initQuiz();
     initSliders();
     initTabs();

@@ -103,18 +103,64 @@
   </a>
 
   <main>
-    <!-- ===== HERO SPLIT ===== -->
-    <section class="hero">
-      <div class="hero-split">
-        <div class="hero-image">
-          <img src="images/hanaz_banner.png" alt="Hanaz Vitamin C Serum">
+    <!-- ===== HERO CAROUSEL ===== -->
+    <section class="hero" id="hero-carousel" aria-label="Hero Carousel">
+      <div class="hero-carousel-track">
+        <!-- Slide 1: Vitamin C Serum (existing) -->
+        <div class="hero-slide active" data-slide="0">
+          <div class="hero-split">
+            <div class="hero-image">
+              <img src="images/hanaz_banner.png" alt="Hanaz Vitamin C Serum">
+            </div>
+            <div class="hero-text">
+              <h1>Brighten.<br>Even.<br>Hydrate.</h1>
+              <p>Unlock your skin's natural glow with our clinically tested, dermatologist-approved formulas crafted for
+                radiant results.</p>
+              <a href="products.html" class="btn btn-primary">Shop Now</a>
+            </div>
+          </div>
         </div>
-        <div class="hero-text reveal">
-          <h1>Brighten.<br>Even.<br>Hydrate.</h1>
-          <p>Unlock your skin's natural glow with our clinically tested, dermatologist-approved formulas crafted for
-            radiant results.</p>
-          <a href="products.html" class="btn btn-primary">Shop Now</a>
+
+        <!-- Slide 2: Skin Quiz -->
+        <div class="hero-slide" data-slide="1">
+          <div class="hero-split">
+            <div class="hero-image">
+              <img src="images/hero-skin-quiz.png" alt="Discover your perfect skincare routine">
+            </div>
+            <div class="hero-text">
+              <h1>New to<br>Hanaz?</h1>
+              <p>Take our personalized skin analysis quiz and discover the perfect routine tailored to your unique skin
+                needs.</p>
+              <a href="#quiz-section" class="btn btn-primary">Take the Skin Quiz</a>
+            </div>
+          </div>
         </div>
+
+        <!-- Slide 3: Cash on Delivery -->
+        <div class="hero-slide" data-slide="2">
+          <div class="hero-split">
+            <div class="hero-image">
+              <img src="images/hero-cod-delivery.png" alt="Cash on Delivery available nationwide">
+            </div>
+            <div class="hero-text">
+              <h1>Cash on<br>Delivery</h1>
+              <p>Shop your favourite skincare products and pay when they arrive at your doorstep — available in every
+                city across Pakistan.</p>
+              <a href="products.html" class="btn btn-primary">Shop Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Arrow controls -->
+      <button class="hero-arrow hero-arrow-prev" id="hero-prev" aria-label="Previous slide">&lsaquo;</button>
+      <button class="hero-arrow hero-arrow-next" id="hero-next" aria-label="Next slide">&rsaquo;</button>
+
+      <!-- Dot indicators -->
+      <div class="hero-dots" id="hero-dots">
+        <button class="hero-dot active" data-dot="0" aria-label="Go to slide 1"></button>
+        <button class="hero-dot" data-dot="1" aria-label="Go to slide 2"></button>
+        <button class="hero-dot" data-dot="2" aria-label="Go to slide 3"></button>
       </div>
     </section>
 
@@ -242,7 +288,7 @@
     </section>
 
     <!-- ===== SKIN QUIZ ===== -->
-    <section class="quiz-section section-padding reveal">
+    <section class="quiz-section section-padding reveal" id="quiz-section">
       <div class="container">
         <div class="quiz-box">
           <div class="quiz-intro active" id="quiz-intro">

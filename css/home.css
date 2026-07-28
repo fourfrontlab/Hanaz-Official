@@ -3,9 +3,32 @@
    ========================================================================== */
 
 
-/* ===== HERO SPLIT ===== */
+/* ===== HERO CAROUSEL ===== */
 .hero {
   border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-carousel-track {
+  position: relative;
+  min-height: calc(100vh - var(--nav-height) - var(--announcement-h));
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.6s var(--ease-in-out), visibility 0.6s;
+  z-index: 0;
+}
+
+.hero-slide.active {
+  position: relative;
+  opacity: 1;
+  visibility: visible;
+  z-index: 1;
 }
 
 .hero-split {
@@ -45,6 +68,98 @@
   color: var(--text-body);
   margin-bottom: var(--space-xl);
   max-width: 400px;
+}
+
+/* Slide text entrance animation */
+.hero-slide.active .hero-text h1,
+.hero-slide.active .hero-text p,
+.hero-slide.active .hero-text .btn {
+  animation: heroTextIn 0.6s 0.15s var(--ease-out) both;
+}
+
+.hero-slide.active .hero-text p {
+  animation-delay: 0.25s;
+}
+
+.hero-slide.active .hero-text .btn {
+  animation-delay: 0.35s;
+}
+
+@keyframes heroTextIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Arrow controls */
+.hero-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid var(--border);
+  color: var(--text-heading);
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background var(--duration-base) ease, transform var(--duration-base) ease;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.hero-arrow:hover {
+  background: var(--text-heading);
+  color: var(--bg-card);
+}
+
+.hero-arrow-prev {
+  left: var(--space-md);
+}
+
+.hero-arrow-next {
+  right: var(--space-md);
+}
+
+/* Dot indicators */
+.hero-dots {
+  position: absolute;
+  bottom: var(--space-lg);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: flex;
+  gap: 10px;
+}
+
+.hero-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid var(--text-heading);
+  background: transparent;
+  cursor: pointer;
+  transition: background var(--duration-base) ease, transform var(--duration-base) ease;
+  padding: 0;
+}
+
+.hero-dot.active {
+  background: var(--text-heading);
+  transform: scale(1.15);
+}
+
+.hero-dot:hover:not(.active) {
+  background: var(--text-muted);
 }
 
 /* ===== BESTSELLERS ===== */
@@ -419,6 +534,10 @@
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
+  .hero-carousel-track {
+    min-height: auto;
+  }
+
   .hero-split {
     grid-template-columns: 1fr;
     min-height: auto;
@@ -430,6 +549,16 @@
 
   .hero-text {
     padding: var(--space-xl);
+  }
+
+  .hero-arrow {
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+  }
+
+  .hero-dots {
+    bottom: var(--space-md);
   }
 
   .product-grid {
