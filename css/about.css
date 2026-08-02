@@ -1,0 +1,173 @@
+/* ===== ABOUT / OUR STORY PAGE ===== */
+
+/* ── Story Page Section ─────────────────────────────────── */
+.story-page-section {
+  padding: 80px 0 80px;
+  background: var(--bg);
+}
+
+/* ── Page Header: Title + Breadcrumb ────────────────────── */
+.story-page-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.story-page-header h1 {
+  font-size: clamp(2.4rem, 4.5vw, 3.2rem);
+  font-weight: 800;
+  color: var(--text-heading);
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+
+/* ── Breadcrumb ─────────────────────────────────────────── */
+.story-breadcrumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.story-breadcrumb a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.story-breadcrumb a:hover {
+  color: var(--text-heading);
+}
+
+.story-breadcrumb .sep {
+  margin: 0 2px;
+  color: var(--text-muted);
+  font-size: 15px;
+}
+
+/* ── Story Body ─────────────────────────────────────────── */
+.story-page-body {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.story-page-body p {
+  font-size: 1.0625rem;   /* ~17px — readable and close to reference proportions */
+  color: var(--text-body);
+  line-height: 1.85;
+  margin-bottom: 32px;
+  font-weight: 400;
+}
+
+/* ── Section headings ───────────────────────────────────── */
+.story-page-body h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  margin-top: 56px;
+  margin-bottom: 18px;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+}
+
+/* Remove extra top margin from first heading after the intro para */
+.story-page-body h2:first-of-type {
+  margin-top: 52px;
+}
+
+/* ── Closing tagline ────────────────────────────────────── */
+.story-tagline {
+  text-align: center;
+  font-size: 0.9375rem !important;
+  color: var(--text-muted) !important;
+  font-style: italic;
+  margin-top: 56px !important;
+  margin-bottom: 0 !important;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+  line-height: 1.6 !important;
+}
+
+/* ── Certified Excellence Section ───────────────────────── */
+.story-certified-section {
+  background: var(--bg-alt);
+  border-top: 1px solid var(--border);
+  padding: 100px 0 110px;
+}
+
+.story-certified-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.story-certified-inner h2 {
+  font-size: clamp(1.8rem, 3.5vw, 2.75rem);
+  font-weight: 800;
+  color: var(--text-heading);
+  letter-spacing: 0.02em;
+  margin-bottom: 28px;
+  line-height: 1.15;
+}
+
+.story-certified-inner p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  margin-bottom: 10px;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.story-certified-inner p:last-child {
+  margin-bottom: 0;
+}
+
+.story-certified-inner p strong {
+  color: var(--text-heading);
+  font-weight: 700;
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 960px) {
+  .story-page-body,
+  .story-certified-inner {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .story-page-section {
+    padding: 56px 0 56px;
+  }
+
+  .story-page-header {
+    margin-bottom: 48px;
+  }
+
+  .story-page-header h1 {
+    font-size: 2rem;
+  }
+
+  .story-page-body p {
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  .story-page-body h2 {
+    font-size: 1.25rem;
+    margin-top: 40px;
+  }
+
+  .story-certified-section {
+    padding: 56px 0;
+  }
+
+  .story-certified-inner h2 {
+    font-size: 1.4rem;
+  }
+}

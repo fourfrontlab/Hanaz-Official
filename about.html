@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | Hanaz Official</title>
+  <meta name="description"
+    content="Learn about Hanaz Official — our story, mission, and commitment to premium, clinically tested skincare crafted in Pakistan.">
+  <meta property="og:title" content="About Us | Hanaz Official">
+  <meta property="og:description"
+    content="Discover the Hanaz Official story. Premium Pakistani skincare backed by science and rooted in purpose.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/about.css">
+  <link rel="stylesheet" href="css/certificate.css">
+</head>
+
+<body class="fade-in-page">
+
+  <!-- ===== UTILITY BAR ===== -->
+  <div class="announcement-bar" id="announcement-bar">
+    <p>Free Shipping on Orders Over Rs. 5,000 — Cash on Delivery Available</p>
+  </div>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <button class="hamburger-btn" id="hamburger-btn"
+        aria-label="Open menu"><span></span><span></span><span></span></button>
+      <a href="index.html" class="nav-logo"><img src="images/hanaz-logo.jpg" alt="Hanaz Official"></a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Shop</a></li>
+        <li><a href="collections.html">Regimens</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="about.html" class="active">About Us</a></li>
+      </ul>
+
+      <div class="nav-icons">
+        <a href="collections.html" class="btn btn-sm btn-primary nav-cta-desktop"
+          style="border-radius:var(--radius-pill); border: 1px solid var(--text-heading);">Build My Regimen</a>
+        <button class="nav-icon-btn" aria-label="Search"><svg viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg></button>
+        <button class="nav-icon-btn" data-open-cart aria-label="Shopping cart">
+          <svg viewBox="0 0 24 24">
+            <circle cx="9" cy="21" r="1" />
+            <circle cx="20" cy="21" r="1" />
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+          </svg>
+          <span class="cart-badge" id="cart-badge-nav">0</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile nav -->
+  <div class="overlay" id="mobile-nav-overlay"></div>
+  <div class="mobile-nav-drawer" id="mobile-nav-drawer">
+    <div class="mobile-nav-header"><a href="index.html" class="nav-logo"><img src="images/hanaz-logo.jpg"
+          alt="Hanaz Official"></a><button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu"><svg
+          viewBox="0 0 24 24">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg></button></div>
+    <div class="mobile-nav-links">
+      <a href="index.html">Home</a>
+      <a href="products.html">Shop</a>
+      <a href="collections.html">Regimens</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About Us</a>
+    </div>
+  </div>
+
+  <!-- Cart drawer -->
+  <div class="overlay" id="cart-overlay"></div>
+  <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-drawer-header">
+      <h3>Shopping Cart</h3><button class="cart-close-btn" aria-label="Close cart"><svg viewBox="0 0 24 24">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg></button>
+    </div>
+    <div class="cart-drawer-body"></div>
+    <div class="cart-drawer-footer">
+      <div class="cart-subtotal"><span>Subtotal</span><strong>Rs. 0</strong></div>
+      <p class="cart-note">Shipping &amp; taxes calculated at checkout</p>
+      <a href="checkout.html" class="btn btn-primary btn-checkout">Check out</a>
+      <a href="products.html" class="btn btn-secondary btn-block">View Cart</a>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Floating WhatsApp -->
+  <a href="https://wa.me/923225386807" class="floating-whatsapp" target="_blank" rel="noopener"
+    aria-label="Chat with us on WhatsApp">
+    <svg viewBox="0 0 24 24">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+  </a>
+
+  <main>
+
+    <!-- ===== OUR STORY ===== -->
+    <section class="story-page-section" id="our-story">
+      <div class="container">
+
+        <div class="story-page-header">
+          <h1>Our Story</h1>
+          <nav class="story-breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Home</a>
+            <span class="sep">&rsaquo;</span>
+            <span>Our Story</span>
+          </nav>
+        </div>
+
+        <div class="story-page-body">
+
+          <p>At Hanaz Official, we believe that beautiful skin begins with trust, quality, and proven results. Our journey started with a simple yet powerful vision: to create a skincare brand that combines the finest ingredients with scientific innovation, delivering transformative results you can see and feel.</p>
+
+          <h2>Our Mission</h2>
+          <p>We are dedicated to providing premium skincare solutions that empower you to achieve your healthiest, most radiant skin. Every serum, moisturizer, cleanser, and mask we create is formulated with carefully selected ingredients that are backed by research and proven to deliver real results.</p>
+
+          <h2>Quality You Can Trust</h2>
+          <p>Quality is at the heart of everything we do. We source only the finest ingredients and adhere to the highest standards of formulation and production. Our commitment to excellence is reflected in our certifications and the trust our customers place in us every day.</p>
+
+          <h2>Your Skin, Our Priority</h2>
+          <p>We understand that every skin journey is unique. That's why we offer personalized support, including dermatologist consultations and progress tracking, to ensure you achieve the results you deserve. Your confidence and satisfaction are what drive us forward.</p>
+
+          <p class="story-tagline"><em>Welcome to Hanaz Official &ndash; where luxury meets results.</em></p>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CERTIFIED EXCELLENCE ===== -->
+    <section class="story-certified-section">
+      <div class="container">
+        <div class="story-certified-inner">
+          <h2>Certified Excellence in Premium Skincare</h2>
+          <p>Every product undergoes rigorous third-party testing and certification to ensure the highest standards of quality, safety, and efficacy.</p>
+          <p><strong>Certified by:</strong> Pakistan Council of Scientific &amp; Industrial Research (PCSIR) and leading dermatological laboratories</p>
+          <p><strong>We test for:</strong> Dermal safety &middot; Microbial purity &middot; Ingredient integrity &middot; Stability</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== OUR CERTIFICATIONS CAROUSEL ===== -->
+    <section class="cert-showcase-section">
+      <div class="container">
+        <div class="cert-showcase-header">
+          <h2>Our Certifications</h2>
+          <p>Every formula is independently tested and certified by Pakistan's leading scientific institutions.</p>
+        </div>
+
+        <div class="cert-slider-outer">
+          <button class="cert-arrow cert-arrow-prev" id="cert-prev" aria-label="Previous certificate">&#8249;</button>
+
+          <div class="cert-slider" id="cert-slider">
+
+            <!-- Card 1: Vitamin C Serum -->
+            <a href="cert-vitamin-c-serum.html" class="cert-card">
+              <div class="cert-card-img">
+                <img src="images/vitamin-c-serum.jpg" alt="Hanaz Vitamin C Serum">
+              </div>
+              <div class="cert-card-info">
+                <span class="cert-badge cert-badge-verified">Verified</span>
+                <h3>Hanaz Vitamin C Serum</h3>
+                <p>Clinically tested Vitamin C serum with laboratory-verified safety and quality standards.</p>
+              </div>
+            </a>
+
+            <!-- Card 2: Face Cleanser -->
+            <a href="cert-face-cleanser.html" class="cert-card">
+              <div class="cert-card-img">
+                <img src="images/product-face-cleanser.jpg" alt="Hanaz Vitamin C Face Cleanser"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                <div class="cert-card-placeholder" style="display:none;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/>
+                  </svg>
+                  <span>Face Cleanser</span>
+                </div>
+              </div>
+              <div class="cert-card-info">
+                <span class="cert-badge cert-badge-verified">Verified</span>
+                <h3>Hanaz Vitamin C Face Cleanser</h3>
+                <p>Daily facial cleanser independently tested for quality, safety, and microbiological purity.</p>
+              </div>
+            </a>
+
+            <!-- Card 3: Coming Soon -->
+            <div class="cert-card" style="cursor:default;">
+              <div class="cert-card-img">
+                <div class="cert-card-placeholder">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+                  </svg>
+                  <span>New Product</span>
+                </div>
+              </div>
+              <div class="cert-card-info">
+                <span class="cert-badge cert-badge-soon">Coming Soon</span>
+                <h3>Coming Soon</h3>
+                <p>Our next skincare innovation is currently under development.</p>
+              </div>
+            </div>
+
+            <!-- Card 4: Coming Soon -->
+            <div class="cert-card" style="cursor:default;">
+              <div class="cert-card-img">
+                <div class="cert-card-placeholder">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+                  </svg>
+                  <span>New Product</span>
+                </div>
+              </div>
+              <div class="cert-card-info">
+                <span class="cert-badge cert-badge-soon">Coming Soon</span>
+                <h3>Coming Soon</h3>
+                <p>Another premium Hanaz skincare product will be launching soon.</p>
+              </div>
+            </div>
+
+
+          <button class="cert-arrow cert-arrow-next" id="cert-next" aria-label="Next certificate">&#8250;</button>
+        </div><!-- /.cert-slider-outer -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-newsletter">
+          <h3>Join Our Skincare Community</h3>
+          <p>Subscribe for exclusive deals, skincare tips, and new product launches straight to your inbox.</p>
+          <form class="newsletter-form" id="footer-newsletter-form">
+            <input type="email" placeholder="Enter your email" required aria-label="Email address">
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+        <div class="footer-social">
+          <span>Follow Us</span>
+          <div class="social-links" style="flex-direction:row; gap:16px; margin-top:8px;">
+            <a href="https://instagram.com/thehanazofficial">Instagram</a>
+            <a href="https://facebook.com/thehanaz">Facebook</a>
+            <a href="https://wa.me/923225386807">WhatsApp</a>
+            <a href="https://tiktok.com/@thehanazofficial">TikTok</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-columns">
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Our Commitments</h4>
+          <ul>
+            <li><a href="#">Sustainability</a></li>
+            <li><a href="about.html#our-story">Our Story</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Customer Care</h4>
+          <ul>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="return-policy.html">Return Policy</a></li>
+            <li><a href="shipping-info.html">Shipping Info</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Get in Touch</h4>
+          <ul>
+            <li><a href="https://wa.me/923225386807" target="_blank" rel="noopener">WhatsApp</a></li>
+            <li><a href="https://instagram.com/thehanazofficial" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://facebook.com/thehanaz" target="_blank" rel="noopener">Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Hanaz Official. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="terms.html">Terms &amp; Conditions</a>
+          <a href="privacy.html">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // ── Certification Slider ──────────────────────────────
+    (function () {
+      const slider  = document.getElementById('cert-slider');
+      const btnPrev = document.getElementById('cert-prev');
+      const btnNext = document.getElementById('cert-next');
+      if (!slider) return;
+
+      const SCROLL_AMT = 280;
+
+      btnPrev && btnPrev.addEventListener('click', () => {
+        slider.scrollBy({ left: -SCROLL_AMT, behavior: 'smooth' });
+      });
+      btnNext && btnNext.addEventListener('click', () => {
+        slider.scrollBy({ left: SCROLL_AMT, behavior: 'smooth' });
+      });
+
+      // Drag to scroll
+      let isDown = false, startX = 0, scrollLeft = 0;
+
+      slider.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startX = e.pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
+      });
+      slider.addEventListener('mouseleave', () => { isDown = false; });
+      slider.addEventListener('mouseup',    () => { isDown = false; });
+      slider.addEventListener('mousemove',  (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x    = e.pageX - slider.offsetLeft;
+        const walk = (x - startX) * 1.5;
+        slider.scrollLeft = scrollLeft - walk;
+      });
+    })();
+  </script>
+</body>
+
+</html>
