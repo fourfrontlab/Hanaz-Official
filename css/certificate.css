@@ -217,7 +217,45 @@
 
 /* ── 2. CERTIFICATE DETAIL PAGE ─────────────────────── */
 
-/* Page hero */
+/* Product header strip (breadcrumb + product name row) */
+.cert-product-header {
+  padding: 28px 0 0;
+  background: var(--bg);
+}
+
+.cert-product-title-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 24px 0 28px;
+}
+
+.cert-product-thumb {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg-alt);
+  flex-shrink: 0;
+}
+
+.cert-product-name {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-heading);
+  letter-spacing: -0.02em;
+  margin: 0 0 4px;
+  line-height: 1.2;
+}
+
+.cert-product-sub {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* Page hero / tab bar */
 .cert-detail-hero {
   padding: 56px 0 0;
   background: var(--bg);
