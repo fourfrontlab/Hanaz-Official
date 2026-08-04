@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hanaz Vitamin C Serum | Hanaz Official</title>
-  <meta name="description" content="Premium Vitamin C Serum. Brightens complexion and reduces dark spots.">
+  <meta name="description"
+    content="Premium Vitamin C Serum with SAP 10%, Niacinamide, Hyaluronic Acid and Ferulic Acid. Dermatologist & PCSIR tested. Brightens, firms and deeply hydrates.">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/product-detail.css">
 </head>
@@ -49,204 +50,273 @@
     </div>
   </nav>
 
-  <!-- Mobile nav / Cart drawer (omitted here for brevity in visual representation, but should be same) -->
-  <!-- ... skipping full HTML for nav drawers to save some space, they are identical to index.html ... -->
+  <!-- Mobile nav drawer -->
   <div class="overlay" id="mobile-nav-overlay"></div>
   <div class="mobile-nav-drawer" id="mobile-nav-drawer">
-    <div class="mobile-nav-header"><a href="index.html" class="nav-logo"><img src="images/hanaz-logo.jpg" alt="Hanaz Official"></a><button class="mobile-nav-close"
-        id="mobile-nav-close"><svg viewBox="0 0 24 24">
+    <div class="mobile-nav-header">
+      <a href="index.html" class="nav-logo"><img src="images/hanaz-logo.jpg" alt="Hanaz Official"></a>
+      <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu">
+        <svg viewBox="0 0 24 24">
           <line x1="18" y1="6" x2="6" y2="18" />
           <line x1="6" y1="6" x2="18" y2="18" />
-        </svg></button></div>
-    <div class="mobile-nav-links"><a href="index.html">Home</a><a href="products.html">Shop</a><a
-        href="collections.html">Regimens</a><a href="contact.html">Contact</a><a href="about.html">About Us</a></div>
+        </svg>
+      </button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="index.html">Home</a>
+      <a href="products.html">Shop</a>
+      <a href="collections.html">Regimens</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About Us</a>
+    </div>
   </div>
+
+  <!-- Cart drawer -->
   <div class="overlay" id="cart-overlay"></div>
   <div class="cart-drawer" id="cart-drawer">
     <div class="cart-drawer-header">
-      <h3>Shopping Cart</h3><button class="cart-close-btn"><svg viewBox="0 0 24 24">
+      <h3>Shopping Cart</h3>
+      <button class="cart-close-btn" aria-label="Close cart">
+        <svg viewBox="0 0 24 24">
           <line x1="18" y1="6" x2="6" y2="18" />
           <line x1="6" y1="6" x2="18" y2="18" />
-        </svg></button>
+        </svg>
+      </button>
     </div>
     <div class="cart-drawer-body"></div>
     <div class="cart-drawer-footer">
       <div class="cart-subtotal"><span>Subtotal</span><strong>Rs. 0</strong></div>
-      <p class="cart-note">Shipping & taxes calculated at checkout</p><a href="checkout.html"
-        class="btn btn-primary btn-checkout">Check out</a>
+      <p class="cart-note">Shipping &amp; taxes calculated at checkout</p>
+      <a href="checkout.html" class="btn btn-primary btn-checkout">Check out</a>
     </div>
   </div>
+
   <div class="toast-container" id="toast-container"></div>
 
+  <!-- Floating WhatsApp -->
+  <a href="https://wa.me/923225386807" class="floating-whatsapp" target="_blank" rel="noopener"
+    aria-label="Chat with us on WhatsApp">
+    <svg viewBox="0 0 24 24">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+  </a>
+
   <main>
-    <div class="breadcrumb container">
-      <a href="index.html">Home</a>
-      <span class="sep">/</span>
-      <a href="products.html">Shop</a>
-      <span class="sep">/</span>
-      <span>Hanaz Vitamin C Serum</span>
+
+    <!-- ── Breadcrumb ──────────────────────────────── -->
+    <div class="container">
+      <nav class="pdp-breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="sep">&rsaquo;</span>
+        <a href="products.html">Shop</a>
+        <span class="sep">&rsaquo;</span>
+        <span>Hanaz Vitamin C Serum</span>
+      </nav>
     </div>
 
-    <!-- Product Hero -->
-    <section class="pdp-hero section-padding" style="padding-top:0;">
+    <!-- ════════════════════════════════════════════
+         PRODUCT HERO — Gallery + Info
+         ════════════════════════════════════════════ -->
+    <section class="pdp-hero">
       <div class="container">
         <div class="pdp-grid">
 
-          <!-- Left: Gallery -->
+          <!-- LEFT: Gallery -->
           <div class="pdp-gallery">
-            <div class="pdp-main-image">
-              <img src="images/vitamin-c-serum.jpg" alt="Hanaz Vitamin C Serum" id="main-product-image">
-            </div>
-            <div class="pdp-thumbs">
-              <button class="pdp-thumb active"><img src="images/vitamin-c-serum.jpg" alt="View 1"></button>
-              <button class="pdp-thumb"><img src="images/vitamin-c-packaging.jpg" alt="View 2"></button>
-              <button class="pdp-thumb"><img src="images/vitamin-c-dropper.jpg" alt="View 3"></button>
-              <button class="pdp-thumb"><img src="images/vitamin-c-texture.jpg" alt="View 4"></button>
-              <button class="pdp-thumb"><img src="images/vitamin-c-props.jpg" alt="View 5"></button>
-            </div>
-          </div>
 
-          <!-- Right: Info -->
+            <!-- Vertical thumbnail rail -->
+            <div class="pdp-thumb-rail" id="pdp-thumb-rail">
+              <button class="pdp-thumb active" data-img="images/vitamin-c-serum.jpg" aria-label="View 1"
+                aria-pressed="true">
+                <img src="images/vitamin-c-serum.jpg" alt="Hanaz Vitamin C Serum — front view" loading="eager">
+              </button>
+              <button class="pdp-thumb" data-img="images/vitamin-c-packaging.jpg" aria-label="View 2"
+                aria-pressed="false">
+                <img src="images/vitamin-c-packaging.jpg" alt="Hanaz Vitamin C Serum — packaging" loading="lazy">
+              </button>
+              <button class="pdp-thumb" data-img="images/vitamin-c-dropper.jpg" aria-label="View 3"
+                aria-pressed="false">
+                <img src="images/vitamin-c-dropper.jpg" alt="Hanaz Vitamin C Serum — dropper detail" loading="lazy">
+              </button>
+            </div>
+
+            <!-- Hero image -->
+            <div class="pdp-main-image" id="pdp-main-wrap">
+              <img src="images/vitamin-c-serum.jpg" alt="Hanaz Vitamin C Serum" id="main-product-image" loading="eager">
+            </div>
+
+          </div><!-- /.pdp-gallery -->
+
+          <!-- RIGHT: Product info -->
           <div class="pdp-info">
+
             <h1>Hanaz Vitamin C Serum</h1>
 
+            <!-- Price -->
             <div class="pdp-price-row">
               <span class="pdp-sale-price">Rs. 1,599</span>
               <span class="pdp-original-price">Rs. 2,499</span>
               <span class="pdp-save">Save 36%</span>
             </div>
 
+            <!-- Dermatologist badge -->
             <div class="pdp-derm-pill">Dermatologist Tested</div>
 
+            <!-- Separator to match The Ordinary double lines -->
+            <hr class="pdp-separator" />
+
             <!-- Quantity -->
-            <div class="qty-stepper" style="margin-bottom: var(--space-lg); height: 48px;">
-              <button id="qty-minus" aria-label="Decrease quantity" style="width: 48px;">−</button>
-              <span class="qty-stepper-val" id="qty-value" style="width: 48px;">1</span>
-              <button id="qty-plus" aria-label="Increase quantity" style="width: 48px;">+</button>
+            <p class="pdp-qty-label">Quantity</p>
+            
+            <div class="pdp-cart-row">
+              <div class="qty-stepper">
+                <button id="qty-minus" aria-label="Decrease quantity">−</button>
+                <span class="qty-stepper-val" id="qty-value">1</span>
+                <button id="qty-plus" aria-label="Increase quantity">+</button>
+              </div>
+              <button class="btn btn-primary" id="btn-add-cart">Add to Cart</button>
             </div>
 
-            <!-- Actions -->
-            <button class="btn btn-primary btn-block" id="btn-add-cart">Add to Cart</button>
-            <a href="https://wa.me/923225386807?text=Hi%2C%20I%20want%20to%20order%20Hanaz%20Vitamin%20C%20Serum"
-              class="btn btn-secondary btn-block mt-sm" style="margin-top:8px;" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24">
-                <path
-                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-              </svg>
-              Chat on WhatsApp
-            </a>
+            <!-- WhatsApp as Share-like action or secondary action below -->
+            <div class="pdp-share-row">
+              <span class="pdp-share-label">Order via:</span>
+              <a href="https://wa.me/923225386807?text=Hi%2C%20I%20want%20to%20order%20Hanaz%20Vitamin%20C%20Serum"
+                class="btn-whatsapp-icon-link" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                </svg>
+              </a>
+            </div>
 
-            <!-- Delivery -->
+            <!-- Delivery info -->
             <div class="pdp-delivery">
-              <p>Estimated delivery: 3–5 business days</p>
-              <p>Free shipping & returns on all orders</p>
+              <div class="pdp-delivery-row">
+                <svg class="pdp-delivery-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="1" y="3" width="15" height="13" />
+                  <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
+                  <circle cx="5.5" cy="18.5" r="2.5" />
+                  <circle cx="18.5" cy="18.5" r="2.5" />
+                </svg>
+                Estimated delivery: 3–5 business days
+              </div>
+              <div class="pdp-delivery-row">
+                <svg class="pdp-delivery-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <polyline points="20 12 20 22 4 22 4 12" />
+                  <rect x="2" y="7" width="20" height="5" />
+                  <line x1="12" y1="22" x2="12" y2="7" />
+                  <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z" />
+                  <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z" />
+                </svg>
+                Free shipping &amp; returns on all orders
+              </div>
             </div>
 
             <!-- Accordions -->
             <div class="accordion-group">
               <div class="accordion">
-                <button class="accordion-header">Customer Support & Care <svg viewBox="0 0 24 24">
+                <button class="accordion-header">
+                  Customer Support &amp; Care
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
                     <polyline points="6 9 12 15 18 9" />
-                  </svg></button>
+                  </svg>
+                </button>
                 <div class="accordion-body">
                   <div class="accordion-inner">Our dedicated support team is available Monday–Saturday, 9 AM – 6 PM PKT.
                     We respond to all queries within 24 hours.</div>
                 </div>
               </div>
               <div class="accordion">
-                <button class="accordion-header">Return Policy <svg viewBox="0 0 24 24">
+                <button class="accordion-header">
+                  Return Policy
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
                     <polyline points="6 9 12 15 18 9" />
-                  </svg></button>
+                  </svg>
+                </button>
                 <div class="accordion-body">
                   <div class="accordion-inner">We offer a 3-day money-back guarantee. Products must be unused and in
                     original packaging. Return shipping is free.</div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+
+          </div><!-- /.pdp-info -->
+        </div><!-- /.pdp-grid -->
       </div>
     </section>
 
-    <!-- Tabs -->
-    <section class="pdp-tabs-section section-padding">
+    <!-- ════════════════════════════════════════════
+         PRODUCT DESCRIPTION
+         ════════════════════════════════════════════ -->
+    <section class="pdp-description-section" id="pdp-description">
       <div class="container">
-        <div class="pdp-tabs-header">
-          <button class="pdp-tab active" data-target="desc">Description</button>
-          <button class="pdp-tab" data-target="ingr">Ingredients</button>
-          <button class="pdp-tab" data-target="use">How to Use</button>
-          <div class="pdp-tab-underline"></div>
-        </div>
+        <div class="pdp-desc-grid">
 
-        <div class="pdp-tab-content active" id="tab-desc">
-          <div class="pdp-tab-inner">
-            <h3>Brighten, Firm & Glow</h3>
-            <p>Our premium Vitamin C Serum is formulated with 10% Ethyl-Ascorbic Acid (SAP — stable Vitamin C), combined
-              with Niacinamide, Hyaluronic Acid, and Ferulic Acid. Dermatologist and PCSIR-tested.</p>
-            <ul>
-              <li>Brightens and evens skin tone</li>
-              <li>Reduces dark spots and hyperpigmentation</li>
-              <li>Boosts collagen for firmer skin</li>
-              <li>Deep hydration with Hyaluronic Acid</li>
-            </ul>
-          </div>
-        </div>
+          <!-- Left nav (desktop) -->
+          <nav class="pdp-desc-nav" aria-label="Description sections">
+            <button class="pdp-desc-nav-item active" data-target="pdp-block-intro">Description</button>
+            <button class="pdp-desc-nav-item" data-target="pdp-block-ingredients">Key Ingredients</button>
 
-        <div class="pdp-tab-content" id="tab-ingr">
-          <div class="pdp-tab-inner">
-            <h3>Key Ingredients</h3>
-            <ul>
-              <li><strong>Vitamin C (SAP 10%)</strong> — stable, non-irritating form of Vitamin C</li>
-              <li><strong>Niacinamide</strong> — brightens, reduces pores, calms inflammation</li>
-              <li><strong>Hyaluronic Acid</strong> — intense hydration, plumping effect</li>
-              <li><strong>Ferulic Acid</strong> — antioxidant booster</li>
-            </ul>
-          </div>
-        </div>
+          </nav>
 
-        <div class="pdp-tab-content" id="tab-use">
-          <div class="pdp-tab-inner">
-            <h3>How to Use</h3>
-            <div class="how-to-use-steps">
-              <div class="how-to-use__step"><strong>Step 1:</strong> Cleanse face thoroughly</div>
-              <div class="how-to-use__step"><strong>Step 2:</strong> Apply 3–4 drops of serum to face and neck</div>
-              <div class="how-to-use__step"><strong>Step 3:</strong> Gently pat in upward strokes until absorbed</div>
-              <div class="how-to-use__step"><strong>Step 4:</strong> Follow with moisturizer and SPF</div>
+          <!-- Right content -->
+          <div class="pdp-desc-body">
+
+            <!-- 1. Introduction -->
+            <div class="pdp-desc-block" id="pdp-block-intro">
+              <h2 class="pdp-desc-title">Product Description</h2>
+              <h3 class="pdp-desc-subtitle">Brighten, Firm &amp; Glow</h3>
+              <p>Our premium Vitamin C Serum is formulated with 10% Stable Vitamin C (SAP), combined with Niacinamide,
+                Hyaluronic Acid, and Ferulic Acid. Dermatologist-tested and PCSIR-tested for quality and safety.</p>
             </div>
-          </div>
-        </div>
+
+            <!-- 2. Key Ingredients -->
+            <div class="pdp-desc-block" id="pdp-block-ingredients">
+              <h2>Key Ingredients</h2>
+              <div class="pdp-ingredient-list">
+                <div class="pdp-ingredient-item">
+                  <div class="pdp-ingredient-name">Vitamin C (SAP 10%)</div>
+                  <p class="pdp-ingredient-desc">Stable, non-irritating Vitamin C that brightens skin and supports
+                    collagen production.</p>
+                </div>
+                <div class="pdp-ingredient-item">
+                  <div class="pdp-ingredient-name">Niacinamide</div>
+                  <p class="pdp-ingredient-desc">Helps reduce enlarged pores, calm inflammation, and improve overall
+                    skin tone.</p>
+                </div>
+                <div class="pdp-ingredient-item">
+                  <div class="pdp-ingredient-name">Hyaluronic Acid</div>
+                  <p class="pdp-ingredient-desc">Holds up to 1,000× its weight in water for deep, lasting hydration
+                    and a plump complexion.</p>
+                </div>
+                <div class="pdp-ingredient-item">
+                  <div class="pdp-ingredient-name">Ferulic Acid</div>
+                  <p class="pdp-ingredient-desc">Plant-based antioxidant that stabilises Vitamin C and amplifies its
+                    brightening effects.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3. Product Details -->
+
+
+            <!-- 4. Benefits -->
+
+
+          </div><!-- /.pdp-desc-body -->
+        </div><!-- /.pdp-desc-grid -->
       </div>
     </section>
 
-    <!-- Formula section reused from home -->
-    <section class="formula-section section-padding">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="eyebrow">What's in the Formula</span>
-          <h2>Clinical Ingredients</h2>
-        </div>
-        <div class="formula-grid">
-          <div class="formula-col reveal" style="transition-delay: 0.1s;">
-            <h4>Vitamin C (SAP 10%)</h4>
-            <p>A stable, non-irritating form that brightens and reduces dark spots without oxidizing.</p>
-          </div>
-          <div class="formula-col reveal" style="transition-delay: 0.2s;">
-            <h4>Niacinamide</h4>
-            <p>Minimizes pores, calms inflammation, and strengthens the skin barrier.</p>
-          </div>
-          <div class="formula-col reveal" style="transition-delay: 0.3s;">
-            <h4>Hyaluronic Acid</h4>
-            <p>Holds 1000x its weight in water for intense, lasting hydration.</p>
-          </div>
-          <div class="formula-col reveal" style="transition-delay: 0.4s;">
-            <h4>Ferulic Acid</h4>
-            <p>Plant-based antioxidant that enhances Vitamin C stability.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- ════════════════════════════════════════════
+         FORMULA (Clinical ingredients visual)
+         ════════════════════════════════════════════ -->
 
-    <!-- Reviews -->
+
+    <!-- ════════════════════════════════════════════
+         REVIEWS
+         ════════════════════════════════════════════ -->
     <section class="reviews-section section-padding reveal">
       <div class="container">
         <div class="section-header" style="display:flex; justify-content:space-between; align-items:flex-end;">
@@ -254,7 +324,9 @@
             <span class="eyebrow">Reviews</span>
             <h2>What Our Customers Say</h2>
           </div>
-          <a href="javascript:void(0)" onclick="window.HanazToast && window.HanazToast('Review functionality coming soon!')" style="font-size:13px; text-decoration:underline;">Write a Review</a>
+          <a href="javascript:void(0)"
+            onclick="window.HanazToast && window.HanazToast('Review functionality coming soon!')"
+            style="font-size:13px; text-decoration:underline;">Write a Review</a>
         </div>
         <div class="scroll-snap-row">
           <div class="scroll-snap-item review-card">
@@ -282,7 +354,7 @@
       </div>
     </section>
 
-    <!-- Sticky Add to Cart Bar -->
+    <!-- ── Sticky Add to Cart Bar ──────────────── -->
     <div class="sticky-cart-bar" id="sticky-cart-bar">
       <div class="container sticky-cart-inner">
         <div class="sticky-cart-info">
@@ -292,21 +364,29 @@
             <div class="sticky-cart-price">Rs. 1,599</div>
           </div>
         </div>
-        <button class="btn btn-primary btn-sm" onclick="window.HanazCart && window.HanazCart.add({id:'hanaz-vitamin-c-serum',name:'Vitamin C Serum',price:1599,image:'images/vitamin-c-serum.jpg',qty:1})">Add to Cart</button>
+        <button class="btn btn-primary btn-sm"
+          onclick="window.HanazCart && window.HanazCart.add({id:'hanaz-vitamin-c-serum',name:'Vitamin C Serum',price:1599,image:'images/vitamin-c-serum.jpg',qty:1})">
+          Add to Cart
+        </button>
       </div>
     </div>
+
   </main>
 
+  <!-- ===== FOOTER ===== -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top">
         <div class="footer-newsletter">
           <h3>Join Our Skincare Community</h3>
           <p>Subscribe for exclusive deals, skincare tips, and new product launches straight to your inbox.</p>
-          <form class="newsletter-form" id="footer-newsletter-form"><input type="email" placeholder="Enter your email"
-              required aria-label="Email address"><button type="submit">Subscribe</button></form>
+          <form class="newsletter-form" id="footer-newsletter-form">
+            <input type="email" placeholder="Enter your email" required aria-label="Email address">
+            <button type="submit">Subscribe</button>
+          </form>
         </div>
-        <div class="footer-social"><span>Follow Us</span>
+        <div class="footer-social">
+          <span>Follow Us</span>
           <div class="social-links" style="flex-direction:row; gap:16px; margin-top:8px;">
             <a href="https://instagram.com/thehanazofficial">Instagram</a>
             <a href="https://facebook.com/thehanaz">Facebook</a>
@@ -319,7 +399,7 @@
         <div class="footer-col">
           <h4>Company</h4>
           <ul>
-            <li><a href="index.html#our-story">About Us</a></li>
+            <li><a href="about.html">About Us</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
@@ -327,7 +407,7 @@
           <h4>Our Commitments</h4>
           <ul>
             <li><a href="#">Sustainability</a></li>
-            <li><a href="index.html#our-story">Our Story</a></li>
+            <li><a href="about.html#our-story">Our Story</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -360,6 +440,74 @@
   <script src="js/cart.js"></script>
   <script src="js/main.js"></script>
   <script src="js/product-detail.js"></script>
+  <script>
+    // ── Gallery image switching ──────────────────────────
+    (function () {
+      const thumbs = document.querySelectorAll('.pdp-thumb');
+      const mainImg = document.getElementById('main-product-image');
+      if (!thumbs.length || !mainImg) return;
+
+      thumbs.forEach(thumb => {
+        thumb.addEventListener('click', function () {
+          const newSrc = this.dataset.img;
+          if (!newSrc || mainImg.src.endsWith(newSrc)) return;
+
+          // Fade transition
+          mainImg.classList.add('switching');
+          setTimeout(() => {
+            mainImg.src = newSrc;
+            mainImg.onload = () => mainImg.classList.remove('switching');
+          }, 180);
+
+          // Active state
+          thumbs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-pressed', 'false'); });
+          this.classList.add('active');
+          this.setAttribute('aria-pressed', 'true');
+        });
+      });
+    })();
+
+    // ── Description nav highlighting on scroll ──────────
+    (function () {
+      const navItems = document.querySelectorAll('.pdp-desc-nav-item');
+      const blocks = document.querySelectorAll('.pdp-desc-block');
+      if (!navItems.length) return;
+
+      navItems.forEach(btn => {
+        btn.addEventListener('click', function () {
+          const target = document.getElementById(this.dataset.target);
+          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      });
+
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            navItems.forEach(btn => {
+              btn.classList.toggle('active', btn.dataset.target === id);
+            });
+          }
+        });
+      }, { rootMargin: '-20% 0px -70% 0px' });
+
+      blocks.forEach(block => observer.observe(block));
+    })();
+
+    // ── Sticky cart bar visibility ──────────────────────
+    (function () {
+      const bar = document.getElementById('sticky-cart-bar');
+      const addBtn = document.getElementById('btn-add-cart');
+      if (!bar || !addBtn) return;
+
+      const io = new IntersectionObserver(entries => {
+        bar.classList.toggle('visible', !entries[0].isIntersecting);
+      }, { threshold: 0 });
+
+      io.observe(addBtn);
+    })();
+  </script>
+
 </body>
 
 </html>
