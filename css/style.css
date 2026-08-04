@@ -37,6 +37,9 @@
   --nav-height-shrunk: 64px;
   --announcement-h: 32px;
 
+  /* Video carousel card width */
+  --vc-card-w: 340px;
+
   /* Animation timing */
   --ease-out: cubic-bezier(0.2, 0, 0, 1);
   --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
