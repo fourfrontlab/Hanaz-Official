@@ -8,7 +8,7 @@
   /* Colors */
   --bg: #FAFAFA;
   --bg-card: #FFFFFF;
-  --text-heading: #1C1C1C;
+  --text-heading: #181818;
   --text-body: #4A4A4A;
   --text-muted: #8A8A8A;
   --accent: #2D6A4F;
@@ -258,8 +258,10 @@ h4 {
 
 .hover-swap img {
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: center;
   transition: opacity 0.3s ease;
@@ -543,6 +545,7 @@ h4 {
   display: flex;
   align-items: center;
 }
+
 .nav-logo img {
   height: 40px;
   width: auto;
@@ -1233,6 +1236,7 @@ h4 {
   .sticky-cart-info .sticky-cart-title {
     font-size: 12px;
   }
+
   .sticky-cart-info .sticky-cart-img {
     display: none;
   }
