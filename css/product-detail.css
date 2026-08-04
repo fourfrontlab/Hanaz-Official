@@ -336,64 +336,6 @@
   flex-shrink: 0;
 }
 
-/* ── Accordions ──────────────────────────────────────── */
-.accordion-group {
-  border-top: 1px solid var(--border);
-  margin-top: 0;
-}
-
-.accordion {
-  border-bottom: 1px solid var(--border);
-}
-
-.accordion-header {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 14px 0;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--text-body);
-  letter-spacing: 0.01em;
-  transition: color 0.15s;
-  background: transparent;
-}
-
-.accordion-header:hover {
-  color: var(--text-heading);
-}
-
-.accordion-header svg {
-  width: 16px;
-  height: 16px;
-  stroke: currentColor;
-  stroke-width: 1.5;
-  fill: none;
-  transition: transform 0.28s ease;
-  flex-shrink: 0;
-}
-
-.accordion.active .accordion-header {
-  color: var(--text-heading);
-}
-
-.accordion.active .accordion-header svg {
-  transform: rotate(180deg);
-}
-
-.accordion-body {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.35s ease;
-}
-
-.accordion-inner {
-  padding-bottom: 14px;
-  font-size: 13px;
-  color: var(--text-muted);
-  line-height: 1.7;
-}
 
 /* ════════════════════════════════════════════════════════
    PRODUCT DESCRIPTION — The Ordinary layout inspiration
