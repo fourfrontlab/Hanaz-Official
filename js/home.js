@@ -266,6 +266,22 @@
     let isPointerDown = false;
     let dragStartX = 0;
     let dragStartScroll = 0;
+    let isSectionVisible = false;
+
+    const showcaseSection = document.getElementById('video-showcase') || outer.closest('.video-carousel-section');
+    if (showcaseSection) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (isSectionVisible !== entry.isIntersecting) {
+            isSectionVisible = entry.isIntersecting;
+            updateActiveCard();
+          }
+        });
+      }, {
+        threshold: 0.3
+      });
+      observer.observe(showcaseSection);
+    }
 
     // 3. Helpers
     function getCardWidth() {
@@ -329,7 +345,7 @@
 
         if (!video) return;
 
-        if (isCurrentlyActive) {
+        if (isCurrentlyActive && isSectionVisible) {
           const playPromise = video.play();
           if (playPromise !== undefined) {
             playPromise.catch(() => {});
