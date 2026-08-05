@@ -756,13 +756,15 @@
 
 .htuc-drawer-scroll {
   flex: 1;
-  overflow-y: auto;
+  overflow: hidden;
   overscroll-behavior: contain;
 }
 
 .htuc-drawer-hero {
-  height: 230px;
+  height: 280px;
   width: 100%;
+  border-radius: 8px;
+  margin-bottom: 20px;
   overflow: hidden;
   background: var(--bg-alt, #f5f5f3);
   flex-shrink: 0;
@@ -777,23 +779,26 @@
 }
 
 .htuc-drawer-body {
-  padding: 24px 32px 32px;
+  padding: 24px 32px 24px;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .htuc-drawer-body h2 {
-  font-size: 32px;
+  font-size: 26px;
   font-weight: 700;
   color: var(--text-heading);
   letter-spacing: -0.02em;
   line-height: 1.15;
-  margin: 0 0 12px 0;
+  margin: 0 0 16px 0;
+  padding-right: 40px;
 }
 
 .htuc-drawer-intro {
-  font-size: 14px;
+  font-size: 13.5px;
   color: var(--text-muted);
-  line-height: 1.5;
-  margin-bottom: 24px;
+  line-height: 1.4;
+  margin-bottom: 16px;
 }
 
 .htuc-steps {
@@ -806,12 +811,12 @@
 .htuc-step-item {
   display: flex;
   align-items: center;
-  gap: 20px;
-  padding: 14px 0;
+  gap: 16px;
+  padding: 12px 0;
   border-bottom: 1px solid var(--border);
-  font-size: 14px;
+  font-size: 13.5px;
   color: var(--text-body);
-  line-height: 1.4;
+  line-height: 1.35;
 }
 
 .htuc-step-num {
@@ -960,27 +965,29 @@
   }
 
   .htuc-drawer-hero {
-    height: 210px;
+    height: 150px;
+    margin-bottom: 16px;
   }
 
   .htuc-drawer-body {
-    padding: 20px 24px 32px;
+    padding: 24px 24px 20px;
   }
 
   .htuc-drawer-body h2 {
-    font-size: 26px;
-    margin-bottom: 10px;
+    font-size: 24px;
+    margin-bottom: 12px;
+    padding-right: 32px;
   }
 
   .htuc-drawer-intro {
-    font-size: 13.5px;
-    margin-bottom: 20px;
+    font-size: 13px;
+    margin-bottom: 16px;
   }
 
   .htuc-step-item {
-    gap: 16px;
-    padding: 12px 0;
-    font-size: 13.5px;
+    gap: 12px;
+    padding: 10px 0;
+    font-size: 13px;
   }
 }
 
@@ -1024,11 +1031,11 @@
   }
 
   .htuc-drawer-hero {
-    height: 190px;
+    height: 300px;
   }
 
   .htuc-drawer-body {
-    padding: 18px 20px 28px;
+    padding: 32px 20px 28px;
   }
 
   .htuc-drawer-body h2 {
