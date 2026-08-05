@@ -211,7 +211,55 @@
     observer.observe(mainSection);
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
+  /* ========================================================================
+     8. PDP FAQ ACCORDION
+     ======================================================================== */
+  function initPdpFaq() {
+    const items = document.querySelectorAll('.pdp-faq-item');
+    if (!items.length) return;
+
+    items.forEach(item => {
+      const trigger = item.querySelector('.pdp-faq-trigger');
+      const panel = item.querySelector('.pdp-faq-panel');
+      if (!trigger || !panel) return;
+
+      trigger.addEventListener('click', () => {
+        const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+
+        // Close all items in the accordion group
+        items.forEach(otherItem => {
+          const otherTrigger = otherItem.querySelector('.pdp-faq-trigger');
+          const otherPanel = otherItem.querySelector('.pdp-faq-panel');
+          if (otherTrigger && otherPanel) {
+            otherTrigger.setAttribute('aria-expanded', 'false');
+            otherPanel.style.maxHeight = '0';
+            otherPanel.setAttribute('hidden', '');
+          }
+        });
+
+        // Toggle open if it wasn't open
+        if (!isExpanded) {
+          trigger.setAttribute('aria-expanded', 'true');
+          panel.removeAttribute('hidden');
+          // Allow reflow before setting maxHeight
+          panel.style.maxHeight = panel.scrollHeight + 'px';
+        }
+      });
+    });
+
+    // Recalculate max-height on window resize for any open panel
+    window.addEventListener('resize', () => {
+      const activeTrigger = document.querySelector('.pdp-faq-trigger[aria-expanded="true"]');
+      if (activeTrigger) {
+        const activePanel = activeTrigger.closest('.pdp-faq-item')?.querySelector('.pdp-faq-panel');
+        if (activePanel) {
+          activePanel.style.maxHeight = activePanel.scrollHeight + 'px';
+        }
+      }
+    });
+  }
+
+  function init() {
     initGallery();
     initQty();
     initAddToCart();
@@ -219,6 +267,13 @@
     initTabs();
     saveRecentlyViewed();
     initStickyCart();
-  });
+    initPdpFaq();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 
 })();
