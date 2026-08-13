@@ -339,18 +339,20 @@
 
         const orderNumber = 'HO-' + Date.now();
 
-        const { data: order, error: orderError } = await window.supabase
+        // Generate client-side UUID so we don't need a SELECT-back (anon role has INSERT but not SELECT)
+        const orderId = crypto.randomUUID();
+
+        const { error: orderError } = await window.supabase
           .from('orders')
           .insert({
+            id: orderId,
             order_number: orderNumber,
             customer_name: formData.name,
             phone: formData.phone,
             address: formData.address,
             payment_method: formData.paymentMethod,
             total_amount: formData.total,
-          })
-          .select()
-          .single();
+          });
 
         if (orderError) {
           console.error('Order failed:', orderError);
@@ -361,7 +363,7 @@
         }
 
         const orderItems = cartItems.map(item => ({
-          order_id: order.id,
+          order_id: orderId,
           product_id: item.id,
           title_snapshot: item.name,
           qty: item.qty,
@@ -400,4 +402,5 @@
 </body>
 
 </html>
+
 
