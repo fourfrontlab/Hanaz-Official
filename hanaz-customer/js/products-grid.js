@@ -62,7 +62,7 @@ window.renderProductGrid = function(products, containerId) {
           <div class="price">
             ${priceHtml}
           </div>
-          <button class="btn btn-primary btn-sm btn-add-cart" onclick="event.preventDefault(); window.HanazCart && window.HanazCart.add({id:'${product.id}',name:'${safeTitle}',price:${salePrice},image:'${imageUrlFront}',qty:1})">Add to Cart</button>
+          <button class="btn btn-primary btn-sm btn-add-cart" onclick="event.preventDefault(); window.HanazCart && window.HanazCart.add({id:'${product.id}',name:'${safeTitle}',price:${salePrice},image:'${imageUrlFront}',qty:1, cost_price:${product.cost_price}})">Add to Cart</button>
         </div>
       </a>
     `;
@@ -87,3 +87,4 @@ window.renderProductGrid = function(products, containerId) {
     window.initWishlist();
   }
 };
+

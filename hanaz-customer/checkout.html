@@ -316,9 +316,71 @@
       renderCheckout();
       window.addEventListener('hanazCartUpdated', renderCheckout);
 
-      form.addEventListener('submit', (e) => {
+            form.addEventListener('submit', async (e) => {
         e.preventDefault();
         
+        const cartItems = window.HanazCart ? window.HanazCart.getItems() : [];
+        if (!cartItems || cartItems.length === 0) {
+          alert("Your cart is empty.");
+          return;
+        }
+
+        const submitBtn = form.querySelector('button[type="submit"]');
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Processing...';
+
+        const formData = {
+          name: document.getElementById('co-name').value,
+          phone: document.getElementById('co-phone').value,
+          address: document.getElementById('co-address').value + ', ' + document.getElementById('co-city').value + (document.getElementById('co-postal').value ? ', ' + document.getElementById('co-postal').value : ''),
+          paymentMethod: document.querySelector('input[name="payment_method"]:checked').value,
+          total: window.HanazCart.getSubtotal() + (window.HanazCart.getSubtotal() >= 5000 ? 0 : 200)
+        };
+
+        const orderNumber = 'HO-' + Date.now();
+
+        const { data: order, error: orderError } = await window.supabase
+          .from('orders')
+          .insert({
+            order_number: orderNumber,
+            customer_name: formData.name,
+            phone: formData.phone,
+            address: formData.address,
+            payment_method: formData.paymentMethod,
+            total_amount: formData.total,
+          })
+          .select()
+          .single();
+
+        if (orderError) {
+          console.error('Order failed:', orderError);
+          alert('Failed to place order. Please try again or contact support.');
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Place Order';
+          return;
+        }
+
+        const orderItems = cartItems.map(item => ({
+          order_id: order.id,
+          product_id: item.id,
+          title_snapshot: item.name,
+          qty: item.qty,
+          price_at_order: item.price,
+          cost_at_order: item.cost_price || 0,
+        }));
+
+        const { error: itemsError } = await window.supabase
+          .from('order_items')
+          .insert(orderItems);
+
+        if (itemsError) {
+          console.error('Order items failed:', itemsError);
+          alert('There was an issue processing your order items. Please contact support.');
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Place Order';
+          return;
+        }
+
         // Show success state
         grid.style.display = 'none';
         success.style.display = 'block';
@@ -330,7 +392,6 @@
           localStorage.removeItem('hanazCart');
         }
         
-        // In a real app we'd send data to backend here.
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
       
@@ -339,3 +400,4 @@
 </body>
 
 </html>
+
