@@ -112,7 +112,7 @@
         <span class="sep">&rsaquo;</span>
         <a href="products.html">Shop</a>
         <span class="sep">&rsaquo;</span>
-        <span>Hanaz Vitamin C Serum</span>
+        <span id="pdp-breadcrumb-title">...</span>
       </nav>
     </div>
 
@@ -121,50 +121,29 @@
          ════════════════════════════════════════════ -->
     <section class="pdp-hero">
       <div class="container">
-        <div class="pdp-grid">
-
+                <div id="pdp-error-container" style="display:none; text-align:center; padding:100px 20px;">
+          <h2>Product Not Found</h2>
+          <p style="margin-top:20px; color:var(--text-muted);">We couldn't find the product you're looking for.</p>
+          <a href="products.html" class="btn btn-primary" style="margin-top:30px;">Back to Shop</a>
+        </div>
+        <div class="pdp-grid" id="pdp-main-container">
           <!-- LEFT: Gallery -->
-          <div class="pdp-gallery">
-
-            <!-- Vertical thumbnail rail -->
-            <div class="pdp-thumb-rail" id="pdp-thumb-rail">
-              <button class="pdp-thumb active" data-img="images/vitamin-c-serum.jpg" aria-label="View 1"
-                aria-pressed="true">
-                <img src="images/vitamin-c-serum.jpg" alt="Hanaz Vitamin C Serum — front view" loading="eager">
-              </button>
-              <button class="pdp-thumb" data-img="images/vitamin-c-packaging.jpg" aria-label="View 2"
-                aria-pressed="false">
-                <img src="images/vitamin-c-packaging.jpg" alt="Hanaz Vitamin C Serum — packaging" loading="lazy">
-              </button>
-              <button class="pdp-thumb" data-img="images/vitamin-c-dropper.jpg" aria-label="View 3"
-                aria-pressed="false">
-                <img src="images/vitamin-c-dropper.jpg" alt="Hanaz Vitamin C Serum — dropper detail" loading="lazy">
-              </button>
-            </div>
-
-            <!-- Hero image -->
-            <div class="pdp-main-image" id="pdp-main-wrap">
-              <img src="images/vitamin-c-serum.jpg" alt="Hanaz Vitamin C Serum" id="main-product-image" loading="eager">
-            </div>
-
-          </div><!-- /.pdp-gallery -->
+          <div class="pdp-gallery" id="pdp-gallery-container">
+            <!-- Dynamic gallery -->
+          </div>
 
           <!-- RIGHT: Product info -->
           <div class="pdp-info">
-
-            <h1>Hanaz Vitamin C Serum</h1>
+            <h1 id="pdp-title">Loading...</h1>
 
             <!-- Price -->
-            <div class="pdp-price-row">
-              <span class="pdp-sale-price" id="dynamic-sale-price">Rs. 1,599</span>
-              <span class="pdp-original-price">Rs. 2,499</span>
-              <span class="pdp-save">Save 36%</span>
+            <div class="pdp-price-row" id="pdp-price-container">
             </div>
 
             <!-- Dermatologist badge -->
             <div class="pdp-derm-pill">Dermatologist Tested</div>
 
-            <!-- Separator to match The Ordinary double lines -->
+            <!-- Separator -->
             <hr class="pdp-separator" />
 
             <!-- Quantity -->
@@ -172,7 +151,7 @@
             
             <div class="pdp-cart-row">
               <div class="qty-stepper">
-                <button id="qty-minus" aria-label="Decrease quantity">−</button>
+                <button id="qty-minus" aria-label="Decrease quantity">-</button>
                 <span class="qty-stepper-val" id="qty-value">1</span>
                 <button id="qty-plus" aria-label="Increase quantity">+</button>
               </div>
@@ -198,8 +177,8 @@
             <!-- WhatsApp as Share-like action or secondary action below -->
             <div class="pdp-share-row">
               <span class="pdp-share-label">Order via:</span>
-              <a href="https://wa.me/923225386807?text=Hi%2C%20I%20want%20to%20order%20Hanaz%20Vitamin%20C%20Serum"
-                class="btn-whatsapp-icon-link" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+              <a href="https://wa.me/923225386807"
+                class="btn-whatsapp-icon-link" id="pdp-whatsapp-link" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                   <path
                     d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
@@ -216,7 +195,7 @@
                   <circle cx="5.5" cy="18.5" r="2.5" />
                   <circle cx="18.5" cy="18.5" r="2.5" />
                 </svg>
-                Estimated delivery: 3–5 business days
+                Estimated delivery: 3�5 business days
               </div>
               <div class="pdp-delivery-row">
                 <svg class="pdp-delivery-icon" viewBox="0 0 24 24" aria-hidden="true">
@@ -240,7 +219,7 @@
                   </svg>
                 </button>
                 <div class="accordion-body">
-                  <div class="accordion-inner">Our dedicated support team is available Monday–Saturday, 9 AM – 6 PM PKT.
+                  <div class="accordion-inner">Our dedicated support team is available Monday�Saturday, 9 AM � 6 PM PKT.
                     We respond to all queries within 24 hours.</div>
                 </div>
               </div>
@@ -1168,30 +1147,128 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="js/supabase-client.js"></script>
 
-  <script>
-    async function fetchProductPrice() {
-      // For this POC, we just fetch the first product in the table.
-      // In a real implementation, you'd extract the ID from the URL (e.g. ?id=123)
-      const { data, error } = await supabase
+    <script>
+    async function loadProductDetail() {
+      const params = new URLSearchParams(window.location.search);
+      const productId = params.get('id');
+
+      if (!productId) {
+        showError();
+        return;
+      }
+
+      const { data: product, error } = await window.supabase
         .from('products')
         .select('*')
-        .limit(1)
+        .eq('id', productId)
         .single();
 
-      if (data && data.sale_price) {
-        document.getElementById('dynamic-sale-price').innerText = 'Rs. ' + data.sale_price;
-        // Optionally update the Add to Cart button price
-        const cartBtn = document.querySelector('.btn-primary[onclick*="HanazCart.add"]');
-        if (cartBtn) {
-          // just replacing the visible price if it exists, or update internal attributes
+      if (error || !product) {
+        console.error('Failed to load product:', error);
+        showError();
+        return;
+      }
+
+      renderProduct(product);
+    }
+
+    function showError() {
+      const hero = document.querySelector('.pdp-hero');
+      const desc = document.querySelector('.pdp-description-section');
+      const errorCont = document.getElementById('pdp-error-container');
+      
+      if (hero) hero.style.display = 'none';
+      if (desc) desc.style.display = 'none';
+      if (errorCont) errorCont.style.display = 'block';
+    }
+
+    function renderProduct(product) {
+      // 1. Breadcrumb & Title
+      const breadcrumb = document.getElementById('pdp-breadcrumb-title');
+      const title = document.getElementById('pdp-title');
+      if (breadcrumb) breadcrumb.textContent = product.title;
+      if (title) title.textContent = product.title;
+
+      // 2. Price
+      const priceCont = document.getElementById('pdp-price-container');
+      if (priceCont) {
+        let priceHtml = <span class="pdp-sale-price" id="dynamic-sale-price">Rs.  + product.sale_price.toLocaleString() + </span>;
+        if (product.base_price > product.sale_price) {
+          priceHtml += <span class="pdp-original-price">Rs.  + product.base_price.toLocaleString() + </span>;
         }
-      } else if (error) {
-        console.error('Error fetching product from Supabase:', error);
+        if (product.discount_pct) {
+          priceHtml += <span class="pdp-save">Save  + product.discount_pct + %</span>;
+        }
+        priceCont.innerHTML = priceHtml;
+      }
+
+      // 3. WhatsApp link text update
+      const waLink = document.getElementById('pdp-whatsapp-link');
+      if (waLink) {
+        waLink.href = 'https://wa.me/923225386807?text=' + encodeURIComponent('Hi, I want to order ' + product.title);
+      }
+
+      // 4. Description & Ingredients
+      const descCont = document.getElementById('pdp-description-content');
+      if (descCont) descCont.innerHTML = product.description || 'No description available.';
+
+      const ingCont = document.getElementById('pdp-ingredients-content');
+      if (ingCont) ingCont.innerHTML = product.ingredients || 'Information not available.';
+
+      // 5. Gallery
+      const galleryCont = document.getElementById('pdp-gallery-container');
+      if (galleryCont) {
+        const images = product.image_urls && product.image_urls.length ? product.image_urls : ['images/placeholder.jpg'];
+        
+        let thumbHtml = '';
+        images.forEach((url, i) => {
+          thumbHtml += 
+            <button class="pdp-thumb  + (i === 0 ? 'active' : '') + " data-img=" + url + " aria-label="View  + (i+1) + " aria-pressed=" + (i === 0 ? 'true' : 'false') + ">
+              <img src=" + url + " alt=" + product.title +  thumbnail">
+            </button>
+          ;
+        });
+
+        galleryCont.innerHTML = 
+          <div class="pdp-thumb-rail" id="pdp-thumb-rail">
+             + thumbHtml + 
+          </div>
+          <div class="pdp-main-image" id="pdp-main-wrap">
+            <img src=" + images[0] + " alt=" + product.title + " id="main-product-image">
+          </div>
+        ;
+      }
+
+      // Rebind interactions
+      if (window.initPDP) {
+        window.initPDP();
+      }
+
+      // Update HanazCart Add to Cart payload dynamically
+      const btn = document.getElementById('btn-add-cart');
+      if (btn) {
+        // We override the click listener by replacing the element
+        const newBtn = btn.cloneNode(true);
+        btn.parentNode.replaceChild(newBtn, btn);
+        newBtn.addEventListener('click', () => {
+          const qtyVal = document.getElementById('qty-value');
+          const qty = qtyVal ? parseInt(qtyVal.textContent, 10) : 1;
+          if (window.HanazCart && window.HanazCart.add) {
+            window.HanazCart.add({
+              id: product.id,
+              name: product.title,
+              price: product.sale_price,
+              image: product.image_urls && product.image_urls.length > 0 ? product.image_urls[0] : '',
+              qty: qty
+            });
+          }
+        });
       }
     }
 
-    fetchProductPrice();
+    document.addEventListener('DOMContentLoaded', loadProductDetail);
   </script>
 </body>
 
 </html>
+

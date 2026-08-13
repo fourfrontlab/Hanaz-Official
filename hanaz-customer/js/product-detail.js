@@ -169,7 +169,7 @@
       const priceText = priceEl.textContent.replace(/[^0-9]/g, '');
       const priceVal = parseInt(priceText, 10) || 0;
       
-      let pageUrl = window.location.pathname.split('/').pop() || 'product-detail.html';
+      let pageUrl = window.location.pathname.split('/').pop() + window.location.search;
       
       const item = {
         id: pageUrl,
@@ -262,7 +262,7 @@
   function init() {
     initGallery();
     initQty();
-    initAddToCart();
+    
     initAccordions();
     initTabs();
     saveRecentlyViewed();
@@ -270,10 +270,8 @@
     initPdpFaq();
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
+  window.initPDP = init;
+
 
 })();
+
