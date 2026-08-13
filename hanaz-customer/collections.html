@@ -129,11 +129,7 @@
             <h4>Moisturizers</h4>
             <span class="coming-soon">New category launching soon</span>
           </div>
-          <a href="product-detail.html" class="collection-tile">
-            <div class="tile-img"><img src="images/vitamin-c-serum.jpg" alt="Vitamin C Serum"></div>
-            <h4>Vitamin C Serum</h4>
-            <span class="item-count">1 Item</span>
-          </a>
+          <div id="collections-tile-grid" class="collection-tile-dynamic"></div>
         </div>
       </div>
     </section>
@@ -165,13 +161,7 @@
               <h3>Treat</h3>
               <p>Target specific concerns like dullness or texture.</p>
               <div class="step-product">
-                <a href="product-detail.html" class="product-mini">
-                  <img src="images/vitamin-c-serum.jpg" alt="Vitamin C Serum">
-                  <div class="mini-info">
-                    <h5>Vitamin C Serum</h5>
-                    <span>Rs. 1,599</span>
-                  </div>
-                </a>
+                <div id="regimen-step-treat-product"><span class="coming-soon" style="font-style:italic;">Loading recommended product...</span></div>
               </div>
             </div>
           </div>
@@ -264,6 +254,44 @@
   <script src="js/supabase-client.js"></script>
   <script src="js/cart.js"></script>
   <script src="js/main.js"></script>
-</body>
+  <script>
+    async function loadCollectionProducts() {
+      const { data, error } = await window.supabase
+        .from('products')
+        .select('id, title, sale_price, image_urls, category')
+        .eq('in_stock', true);
 
+      if (error || !data) { console.error(error); return; }
+
+      // Collection tiles
+      const tileGrid = document.getElementById('collections-tile-grid');
+      if (tileGrid) {
+        tileGrid.innerHTML = data.map(p => 
+          <a href="product-detail.html?id=" class="collection-tile">
+            <div class="tile-img"><img src="" alt=""></div>
+            <h4></h4>
+            <span class="item-count">1 Item</span>
+          </a>
+        ).join('');
+      }
+
+      // Regimen Step 2: pick first suitable product (serum/treat category or first in_stock)
+      const stepContainer = document.getElementById('regimen-step-treat-product');
+      if (stepContainer && data.length > 0) {
+        const serumProduct = data.find(p => p.category && p.category.toLowerCase().includes('serum')) || data[0];
+        stepContainer.innerHTML = 
+          <a href="product-detail.html?id=" class="product-mini">
+            <img src="" alt="">
+            <div class="mini-info">
+              <h5></h5>
+              <span>Rs. </span>
+            </div>
+          </a>
+        ;
+      }
+    }
+    document.addEventListener('DOMContentLoaded', loadCollectionProducts);
+  </script>
+</body>
 </html>
+
