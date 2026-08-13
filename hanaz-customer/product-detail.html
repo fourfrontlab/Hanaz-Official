@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/product-detail.css">
   <link rel="stylesheet" href="css/consultation-drawer.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 
 <body class="fade-in-page">
@@ -156,7 +157,7 @@
 
             <!-- Price -->
             <div class="pdp-price-row">
-              <span class="pdp-sale-price">Rs. 1,599</span>
+              <span class="pdp-sale-price" id="dynamic-sale-price">Rs. 1,599</span>
               <span class="pdp-original-price">Rs. 2,499</span>
               <span class="pdp-save">Save 36%</span>
             </div>
@@ -1165,6 +1166,35 @@
 
   <script src="js/consultation-drawer.js"></script>
 
+  <script>
+    // Initialize Supabase
+    const SUPABASE_URL = 'https://xipbscxjsfzgkslckpjk.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_l4rLObIIdRuHilUY7qQI1g_MF0Bb_1-';
+    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    async function fetchProductPrice() {
+      // For this POC, we just fetch the first product in the table.
+      // In a real implementation, you'd extract the ID from the URL (e.g. ?id=123)
+      const { data, error } = await supabase
+        .from('products')
+        .select('*')
+        .limit(1)
+        .single();
+
+      if (data && data.sale_price) {
+        document.getElementById('dynamic-sale-price').innerText = 'Rs. ' + data.sale_price;
+        // Optionally update the Add to Cart button price
+        const cartBtn = document.querySelector('.btn-primary[onclick*="HanazCart.add"]');
+        if (cartBtn) {
+          // just replacing the visible price if it exists, or update internal attributes
+        }
+      } else if (error) {
+        console.error('Error fetching product from Supabase:', error);
+      }
+    }
+
+    fetchProductPrice();
+  </script>
 </body>
 
 </html>
