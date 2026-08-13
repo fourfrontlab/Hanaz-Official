@@ -105,68 +105,7 @@
     <!-- Product Grid -->
     <section class="shop-grid-section section-padding">
       <div class="container">
-        <div class="product-grid" id="main-product-grid">
-
-          <!-- Product 1 -->
-          <a href="product-detail.html" class="product-card" data-category="brightening">
-            <div class="product-card-image hover-swap">
-              <div class="icon-actions">
-                <button class="icon-btn wishlist-btn" aria-label="Add to wishlist" data-product-id="prod-1">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <path
-                      d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-                    </path>
-                  </svg>
-                </button>
-                <button class="icon-btn quickview-btn" aria-label="Quick view"
-                  onclick="event.preventDefault(); window.location.href='product-detail.html'">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                    <circle cx="12" cy="12" r="3"></circle>
-                  </svg>
-                </button>
-              </div>
-              <span class="product-badge">Bestseller</span>
-              <img src="images/vitamin-c-serum.jpg" alt="Vitamin C Serum" class="img-front">
-              <img src="images/vitamin-c-packaging.jpg" alt="Vitamin C Texture" class="img-back">
-            </div>
-            <div class="product-card-info">
-              <h3>Hanaz Vitamin C Serum</h3>
-              <div class="product-rating">
-                <span class="stars">★★★★★</span>
-                <span class="rating-value">4.9</span>
-              </div>
-              <p class="product-benefit">Brightening</p>
-              <div class="size-chips">
-                <span class="size-chip active">30ml</span>
-              </div>
-              <div class="price">
-                <strong>Rs. 1,599</strong>
-                <span class="price-strikethrough">Rs. 2,499</span>
-                <span class="price-save">Save 36%</span>
-              </div>
-              <button class="btn btn-primary btn-sm btn-add-cart"
-                onclick="event.preventDefault(); window.HanazCart && window.HanazCart.add({id:'hanaz-vitamin-c-serum',name:'Vitamin C Serum',price:1599,image:'images/vitamin-c-serum.jpg',qty:1})">Add
-                to Cart</button>
-            </div>
-          </a>
-
-          <!-- Coming Soon -->
-          <div class="product-card"
-            style="display: flex; flex-direction: column; align-items: center; justify-content: center; background: var(--bg); text-align: center; padding: 40px; border: 1px dashed var(--border); min-height: 380px;">
-            <svg viewBox="0 0 24 24" width="48" height="48" stroke="var(--text-muted)" stroke-width="1.5" fill="none"
-              style="margin-bottom:16px;">
-              <circle cx="12" cy="12" r="10"></circle>
-              <polyline points="12 6 12 12 16 14"></polyline>
-            </svg>
-            <h3 style="color:var(--text-heading); margin-bottom: 8px;">More Products Coming Soon</h3>
-            <p style="color:var(--text-muted); font-size: 14px; max-width: 200px; margin: 0 auto;">We're formulating
-              something special for your skin.</p>
-          </div>
-
-        </div>
+        <div class="product-grid" id="main-product-grid"></div>
       </div>
     </section>
 
@@ -244,56 +183,76 @@
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="js/supabase-client.js"></script>
+  <script src="js/products-grid.js"></script>
   <script src="js/cart.js"></script>
   <script src="js/main.js"></script>
-  <script>
-    // Filter Logic
-    const filterBtns = document.querySelectorAll('.filter-chip');
-    const products = document.querySelectorAll('.product-card[data-category]');
+    <script>
+    async function loadProducts() {
+      const { data, error } = await supabase
+        .from('products')
+        .select('*')
+        .eq('in_stock', true);
 
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
+      if (error) {
+        console.error('Failed to load products:', error);
+        return;
+      }
+
+      if (window.renderProductGrid) {
+        window.renderProductGrid(data, 'main-product-grid');
+        initFiltersAndSearch();
+      }
+    }
+
+    function initFiltersAndSearch() {
+      // Filter Logic
+      const filterBtns = document.querySelectorAll('.filter-chip');
+      const products = document.querySelectorAll('#main-product-grid .product-card[data-category]');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          const filter = btn.dataset.filter;
+          products.forEach(p => {
+            if (filter === 'all' || p.dataset.category.includes(filter)) {
+              p.style.display = 'block';
+              p.style.opacity = '1';
+            } else {
+              p.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // Search Logic (URL param)
+      const urlParams = new URLSearchParams(window.location.search);
+      const searchQuery = urlParams.get('q');
+
+      if (searchQuery) {
+        const q = searchQuery.toLowerCase();
+        // Remove active from all chips
         filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
 
-        const filter = btn.dataset.filter;
         products.forEach(p => {
-          if (filter === 'all' || p.dataset.category.includes(filter)) {
+          const title = p.querySelector('h3').textContent.toLowerCase();
+          const cat = p.dataset.category.toLowerCase();
+          if (title.includes(q) || cat.includes(q)) {
             p.style.display = 'block';
-            p.style.opacity = '1'; // In a real app we'd animate this, but block is fine for now
+            p.style.opacity = '1';
           } else {
             p.style.display = 'none';
           }
         });
-      });
-    });
 
-    // Search Logic (URL param)
-    const urlParams = new URLSearchParams(window.location.search);
-    const searchQuery = urlParams.get('q');
-
-    if (searchQuery) {
-      const q = searchQuery.toLowerCase();
-      // Remove active from all chips
-      filterBtns.forEach(b => b.classList.remove('active'));
-
-      products.forEach(p => {
-        const title = p.querySelector('h3').textContent.toLowerCase();
-        const cat = p.dataset.category.toLowerCase();
-        if (title.includes(q) || cat.includes(q)) {
-          p.style.display = 'block';
-          p.style.opacity = '1';
-        } else {
-          p.style.display = 'none';
+        // Show clear search
+        const header = document.querySelector('.shop-header');
+        if (header) {
+          const searchTitle = document.createElement('p');
+          searchTitle.innerHTML = Showing results for "<strong>${searchQuery}</strong>" <a href="products.html" style="margin-left:12px; color:var(--text-muted); font-size:14px; text-decoration:underline;">Clear Search</a>;
+          header.appendChild(searchTitle);
         }
-      });
-
-      // Show clear search
-      const header = document.querySelector('.shop-header');
-      if (header) {
-        const searchTitle = document.createElement('p');
-        searchTitle.innerHTML = `Showing results for "<strong>${searchQuery}</strong>" <a href="products.html" style="margin-left:12px; color:var(--text-muted); font-size:14px; text-decoration:underline;">Clear Search</a>`;
-        header.appendChild(searchTitle);
       }
     }
 
@@ -311,7 +270,7 @@
           if (items.length > 0) {
             let html = '';
             items.forEach(item => {
-              html += `
+              html += 
                 <a href="${item.link}" class="product-card">
                   <div class="product-card-image hover-swap">
                     <img src="${item.image}" alt="${item.name}" class="img-front">
@@ -324,7 +283,7 @@
                     </div>
                   </div>
                 </a>
-              `;
+              ;
             });
             grid.innerHTML = html;
           } else {
@@ -338,8 +297,11 @@
       }
     }
 
-    document.addEventListener('DOMContentLoaded', renderRecentlyViewed);
+    document.addEventListener('DOMContentLoaded', () => {
+      renderRecentlyViewed();
+      loadProducts();
+    });
   </script>
 </body>
-
 </html>
+

@@ -145,7 +145,7 @@
   /* ========================================================================
      4. WISHLIST LOGIC
      ======================================================================== */
-  function initWishlist() {
+  window.initWishlist = function() {
     const btns = document.querySelectorAll('.wishlist-btn');
     if (!btns.length) return;
 
@@ -233,7 +233,7 @@
   document.addEventListener('DOMContentLoaded', () => {
 
     initUI();
-    initWishlist();
+    window.initWishlist();
     initSearch();
   });
 

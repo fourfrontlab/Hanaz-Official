@@ -173,63 +173,7 @@
           <h2>Products</h2>
           <a href="products.html" class="view-all-link">View All &rarr;</a>
         </div>
-        <div class="product-grid">
-          <!-- Product Card -->
-          <a href="product-detail.html" class="product-card">
-            <div class="product-card-image hover-swap">
-              <div class="icon-actions">
-                <button class="icon-btn wishlist-btn" aria-label="Add to wishlist" data-product-id="prod-1">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <path
-                      d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-                    </path>
-                  </svg>
-                </button>
-                <button class="icon-btn quickview-btn" aria-label="Quick view"
-                  onclick="event.preventDefault(); window.location.href='product-detail.html'">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                    <circle cx="12" cy="12" r="3"></circle>
-                  </svg>
-                </button>
-              </div>
-              <span class="product-badge">Bestseller</span>
-              <img src="images/vitamin-c-serum.jpg" alt="Vitamin C Serum" class="img-front">
-              <img src="images/vitamin-c-packaging.jpg" alt="Vitamin C Texture" class="img-back">
-            </div>
-            <div class="product-card-info">
-              <h3>Vitamin C Serum</h3>
-              <div class="product-rating">
-                <span class="stars">★★★★★</span>
-                <span class="rating-value">4.9</span>
-              </div>
-              <p class="product-benefit">Brightening</p>
-              <div class="size-chips">
-                <span class="size-chip active">30ml</span>
-              </div>
-              <div class="price">
-                <strong>Rs. 1,599</strong>
-                <span class="price-strikethrough">Rs. 2,499</span>
-                <span class="price-save">Save 36%</span>
-              </div>
-            </div>
-          </a>
-
-          <!-- Coming Soon Card -->
-          <div class="product-card"
-            style="display: flex; flex-direction: column; align-items: center; justify-content: center; background: var(--bg); text-align: center; padding: 40px; border: 1px dashed var(--border); min-height: 380px;">
-            <svg viewBox="0 0 24 24" width="48" height="48" stroke="var(--text-muted)" stroke-width="1.5" fill="none"
-              style="margin-bottom:16px;">
-              <circle cx="12" cy="12" r="10"></circle>
-              <polyline points="12 6 12 12 16 14"></polyline>
-            </svg>
-            <h3 style="color:var(--text-heading); margin-bottom: 8px;">More Products Coming Soon</h3>
-            <p style="color:var(--text-muted); font-size: 14px; max-width: 200px; margin: 0 auto;">We're formulating
-              something special for your skin.</p>
-          </div>
-        </div>
+        <div class="product-grid" id="index-product-grid"></div>
       </div>
     </section>
 
@@ -702,9 +646,28 @@
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="js/supabase-client.js"></script>
+  <script src="js/products-grid.js"></script>
   <script src="js/cart.js"></script>
   <script src="js/main.js"></script>
   <script src="js/home.js"></script>
+  <script>
+    async function loadIndexProducts() {
+      const { data, error } = await supabase
+        .from('products')
+        .select('*')
+        .eq('is_featured', true);
+
+      if (error) {
+        console.error('Failed to load featured products:', error);
+        return;
+      }
+
+      if (window.renderProductGrid) {
+        window.renderProductGrid(data, 'index-product-grid');
+      }
+    }
+    document.addEventListener('DOMContentLoaded', loadIndexProducts);
+  </script>
 </body>
 
 </html>
