@@ -103,28 +103,36 @@
           <!-- Coming soon state -->
           <div class="collection-tile disabled">
             <div class="tile-img" style="position: relative;">
-              <span class="product-badge" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); margin: 0; white-space: nowrap;">COMING SOON</span>
+              <span class="product-badge"
+                style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); margin: 0; white-space: nowrap;">COMING
+                SOON</span>
             </div>
             <h4>Glazing Milk</h4>
             <span class="coming-soon">New category launching soon</span>
           </div>
           <div class="collection-tile disabled">
             <div class="tile-img" style="position: relative;">
-              <span class="product-badge" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); margin: 0; white-space: nowrap;">COMING SOON</span>
+              <span class="product-badge"
+                style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); margin: 0; white-space: nowrap;">COMING
+                SOON</span>
             </div>
             <h4>Face Washes</h4>
             <span class="coming-soon">New category launching soon</span>
           </div>
           <div class="collection-tile disabled">
             <div class="tile-img" style="position: relative;">
-              <span class="product-badge" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); margin: 0; white-space: nowrap;">COMING SOON</span>
+              <span class="product-badge"
+                style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); margin: 0; white-space: nowrap;">COMING
+                SOON</span>
             </div>
             <h4>Lotions</h4>
             <span class="coming-soon">New category launching soon</span>
           </div>
           <div class="collection-tile disabled">
             <div class="tile-img" style="position: relative;">
-              <span class="product-badge" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); margin: 0; white-space: nowrap;">COMING SOON</span>
+              <span class="product-badge"
+                style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); margin: 0; white-space: nowrap;">COMING
+                SOON</span>
             </div>
             <h4>Moisturizers</h4>
             <span class="coming-soon">New category launching soon</span>
@@ -161,7 +169,8 @@
               <h3>Treat</h3>
               <p>Target specific concerns like dullness or texture.</p>
               <div class="step-product">
-                <div id="regimen-step-treat-product"><span class="coming-soon" style="font-style:italic;">Loading recommended product...</span></div>
+                <div id="regimen-step-treat-product"><span class="coming-soon" style="font-style:italic;">Loading
+                    recommended product...</span></div>
               </div>
             </div>
           </div>
@@ -204,8 +213,10 @@
               required aria-label="Email address"><button type="submit">Subscribe</button></form>
         </div>
         <div class="footer-social"><span>Follow Us</span>
-          <div class="social-links" style="flex-direction:row; gap:16px; margin-top:8px;"><a href="https://instagram.com/thehanazofficial">Instagram</a><a
-              href="https://facebook.com/thehanaz">Facebook</a><a href="https://wa.me/923225386807">WhatsApp</a><a href="https://tiktok.com/@thehanazofficial">TikTok</a></div>
+          <div class="social-links" style="flex-direction:row; gap:16px; margin-top:8px;"><a
+              href="https://instagram.com/thehanazofficial">Instagram</a><a
+              href="https://facebook.com/thehanaz">Facebook</a><a href="https://wa.me/923225386807">WhatsApp</a><a
+              href="https://tiktok.com/@thehanazofficial">TikTok</a></div>
         </div>
       </div>
       <div class="footer-columns">
@@ -266,32 +277,32 @@
       // Collection tiles
       const tileGrid = document.getElementById('collections-tile-grid');
       if (tileGrid) {
-        tileGrid.innerHTML = data.map(p => 
-          <a href="product-detail.html?id=" class="collection-tile">
-            <div class="tile-img"><img src="" alt=""></div>
-            <h4></h4>
-            <span class="item-count">1 Item</span>
-          </a>
-        ).join('');
+        tileGrid.innerHTML = data.map(p => {
+          const imgSrc = p.image_urls && p.image_urls.length > 0 ? p.image_urls[0] : 'images/placeholder.jpg';
+          return `<a href="product-detail.html?id=${p.id}" class="collection-tile">
+            <div class="tile-img"><img src="${imgSrc}" alt="${p.title}"></div>
+            <h4>${p.title}</h4>
+            <span class="item-count">Rs. ${(p.sale_price || 0).toLocaleString()}</span>
+          </a>`;
+        }).join('');
       }
 
       // Regimen Step 2: pick first suitable product (serum/treat category or first in_stock)
       const stepContainer = document.getElementById('regimen-step-treat-product');
       if (stepContainer && data.length > 0) {
         const serumProduct = data.find(p => p.category && p.category.toLowerCase().includes('serum')) || data[0];
-        stepContainer.innerHTML = 
-          <a href="product-detail.html?id=" class="product-mini">
-            <img src="" alt="">
-            <div class="mini-info">
-              <h5></h5>
-              <span>Rs. </span>
-            </div>
-          </a>
-        ;
+        const imgSrc = serumProduct.image_urls && serumProduct.image_urls.length > 0 ? serumProduct.image_urls[0] : 'images/placeholder.jpg';
+        stepContainer.innerHTML = `<a href="product-detail.html?id=${serumProduct.id}" class="product-mini">
+          <img src="${imgSrc}" alt="${serumProduct.title}">
+          <div class="mini-info">
+            <h5>${serumProduct.title}</h5>
+            <span>Rs. ${(serumProduct.sale_price || 0).toLocaleString()}</span>
+          </div>
+        </a>`;
       }
     }
     document.addEventListener('DOMContentLoaded', loadCollectionProducts);
   </script>
 </body>
-</html>
 
+</html>

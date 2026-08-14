@@ -250,7 +250,7 @@
         const header = document.querySelector('.shop-header');
         if (header) {
           const searchTitle = document.createElement('p');
-          searchTitle.innerHTML = Showing results for "<strong>${searchQuery}</strong>" <a href="products.html" style="margin-left:12px; color:var(--text-muted); font-size:14px; text-decoration:underline;">Clear Search</a>;
+          searchTitle.innerHTML = `Showing results for "<strong>${searchQuery}</strong>" <a href="products.html" style="margin-left:12px; color:var(--text-muted); font-size:14px; text-decoration:underline;">Clear Search</a>`;
           header.appendChild(searchTitle);
         }
       }
