@@ -270,8 +270,7 @@
           if (items.length > 0) {
             let html = '';
             items.forEach(item => {
-              html += 
-                <a href="${item.link}" class="product-card">
+              html += `<a href="${item.link}" class="product-card">
                   <div class="product-card-image hover-swap">
                     <img src="${item.image}" alt="${item.name}" class="img-front">
                     <img src="${item.image}" alt="${item.name}" class="img-back">
@@ -282,8 +281,7 @@
                       <strong>Rs. ${item.price.toLocaleString()}</strong>
                     </div>
                   </div>
-                </a>
-              ;
+                </a>`;
             });
             grid.innerHTML = html;
           } else {
