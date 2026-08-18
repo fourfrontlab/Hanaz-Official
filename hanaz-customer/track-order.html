@@ -100,15 +100,26 @@
           
           <form id="track-form">
             <div class="form-group">
-              <label for="track-order-number">Order Number</label>
-              <input type="text" id="track-order-number" required placeholder="e.g. HO-1787042289940">
+              <label for="track-order-number">Order Number (optional)</label>
+              <input type="text" id="track-order-number" placeholder="e.g. HO-1787042289940">
             </div>
             <div class="form-group">
-              <label for="track-phone">Phone Number</label>
+              <label for="track-phone">Phone Number (required)</label>
               <input type="tel" id="track-phone" required placeholder="e.g. 0300 1234567">
             </div>
+            <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 24px; text-align: center;">
+              Don't have your order number? Just enter your phone number and we'll show all your recent orders.
+            </p>
             <button type="submit" id="track-submit-btn" class="btn btn-primary btn-block">Track Order</button>
           </form>
+
+          <div id="track-list-result" class="track-result" style="display: none;">
+            <h3 style="margin-bottom: 16px;">Your Orders</h3>
+            <div id="res-orders-list" class="order-list"></div>
+            <div style="margin-top: 32px; text-align: center;">
+              <button class="btn btn-secondary" onclick="resetTracking()">Track Another Order</button>
+            </div>
+          </div>
 
           <div id="track-result" class="track-result">
             <div style="display: flex; justify-content: space-between; align-items: center;">

@@ -1305,4 +1305,7 @@ h4 {
   font-size: 13px;
   color: var(--text-muted);
   line-height: 1.7;
+}.order-list-item:hover {
+  border-color: var(--primary) !important;
+  background-color: #fafafa;
 }
