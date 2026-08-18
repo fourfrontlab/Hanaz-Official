@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -1192,12 +1192,12 @@
       // 2. Price
       const priceCont = document.getElementById('pdp-price-container');
       if (priceCont) {
-        let priceHtml = <span class="pdp-sale-price" id="dynamic-sale-price">Rs.  + product.sale_price.toLocaleString() + </span>;
+        let priceHtml = `<span class="pdp-sale-price" id="dynamic-sale-price">Rs. ${product.sale_price.toLocaleString()}</span>`;
         if (product.base_price > product.sale_price) {
-          priceHtml += <span class="pdp-original-price">Rs.  + product.base_price.toLocaleString() + </span>;
+          priceHtml += ` <span class="pdp-original-price">Rs. ${product.base_price.toLocaleString()}</span>`;
         }
         if (product.discount_pct) {
-          priceHtml += <span class="pdp-save">Save  + product.discount_pct + %</span>;
+          priceHtml += ` <span class="pdp-save">Save ${product.discount_pct}%</span>`;
         }
         priceCont.innerHTML = priceHtml;
       }
@@ -1223,20 +1223,18 @@
         let thumbHtml = '';
         images.forEach((url, i) => {
           thumbHtml += 
-            <button class="pdp-thumb  + (i === 0 ? 'active' : '') + " data-img=" + url + " aria-label="View  + (i+1) + " aria-pressed=" + (i === 0 ? 'true' : 'false') + ">
-              <img src=" + url + " alt=" + product.title +  thumbnail">
-            </button>
-          ;
+            `<button class="pdp-thumb ${i === 0 ? 'active' : ''}" data-img="${url}" aria-label="View ${i+1}" aria-pressed="${i === 0 ? 'true' : 'false'}">
+              <img src="${url}" alt="${product.title} thumbnail">
+            </button>`;
         });
 
         galleryCont.innerHTML = 
-          <div class="pdp-thumb-rail" id="pdp-thumb-rail">
-             + thumbHtml + 
+          `<div class="pdp-thumb-rail" id="pdp-thumb-rail">
+             ${thumbHtml} 
           </div>
           <div class="pdp-main-image" id="pdp-main-wrap">
-            <img src=" + images[0] + " alt=" + product.title + " id="main-product-image">
-          </div>
-        ;
+            <img src="${images[0]}" alt="${product.title}" id="main-product-image">
+          </div>`;
       }
 
       // 6. Page title and meta description
