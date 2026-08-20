@@ -77,6 +77,24 @@ document.addEventListener('DOMContentLoaded', () => {
       year: 'numeric', month: 'short', day: 'numeric'
     });
     document.getElementById('res-total').textContent = `Rs. ${order.total_amount.toLocaleString()}`;
+    
+    document.getElementById('res-payment-method').textContent = order.payment_method || 'N/A';
+    
+    const payStatus = order.payment_status || 'unpaid';
+    const payBadge = document.getElementById('res-payment-status');
+    payBadge.textContent = payStatus === 'paid' ? 'Paid ✓' : payStatus.charAt(0).toUpperCase() + payStatus.slice(1);
+    
+    if (payStatus === 'paid') {
+      payBadge.style.backgroundColor = '#d1fae5';
+      payBadge.style.color = '#065f46';
+    } else if (payStatus === 'refunded') {
+      payBadge.style.backgroundColor = '#f1f5f9';
+      payBadge.style.color = '#1e293b';
+    } else {
+      payBadge.style.backgroundColor = '#ffedd5';
+      payBadge.style.color = '#9a3412';
+    }
+
     document.getElementById('res-courier').textContent = order.courier || 'Pending';
     document.getElementById('res-tracking').textContent = order.tracking_number || 'Pending';
 
@@ -114,20 +132,30 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const listContainer = document.getElementById('res-orders-list');
-    listContainer.innerHTML = ordersData.map(order => `
+    listContainer.innerHTML = ordersData.map(order => {
+      const payStatus = order.payment_status || 'unpaid';
+      const payText = payStatus === 'paid' ? 'Paid ✓' : payStatus.charAt(0).toUpperCase() + payStatus.slice(1);
+      const payBg = payStatus === 'paid' ? '#d1fae5' : payStatus === 'refunded' ? '#f1f5f9' : '#ffedd5';
+      const payColor = payStatus === 'paid' ? '#065f46' : payStatus === 'refunded' ? '#1e293b' : '#9a3412';
+
+      return `
       <div class="order-list-item" onclick="triggerExactLookup('${order.order_number}', '${phone}')" style="cursor:pointer; border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; transition: border-color 0.2s;">
         <div>
           <h4 style="margin: 0 0 4px 0; font-size: 16px;">Order ${order.order_number}</h4>
-          <div style="font-size: 14px; color: var(--text-muted);">
+          <div style="font-size: 14px; color: var(--text-muted); margin-bottom: 8px;">
             ${new Date(order.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })} 
             &bull; Rs. ${order.total_amount.toLocaleString()}
+          </div>
+          <div>
+            <span class="status-badge" style="background-color: ${payBg}; color: ${payColor}; padding: 2px 6px; font-size: 12px;">${payText}</span>
           </div>
         </div>
         <div>
           <span class="status-badge ${order.status.toLowerCase()}">${order.status}</span>
         </div>
       </div>
-    `).join('');
+      `
+    }).join('');
 
     // Show List Result
     form.style.display = 'none';
