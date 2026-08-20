@@ -262,35 +262,16 @@
             <!-- 1. Introduction -->
             <div class="pdp-desc-block" id="pdp-block-intro">
               <h2 class="pdp-desc-title">Product Description</h2>
-              <h3 class="pdp-desc-subtitle">Brighten, Firm &amp; Glow</h3>
-              <p>Our premium serum is formulated with carefully selected active ingredients.
-                Hyaluronic Acid, and Ferulic Acid. Dermatologist-tested and PCSIR-tested for quality and safety.</p>
+              <div id="pdp-description-content">
+                <p>Loading description...</p>
+              </div>
             </div>
 
             <!-- 2. Key Ingredients -->
             <div class="pdp-desc-block" id="pdp-block-ingredients">
               <h2>Key Ingredients</h2>
-              <div class="pdp-ingredient-list">
-                <div class="pdp-ingredient-item">
-                  <div class="pdp-ingredient-name">Vitamin C (SAP 10%)</div>
-                  <p class="pdp-ingredient-desc">Stable, non-irritating Vitamin C that brightens skin and supports
-                    collagen production.</p>
-                </div>
-                <div class="pdp-ingredient-item">
-                  <div class="pdp-ingredient-name">Niacinamide</div>
-                  <p class="pdp-ingredient-desc">Helps reduce enlarged pores, calm inflammation, and improve overall
-                    skin tone.</p>
-                </div>
-                <div class="pdp-ingredient-item">
-                  <div class="pdp-ingredient-name">Hyaluronic Acid</div>
-                  <p class="pdp-ingredient-desc">Holds up to 1,000× its weight in water for deep, lasting hydration
-                    and a plump complexion.</p>
-                </div>
-                <div class="pdp-ingredient-item">
-                  <div class="pdp-ingredient-name">Ferulic Acid</div>
-                  <p class="pdp-ingredient-desc">Plant-based antioxidant that stabilises Vitamin C and amplifies its
-                    brightening effects.</p>
-                </div>
+              <div class="pdp-ingredient-list" id="pdp-ingredients-content">
+                <p>Loading ingredients...</p>
               </div>
             </div>
 
@@ -1211,10 +1192,38 @@
 
       // 4. Description & Ingredients
       const descCont = document.getElementById('pdp-description-content');
-      if (descCont) descCont.innerHTML = product.description || 'No description available.';
+      if (descCont) {
+        descCont.innerHTML = product.description ? `<p>${product.description}</p>` : '<p>No description available.</p>';
+      }
 
       const ingCont = document.getElementById('pdp-ingredients-content');
-      if (ingCont) ingCont.innerHTML = product.ingredients || 'Information not available.';
+      if (ingCont) {
+        let ingredientsHTML = '<p>Information not available.</p>';
+        if (product.ingredients) {
+          let parsedIngredients = product.ingredients;
+          
+          // If it's a string, try to parse it as JSON. If it fails, fallback to raw text.
+          if (typeof parsedIngredients === 'string') {
+            try {
+              parsedIngredients = JSON.parse(parsedIngredients);
+            } catch (e) {
+              // Not JSON, use as plain text
+            }
+          }
+          
+          if (Array.isArray(parsedIngredients) && parsedIngredients.length > 0) {
+            ingredientsHTML = parsedIngredients.map(ing => `
+              <div class="pdp-ingredient-item">
+                <div class="pdp-ingredient-name">${ing.name || ''}</div>
+                <p class="pdp-ingredient-desc">${ing.description || ''}</p>
+              </div>
+            `).join('');
+          } else if (typeof parsedIngredients === 'string' && parsedIngredients.trim().length > 0) {
+            ingredientsHTML = `<p>${parsedIngredients}</p>`;
+          }
+        }
+        ingCont.innerHTML = ingredientsHTML;
+      }
 
       // 5. Gallery
       const galleryCont = document.getElementById('pdp-gallery-container');
