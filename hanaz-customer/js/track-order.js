@@ -77,9 +77,11 @@ document.addEventListener('DOMContentLoaded', () => {
       year: 'numeric', month: 'short', day: 'numeric'
     });
     document.getElementById('res-total').textContent = `Rs. ${order.total_amount.toLocaleString()}`;
-    
-    document.getElementById('res-payment-method').textContent = order.payment_method || 'N/A';
-    
+    const payMethodBadge = document.getElementById('res-payment-method');
+    payMethodBadge.textContent = order.payment_method || 'N/A';
+    // Style as neutral pill
+    payMethodBadge.style.backgroundColor = '#f1f5f9';
+    payMethodBadge.style.color = '#475569';
     const payStatus = order.payment_status || 'unpaid';
     const payBadge = document.getElementById('res-payment-status');
     payBadge.textContent = payStatus === 'paid' ? 'Paid ✓' : payStatus.charAt(0).toUpperCase() + payStatus.slice(1);
