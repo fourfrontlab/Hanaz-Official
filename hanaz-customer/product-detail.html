@@ -242,6 +242,201 @@
       </div>
     </section>
 
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile nav drawer -->
+  <div class="overlay" id="mobile-nav-overlay"></div>
+  <div class="mobile-nav-drawer" id="mobile-nav-drawer">
+    <div class="mobile-nav-header">
+      <a href="index.html" class="nav-logo"><img src="images/hanaz-logo.jpg" alt="Hanaz Official"></a>
+      <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu">
+        <svg viewBox="0 0 24 24">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="index.html">Home</a>
+      <a href="products.html">Shop</a>
+      <a href="collections.html">Regimens</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About Us</a>
+    </div>
+  </div>
+
+  <!-- Cart drawer -->
+  <div class="overlay" id="cart-overlay"></div>
+  <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-drawer-header">
+      <h3>Shopping Cart</h3>
+      <button class="cart-close-btn" aria-label="Close cart">
+        <svg viewBox="0 0 24 24">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+    </div>
+    <div class="cart-drawer-body"></div>
+    <div class="cart-drawer-footer">
+      <div class="cart-subtotal"><span>Subtotal</span><strong>Rs. 0</strong></div>
+      <p class="cart-note">Shipping &amp; taxes calculated at checkout</p>
+      <a href="checkout.html" class="btn btn-primary btn-checkout">Check out</a>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Floating WhatsApp -->
+  <a href="https://wa.me/923225386807" class="floating-whatsapp" target="_blank" rel="noopener"
+    aria-label="Chat with us on WhatsApp">
+    <svg viewBox="0 0 24 24">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+  </a>
+
+  <main>
+
+    <!-- ── Breadcrumb ──────────────────────────────── -->
+    <div class="container">
+      <nav class="pdp-breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="sep">&rsaquo;</span>
+        <a href="products.html">Shop</a>
+        <span class="sep">&rsaquo;</span>
+        <span id="pdp-breadcrumb-title">...</span>
+      </nav>
+    </div>
+
+    <!-- ════════════════════════════════════════════
+         PRODUCT HERO — Gallery + Info
+         ════════════════════════════════════════════ -->
+    <section class="pdp-hero">
+      <div class="container">
+                <div id="pdp-error-container" style="display:none; text-align:center; padding:100px 20px;">
+          <h2>Product Not Found</h2>
+          <p style="margin-top:20px; color:var(--text-muted);">We couldn't find the product you're looking for.</p>
+          <a href="products.html" class="btn btn-primary" style="margin-top:30px;">Back to Shop</a>
+        </div>
+        <div class="pdp-grid" id="pdp-main-container">
+          <!-- LEFT: Gallery -->
+          <div class="pdp-gallery" id="pdp-gallery-container">
+            <!-- Dynamic gallery -->
+          </div>
+
+          <!-- RIGHT: Product info -->
+          <div class="pdp-info">
+            <h1 id="pdp-title">Loading...</h1>
+
+            <!-- Price -->
+            <div class="pdp-price-row" id="pdp-price-container">
+            </div>
+
+            <!-- Dermatologist badge -->
+            <div class="pdp-derm-pill">Dermatologist Tested</div>
+
+            <!-- Separator -->
+            <hr class="pdp-separator" />
+
+            <!-- Quantity -->
+            <p class="pdp-qty-label">Quantity</p>
+            
+            <div class="pdp-cart-row">
+              <div class="qty-stepper">
+                <button id="qty-minus" aria-label="Decrease quantity">-</button>
+                <span class="qty-stepper-val" id="qty-value">1</span>
+                <button id="qty-plus" aria-label="Increase quantity">+</button>
+              </div>
+              <button class="btn btn-primary" id="btn-add-cart">Add to Cart</button>
+            </div>
+
+            <!-- Book Consultation button -->
+            <button
+              class="btn-book-consultation"
+              id="btn-book-consultation"
+              type="button"
+              aria-haspopup="dialog"
+              aria-controls="cd-overlay"
+              aria-label="Book a free dermatologist consultation"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+              Book Free Consultation
+            </button>
+
+            <!-- WhatsApp as Share-like action or secondary action below -->
+            <div class="pdp-share-row">
+              <span class="pdp-share-label">Order via:</span>
+              <a href="https://wa.me/923225386807"
+                class="btn-whatsapp-icon-link" id="pdp-whatsapp-link" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                </svg>
+              </a>
+            </div>
+
+            <!-- Delivery info -->
+            <div class="pdp-delivery">
+              <div class="pdp-delivery-row">
+                <svg class="pdp-delivery-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="1" y="3" width="15" height="13" />
+                  <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
+                  <circle cx="5.5" cy="18.5" r="2.5" />
+                  <circle cx="18.5" cy="18.5" r="2.5" />
+                </svg>
+                Estimated delivery: 35 business days
+              </div>
+              <div class="pdp-delivery-row">
+                <svg class="pdp-delivery-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <polyline points="20 12 20 22 4 22 4 12" />
+                  <rect x="2" y="7" width="20" height="5" />
+                  <line x1="12" y1="22" x2="12" y2="7" />
+                  <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z" />
+                  <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z" />
+                </svg>
+                Free shipping &amp; returns on all orders
+              </div>
+            </div>
+
+            <!-- Accordions -->
+            <div class="accordion-group">
+              <div class="accordion">
+                <button class="accordion-header">
+                  Customer Support &amp; Care
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <polyline points="6 9 12 15 18 9" />
+                  </svg>
+                </button>
+                <div class="accordion-body">
+                  <div class="accordion-inner">Our dedicated support team is available MondaySaturday, 9 AM  6 PM PKT.
+                    We respond to all queries within 24 hours.</div>
+                </div>
+              </div>
+              <div class="accordion">
+                <button class="accordion-header">
+                  Return Policy
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <polyline points="6 9 12 15 18 9" />
+                  </svg>
+                </button>
+                <div class="accordion-body">
+                  <div class="accordion-inner">We offer a 3-day money-back guarantee. Products must be unused and in
+                    original packaging. Return shipping is free.</div>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /.pdp-info -->
+        </div><!-- /.pdp-grid -->
+      </div>
+    </section>
+
     <!-- ════════════════════════════════════════════
          PRODUCT DESCRIPTION
          ════════════════════════════════════════════ -->
@@ -262,53 +457,23 @@
             <!-- 1. Introduction -->
             <div class="pdp-desc-block" id="pdp-block-intro">
               <h2 class="pdp-desc-title">Product Description</h2>
-              <h3 class="pdp-desc-subtitle">Brighten, Firm &amp; Glow</h3>
-              <p>Our premium serum is formulated with carefully selected active ingredients.
-                Hyaluronic Acid, and Ferulic Acid. Dermatologist-tested and PCSIR-tested for quality and safety.</p>
+              <div id="pdp-description-content">
+                <p>Loading description...</p>
+              </div>
             </div>
 
             <!-- 2. Key Ingredients -->
             <div class="pdp-desc-block" id="pdp-block-ingredients">
               <h2>Key Ingredients</h2>
-              <div class="pdp-ingredient-list">
-                <div class="pdp-ingredient-item">
-                  <div class="pdp-ingredient-name">Vitamin C (SAP 10%)</div>
-                  <p class="pdp-ingredient-desc">Stable, non-irritating Vitamin C that brightens skin and supports
-                    collagen production.</p>
-                </div>
-                <div class="pdp-ingredient-item">
-                  <div class="pdp-ingredient-name">Niacinamide</div>
-                  <p class="pdp-ingredient-desc">Helps reduce enlarged pores, calm inflammation, and improve overall
-                    skin tone.</p>
-                </div>
-                <div class="pdp-ingredient-item">
-                  <div class="pdp-ingredient-name">Hyaluronic Acid</div>
-                  <p class="pdp-ingredient-desc">Holds up to 1,000× its weight in water for deep, lasting hydration
-                    and a plump complexion.</p>
-                </div>
-                <div class="pdp-ingredient-item">
-                  <div class="pdp-ingredient-name">Ferulic Acid</div>
-                  <p class="pdp-ingredient-desc">Plant-based antioxidant that stabilises Vitamin C and amplifies its
-                    brightening effects.</p>
-                </div>
+              <div class="pdp-ingredient-list" id="pdp-ingredients-content">
+                <p>Loading ingredients...</p>
               </div>
             </div>
-
-            <!-- 3. Product Details -->
-
-
-            <!-- 4. Benefits -->
-
 
           </div><!-- /.pdp-desc-body -->
         </div><!-- /.pdp-desc-grid -->
       </div>
     </section>
-
-    <!-- ════════════════════════════════════════════
-         FORMULA (Clinical ingredients visual)
-         ════════════════════════════════════════════ -->
-
 
     <!-- ════════════════════════════════════════════
          HOW TO USE & CARE
@@ -697,494 +862,6 @@
             <li><a href="faq.html">FAQ</a></li>
             <li><a href="return-policy.html">Return Policy</a></li>
             <li><a href="shipping-info.html">Shipping Info</a></li>
-            <li><a href="track-order.html">Track Order</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Get in Touch</h4>
-          <ul>
-            <li><a href="https://wa.me/923225386807" target="_blank" rel="noopener">WhatsApp</a></li>
-            <li><a href="https://instagram.com/thehanazofficial" target="_blank" rel="noopener">Instagram</a></li>
-            <li><a href="https://facebook.com/thehanaz" target="_blank" rel="noopener">Facebook</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 Hanaz Official. All rights reserved.</p>
-        <div class="footer-legal">
-          <a href="terms.html">Terms &amp; Conditions</a>
-          <a href="privacy.html">Privacy Policy</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <script src="js/cart.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/product-detail.js"></script>
-  <script>
-    // ── Gallery image switching ──────────────────────────
-    (function () {
-      const thumbs = document.querySelectorAll('.pdp-thumb');
-      const mainImg = document.getElementById('main-product-image');
-      if (!thumbs.length || !mainImg) return;
-
-      thumbs.forEach(thumb => {
-        thumb.addEventListener('click', function () {
-          const newSrc = this.dataset.img;
-          if (!newSrc || mainImg.src.endsWith(newSrc)) return;
-
-          // Fade transition
-          mainImg.classList.add('switching');
-          setTimeout(() => {
-            mainImg.src = newSrc;
-            mainImg.onload = () => mainImg.classList.remove('switching');
-          }, 180);
-
-          // Active state
-          thumbs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-pressed', 'false'); });
-          this.classList.add('active');
-          this.setAttribute('aria-pressed', 'true');
-        });
-      });
-    })();
-
-    // ── Description nav highlighting on scroll ──────────
-    (function () {
-      const navItems = document.querySelectorAll('.pdp-desc-nav-item');
-      const blocks = document.querySelectorAll('.pdp-desc-block');
-      if (!navItems.length) return;
-
-      navItems.forEach(btn => {
-        btn.addEventListener('click', function () {
-          const target = document.getElementById(this.dataset.target);
-          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        });
-      });
-
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const id = entry.target.id;
-            navItems.forEach(btn => {
-              btn.classList.toggle('active', btn.dataset.target === id);
-            });
-          }
-        });
-      }, { rootMargin: '-20% 0px -70% 0px' });
-
-      blocks.forEach(block => observer.observe(block));
-    })();
-
-    // ── Sticky cart bar visibility ──────────────────────
-    (function () {
-      const bar = document.getElementById('sticky-cart-bar');
-      const addBtn = document.getElementById('btn-add-cart');
-      if (!bar || !addBtn) return;
-
-      const io = new IntersectionObserver(entries => {
-        bar.classList.toggle('visible', !entries[0].isIntersecting);
-      }, { threshold: 0 });
-
-      io.observe(addBtn);
-    })();
-
-    // ── How to Use & Care drawers ───────────────────────
-    (function () {
-      const cards = document.querySelectorAll('.htuc-card[data-drawer]');
-      const overlays = document.querySelectorAll('.htuc-overlay');
-      if (!cards.length) return;
-
-      let activeOverlay = null;
-      let previousFocus = null;
-
-      function openDrawer(id) {
-        const overlay = document.getElementById(id);
-        if (!overlay) return;
-        previousFocus = document.activeElement;
-        activeOverlay = overlay;
-        // Force reflow so transition fires
-        overlay.offsetHeight;
-        overlay.classList.add('open');
-        document.body.style.overflow = 'hidden';
-        // Focus the close button
-        const closeBtn = overlay.querySelector('.htuc-drawer-close');
-        if (closeBtn) closeBtn.focus();
-      }
-
-      function closeDrawer() {
-        if (!activeOverlay) return;
-        const closing = activeOverlay;
-        activeOverlay = null;
-        closing.classList.remove('open');
-        closing.addEventListener('transitionend', function handler(e) {
-          // Only act on the first property that finishes transitioning
-          if (e.target !== closing) return;
-          closing.removeEventListener('transitionend', handler);
-          document.body.style.overflow = '';
-          if (previousFocus) previousFocus.focus();
-        });
-      }
-
-      // Open on card click
-      cards.forEach(card => {
-        card.addEventListener('click', () => openDrawer(card.dataset.drawer));
-      });
-
-      // Close on × button
-      overlays.forEach(overlay => {
-        const closeBtn = overlay.querySelector('.htuc-drawer-close');
-        if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
-
-        // Close on overlay click (outside drawer)
-        overlay.addEventListener('click', (e) => {
-          if (e.target === overlay) closeDrawer();
-        });
-      });
-
-      // Close on ESC
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && activeOverlay) closeDrawer();
-      });
-
-      // Focus trap
-      document.addEventListener('keydown', (e) => {
-        if (e.key !== 'Tab' || !activeOverlay) return;
-        const focusable = activeOverlay.querySelectorAll(
-          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-        );
-        if (!focusable.length) return;
-        const first = focusable[0];
-        const last = focusable[focusable.length - 1];
-        if (e.shiftKey) {
-          if (document.activeElement === first) { e.preventDefault(); last.focus(); }
-        } else {
-          if (document.activeElement === last) { e.preventDefault(); first.focus(); }
-        }
-      });
-    })();
-  </script>
-
-  <!-- ═══════════════════════════════════════════════════════════
-       DERMATOLOGIST CONSULTATION DRAWER
-       ═══════════════════════════════════════════════════════════ -->
-
-  <!-- Overlay + Drawer -->
-  <div
-    class="cd-overlay"
-    id="cd-overlay"
-    role="dialog"
-    aria-modal="true"
-    aria-label="Dermatologist Consultation"
-    aria-labelledby="cd-drawer-title"
-  >
-    <div class="cd-drawer" id="cd-drawer">
-
-      <!-- Header -->
-      <div class="cd-header">
-        <div class="cd-header-text">
-          <h2 class="cd-title" id="cd-drawer-title">Talk to Your Dermatologist</h2>
-          <p class="cd-subtitle">Get personalized skincare advice from certified dermatologists. Book a free consultation to discuss your skin concerns and receive expert product recommendations tailored to your skin.</p>
-        </div>
-        <button
-          class="cd-close-btn"
-          id="cd-close-btn"
-          aria-label="Close consultation drawer"
-          type="button"
-        >
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <line x1="18" y1="6" x2="6" y2="18"/>
-            <line x1="6" y1="6" x2="18" y2="18"/>
-          </svg>
-        </button>
-      </div>
-
-      <!-- Scrollable Body -->
-      <div class="cd-body" id="cd-body">
-
-        <!-- ─── SCREEN 1: INFO ─── -->
-        <div class="cd-screen" id="cd-screen-info" role="region" aria-label="Consultation information">
-          <div class="cd-info-layout">
-
-            <!-- Left: Image -->
-            <div class="cd-info-image-col">
-              <div class="cd-info-image-wrap">
-                <img
-                  src="images/dermatologist-consultation.jpg"
-                  alt="Certified dermatologist ready for consultation"
-                  loading="lazy"
-                >
-              </div>
-            </div>
-
-            <!-- Right: Details -->
-            <div class="cd-info-right-col">
-
-              <!-- Skin concerns tags -->
-              <div>
-                <p class="cd-info-tags-heading">We can help with</p>
-                <div class="cd-skin-tags" role="list">
-                  <span class="cd-skin-tag" role="listitem"><span class="cd-skin-tag-check" aria-hidden="true">✓</span> Acne</span>
-                  <span class="cd-skin-tag" role="listitem"><span class="cd-skin-tag-check" aria-hidden="true">✓</span> Dark Spots</span>
-                  <span class="cd-skin-tag" role="listitem"><span class="cd-skin-tag-check" aria-hidden="true">✓</span> Hyperpigmentation</span>
-                  <span class="cd-skin-tag" role="listitem"><span class="cd-skin-tag-check" aria-hidden="true">✓</span> Uneven Skin Tone</span>
-                  <span class="cd-skin-tag" role="listitem"><span class="cd-skin-tag-check" aria-hidden="true">✓</span> Dull Skin</span>
-                  <span class="cd-skin-tag" role="listitem"><span class="cd-skin-tag-check" aria-hidden="true">✓</span> Sensitive Skin</span>
-                  <span class="cd-skin-tag" role="listitem"><span class="cd-skin-tag-check" aria-hidden="true">✓</span> Fine Lines</span>
-                  <span class="cd-skin-tag" role="listitem"><span class="cd-skin-tag-check" aria-hidden="true">✓</span> Dry Skin</span>
-                </div>
-              </div>
-
-              <!-- Info detail card -->
-              <div class="cd-info-card" role="list" aria-label="Consultation details">
-                <div class="cd-info-row" role="listitem">
-                  <span class="cd-info-icon" aria-hidden="true">🕒</span>
-                  <div class="cd-info-row-text">
-                    <span class="cd-info-label">Duration</span>
-                    <span class="cd-info-value">20–30 Minutes</span>
-                  </div>
-                </div>
-                <div class="cd-info-row" role="listitem">
-                  <span class="cd-info-icon" aria-hidden="true">📅</span>
-                  <div class="cd-info-row-text">
-                    <span class="cd-info-label">Availability</span>
-                    <span class="cd-info-value">Monday – Saturday<br>10:00 AM – 8:00 PM</span>
-                  </div>
-                </div>
-                <div class="cd-info-row" role="listitem">
-                  <span class="cd-info-icon" aria-hidden="true">👩‍⚕️</span>
-                  <div class="cd-info-row-text">
-                    <span class="cd-info-label">Consultant</span>
-                    <span class="cd-info-value">Certified Skincare Specialist</span>
-                  </div>
-                </div>
-                <div class="cd-info-row" role="listitem">
-                  <span class="cd-info-icon" aria-hidden="true">📱</span>
-                  <div class="cd-info-row-text">
-                    <span class="cd-info-label">Consultation Type</span>
-                    <span class="cd-info-value">Video Call or WhatsApp</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Pricing card -->
-              <div class="cd-pricing-card">
-                <p class="cd-pricing-label">Consultation Fee</p>
-                <p class="cd-pricing-value">FREE</p>
-                <p class="cd-pricing-note">Included with every Hanaz skincare consultation.</p>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <!-- ─── SCREEN 2: BOOKING FORM ─── -->
-        <div class="cd-screen" id="cd-screen-form" role="region" aria-label="Booking form">
-          <div class="cd-form-body">
-            <button class="cd-back-btn" id="cd-back-btn" type="button" aria-label="Go back to consultation information">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <polyline points="15 18 9 12 15 6"/>
-              </svg>
-              Back
-            </button>
-            <p class="cd-form-intro">Fill in your details below and our skincare specialist will be in touch within 24 hours to schedule your free consultation.</p>
-
-            <form class="cd-form" id="cd-booking-form" novalidate>
-
-              <div class="cd-form-row">
-                <div class="cd-field">
-                  <label for="cd-name">Full Name</label>
-                  <input type="text" id="cd-name" name="fullName" placeholder="Your full name" required autocomplete="name">
-                </div>
-                <div class="cd-field">
-                  <label for="cd-phone">Phone Number</label>
-                  <input type="tel" id="cd-phone" name="phone" placeholder="e.g. 03xx-xxxxxxx" required autocomplete="tel">
-                </div>
-              </div>
-
-              <div class="cd-form-row">
-                <div class="cd-field">
-                  <label for="cd-email">Email Address</label>
-                  <input type="email" id="cd-email" name="email" placeholder="you@example.com" autocomplete="email">
-                </div>
-                <div class="cd-field">
-                  <label for="cd-age">Age</label>
-                  <input type="number" id="cd-age" name="age" placeholder="e.g. 25" min="10" max="99">
-                </div>
-              </div>
-
-              <div class="cd-form-row">
-                <div class="cd-field">
-                  <label for="cd-gender">Gender</label>
-                  <select id="cd-gender" name="gender">
-                    <option value="" disabled selected>Select gender</option>
-                    <option value="female">Female</option>
-                    <option value="male">Male</option>
-                    <option value="prefer-not">Prefer not to say</option>
-                  </select>
-                </div>
-                <div class="cd-field">
-                  <label for="cd-skin-type">Skin Type</label>
-                  <select id="cd-skin-type" name="skinType">
-                    <option value="" disabled selected>Select skin type</option>
-                    <option value="oily">Oily</option>
-                    <option value="dry">Dry</option>
-                    <option value="combination">Combination</option>
-                    <option value="sensitive">Sensitive</option>
-                    <option value="normal">Normal</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="cd-form-row cd-full">
-                <div class="cd-field">
-                  <label for="cd-concern">Primary Skin Concern</label>
-                  <select id="cd-concern" name="concern">
-                    <option value="" disabled selected>Select primary concern</option>
-                    <option value="acne">Acne</option>
-                    <option value="dark-spots">Dark Spots</option>
-                    <option value="hyperpigmentation">Hyperpigmentation</option>
-                    <option value="uneven-tone">Uneven Skin Tone</option>
-                    <option value="dullness">Dull Skin</option>
-                    <option value="fine-lines">Fine Lines &amp; Wrinkles</option>
-                    <option value="dryness">Dryness</option>
-                    <option value="sensitivity">Sensitivity / Redness</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="cd-form-row">
-                <div class="cd-field">
-                  <label for="cd-date">Preferred Date</label>
-                  <input type="date" id="cd-date" name="preferredDate">
-                </div>
-                <div class="cd-field">
-                  <label for="cd-time">Preferred Time</label>
-                  <select id="cd-time" name="preferredTime">
-                    <option value="" disabled selected>Select time</option>
-                    <option value="10:00">10:00 AM</option>
-                    <option value="11:00">11:00 AM</option>
-                    <option value="12:00">12:00 PM</option>
-                    <option value="13:00">01:00 PM</option>
-                    <option value="14:00">02:00 PM</option>
-                    <option value="15:00">03:00 PM</option>
-                    <option value="16:00">04:00 PM</option>
-                    <option value="17:00">05:00 PM</option>
-                    <option value="18:00">06:00 PM</option>
-                    <option value="19:00">07:00 PM</option>
-                    <option value="20:00">08:00 PM</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="cd-form-row cd-full">
-                <div class="cd-field">
-                  <label for="cd-notes">Additional Notes</label>
-                  <textarea id="cd-notes" name="notes" placeholder="Any other skin concerns or questions you'd like to discuss…"></textarea>
-                </div>
-              </div>
-
-              <div class="cd-checkbox-row">
-                <input type="checkbox" id="cd-agree" name="agree" required>
-                <label class="cd-checkbox-label" for="cd-agree">I agree to be contacted by Hanaz regarding my consultation request.</label>
-              </div>
-
-              <button type="submit" class="cd-submit-btn">
-                Book Consultation
-              </button>
-
-            </form>
-          </div>
-        </div>
-
-        <!-- ─── SCREEN 3: SUCCESS ─── -->
-        <div class="cd-screen" id="cd-screen-success" role="region" aria-label="Booking submitted successfully">
-          <div class="cd-success-body">
-
-            <!-- Animated checkmark SVG -->
-            <svg class="cd-success-icon" viewBox="0 0 52 52" aria-hidden="true" focusable="false">
-              <circle class="cd-success-circle" cx="26" cy="26" r="25"/>
-              <path class="cd-success-check" d="M14 27l8 8 16-16"/>
-            </svg>
-
-            <h3 class="cd-success-title">Consultation Request Submitted</h3>
-            <p class="cd-success-message">
-              <strong>Thank you.</strong>
-              Our skincare consultant will contact you within 24 hours to confirm your free consultation appointment.
-            </p>
-
-            <button
-              class="cd-return-btn"
-              id="cd-return-btn"
-              type="button"
-              aria-label="Close drawer and return to product"
-            >
-              Return to Product
-            </button>
-
-          </div>
-        </div>
-
-      </div><!-- /.cd-body -->
-
-      <!-- Footer (visible on info screen only) -->
-      <div class="cd-footer" id="cd-footer">
-        <button
-          class="cd-book-btn"
-          id="cd-book-btn"
-          type="button"
-          aria-label="Proceed to book a consultation"
-        >
-          Book My Consultation
-        </button>
-      </div>
-
-    </div><!-- /.cd-drawer -->
-  </div><!-- /.cd-overlay -->
-
-  <script src="js/consultation-drawer.js"></script>
-
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="js/supabase-client.js"></script>
-
-    <script>
-    async function loadProductDetail() {
-      const params = new URLSearchParams(window.location.search);
-      const productId = params.get('id');
-
-      if (!productId) {
-        showError();
-        return;
-      }
-
-      const { data: product, error } = await window.supabase
-        .from('products')
-        .select('*')
-        .eq('id', productId)
-        .single();
-
-      if (error || !product) {
-        console.error('Failed to load product:', error);
-        showError();
-        return;
-      }
-
-      renderProduct(product);
-    }
-
-    function showError() {
-      const hero = document.querySelector('.pdp-hero');
-      const desc = document.querySelector('.pdp-description-section');
-      const errorCont = document.getElementById('pdp-error-container');
-      
-      if (hero) hero.style.display = 'none';
-      if (desc) desc.style.display = 'none';
-      if (errorCont) errorCont.style.display = 'block';
-    }
-
-    function renderProduct(product) {
-      // 1. Breadcrumb & Title
       const breadcrumb = document.getElementById('pdp-breadcrumb-title');
       const title = document.getElementById('pdp-title');
       if (breadcrumb) breadcrumb.textContent = product.title;
