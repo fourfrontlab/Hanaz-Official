@@ -82,36 +82,120 @@
 }
 
 /* Payment Methods */
-.payment-methods {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+.payment-methods-group {
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--bg-card);
+}
+
+.payment-method-item {
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  background: var(--bg-card);
+}
+
+.payment-method-item:last-child {
+  border-bottom: none;
 }
 
 .payment-method {
   display: flex;
   align-items: center;
-  padding: 16px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  padding: 18px 16px;
   cursor: pointer;
-  background: var(--bg-card);
-  transition: border-color 0.2s;
+  background: transparent;
+  transition: background-color 0.2s, border-color 0.2s;
+  margin: 0;
+  border: 2px solid transparent;
+  position: relative;
+  width: 100%;
 }
 
 .payment-method:hover {
-  border-color: var(--text-muted);
+  background-color: #fafafa;
+}
+
+.payment-method-item.active {
+  z-index: 2;
+}
+
+.payment-method-item.active .payment-method {
+  border-color: #1773b0;
+  background-color: #f6fafd;
+}
+
+/* Rounded corners for first/last elements when active to match container */
+.payment-method-item:first-child.active .payment-method {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.payment-method-item:last-child.active .payment-method {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
 
 .payment-method input[type="radio"] {
   margin-right: 12px;
-  accent-color: var(--text-heading);
+  accent-color: #1773b0;
   transform: scale(1.2);
 }
 
 .payment-method span {
-  font-weight: 500;
+  font-weight: 600;
   font-size: 15px;
+  color: var(--text-heading);
+}
+
+/* Accordion sliding details */
+.payment-method-details {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s cubic-bezier(0.2, 0, 0, 1);
+  overflow: hidden;
+  background: #f4f4f4; /* Gray background style matching image */
+}
+
+.payment-method-item.active .payment-method-details {
+  grid-template-rows: 1fr;
+  border-top: 1px solid var(--border);
+}
+
+.details-content {
+  min-height: 0;
+  padding: 0 16px;
+  opacity: 0;
+  transition: padding 0.3s cubic-bezier(0.2, 0, 0, 1), opacity 0.2s ease-out;
+  font-size: 14px;
+  color: var(--text-body);
+}
+
+.payment-method-item.active .details-content {
+  padding: 18px 16px;
+  opacity: 1;
+}
+
+.details-content p {
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.details-content p:last-child {
+  margin-bottom: 0;
+}
+
+.payment-note {
+  margin-top: 12px;
+  font-size: 13px;
+  color: #333333;
+  font-weight: 500;
+  line-height: 1.4;
+  border-left: 3px solid #1773b0;
+  padding-left: 8px;
+  background: rgba(23, 115, 176, 0.05);
+  padding: 8px 12px;
+  border-radius: 2px;
 }
 
 /* Right Column: Order Summary */

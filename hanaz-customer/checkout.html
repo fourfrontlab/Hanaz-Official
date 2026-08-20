@@ -141,23 +141,65 @@
               <!-- Payment Method -->
               <fieldset class="checkout-fieldset">
                 <legend>Payment Method</legend>
-                <div class="payment-methods">
-                  <label class="payment-method">
-                    <input type="radio" name="payment_method" value="COD" checked required>
-                    <span>Cash on Delivery (COD)</span>
-                  </label>
-                  <label class="payment-method">
-                    <input type="radio" name="payment_method" value="JazzCash">
-                    <span>JazzCash</span>
-                  </label>
-                  <label class="payment-method">
-                    <input type="radio" name="payment_method" value="EasyPaisa">
-                    <span>EasyPaisa</span>
-                  </label>
-                  <label class="payment-method">
-                    <input type="radio" name="payment_method" value="Allied Bank">
-                    <span>Allied Bank Transfer</span>
-                  </label>
+                <div class="payment-methods-group">
+                  
+                  <!-- Cash on Delivery -->
+                  <div class="payment-method-item">
+                    <label class="payment-method">
+                      <input type="radio" name="payment_method" value="COD" checked required>
+                      <span>Cash on Delivery (COD)</span>
+                    </label>
+                    <div class="payment-method-details" id="details-COD">
+                      <!-- No extra details needed -->
+                    </div>
+                  </div>
+
+                  <!-- Bank Deposit -->
+                  <div class="payment-method-item">
+                    <label class="payment-method">
+                      <input type="radio" name="payment_method" value="Allied Bank">
+                      <span>Bank Deposit</span>
+                    </label>
+                    <div class="payment-method-details" id="details-BankDeposit">
+                      <div class="details-content">
+                        <p><strong>Bank:</strong> Allied Bank</p>
+                        <p><strong>Account Number:</strong> 0010114171250023</p>
+                        <p><strong>Account Title:</strong> Syed Shoaib Badshah</p>
+                        <p class="payment-note">Note: please share your transaction receipt on this number 03189454884 or our team will contact u in some time thank you .</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- EasyPaisa -->
+                  <div class="payment-method-item">
+                    <label class="payment-method">
+                      <input type="radio" name="payment_method" value="EasyPaisa">
+                      <span>EasyPaisa</span>
+                    </label>
+                    <div class="payment-method-details" id="details-EasyPaisa">
+                      <div class="details-content">
+                        <p><strong>Account Title:</strong> Syed Haseed Badshah</p>
+                        <p><strong>Easy Pasia Account Number:</strong> 03189454884</p>
+                        <p class="payment-note">Note: please share your transaction receipt on this number 03189454884 or our team will contact u in some time thank you .</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- JazzCash -->
+                  <div class="payment-method-item">
+                    <label class="payment-method">
+                      <input type="radio" name="payment_method" value="JazzCash">
+                      <span>JazzCash</span>
+                    </label>
+                    <div class="payment-method-details" id="details-JazzCash">
+                      <div class="details-content">
+                        <p><strong>Account Title:</strong> Syed Haseed Badshah</p>
+                        <p><strong>JazzCash Account Number:</strong> 03189454884</p>
+                        <p class="payment-note">Note: please share your transaction receipt on this number 03189454884 or our team will contact u in some time thank you .</p>
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
               </fieldset>
 
@@ -338,6 +380,29 @@
       renderCheckout();
       window.addEventListener('hanazCartUpdated', renderCheckout);
 
+      // Payment method selection accordion logic
+      const paymentMethodItems = document.querySelectorAll('.payment-method-item');
+      const paymentRadios = document.querySelectorAll('input[name="payment_method"]');
+
+      function updatePaymentAccordion() {
+        paymentMethodItems.forEach(item => {
+          const radio = item.querySelector('input[name="payment_method"]');
+          if (radio && radio.checked) {
+            item.classList.add('active');
+          } else {
+            item.classList.remove('active');
+          }
+        });
+      }
+
+      // Initialize accordion state on page load
+      updatePaymentAccordion();
+
+      // Listen for selection changes
+      paymentRadios.forEach(radio => {
+        radio.addEventListener('change', updatePaymentAccordion);
+      });
+
             form.addEventListener('submit', async (e) => {
         e.preventDefault();
         
@@ -351,76 +416,117 @@
         submitBtn.disabled = true;
         submitBtn.textContent = 'Processing...';
 
-        const formData = {
-          name: document.getElementById('co-name').value,
-          phone: document.getElementById('co-phone').value,
-          email: document.getElementById('co-email').value,
-          address: document.getElementById('co-address').value + ', ' + document.getElementById('co-city').value + (document.getElementById('co-postal').value ? ', ' + document.getElementById('co-postal').value : ''),
-          paymentMethod: document.querySelector('input[name="payment_method"]:checked').value,
-          total: window.HanazCart.getSubtotal() + (window.HanazCart.getSubtotal() >= 5000 ? 0 : 200)
-        };
+        try {
+          const formData = {
+            name: document.getElementById('co-name').value,
+            phone: document.getElementById('co-phone').value,
+            email: document.getElementById('co-email').value,
+            address: document.getElementById('co-address').value + ', ' + document.getElementById('co-city').value + (document.getElementById('co-postal').value ? ', ' + document.getElementById('co-postal').value : ''),
+            paymentMethod: document.querySelector('input[name="payment_method"]:checked').value,
+            total: window.HanazCart.getSubtotal() + (window.HanazCart.getSubtotal() >= 5000 ? 0 : 200)
+          };
 
-        const orderNumber = 'HO-' + Date.now();
+          // Map radio-button values → lowercase DB-safe strings
+          const getValidPaymentMethod = (method) => {
+            const map = {
+              'COD': 'cod',
+              'Allied Bank': 'bank_deposit',
+              'EasyPaisa': 'easypaisa',
+              'JazzCash': 'jazzcash'
+            };
+            return map[method] || method.toLowerCase();
+          };
 
-        // Generate client-side UUID so we don't need a SELECT-back (anon role has INSERT but not SELECT)
-        const orderId = crypto.randomUUID();
+          const normalizedPaymentMethod = getValidPaymentMethod(formData.paymentMethod);
 
-        const { error: orderError } = await window.supabase
-          .from('orders')
-          .insert({
+          const orderNumber = 'HO-' + Date.now();
+
+          // Generate client-side UUID so we don't need a SELECT-back (anon role has INSERT but not SELECT)
+          const orderId = crypto.randomUUID();
+
+          const orderPayload = {
             id: orderId,
             order_number: orderNumber,
             customer_name: formData.name,
             phone: formData.phone,
             email: formData.email,
             address: formData.address,
-            payment_method: formData.paymentMethod,
+            payment_method: normalizedPaymentMethod,
             total_amount: formData.total,
-          });
+          };
 
-        if (orderError) {
-          console.error('Order failed:', orderError);
-          alert('Failed to place order. Please try again or contact support.');
+          // Debug: log full payload before sending
+          console.log('DEBUG: Order payload being sent to Supabase:', JSON.stringify(orderPayload, null, 2));
+          console.log('DEBUG: Raw radio value:', formData.paymentMethod, '→ Normalized:', normalizedPaymentMethod);
+
+          const { error: orderError } = await window.supabase
+            .from('orders')
+            .insert(orderPayload);
+
+          if (orderError) {
+            console.error('Order insert failed — full error object:', orderError);
+            console.error('Error message:', orderError.message);
+            console.error('Error code:', orderError.code);
+            console.error('Error details:', orderError.details);
+            console.error('Error hint:', orderError.hint);
+            alert('Failed to place order. Please try again or contact support.');
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Place Order';
+            return;
+          }
+
+          const orderItems = cartItems.map(item => ({
+            order_id: orderId,
+            product_id: item.id,
+            title_snapshot: item.name,
+            qty: item.qty,
+            price_at_order: item.price,
+            cost_at_order: item.cost_price || 0,
+          }));
+
+          console.log('DEBUG: Order items payload:', JSON.stringify(orderItems, null, 2));
+
+          const { error: itemsError } = await window.supabase
+            .from('order_items')
+            .insert(orderItems);
+
+          if (itemsError) {
+            console.error('Order items insert failed — full error object:', itemsError);
+            console.error('Error message:', itemsError.message);
+            console.error('Error code:', itemsError.code);
+            console.error('Error details:', itemsError.details);
+            console.error('Error hint:', itemsError.hint);
+            alert('There was an issue processing your order items. Please contact support.');
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Place Order';
+            return;
+          }
+
+          console.log('DEBUG: Order placed successfully! Order #', orderNumber, '| ID:', orderId);
+
+          // Show success state
+          document.getElementById('confirmed-order-number').textContent = orderNumber;
+          document.getElementById('track-order-btn').href = 'track-order.html?order=' + orderNumber;
+          grid.style.display = 'none';
+          success.style.display = 'block';
+          
+          // Clear cart
+          if (window.HanazCart && window.HanazCart.clear) {
+            window.HanazCart.clear();
+          } else {
+            localStorage.removeItem('hanazCart');
+          }
+          
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        } catch (err) {
+          console.error('Unexpected error during order submission:', err);
+          console.log('Error name:', err.name, '| Error message:', err.message);
+          console.log('Full error stack:', err.stack);
+          alert('An unexpected error occurred. Please try again or contact support.');
           submitBtn.disabled = false;
           submitBtn.textContent = 'Place Order';
-          return;
         }
-
-        const orderItems = cartItems.map(item => ({
-          order_id: orderId,
-          product_id: item.id,
-          title_snapshot: item.name,
-          qty: item.qty,
-          price_at_order: item.price,
-          cost_at_order: item.cost_price || 0,
-        }));
-
-        const { error: itemsError } = await window.supabase
-          .from('order_items')
-          .insert(orderItems);
-
-        if (itemsError) {
-          console.error('Order items failed:', itemsError);
-          alert('There was an issue processing your order items. Please contact support.');
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Place Order';
-          return;
-        }
-
-        // Show success state
-        document.getElementById('confirmed-order-number').textContent = orderNumber;
-        document.getElementById('track-order-btn').href = 'track-order.html?order=' + orderNumber;
-        grid.style.display = 'none';
-        success.style.display = 'block';
-        
-        // Clear cart
-        if (window.HanazCart && window.HanazCart.clear) {
-          window.HanazCart.clear();
-        } else {
-          localStorage.removeItem('hanazCart');
-        }
-        
-        window.scrollTo({ top: 0, behavior: 'smooth' });
       });
       
     });
