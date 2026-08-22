@@ -8,6 +8,7 @@
   <meta name="description" content="Build your perfect skincare regimen with Hanaz Official.">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/collections.css">
+  <link rel="stylesheet" href="css/home.css">
 </head>
 
 <body class="fade-in-page">
@@ -201,6 +202,81 @@
       </div>
     </section>
 
+    <!-- ===== TRANSFORM YOUR SKIN ===== -->
+    <section class="transform-section section-padding reveal">
+      <div class="container">
+        <div class="section-header">
+          <h2>Transform Your Skin</h2>
+        </div>
+
+        <div class="transform-tabs">
+          <button class="transform-tab active" data-tab="acne">Acne</button>
+          <button class="transform-tab" data-tab="aging">Aging</button>
+          <button class="transform-tab" data-tab="hydration">Hydration</button>
+          <button class="transform-tab" data-tab="sensitivity">Sensitivity</button>
+          <div class="transform-tab-underline"></div>
+        </div>
+
+        <div class="transform-content">
+          <!-- Acne Tab -->
+          <div class="transform-panel active" id="tab-acne">
+            <div class="ba-slider-wrap">
+              <div class="ba-slider">
+                <img src="images/acne.png" alt="After" class="ba-after">
+                <img src="images/acne2.png" alt="Before" class="ba-before">
+                <div class="ba-handle"></div>
+              </div>
+              <span class="ba-label left">Before</span>
+              <span class="ba-label right">After</span>
+            </div>
+          </div>
+
+          <!-- Aging Tab -->
+          <div class="transform-panel" id="tab-aging">
+            <div class="ba-slider-wrap">
+              <div class="ba-slider">
+                <img src="images/zwana.jpg" alt="After" class="ba-after">
+                <img src="images/bodai.jpg" alt="Before" class="ba-before">
+                <div class="ba-handle"></div>
+              </div>
+              <span class="ba-label left">Before</span>
+              <span class="ba-label right">After</span>
+            </div>
+          </div>
+
+          <!-- Hydration Tab -->
+          <div class="transform-panel" id="tab-hydration">
+            <div class="ba-slider-wrap">
+              <div class="ba-slider">
+                <img src="images/hy.jpg" alt="After" class="ba-after">
+                <img src="images/hy2.jpg" alt="Before" class="ba-before">
+                <div class="ba-handle"></div>
+              </div>
+              <span class="ba-label left">Before</span>
+              <span class="ba-label right">After</span>
+            </div>
+          </div>
+
+          <!-- Sensitivity Tab -->
+          <div class="transform-panel" id="tab-sensitivity">
+            <div class="ba-slider-wrap">
+              <div class="ba-slider">
+                <img src="images/se.jpg" alt="After" class="ba-after">
+                <img src="images/se2.jpg" alt="Before" class="ba-before">
+                <div class="ba-handle"></div>
+              </div>
+              <span class="ba-label left">Before</span>
+              <span class="ba-label right">After</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-lg">
+          <a href="products.html" class="btn btn-primary">Shop Routine</a>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer class="site-footer">
@@ -277,6 +353,7 @@
   <script src="js/supabase-client.js"></script>
   <script src="js/cart.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/home.js"></script>
   <script>
     async function loadCollectionProducts() {
       const { data, error } = await window.supabase

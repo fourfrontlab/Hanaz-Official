@@ -151,53 +151,139 @@
   border-bottom: 1px solid var(--border);
 }
 
+/* Section header */
+.concerns-header {
+  margin-bottom: var(--space-2xl);
+}
+
+.concerns-heading {
+  font-size: clamp(1.4rem, 2.5vw, 1.875rem);
+  font-weight: 600;
+  color: var(--text-heading);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  margin-bottom: var(--space-sm);
+}
+
 .concerns-subtitle {
   font-size: 14px;
-  color: var(--text-muted);
-  margin-top: var(--space-sm);
+  color: var(--accent);
+  font-weight: 400;
+  letter-spacing: 0.01em;
 }
 
-.concerns-grid {
-  display: flex;
-  justify-content: center;
-  gap: var(--space-3xl);
-  flex-wrap: wrap;
+/* ─── Cards Row ─────────────────────────────────────────────── */
+.concerns-cards-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-md);
+  align-items: start;
 }
 
-.concern-tile {
+/* ─── Individual Card ───────────────────────────────────────── */
+.concern-card {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: var(--space-md);
+  gap: var(--space-sm);
   text-decoration: none;
+  cursor: pointer;
+  /* Prevent layout shift on hover */
+  outline: none;
 }
 
-.concern-img-wrap {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
+/* Image container */
+.concern-card__img-wrap {
+  width: 100%;
+  aspect-ratio: 3 / 4;
   overflow: hidden;
-  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--border);
+  position: relative;
 }
 
-.concern-img-wrap img {
+.concern-card__img-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
+  object-position: center top;
+  display: block;
+  transition: transform 0.45s var(--ease-out);
+  will-change: transform;
 }
 
-.concern-tile:hover .concern-img-wrap img {
-  transform: scale(1.05);
+/* Hover: subtle image zoom */
+.concern-card:hover .concern-card__img-wrap img {
+  transform: scale(1.04);
 }
 
-.concern-label {
-  font-size: 13px;
+/* Label row — name + arrow */
+.concern-card__label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-xs) 0;
+}
+
+.concern-card__name {
+  font-size: 14px;
   font-weight: 500;
   color: var(--text-heading);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.01em;
+  line-height: 1;
 }
+
+.concern-card__arrow {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1;
+  display: inline-block;
+  transition: transform 0.25s var(--ease-out), color 0.25s ease;
+  will-change: transform;
+}
+
+/* Hover: arrow nudge right */
+.concern-card:hover .concern-card__arrow {
+  transform: translateX(5px);
+  color: var(--text-heading);
+}
+
+/* Hover: name slight color shift */
+.concern-card:hover .concern-card__name {
+  color: var(--accent);
+}
+
+/* ─── Responsive ────────────────────────────────────────────── */
+@media (max-width: 960px) {
+  .concerns-cards-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+  }
+
+  /* 5th card centered on its own row */
+  .concern-card:nth-child(5) {
+    grid-column: 1 / -1;
+    max-width: calc(50% - var(--space-sm) / 2);
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 540px) {
+  .concerns-cards-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-sm);
+  }
+
+  .concern-card:nth-child(5) {
+    grid-column: 1 / -1;
+    max-width: calc(50% - var(--space-xs));
+    margin: 0 auto;
+  }
+
+  .concern-card__name {
+    font-size: 13px;
+  }
+}
+
 
 /* ===== THE FORMULA ===== */
 .formula-section {
