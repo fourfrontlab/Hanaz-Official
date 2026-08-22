@@ -381,7 +381,7 @@
           html += `
             <div class="summary-item">
               <div class="summary-item-img">
-                <img src="${item.image}" alt="${item.name}">
+                <img src="${item.image || 'images/placeholder.jpg'}" alt="${item.name}" onerror="this.onerror=null; this.src='images/placeholder.jpg';">
                 <div class="summary-item-qty">${item.qty}</div>
               </div>
               <div class="summary-item-info">

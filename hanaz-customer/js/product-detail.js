@@ -73,11 +73,27 @@
 
     btn.addEventListener('click', () => {
       if (window.HanazCart && window.HanazCart.add) {
+        const titleEl = document.getElementById('pdp-title');
+        const name = titleEl ? titleEl.textContent : 'Hanaz Vitamin C Serum';
+        
+        const priceEl = document.getElementById('dynamic-sale-price');
+        let price = 1599;
+        if (priceEl) {
+          const parsed = parseInt(priceEl.textContent.replace(/[^0-9]/g, ''), 10);
+          if (!isNaN(parsed)) price = parsed;
+        }
+
+        const mainImgEl = document.getElementById('main-product-image');
+        const image = mainImgEl ? mainImgEl.getAttribute('src') : 'images/vitamin-c-serum.jpg';
+        
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id') || 'hanaz-vitamin-c-serum';
+
         window.HanazCart.add({
-          id: 'hanaz-vitamin-c-serum',
-          name: 'Hanaz Vitamin C Serum',
-          price: 1599,
-          image: 'images/vitamin-c-serum.jpg',
+          id: id,
+          name: name,
+          price: price,
+          image: image,
           qty: currentQty
         });
       }

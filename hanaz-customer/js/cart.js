@@ -35,10 +35,21 @@
     const stored = localStorage.getItem('hanaz_cart');
     if (stored) {
       cartState.items = JSON.parse(stored);
-      // Hotfix: Ensure legacy .png images point to .jpg
+      // Hotfix: Ensure legacy images are correctly formatted
       cartState.items.forEach(item => {
-        if (item.image && item.image.includes('.png') && item.image.includes('vitamin-c-serum')) {
-          item.image = item.image.replace('.png', '.jpg');
+        if (!item.image) {
+          item.image = item.imageUrl || item.productImage || 'images/placeholder.jpg';
+        }
+        if (item.image && typeof item.image === 'string') {
+          if (item.image.includes('.png') && item.image.includes('vitamin-c-serum')) {
+            item.image = item.image.replace('.png', '.jpg');
+          }
+          if (item.image === '[' || item.image === '"') {
+             item.image = 'images/placeholder.jpg';
+          }
+          if (!item.image.includes('/') && !item.image.startsWith('http') && item.image.trim() !== '') {
+            item.image = 'images/' + item.image;
+          }
         }
       });
     }

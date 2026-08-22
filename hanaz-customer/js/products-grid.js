@@ -9,8 +9,20 @@ window.renderProductGrid = function(products, containerId) {
 
   let html = '';
   products.forEach(product => {
-    const imageUrlFront = product.image_urls && product.image_urls.length > 0 ? product.image_urls[0] : 'images/placeholder.jpg';
-    const imageUrlBack = product.image_urls && product.image_urls.length > 1 ? product.image_urls[1] : imageUrlFront;
+    let imageUrlFront = 'images/placeholder.jpg';
+    if (product.image_urls && Array.isArray(product.image_urls) && product.image_urls.length > 0) {
+      imageUrlFront = product.image_urls[0];
+    } else if (product.image_urls && typeof product.image_urls === 'string' && product.image_urls.startsWith('[')) {
+      try { const parsed = JSON.parse(product.image_urls); if (parsed.length > 0) imageUrlFront = parsed[0]; } catch(e){}
+    } else if (product.image_url) { imageUrlFront = product.image_url; }
+    else if (product.image) { imageUrlFront = product.image; }
+    
+    let imageUrlBack = imageUrlFront;
+    if (product.image_urls && Array.isArray(product.image_urls) && product.image_urls.length > 1) {
+      imageUrlBack = product.image_urls[1];
+    } else if (product.image_urls && typeof product.image_urls === 'string' && product.image_urls.startsWith('[')) {
+      try { const parsed = JSON.parse(product.image_urls); if (parsed.length > 1) imageUrlBack = parsed[1]; } catch(e){}
+    }
     const category = product.category || 'skincare';
     const title = product.title;
     const salePrice = product.sale_price || 0;
