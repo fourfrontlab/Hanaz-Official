@@ -640,10 +640,13 @@ h4 {
 .announcement-bar {
   background-color: var(--text-heading);
   color: var(--bg-card);
-  height: var(--announcement-h);
+  min-height: var(--announcement-h);
+  height: auto;
+  padding: 6px var(--space-md);
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -685,7 +688,7 @@ h4 {
 }
 
 .nav-logo img {
-  height: 40px;
+  height: 60px;
   width: auto;
   object-fit: contain;
 }
@@ -797,6 +800,16 @@ h4 {
 
 /* Responsive Nav */
 @media (max-width: 768px) {
+  .announcement-bar {
+    font-size: 9px;
+    letter-spacing: 0.06em;
+    padding: 6px var(--space-sm);
+  }
+
+  .nav-logo img {
+    height: 48px;
+  }
+
   .nav-links {
     display: none;
   }
