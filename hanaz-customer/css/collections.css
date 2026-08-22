@@ -124,7 +124,8 @@
 .product-mini img {
   width: 64px;
   height: 64px;
-  object-fit: contain;
+  object-fit: cover;
+  object-position: center;
   background: var(--bg);
   border: 1px solid var(--border);
 }

@@ -111,23 +111,17 @@
             <h4>Glazing Milk</h4>
             <span class="coming-soon">New category launching soon</span>
           </div>
-          <div class="collection-tile disabled">
+          <div class="collection-tile">
             <div class="tile-img" style="position: relative;">
-              <span class="product-badge"
-                style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); margin: 0; white-space: nowrap;">COMING
-                SOON</span>
+              <img src="images/collection-face-washes.png" alt="Face Washes">
             </div>
             <h4>Face Washes</h4>
-            <span class="coming-soon">New category launching soon</span>
           </div>
-          <div class="collection-tile disabled">
+          <div class="collection-tile">
             <div class="tile-img" style="position: relative;">
-              <span class="product-badge"
-                style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); margin: 0; white-space: nowrap;">COMING
-                SOON</span>
+              <img src="images/vitamin-c-serum.jpg" alt="Serums">
             </div>
             <h4>Serums</h4>
-            <span class="coming-soon">New category launching soon</span>
           </div>
           <div class="collection-tile disabled">
             <div class="tile-img" style="position: relative;">
@@ -159,7 +153,8 @@
               <h3>Cleanse</h3>
               <p>Remove impurities without stripping the skin.</p>
               <div class="step-product">
-                <span class="coming-soon">New face wash launching soon</span>
+                <div id="regimen-step-cleanse-product"><span class="coming-soon" style="font-style:italic;">Loading
+                    recommended product...</span></div>
               </div>
             </div>
           </div>
@@ -383,17 +378,25 @@
 
       if (error || !data) { console.error(error); return; }
 
-      // Collection tiles
+      // Collection tiles logic removed to only show category cards
       const tileGrid = document.getElementById('collections-tile-grid');
       if (tileGrid) {
-        tileGrid.innerHTML = data.map(p => {
-          const imgSrc = p.image_urls && p.image_urls.length > 0 ? p.image_urls[0] : 'images/placeholder.jpg';
-          return `<a href="product-detail.html?id=${p.id}" class="collection-tile">
-            <div class="tile-img"><img src="${imgSrc}" alt="${p.title}"></div>
-            <h4>${p.title}</h4>
-            <span class="item-count">Rs. ${(p.sale_price || 0).toLocaleString()}</span>
-          </a>`;
-        }).join('');
+        // We leave it empty to prevent real products from appearing
+        tileGrid.innerHTML = '';
+      }
+
+      // Regimen Step 1: Face Wash
+      const cleanseContainer = document.getElementById('regimen-step-cleanse-product');
+      if (cleanseContainer && data.length > 0) {
+        const washProduct = data.find(p => p.title.toLowerCase().includes('wash') || p.title.toLowerCase().includes('cleanser')) || data[0];
+        const imgSrc = washProduct.image_urls && washProduct.image_urls.length > 0 ? washProduct.image_urls[0] : 'images/placeholder.jpg';
+        cleanseContainer.innerHTML = `<a href="product-detail.html?id=${washProduct.id}" class="product-mini">
+          <img src="${imgSrc}" alt="${washProduct.title}">
+          <div class="mini-info">
+            <h5>${washProduct.title}</h5>
+            <span>Rs. ${(washProduct.sale_price || 0).toLocaleString()}</span>
+          </div>
+        </a>`;
       }
 
       // Regimen Step 2: pick first suitable product (serum/treat category or first in_stock)
