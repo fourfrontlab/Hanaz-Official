@@ -500,6 +500,141 @@ h4 {
 }
 
 /* ==========================================================================
+   HERO / PAGE BANNER — Shared full-bleed component
+   Used on: homepage hero carousel, shop page header, any future page banners
+   ========================================================================== */
+
+/* Container: fills width, clips the absolute image, flex-centers the content */
+.hero-banner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+/* Background image — absolutely fills the banner */
+.hero-banner__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Gradient scrim — left-to-right fade for text legibility.
+   Light enough that image texture stays visible; text stays crisp
+   because heading color (#181818) provides its own contrast. */
+.hero-banner__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(250, 250, 250, 0.72) 0%,
+    rgba(250, 250, 250, 0.48) 22%,
+    rgba(250, 250, 250, 0.15) 48%,
+    rgba(250, 250, 250, 0)    65%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Text / CTA content block */
+.hero-banner__content {
+  position: relative;
+  z-index: 2;
+  padding: var(--space-3xl) 8%;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hero-banner__eyebrow {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: var(--space-md);
+}
+
+.hero-banner__content h1 {
+  font-size: clamp(40px, 6vw, 72px);
+  line-height: 1.05;
+  font-weight: 400;
+  margin-bottom: var(--space-lg);
+  color: var(--text-heading);
+  letter-spacing: -0.02em;
+}
+
+.hero-banner__content p {
+  font-size: 16px;
+  color: var(--text-body);
+  margin-bottom: var(--space-xl);
+  max-width: 380px;
+  line-height: 1.65;
+}
+
+/* Mobile: image on top, text stacked below */
+@media (max-width: 768px) {
+  .hero-banner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-banner__image {
+    position: static;
+    width: 100%;
+    height: 50vw;
+    min-height: 220px;
+    max-height: 340px;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .hero-banner__scrim {
+    display: none;
+  }
+
+  .hero-banner__content {
+    position: static;
+    padding: var(--space-xl) var(--space-lg);
+    max-width: 100%;
+    align-items: flex-start;
+    background: var(--bg);
+  }
+
+  .hero-banner__content h1 {
+    font-size: clamp(32px, 8vw, 44px);
+    margin-bottom: var(--space-md);
+  }
+
+  .hero-banner__content p {
+    font-size: 14px;
+    max-width: 100%;
+    margin-bottom: var(--space-lg);
+  }
+
+  .hero-banner__cta {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-banner__image {
+    height: 60vw;
+    max-height: 280px;
+  }
+}
+
+/* ==========================================================================
    TOP BAR & NAVBAR
    ========================================================================== */
 .announcement-bar {

@@ -31,64 +31,38 @@
   z-index: 1;
 }
 
-.hero-split {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+/* ─── Homepage Carousel: full-viewport height override ───────── */
+/* The base .hero-banner rules (image, scrim, content, mobile) live
+   in style.css as a shared component. Here we only add what's
+   specific to the homepage full-viewport carousel context. */
+.hero-carousel-track .hero-banner {
   min-height: calc(100vh - var(--nav-height) - var(--announcement-h));
 }
 
-.hero-image {
-  background: var(--bg-card);
-  position: relative;
-}
-
-.hero-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.hero-text {
-  padding: var(--space-2xl) 10%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.hero-text h1 {
-  font-size: clamp(40px, 6vw, 64px);
-  line-height: 1.1;
-  font-weight: 400;
-  margin-bottom: var(--space-lg);
-}
-
-.hero-text p {
-  font-size: 16px;
-  color: var(--text-body);
-  margin-bottom: var(--space-xl);
-  max-width: 400px;
-}
-
 /* Slide text entrance animation */
-.hero-slide.active .hero-text h1,
-.hero-slide.active .hero-text p,
-.hero-slide.active .hero-text .btn {
-  animation: heroTextIn 0.6s 0.15s var(--ease-out) both;
+.hero-slide.active .hero-banner__content .hero-banner__eyebrow,
+.hero-slide.active .hero-banner__content h1,
+.hero-slide.active .hero-banner__content p,
+.hero-slide.active .hero-banner__content .btn {
+  animation: heroTextIn 0.65s var(--ease-out) both;
 }
 
-.hero-slide.active .hero-text p {
-  animation-delay: 0.25s;
+.hero-slide.active .hero-banner__content h1 {
+  animation-delay: 0.1s;
 }
 
-.hero-slide.active .hero-text .btn {
-  animation-delay: 0.35s;
+.hero-slide.active .hero-banner__content p {
+  animation-delay: 0.22s;
+}
+
+.hero-slide.active .hero-banner__content .btn {
+  animation-delay: 0.34s;
 }
 
 @keyframes heroTextIn {
   from {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -96,7 +70,7 @@
   }
 }
 
-/* Arrow controls */
+/* Arrow controls — sit over the full-bleed banner */
 .hero-arrow {
   position: absolute;
   top: 50%;
@@ -161,6 +135,7 @@
 .hero-dot:hover:not(.active) {
   background: var(--text-muted);
 }
+
 
 /* ===== BESTSELLERS ===== */
 .product-grid {
@@ -917,28 +892,23 @@
     min-height: auto;
   }
 
-  .hero-split {
-    grid-template-columns: 1fr;
-    min-height: auto;
-  }
-
-  .hero-image {
-    height: 300px;
-  }
-
-  .hero-text {
-    padding: var(--space-xl);
-  }
-
+  /* Carousel arrows: centre over the image portion height */
   .hero-arrow {
+    top: calc(50vw / 2);
     width: 36px;
     height: 36px;
     font-size: 20px;
   }
 
+  /* Dots: float near the bottom of the image portion */
   .hero-dots {
-    bottom: var(--space-md);
+    bottom: auto;
+    top: calc(50vw - 28px);
+    left: 50%;
+    transform: translateX(-50%);
   }
+
+
 
   .product-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -1009,6 +979,20 @@
 @media (max-width: 480px) {
   .formula-grid {
     grid-template-columns: 1fr;
+  }
+
+  /* Hero: slightly taller image on very small phones for better composition */
+  .hero-banner__image {
+    height: 60vw;
+    max-height: 280px;
+  }
+
+  .hero-dots {
+    top: calc(60vw - 28px);
+  }
+
+  .hero-arrow {
+    top: calc(60vw / 2);
   }
 
   /* Video carousel — small phones: show ~1.3 cards */

@@ -81,74 +81,73 @@
 }
 
 /* ==========================================================================
-   CATEGORY HERO BANNER
+   SHOP PAGE BANNER  (extends .hero-banner from home.css)
    ========================================================================== */
 
-.category-hero {
-  background-color: #F5F4F0;
+/* Page-banner variant: shorter height than the full homepage hero */
+.hero-banner--page {
+  min-height: 45vh;
+  border-bottom: 1px solid var(--border);
   margin-bottom: var(--space-2xl);
-  width: 100%;
 }
 
-.category-hero-inner {
-  display: flex;
-  align-items: stretch;
-  max-width: 100%;
-}
-
-.category-hero-content {
-  flex: 1;
-  padding: var(--space-3xl) max(var(--space-lg), calc((100vw - var(--container-width)) / 2));
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.category-hero-content .breadcrumb {
-  padding: 0 0 var(--space-lg) 0;
-}
-
-.category-hero-content h1 {
-  font-size: clamp(32px, 5vw, 56px);
+/* Heading inside the page banner — slightly smaller than homepage */
+.hero-banner--page .hero-banner__content h1 {
+  font-size: clamp(32px, 4.5vw, 56px);
   margin-bottom: var(--space-md);
-  font-weight: 500;
-  line-height: 1.1;
-  color: var(--text-heading);
 }
 
-.category-hero-content p {
-  font-size: 16px;
-  color: var(--text-body);
-  line-height: 1.5;
-  max-width: 480px;
+/* Body text is slightly shorter on a page header vs homepage pitch */
+.hero-banner--page .hero-banner__content p {
+  font-size: 15px;
+  max-width: 400px;
+  margin-bottom: 0; /* No CTA below, so remove bottom margin */
 }
 
-.category-hero-image {
-  flex: 1;
-  display: flex;
-}
-
-.category-hero-image .placeholder-img {
-  width: 100%;
-  aspect-ratio: 4/3;
-  background-color: #EAE6DF;
+/* Breadcrumb integrated into the content overlay */
+.hero-banner__breadcrumb {
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 8px;
+  font-size: 13px;
   color: var(--text-muted);
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  margin-bottom: var(--space-md);
 }
 
-@media (max-width: 900px) {
-  .category-hero-inner {
-    flex-direction: column;
+.hero-banner__breadcrumb a {
+  color: var(--text-heading);
+  transition: opacity var(--duration-fast) ease;
+}
+
+.hero-banner__breadcrumb a:hover {
+  opacity: 0.6;
+}
+
+.hero-banner__breadcrumb span[aria-hidden] {
+  color: var(--text-muted);
+}
+
+/* Mobile — inherit the stacked layout from home.css media query.
+   The home.css @media (max-width: 768px) block already handles
+   .hero-banner__image, .hero-banner__scrim, .hero-banner__content.
+   We only need to adjust the page-specific overrides. */
+@media (max-width: 768px) {
+  .hero-banner--page {
+    min-height: auto;
+    margin-bottom: var(--space-lg);
   }
-  .category-hero-content {
-    padding: var(--space-2xl) var(--space-lg);
+
+  .hero-banner--page .hero-banner__content h1 {
+    font-size: clamp(28px, 7vw, 38px);
   }
-  .category-hero-image .placeholder-img {
-    aspect-ratio: 16/9;
+
+  .hero-banner--page .hero-banner__content p {
+    max-width: 100%;
+  }
+
+  /* Breadcrumb stays legible below image on mobile */
+  .hero-banner__breadcrumb {
+    font-size: 12px;
   }
 }
+
