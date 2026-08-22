@@ -258,15 +258,49 @@
     </div>
   </footer>
 
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-client.js"></script>
   <script src="js/cart.js"></script>
   <script src="js/main.js"></script>
   <script>
-    document.getElementById('contact-form').addEventListener('submit', function (e) {
+    document.getElementById('contact-form').addEventListener('submit', async function (e) {
       e.preventDefault();
-      this.style.display = 'none';
-      document.getElementById('contact-success').style.display = 'block';
-      this.reset();
-      window.scrollTo({ top: document.querySelector('.contact-form-wrap').offsetTop - 100, behavior: 'smooth' });
+      
+      const submitBtn = this.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+
+      const formData = {
+        full_name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        subject: document.getElementById('subject').value,
+        message: document.getElementById('message').value
+      };
+
+      try {
+        const { error } = await window.supabase
+          .from('contact_messages')
+          .insert(formData);
+
+        if (error) {
+          console.error('Error inserting contact message:', error);
+          alert('There was a problem sending your message. Please try again.');
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Submit';
+          return;
+        }
+
+        this.style.display = 'none';
+        document.getElementById('contact-success').style.display = 'block';
+        this.reset();
+        window.scrollTo({ top: document.querySelector('.contact-form-wrap').offsetTop - 100, behavior: 'smooth' });
+      } catch (err) {
+        console.error('Unexpected error:', err);
+        alert('An unexpected error occurred. Please try again.');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit';
+      }
     });
   </script>
 </body>
