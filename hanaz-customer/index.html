@@ -403,37 +403,69 @@
     </section>
 
     <!-- ===== COMMON CONCERNS ===== -->
-    <section class="concerns-section section-padding reveal">
+    <section class="concerns-section section-padding reveal" id="common-concerns">
       <div class="container">
-        <div class="section-header" style="text-align: center;">
-          <h2>Not sure where to begin?</h2>
-          <p class="concerns-subtitle">Here are some common skin concerns</p>
+        <div class="concerns-header">
+          <h2 class="concerns-heading">Common Concerns</h2>
+          <p class="concerns-subtitle">Not sure where to begin? Here are some common skin concerns.</p>
         </div>
-        <div class="concerns-grid">
-          <a href="collections.html" class="concern-tile">
-            <div class="concern-img-wrap">
-              <img src="images/concern-brightening.png" alt="Brightening">
+        <div class="concerns-cards-row">
+
+          <!-- Aging -->
+          <a href="collections.html" class="concern-card" id="concern-aging" aria-label="Explore Aging concern">
+            <div class="concern-card__img-wrap">
+              <img src="images/concern-aging.png" alt="Mature skin showing natural fine lines — Aging concern">
             </div>
-            <span class="concern-label">Brightening</span>
-          </a>
-          <a href="collections.html" class="concern-tile">
-            <div class="concern-img-wrap">
-              <img src="images/concern-hydration.png" alt="Hydration">
+            <div class="concern-card__label">
+              <span class="concern-card__name">Aging</span>
+              <span class="concern-card__arrow" aria-hidden="true">→</span>
             </div>
-            <span class="concern-label">Hydration</span>
           </a>
-          <a href="collections.html" class="concern-tile">
-            <div class="concern-img-wrap">
-              <img src="images/concern-dullness.png" alt="Dullness">
+
+          <!-- Congestion -->
+          <a href="collections.html" class="concern-card" id="concern-congestion" aria-label="Explore Congestion concern">
+            <div class="concern-card__img-wrap">
+              <img src="images/concern-congestion.png" alt="Close-up skin showing mild pore congestion — Congestion concern">
             </div>
-            <span class="concern-label">Dullness</span>
-          </a>
-          <a href="#formula-section" class="concern-tile">
-            <div class="concern-img-wrap">
-              <img src="images/concern-texture.png" alt="Texture">
+            <div class="concern-card__label">
+              <span class="concern-card__name">Congestion</span>
+              <span class="concern-card__arrow" aria-hidden="true">→</span>
             </div>
-            <span class="concern-label">Texture</span>
           </a>
+
+          <!-- Texture -->
+          <a href="collections.html" class="concern-card" id="concern-texture" aria-label="Explore Texture concern">
+            <div class="concern-card__img-wrap">
+              <img src="images/concern-texture.png" alt="Close-up of uneven skin texture — Texture concern">
+            </div>
+            <div class="concern-card__label">
+              <span class="concern-card__name">Texture</span>
+              <span class="concern-card__arrow" aria-hidden="true">→</span>
+            </div>
+          </a>
+
+          <!-- Redness -->
+          <a href="collections.html" class="concern-card" id="concern-redness" aria-label="Explore Redness concern">
+            <div class="concern-card__img-wrap">
+              <img src="images/concern-redness.png" alt="Close-up showing natural mild facial redness — Redness concern">
+            </div>
+            <div class="concern-card__label">
+              <span class="concern-card__name">Redness</span>
+              <span class="concern-card__arrow" aria-hidden="true">→</span>
+            </div>
+          </a>
+
+          <!-- Dryness -->
+          <a href="collections.html" class="concern-card" id="concern-dryness" aria-label="Explore Dryness concern">
+            <div class="concern-card__img-wrap">
+              <img src="images/concern-dryness.png" alt="Close-up of naturally dry dehydrated skin — Dryness concern">
+            </div>
+            <div class="concern-card__label">
+              <span class="concern-card__name">Dryness</span>
+              <span class="concern-card__arrow" aria-hidden="true">→</span>
+            </div>
+          </a>
+
         </div>
       </div>
     </section>
@@ -499,81 +531,6 @@
     </section>
 
 
-
-    <!-- ===== TRANSFORM YOUR SKIN ===== -->
-    <section class="transform-section section-padding reveal">
-      <div class="container">
-        <div class="section-header">
-          <h2>Transform Your Skin</h2>
-        </div>
-
-        <div class="transform-tabs">
-          <button class="transform-tab active" data-tab="acne">Acne</button>
-          <button class="transform-tab" data-tab="aging">Aging</button>
-          <button class="transform-tab" data-tab="hydration">Hydration</button>
-          <button class="transform-tab" data-tab="sensitivity">Sensitivity</button>
-          <div class="transform-tab-underline"></div>
-        </div>
-
-        <div class="transform-content">
-          <!-- Acne Tab -->
-          <div class="transform-panel active" id="tab-acne">
-            <div class="ba-slider-wrap">
-              <div class="ba-slider">
-                <img src="images/acne.png" alt="After" class="ba-after">
-                <img src="images/acne2.png" alt="Before" class="ba-before">
-                <div class="ba-handle"></div>
-              </div>
-              <span class="ba-label left">Before</span>
-              <span class="ba-label right">After</span>
-            </div>
-          </div>
-
-          <!-- Aging Tab -->
-          <div class="transform-panel" id="tab-aging">
-            <div class="ba-slider-wrap">
-              <div class="ba-slider">
-                <img src="images/zwana.jpg" alt="After" class="ba-after">
-                <img src="images/bodai.jpg" alt="Before" class="ba-before">
-                <div class="ba-handle"></div>
-              </div>
-              <span class="ba-label left">Before</span>
-              <span class="ba-label right">After</span>
-            </div>
-          </div>
-
-          <!-- Hydration Tab -->
-          <div class="transform-panel" id="tab-hydration">
-            <div class="ba-slider-wrap">
-              <div class="ba-slider">
-                <img src="images/hy.jpg" alt="After" class="ba-after">
-                <img src="images/hy2.jpg" alt="Before" class="ba-before">
-                <div class="ba-handle"></div>
-              </div>
-              <span class="ba-label left">Before</span>
-              <span class="ba-label right">After</span>
-            </div>
-          </div>
-
-          <!-- Sensitivity Tab -->
-          <div class="transform-panel" id="tab-sensitivity">
-            <div class="ba-slider-wrap">
-              <div class="ba-slider">
-                <img src="images/se.jpg" alt="After" class="ba-after">
-                <img src="images/se2.jpg" alt="Before" class="ba-before">
-                <div class="ba-handle"></div>
-              </div>
-              <span class="ba-label left">Before</span>
-              <span class="ba-label right">After</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="text-center mt-lg">
-          <a href="products.html" class="btn btn-primary">Shop Routine</a>
-        </div>
-      </div>
-    </section>
 
   </main>
 
