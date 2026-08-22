@@ -299,7 +299,7 @@
           <!-- Card 1 -->
           <button class="htuc-card" data-drawer="drawer-how-to-use" aria-haspopup="dialog">
             <div class="htuc-card-img image-wrapper">
-              <img src="images/vitamin-c-packaging.jpg" id="htuc-img-howto" alt="How to use" class="ratio-image"
+              <img src="images/htuc-howto.jpg" id="htuc-img-howto" alt="How to use" class="ratio-image"
                 loading="lazy">
             </div>
             <div class="htuc-card-body">
@@ -317,7 +317,7 @@
           <!-- Card 2 -->
           <button class="htuc-card" data-drawer="drawer-skin-safety" aria-haspopup="dialog">
             <div class="htuc-card-img image-wrapper">
-              <img src="images/how-to-use.jpg" id="htuc-img-safety" alt="Skin and safety" class="ratio-image"
+              <img src="images/htuc-safety.jpg" id="htuc-img-safety" alt="Skin and safety" class="ratio-image"
                 loading="lazy">
             </div>
             <div class="htuc-card-body">
@@ -335,7 +335,7 @@
           <!-- Card 3 -->
           <button class="htuc-card" data-drawer="drawer-storage-care" aria-haspopup="dialog">
             <div class="htuc-card-img">
-              <img src="images/vitamin-c-dropper.jpg" id="htuc-img-storage" alt="Storage and care" loading="lazy">
+              <img src="images/htuc-storage.jpg" id="htuc-img-storage" alt="Storage and care" loading="lazy">
             </div>
             <div class="htuc-card-body">
               <h3 class="htuc-card-title">Storage &amp; Care</h3>
@@ -368,7 +368,7 @@
           <div class="htuc-drawer-body">
             <h2>How to Use</h2>
             <div class="htuc-drawer-hero image-wrapper">
-              <img src="images/vitamin-c-packaging.jpg" id="htuc-img-howto" alt="How to use" class="ratio-image"
+              <img src="images/htuc-howto.jpg" id="htuc-img-howto" alt="How to use" class="ratio-image"
                 loading="lazy">
             </div>
             <p class="htuc-drawer-intro">Follow these simple steps every morning and evening for best results.</p>
@@ -412,7 +412,7 @@
           <div class="htuc-drawer-body">
             <h2>Skin &amp; Safety</h2>
             <div class="htuc-drawer-hero image-wrapper">
-              <img src="images/how-to-use.jpg" alt="Skin and safety information" class="ratio-image" loading="lazy">
+              <img src="images/htuc-safety.jpg" alt="Skin and safety information" class="ratio-image" loading="lazy">
             </div>
             <p class="htuc-drawer-intro">Follow these important safety recommendations before using your serum.</p>
             <ol class="htuc-steps">
@@ -455,7 +455,7 @@
           <div class="htuc-drawer-body">
             <h2>Storage &amp; Care</h2>
             <div class="htuc-drawer-hero">
-              <img src="images/vitamin-c-dropper.jpg" alt="Storage and care information" loading="lazy">
+              <img src="images/htuc-storage.jpg" alt="Storage and care information" loading="lazy">
             </div>
             <p class="htuc-drawer-intro">Store properly to ensure maximum formula potency and longevity.</p>
             <ol class="htuc-steps">
@@ -1308,15 +1308,7 @@
         metaDesc.setAttribute('content', product.description.replace(/<[^>]*>/g, '').substring(0, 160));
       }
 
-      // 7. HTUC card images
-      const htucImg1 = document.getElementById('htuc-img-howto');
-      const htucImg2 = document.getElementById('htuc-img-safety');
-      const htucImg3 = document.getElementById('htuc-img-storage');
-      const htucSrc1 = product.image_urls && product.image_urls[1] ? product.image_urls[1] : (product.image_urls && product.image_urls[0] ? product.image_urls[0] : '');
-      const htucSrc2 = product.image_urls && product.image_urls[2] ? product.image_urls[2] : htucSrc1;
-      if (htucImg1 && htucSrc1) htucImg1.src = htucSrc1;
-      if (htucImg2 && htucSrc2) htucImg2.src = htucSrc2;
-      if (htucImg3 && htucSrc1) htucImg3.src = htucSrc1;
+      // 7. HTUC card images logic removed (fixed static images now used)
 
       // 8. Sticky cart bar
       const stickyImg = document.getElementById('sticky-cart-img');
