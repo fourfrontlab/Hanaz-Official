@@ -278,17 +278,25 @@
       };
 
       try {
-        const { error } = await window.supabase
+        console.log('DEBUG: Attempting to insert contact message payload:', formData);
+        const response = await window.supabase
           .from('contact_messages')
           .insert(formData);
 
+        console.log('DEBUG: Supabase Raw Response:', response);
+        const { error, data, status, statusText } = response;
+
         if (error) {
-          console.error('Error inserting contact message:', error);
-          alert('There was a problem sending your message. Please try again.');
+          console.error('DEBUG: Supabase Insert Error:', error);
+          alert(`There was a problem sending your message. Error: ${error.message || error.code || 'Unknown error'}`);
           submitBtn.disabled = false;
           submitBtn.textContent = 'Submit';
           return;
         }
+
+        console.log('DEBUG: Insert succeeded. HTTP Status:', status, statusText);
+        // Note: data is expected to be null here because Supabase v2 defaults to not returning rows on insert (return=minimal).
+        // Adding .select() would cause a 401 Unauthorized because anonymous users are not allowed to SELECT messages due to RLS.
 
         this.style.display = 'none';
         document.getElementById('contact-success').style.display = 'block';
