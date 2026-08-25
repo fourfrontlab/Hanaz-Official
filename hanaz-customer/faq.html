@@ -284,7 +284,7 @@
   <script defer src="js/cart.js"></script>
   <script defer src="js/main.js"></script>
   <script>
-    // Accordion Logic
+    /* Accordion Logic */
     document.querySelectorAll('.accordion-header').forEach(header => {
       header.addEventListener('click', () => {
         const acc = header.closest('.accordion');
@@ -295,7 +295,7 @@
           acc.classList.remove('active');
           body.style.maxHeight = '0';
         } else {
-          // Close others
+          /* Close others */
           const group = acc.closest('.accordion-group');
           if (group) {
             group.querySelectorAll('.accordion').forEach(other => {
