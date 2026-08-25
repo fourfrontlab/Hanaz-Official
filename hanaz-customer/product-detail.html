@@ -1197,7 +1197,6 @@
       const { data: product, error } = await window.supabase
         .from('products')
         .select('*')
-        .select('id, title, image_urls, image, image_url, category, sale_price, base_price, is_bestseller, discount_pct, benefit, size, cost_price, description, ingredients')
         .eq('id', productId)
         .single();
 
