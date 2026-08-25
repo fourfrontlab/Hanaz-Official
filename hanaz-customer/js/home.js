@@ -274,6 +274,15 @@
         entries.forEach(entry => {
           if (isSectionVisible !== entry.isIntersecting) {
             isSectionVisible = entry.isIntersecting;
+            if (isSectionVisible) {
+              allCards.forEach(c => {
+                const v = c.querySelector('.vc-video');
+                if (v && v.dataset.src && !v.getAttribute('src')) {
+                  v.setAttribute('src', v.dataset.src);
+                  v.load();
+                }
+              });
+            }
             updateActiveCard();
           }
         });

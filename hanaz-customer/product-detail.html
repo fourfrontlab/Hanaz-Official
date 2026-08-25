@@ -299,8 +299,7 @@
           <!-- Card 1 -->
           <button class="htuc-card" data-drawer="drawer-how-to-use" aria-haspopup="dialog">
             <div class="htuc-card-img image-wrapper">
-              <img src="images/htuc-howto.jpg" id="htuc-img-howto" alt="How to use" class="ratio-image"
-                loading="lazy">
+              <img src="images/htuc-howto.jpg" id="htuc-img-howto" alt="How to use" class="ratio-image" loading="lazy">
             </div>
             <div class="htuc-card-body">
               <h3 class="htuc-card-title">How to Use</h3>
@@ -317,7 +316,7 @@
           <!-- Card 2 -->
           <button class="htuc-card" data-drawer="drawer-skin-safety" aria-haspopup="dialog">
             <div class="htuc-card-img image-wrapper">
-              <img src="images/htuc-safety.jpg" id="htuc-img-safety" alt="Skin and safety" class="ratio-image"
+              <img src="images/htuc-safety.webp" id="htuc-img-safety" alt="Skin and safety" class="ratio-image"
                 loading="lazy">
             </div>
             <div class="htuc-card-body">
@@ -335,7 +334,7 @@
           <!-- Card 3 -->
           <button class="htuc-card" data-drawer="drawer-storage-care" aria-haspopup="dialog">
             <div class="htuc-card-img">
-              <img src="images/htuc-storage.jpg" id="htuc-img-storage" alt="Storage and care" loading="lazy">
+              <img src="images/htuc-storage.webp" id="htuc-img-storage" alt="Storage and care" loading="lazy">
             </div>
             <div class="htuc-card-body">
               <h3 class="htuc-card-title">Storage &amp; Care</h3>
@@ -368,8 +367,7 @@
           <div class="htuc-drawer-body">
             <h2>How to Use</h2>
             <div class="htuc-drawer-hero image-wrapper">
-              <img src="images/htuc-howto.jpg" id="htuc-img-howto" alt="How to use" class="ratio-image"
-                loading="lazy">
+              <img src="images/htuc-howto.jpg" id="htuc-img-howto" alt="How to use" class="ratio-image" loading="lazy">
             </div>
             <p class="htuc-drawer-intro">Follow these simple steps every morning and evening for best results.</p>
             <ol class="htuc-steps">
@@ -412,7 +410,7 @@
           <div class="htuc-drawer-body">
             <h2>Skin &amp; Safety</h2>
             <div class="htuc-drawer-hero image-wrapper">
-              <img src="images/htuc-safety.jpg" alt="Skin and safety information" class="ratio-image" loading="lazy">
+              <img src="images/htuc-safety.webp" alt="Skin and safety information" class="ratio-image" loading="lazy">
             </div>
             <p class="htuc-drawer-intro">Follow these important safety recommendations before using your serum.</p>
             <ol class="htuc-steps">
@@ -455,7 +453,7 @@
           <div class="htuc-drawer-body">
             <h2>Storage &amp; Care</h2>
             <div class="htuc-drawer-hero">
-              <img src="images/htuc-storage.jpg" alt="Storage and care information" loading="lazy">
+              <img src="images/htuc-storage.webp" alt="Storage and care information" loading="lazy">
             </div>
             <p class="htuc-drawer-intro">Store properly to ensure maximum formula potency and longevity.</p>
             <ol class="htuc-steps">
@@ -946,7 +944,7 @@
             <!-- Left: Image -->
             <div class="cd-info-image-col">
               <div class="cd-info-image-wrap">
-                <img src="images/dermatologist-consultation.jpg" alt="Certified dermatologist ready for consultation"
+                <img src="images/dermatologist-consultation.webp" alt="Certified dermatologist ready for consultation"
                   loading="lazy">
               </div>
             </div>
@@ -1199,6 +1197,7 @@
       const { data: product, error } = await window.supabase
         .from('products')
         .select('*')
+        .select('id, title, image_urls, image, image_url, category, sale_price, base_price, is_bestseller, discount_pct, benefit, size, cost_price, description, ingredients')
         .eq('id', productId)
         .single();
 
@@ -1329,7 +1328,7 @@
             if (product.image_urls && Array.isArray(product.image_urls) && product.image_urls.length > 0) {
               addImage = product.image_urls[0];
             } else if (product.image_urls && typeof product.image_urls === 'string' && product.image_urls.startsWith('[')) {
-              try { const parsed = JSON.parse(product.image_urls); if (parsed.length > 0) addImage = parsed[0]; } catch(e){}
+              try { const parsed = JSON.parse(product.image_urls); if (parsed.length > 0) addImage = parsed[0]; } catch (e) { }
             } else if (product.image_url) { addImage = product.image_url; }
             else if (product.image) { addImage = product.image; }
             window.HanazCart.add({
@@ -1363,10 +1362,10 @@
             if (product.image_urls && Array.isArray(product.image_urls) && product.image_urls.length > 0) {
               addImage = product.image_urls[0];
             } else if (product.image_urls && typeof product.image_urls === 'string' && product.image_urls.startsWith('[')) {
-              try { const parsed = JSON.parse(product.image_urls); if (parsed.length > 0) addImage = parsed[0]; } catch(e){}
+              try { const parsed = JSON.parse(product.image_urls); if (parsed.length > 0) addImage = parsed[0]; } catch (e) { }
             } else if (product.image_url) { addImage = product.image_url; }
             else if (product.image) { addImage = product.image; }
-            
+
             window.HanazCart.add({
               id: product.id,
               name: product.title,
