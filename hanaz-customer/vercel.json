@@ -59,5 +59,18 @@
             "destination": "/about.html",
             "permanent": true
         }
+    ],
+    "rewrites": [
+        {
+            "source": "/product-detail.html",
+            "has": [
+                {
+                    "type": "query",
+                    "key": "id",
+                    "value": "0aa58f95-83d6-45f6-a7f3-2c1ed3b3ac39"
+                }
+            ],
+            "destination": "/pdp-face-wash.html"
+        }
     ]
 }
