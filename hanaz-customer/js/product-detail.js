@@ -77,7 +77,7 @@
         const name = titleEl ? titleEl.textContent : 'Hanaz Vitamin C Serum';
         
         const priceEl = document.getElementById('dynamic-sale-price');
-        let price = 1599;
+        let price = 1300;
         if (priceEl) {
           const parsed = parseInt(priceEl.textContent.replace(/[^0-9]/g, ''), 10);
           if (!isNaN(parsed)) price = parsed;

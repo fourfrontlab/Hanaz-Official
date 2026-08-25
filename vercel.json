@@ -1,8 +1,29 @@
 {
-    "rewrites": [
+    "redirects": [
         {
-            "source": "/(.*)",
-            "destination": "/index.html"
+            "source": "/collections/frontpage",
+            "destination": "/products.html",
+            "permanent": true
+        },
+        {
+            "source": "/collections",
+            "destination": "/collections.html",
+            "permanent": true
+        },
+        {
+            "source": "/collections/:match*",
+            "destination": "/collections.html",
+            "permanent": true
+        },
+        {
+            "source": "/products/:match*",
+            "destination": "/products.html",
+            "permanent": true
+        },
+        {
+            "source": "/pages/:match*",
+            "destination": "/",
+            "permanent": true
         }
     ]
 }
