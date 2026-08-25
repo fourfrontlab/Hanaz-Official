@@ -71,6 +71,10 @@
                 }
             ],
             "destination": "/pdp-face-wash.html"
+        },
+        {
+            "source": "/product-detail.html",
+            "destination": "/pdp-vitamin-c.html"
         }
     ]
 }
