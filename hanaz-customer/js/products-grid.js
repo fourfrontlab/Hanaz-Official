@@ -58,8 +58,8 @@ window.renderProductGrid = function(products, containerId) {
             </button>
           </div>
           ${isBestseller ? '<span class="product-badge">Bestseller</span>' : ''}
-          <img src="${imageUrlFront}" alt="${title}" class="img-front">
-          <img src="${imageUrlBack}" alt="${title} Texture" class="img-back">
+          <img src="${imageUrlFront}" alt="${title}" class="img-front" loading="lazy">
+          <img src="${imageUrlBack}" alt="${title} Texture" class="img-back" loading="lazy">
         </div>
         <div class="product-card-info">
           <h3>${title}</h3>
