@@ -95,6 +95,7 @@
   border: 1px solid var(--border);
   border-radius: 0;
   overflow: hidden;
+  touch-action: pan-y;
 }
 
 .pdp-main-image img {
@@ -106,9 +107,46 @@
   transition: transform 0.35s ease, opacity 0.2s ease;
 }
 
-/* Zoom on hover */
-.pdp-main-image:hover img {
-  transform: scale(1.06);
+/* Zoom on hover (desktop only) */
+@media (hover: hover) and (pointer: fine) {
+  .pdp-main-image:hover img {
+    transform: scale(1.06);
+  }
+}
+
+/* Mobile Swipe Gallery Dots */
+.pdp-gallery-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  width: 100%;
+}
+
+.pdp-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--border);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.pdp-dot:hover, .pdp-dot.active {
+  background-color: var(--text-heading);
+}
+
+.pdp-dot.active {
+  transform: scale(1.25);
+}
+
+@media (min-width: 992px) {
+  .pdp-gallery-dots {
+    display: none; /* Hide dots on desktop, use thumbs */
+  }
 }
 
 /* Image fade transition */

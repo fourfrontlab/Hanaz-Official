@@ -274,15 +274,6 @@
         entries.forEach(entry => {
           if (isSectionVisible !== entry.isIntersecting) {
             isSectionVisible = entry.isIntersecting;
-            if (isSectionVisible) {
-              allCards.forEach(c => {
-                const v = c.querySelector('.vc-video');
-                if (v && v.dataset.src && !v.getAttribute('src')) {
-                  v.setAttribute('src', v.dataset.src);
-                  v.load();
-                }
-              });
-            }
             updateActiveCard();
           }
         });
@@ -355,6 +346,10 @@
         if (!video) return;
 
         if (isCurrentlyActive && isSectionVisible) {
+          if (video.dataset.src && !video.getAttribute('src')) {
+            video.setAttribute('src', video.dataset.src);
+            video.load();
+          }
           const playPromise = video.play();
           if (playPromise !== undefined) {
             playPromise.catch(() => {});
@@ -362,8 +357,34 @@
         } else {
           video.pause();
           video.currentTime = 0;
+          
+          const diff = Math.abs(i - closestIdx);
+          if (diff > 1 && video.getAttribute('src')) {
+            video.removeAttribute('src');
+            video.load();
+          }
         }
       });
+      
+      if (isSectionVisible) {
+        const nextIdx = closestIdx + 1;
+        if (nextIdx < allCards.length) {
+            const nextVid = allCards[nextIdx].querySelector('.vc-video');
+            if (nextVid && nextVid.dataset.src && !nextVid.getAttribute('src')) {
+                nextVid.setAttribute('src', nextVid.dataset.src);
+                nextVid.load();
+            }
+        }
+        
+        const prevIdx = closestIdx - 1;
+        if (prevIdx >= 0) {
+            const prevVid = allCards[prevIdx].querySelector('.vc-video');
+            if (prevVid && prevVid.dataset.src && !prevVid.getAttribute('src')) {
+                prevVid.setAttribute('src', prevVid.dataset.src);
+                prevVid.load();
+            }
+        }
+      }
 
       if (activeRealIndex !== realIndex) {
         activeRealIndex = realIndex;

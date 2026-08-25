@@ -8,25 +8,102 @@
   /* ========================================================================
      1. THUMBNAIL GALLERY
      ======================================================================== */
+  let galleryEventDelegationBound = false;
+
   function initGallery() {
     const mainImg = document.getElementById('main-product-image');
     const thumbs = document.querySelectorAll('.pdp-thumb');
+    const dotsContainer = document.getElementById('pdp-gallery-dots');
     
     if (!mainImg || !thumbs.length) return;
 
-    thumbs.forEach(thumb => {
-      thumb.addEventListener('click', () => {
-        thumbs.forEach(t => t.classList.remove('active'));
-        thumb.classList.add('active');
-        
-        const imgSrc = thumb.querySelector('img').src;
-        
-        mainImg.style.opacity = '0';
-        setTimeout(() => {
-          mainImg.src = imgSrc;
-          mainImg.style.opacity = '1';
-        }, 200);
+    if (dotsContainer) {
+      dotsContainer.innerHTML = '';
+      thumbs.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = `pdp-dot ${i === 0 ? 'active' : ''}`;
+        dot.setAttribute('aria-label', `View image ${i + 1}`);
+        dotsContainer.appendChild(dot);
       });
+    }
+
+    if (galleryEventDelegationBound) return;
+    galleryEventDelegationBound = true;
+
+    function goToImage(index) {
+      const currentThumbs = document.querySelectorAll('.pdp-thumb');
+      const currentDots = document.querySelectorAll('.pdp-dot');
+      const currentMainImg = document.getElementById('main-product-image');
+      
+      if (!currentMainImg || !currentThumbs.length) return;
+      if (index < 0 || index >= currentThumbs.length) return;
+      
+      currentThumbs.forEach((t, i) => {
+        t.classList.toggle('active', i === index);
+        t.setAttribute('aria-pressed', i === index ? 'true' : 'false');
+      });
+      
+      currentDots.forEach((d, i) => d.classList.toggle('active', i === index));
+      
+      const imgSrc = currentThumbs[index].querySelector('img')?.src || currentThumbs[index].dataset.img;
+      
+      currentMainImg.style.opacity = '0';
+      setTimeout(() => {
+        currentMainImg.src = imgSrc;
+        currentMainImg.style.opacity = '1';
+      }, 200);
+    }
+
+    document.addEventListener('click', (e) => {
+      const thumb = e.target.closest('.pdp-thumb');
+      if (thumb) {
+        const currentThumbs = Array.from(document.querySelectorAll('.pdp-thumb'));
+        const index = currentThumbs.indexOf(thumb);
+        if (index > -1) goToImage(index);
+      }
+
+      const dot = e.target.closest('.pdp-dot');
+      if (dot) {
+        const currentDots = Array.from(document.querySelectorAll('.pdp-dot'));
+        const index = currentDots.indexOf(dot);
+        if (index > -1) goToImage(index);
+      }
+    });
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const SWIPE_THRESHOLD = 50;
+
+    document.addEventListener('touchstart', (e) => {
+      if (e.target.closest('#pdp-main-wrap')) {
+        touchStartX = e.changedTouches[0].screenX;
+      }
+    }, { passive: true });
+
+    document.addEventListener('touchmove', (e) => {
+      if (e.target.closest('#pdp-main-wrap')) {
+        touchEndX = e.changedTouches[0].screenX;
+      }
+    }, { passive: true });
+
+    document.addEventListener('touchend', (e) => {
+      if (e.target.closest('#pdp-main-wrap')) {
+        touchEndX = e.changedTouches[0].screenX;
+        const diff = touchEndX - touchStartX;
+        if (Math.abs(diff) > SWIPE_THRESHOLD) {
+          const currentThumbs = document.querySelectorAll('.pdp-thumb');
+          const activeThumb = document.querySelector('.pdp-thumb.active');
+          let currentIndex = 0;
+          if (activeThumb && currentThumbs.length) {
+            currentIndex = Array.from(currentThumbs).indexOf(activeThumb);
+          }
+          if (diff < 0) {
+            goToImage(Math.min(currentIndex + 1, currentThumbs.length - 1));
+          } else {
+            goToImage(Math.max(currentIndex - 1, 0));
+          }
+        }
+      }
     });
   }
 

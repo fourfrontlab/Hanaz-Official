@@ -1343,10 +1343,9 @@
       }
 
       // 5. Gallery
+      const images = product.image_urls && product.image_urls.length ? product.image_urls : ['images/placeholder.jpg'];
       const galleryCont = document.getElementById('pdp-gallery-container');
       if (galleryCont) {
-        const images = product.image_urls && product.image_urls.length ? product.image_urls : ['images/placeholder.jpg'];
-
         let thumbHtml = '';
         images.forEach((url, i) => {
           thumbHtml +=
@@ -1361,7 +1360,8 @@
           </div>
           <div class="pdp-main-image" id="pdp-main-wrap">
             <img src="${images[0]}" alt="${product.title}" id="main-product-image">
-          </div>`;
+          </div>
+          <div class="pdp-gallery-dots" id="pdp-gallery-dots"></div>`;
       }
 
       // 6. Dynamic SEO Injection
