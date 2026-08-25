@@ -4,4 +4,4 @@ Allow: /
 Disallow: /checkout.html
 Disallow: /track-order.html
 
-Sitemap: https://hanazofficial.store/sitemap.xml
+Sitemap: https://www.hanazofficial.store/sitemap.xml
