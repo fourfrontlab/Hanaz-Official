@@ -80,17 +80,7 @@ window.renderProductGrid = function (products, containerId) {
     `;
   });
 
-  // Always keep the "Coming Soon" card at the end
-  html += `
-    <div class="product-card" style="display: flex; flex-direction: column; align-items: center; justify-content: center; background: var(--bg); text-align: center; padding: 40px; border: 1px dashed var(--border); min-height: 380px;">
-      <svg viewBox="0 0 24 24" width="48" height="48" stroke="var(--text-muted)" stroke-width="1.5" fill="none" style="margin-bottom:16px;">
-        <circle cx="12" cy="12" r="10"></circle>
-        <polyline points="12 6 12 12 16 14"></polyline>
-      </svg>
-      <h3 style="color:var(--text-heading); margin-bottom: 8px;">More Products Coming Soon</h3>
-      <p style="color:var(--text-muted); font-size: 14px; max-width: 200px; margin: 0 auto;">We're formulating something special for your skin.</p>
-    </div>
-  `;
+
 
   container.innerHTML = html;
 
