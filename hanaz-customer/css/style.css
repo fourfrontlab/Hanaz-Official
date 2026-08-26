@@ -586,16 +586,17 @@ h4 {
   .hero-banner {
     flex-direction: column;
     align-items: stretch;
+    width: 100%;
+    max-width: 100vw;
+    overflow: hidden;
   }
 
   .hero-banner__image {
     position: static;
     width: 100%;
-    height: 50vw;
-    min-height: 220px;
-    max-height: 340px;
-    object-fit: cover;
-    object-position: center top;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
   }
 
   .hero-banner__scrim {
@@ -604,7 +605,11 @@ h4 {
 
   .hero-banner__content {
     position: static;
-    padding: var(--space-xl) var(--space-lg);
+    padding: var(--space-md) var(--space-lg);
+    margin-top: 0 !important; /* Override the inline style from HTML on mobile */
+    margin-bottom: 0 !important;
+    min-height: auto;
+    height: auto;
     max-width: 100%;
     align-items: flex-start;
     background: var(--bg);
@@ -629,8 +634,24 @@ h4 {
 
 @media (max-width: 480px) {
   .hero-banner__image {
-    height: 60vw;
-    max-height: 280px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+  }
+  
+  .hero-banner__content {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    min-height: auto;
+    height: auto;
+  }
+  
+  .seo-intro {
+    padding-top: 24px !important; /* Override the inline 60px padding */
+    padding-bottom: 16px !important;
   }
 }
 

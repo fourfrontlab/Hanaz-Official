@@ -22,6 +22,9 @@
   visibility: hidden;
   transition: opacity 0.6s var(--ease-in-out), visibility 0.6s;
   z-index: 0;
+  width: 100%;
+  max-width: 100vw;
+  overflow: hidden;
 }
 
 .hero-slide.active {
@@ -37,6 +40,13 @@
    specific to the homepage full-viewport carousel context. */
 .hero-carousel-track .hero-banner {
   min-height: calc(100vh - var(--nav-height) - var(--announcement-h));
+}
+
+@media (max-width: 768px) {
+  .hero-carousel-track,
+  .hero-carousel-track .hero-banner {
+    min-height: auto;
+  }
 }
 
 /* Slide text entrance animation */

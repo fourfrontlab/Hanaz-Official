@@ -1,4 +1,4 @@
-window.renderProductGrid = function(products, containerId) {
+window.renderProductGrid = function (products, containerId) {
   const container = document.getElementById(containerId);
   if (!container) return;
 
@@ -13,15 +13,15 @@ window.renderProductGrid = function(products, containerId) {
     if (product.image_urls && Array.isArray(product.image_urls) && product.image_urls.length > 0) {
       imageUrlFront = product.image_urls[0];
     } else if (product.image_urls && typeof product.image_urls === 'string' && product.image_urls.startsWith('[')) {
-      try { const parsed = JSON.parse(product.image_urls); if (parsed.length > 0) imageUrlFront = parsed[0]; } catch(e){}
+      try { const parsed = JSON.parse(product.image_urls); if (parsed.length > 0) imageUrlFront = parsed[0]; } catch (e) { }
     } else if (product.image_url) { imageUrlFront = product.image_url; }
     else if (product.image) { imageUrlFront = product.image; }
-    
+
     let imageUrlBack = imageUrlFront;
     if (product.image_urls && Array.isArray(product.image_urls) && product.image_urls.length > 1) {
       imageUrlBack = product.image_urls[1];
     } else if (product.image_urls && typeof product.image_urls === 'string' && product.image_urls.startsWith('[')) {
-      try { const parsed = JSON.parse(product.image_urls); if (parsed.length > 1) imageUrlBack = parsed[1]; } catch(e){}
+      try { const parsed = JSON.parse(product.image_urls); if (parsed.length > 1) imageUrlBack = parsed[1]; } catch (e) { }
     }
     const category = product.category || 'skincare';
     const title = product.title;
@@ -80,6 +80,17 @@ window.renderProductGrid = function(products, containerId) {
     `;
   });
 
+  // Always keep the "Coming Soon" card at the end
+  html += `
+    <div class="product-card" style="display: flex; flex-direction: column; align-items: center; justify-content: center; background: var(--bg); text-align: center; padding: 40px; border: 1px dashed var(--border); min-height: 380px;">
+      <svg viewBox="0 0 24 24" width="48" height="48" stroke="var(--text-muted)" stroke-width="1.5" fill="none" style="margin-bottom:16px;">
+        <circle cx="12" cy="12" r="10"></circle>
+        <polyline points="12 6 12 12 16 14"></polyline>
+      </svg>
+      <h3 style="color:var(--text-heading); margin-bottom: 8px;">More Products Coming Soon</h3>
+      <p style="color:var(--text-muted); font-size: 14px; max-width: 200px; margin: 0 auto;">We're formulating something special for your skin.</p>
+    </div>
+  `;
 
   container.innerHTML = html;
 
