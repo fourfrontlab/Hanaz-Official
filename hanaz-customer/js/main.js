@@ -2,6 +2,19 @@
    GLOBAL JS — "The Ordinary" spec
    ========================================================================== */
 
+// --- Meta Pixel Base Code ---
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '568351333004084');
+fbq('track', 'PageView');
+// --- End Meta Pixel Base Code ---
+
 (function () {
   'use strict';
 
@@ -269,8 +282,9 @@
                  try { const parsed = JSON.parse(p.image_urls); if (parsed.length>0) imgUrl = parsed[0]; } catch(e){}
                }
             }
+            const pdpLink = p.id === '0aa58f95-83d6-45f6-a7f3-2c1ed3b3ac39' ? 'pdp-face-wash.html' : 'pdp-vitamin-c.html';
             html += `
-              <a href="product-detail.html?id=${p.id}" style="display:flex; align-items:center; gap:16px; padding:12px; border-radius:8px; transition:background 0.2s; text-decoration:none;" onmouseover="this.style.background='rgba(0,0,0,0.03)'" onmouseout="this.style.background='transparent'">
+              <a href="${pdpLink}?id=${p.id}" style="display:flex; align-items:center; gap:16px; padding:12px; border-radius:8px; transition:background 0.2s; text-decoration:none;" onmouseover="this.style.background='rgba(0,0,0,0.03)'" onmouseout="this.style.background='transparent'">
                 <img src="${imgUrl}" alt="${p.title}" style="width:60px; height:60px; object-fit:cover; border-radius:6px; background:var(--bg-secondary);">
                 <div style="flex:1; display:flex; flex-direction:column; gap:4px;">
                   <span style="font-weight:600; color:var(--text-heading); font-size:1rem;">${p.title}</span>

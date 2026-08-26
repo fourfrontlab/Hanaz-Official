@@ -81,6 +81,19 @@
         cartState.items.push(item);
       }
       saveCart();
+      
+      // --- Meta Pixel AddToCart ---
+      if (typeof fbq === 'function') {
+        fbq('track', 'AddToCart', {
+          content_ids: [item.id],
+          content_name: item.name,
+          content_type: 'product',
+          value: item.price,
+          currency: 'PKR'
+        });
+      }
+      // --- End Meta Pixel AddToCart ---
+
       if (window.HanazToast) window.HanazToast("Item added to cart");
       this.openDrawer();
     },

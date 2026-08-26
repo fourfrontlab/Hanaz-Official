@@ -412,6 +412,25 @@
       }
 
       renderCheckout();
+      
+      // --- Meta Pixel InitiateCheckout ---
+      if (typeof fbq === 'function' && window.HanazCart) {
+        const initialCartItems = window.HanazCart.getItems();
+        if (initialCartItems && initialCartItems.length > 0) {
+          const initialSubtotal = window.HanazCart.getSubtotal();
+          const initialShipping = initialSubtotal >= 5000 ? 0 : 200;
+          const initialTotal = initialSubtotal + initialShipping;
+          
+          fbq('track', 'InitiateCheckout', {
+            content_ids: initialCartItems.map(i => i.id),
+            content_type: 'product',
+            value: initialTotal,
+            currency: 'PKR'
+          });
+        }
+      }
+      // --- End Meta Pixel InitiateCheckout ---
+
       window.addEventListener('hanazCartUpdated', renderCheckout);
 
       // Payment method selection accordion logic
@@ -629,6 +648,17 @@
           }
 
           console.log('DEBUG: Order placed successfully! Order #', orderNumber, '| ID:', orderId);
+
+          // --- Meta Pixel Purchase ---
+          if (typeof fbq === 'function') {
+            fbq('track', 'Purchase', {
+              content_ids: cartItems.map(item => item.id),
+              content_type: 'product',
+              value: formData.total,
+              currency: 'PKR'
+            }, { eventID: orderNumber });
+          }
+          // --- End Meta Pixel Purchase ---
 
           // Show success state
           document.getElementById('confirmed-order-number').textContent = orderNumber;

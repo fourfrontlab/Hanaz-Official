@@ -41,8 +41,12 @@ window.renderProductGrid = function (products, containerId) {
       priceHtml += ` <span class="price-save">Save ${discountPct}%</span>`;
     }
 
+    const pdpLink = product.id === '0aa58f95-83d6-45f6-a7f3-2c1ed3b3ac39' 
+      ? `pdp-face-wash.html?id=${product.id}` 
+      : `pdp-vitamin-c.html?id=${product.id}`;
+
     html += `
-      <a href="product-detail.html?id=${product.id}" class="product-card" data-category="${category}">
+      <a href="${pdpLink}" class="product-card" data-category="${category}">
         <div class="product-card-image hover-swap">
           <div class="icon-actions">
             <button class="icon-btn wishlist-btn" aria-label="Add to wishlist" data-product-id="${product.id}">
@@ -50,7 +54,7 @@ window.renderProductGrid = function (products, containerId) {
                 <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
               </svg>
             </button>
-            <button class="icon-btn quickview-btn" aria-label="Quick view" onclick="event.preventDefault(); window.location.href='product-detail.html?id=${product.id}'">
+            <button class="icon-btn quickview-btn" aria-label="Quick view" onclick="event.preventDefault(); window.location.href='${pdpLink}'">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                 <circle cx="12" cy="12" r="3"></circle>

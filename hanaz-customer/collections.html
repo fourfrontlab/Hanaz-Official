@@ -398,7 +398,7 @@
       if (cleanseContainer && data.length > 0) {
         const washProduct = data.find(p => p.title.toLowerCase().includes('wash') || p.title.toLowerCase().includes('cleanser')) || data[0];
         const imgSrc = washProduct.image_urls && washProduct.image_urls.length > 0 ? washProduct.image_urls[0] : 'images/placeholder.jpg';
-        cleanseContainer.innerHTML = `<a href="product-detail.html?id=${washProduct.id}" class="product-mini">
+        cleanseContainer.innerHTML = `<a href="${washProduct.id === '0aa58f95-83d6-45f6-a7f3-2c1ed3b3ac39' ? 'pdp-face-wash.html' : 'pdp-vitamin-c.html'}?id=${washProduct.id}" class="product-mini">
           <img src="${imgSrc}" alt="${washProduct.title}">
           <div class="mini-info">
             <h5>${washProduct.title}</h5>
@@ -412,7 +412,7 @@
       if (stepContainer && data.length > 0) {
         const serumProduct = data.find(p => p.category && p.category.toLowerCase().includes('serum')) || data[0];
         const imgSrc = serumProduct.image_urls && serumProduct.image_urls.length > 0 ? serumProduct.image_urls[0] : 'images/placeholder.jpg';
-        stepContainer.innerHTML = `<a href="product-detail.html?id=${serumProduct.id}" class="product-mini">
+        stepContainer.innerHTML = `<a href="${serumProduct.id === '0aa58f95-83d6-45f6-a7f3-2c1ed3b3ac39' ? 'pdp-face-wash.html' : 'pdp-vitamin-c.html'}?id=${serumProduct.id}" class="product-mini">
           <img src="${imgSrc}" alt="${serumProduct.title}">
           <div class="mini-info">
             <h5>${serumProduct.title}</h5>
