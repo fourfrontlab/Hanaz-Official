@@ -338,7 +338,15 @@ h4 {
 
 /* Product Cards Base */
 .product-card {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.product-card-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .product-card-image {
@@ -436,14 +444,14 @@ h4 {
 /* Add to Cart Button on Card */
 .btn-add-cart {
   width: 100%;
-  margin-top: var(--space-sm);
+  margin-top: auto;
   text-align: center;
 }
 
 /* Out of Stock Button */
 .btn-out-of-stock {
   width: 100%;
-  margin-top: var(--space-sm);
+  margin-top: auto;
   text-align: center;
   background: var(--bg);
   color: var(--text-muted);
