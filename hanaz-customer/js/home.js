@@ -359,7 +359,7 @@
           video.currentTime = 0;
           
           const diff = Math.abs(i - closestIdx);
-          if (diff > 1 && video.getAttribute('src')) {
+          if (diff > 2 && video.getAttribute('src')) {
             video.removeAttribute('src');
             video.load();
           }
@@ -367,22 +367,15 @@
       });
       
       if (isSectionVisible) {
-        const nextIdx = closestIdx + 1;
-        if (nextIdx < allCards.length) {
-            const nextVid = allCards[nextIdx].querySelector('.vc-video');
-            if (nextVid && nextVid.dataset.src && !nextVid.getAttribute('src')) {
-                nextVid.setAttribute('src', nextVid.dataset.src);
-                nextVid.load();
+        for (let j = -2; j <= 2; j++) {
+          const idx = closestIdx + j;
+          if (idx >= 0 && idx < allCards.length) {
+            const vid = allCards[idx].querySelector('.vc-video');
+            if (vid && vid.dataset.src && !vid.getAttribute('src')) {
+              vid.setAttribute('src', vid.dataset.src);
+              vid.load();
             }
-        }
-        
-        const prevIdx = closestIdx - 1;
-        if (prevIdx >= 0) {
-            const prevVid = allCards[prevIdx].querySelector('.vc-video');
-            if (prevVid && prevVid.dataset.src && !prevVid.getAttribute('src')) {
-                prevVid.setAttribute('src', prevVid.dataset.src);
-                prevVid.load();
-            }
+          }
         }
       }
 
