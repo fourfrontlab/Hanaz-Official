@@ -104,16 +104,19 @@
                   <div class="form-group">
                     <label for="co-name">Full Name</label>
                     <input type="text" id="co-name" required placeholder="Jane Doe">
+                    <span class="error-msg" id="co-name-error"></span>
                   </div>
                   <div class="form-group">
                     <label for="co-phone">Phone Number</label>
                     <input type="tel" id="co-phone" required placeholder="0300 1234567">
+                    <span class="error-msg" id="co-phone-error"></span>
                   </div>
                 </div>
                 <div class="form-row">
                   <div class="form-group" style="flex: 1;">
                     <label for="co-email">Email</label>
                     <input type="email" id="co-email" required placeholder="jane@example.com">
+                    <span class="error-msg" id="co-email-error"></span>
                   </div>
                 </div>
               </fieldset>
@@ -125,16 +128,19 @@
                   <div class="form-group">
                     <label for="co-address">Address</label>
                     <input type="text" id="co-address" required placeholder="House 123, Street 4">
+                    <span class="error-msg" id="co-address-error"></span>
                   </div>
                 </div>
                 <div class="form-row">
                   <div class="form-group">
                     <label for="co-city">City</label>
                     <input type="text" id="co-city" required placeholder="Islamabad">
+                    <span class="error-msg" id="co-city-error"></span>
                   </div>
                   <div class="form-group">
                     <label for="co-postal">Postal Code (Optional)</label>
                     <input type="text" id="co-postal" placeholder="44000">
+                    <span class="error-msg" id="co-postal-error"></span>
                   </div>
                 </div>
               </fieldset>
@@ -431,8 +437,100 @@
         radio.addEventListener('change', updatePaymentAccordion);
       });
 
+      // Validation rules
+      const validators = {
+        'co-name': {
+          validate: (val) => val.trim().length >= 2,
+          message: "Please enter your full name."
+        },
+        'co-phone': {
+          validate: (val) => {
+            const phoneRegex = /^(03\d{2}[\s\-]?\d{7}|\+923\d{2}[\s\-]?\d{7})$/;
+            return phoneRegex.test(val.trim());
+          },
+          message: "Please enter a valid phone number (e.g. 03XX XXXXXXX)."
+        },
+        'co-email': {
+          validate: (val) => {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(val.trim());
+          },
+          message: "Please enter a valid email address."
+        },
+        'co-address': {
+          validate: (val) => val.trim().length >= 5,
+          message: "Please enter your complete shipping address."
+        },
+        'co-city': {
+          validate: (val) => val.trim().length > 0,
+          message: "Please enter your city."
+        },
+        'co-postal': {
+          validate: (val) => {
+            if (val.trim().length === 0) return true;
+            return /^\d{5}$/.test(val.trim());
+          },
+          message: "Postal code should be 5 digits."
+        }
+      };
+
+      function validateField(fieldId) {
+        const input = document.getElementById(fieldId);
+        const errorSpan = document.getElementById(fieldId + '-error');
+        const validator = validators[fieldId];
+        
+        if (!validator || !input || !errorSpan) return true;
+
+        const isValid = validator.validate(input.value);
+        
+        if (!isValid) {
+          input.classList.add('input-error');
+          errorSpan.textContent = validator.message;
+          errorSpan.classList.add('visible');
+        } else {
+          input.classList.remove('input-error');
+          errorSpan.textContent = '';
+          errorSpan.classList.remove('visible');
+        }
+        
+        return isValid;
+      }
+
+      // Add on-blur event listeners
+      Object.keys(validators).forEach(fieldId => {
+        const input = document.getElementById(fieldId);
+        if (input) {
+          input.addEventListener('blur', () => validateField(fieldId));
+          input.addEventListener('input', () => {
+            if (input.classList.contains('input-error')) {
+              validateField(fieldId);
+            }
+          });
+        }
+      });
+
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
+
+        // Perform final validation on all fields
+        let isFormValid = true;
+        let firstInvalidField = null;
+
+        Object.keys(validators).forEach(fieldId => {
+          const isValid = validateField(fieldId);
+          if (!isValid) {
+            isFormValid = false;
+            if (!firstInvalidField) {
+              firstInvalidField = document.getElementById(fieldId);
+            }
+          }
+        });
+
+        if (!isFormValid) {
+          firstInvalidField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          firstInvalidField.focus();
+          return;
+        }
 
         const cartItems = window.HanazCart ? window.HanazCart.getItems() : [];
         if (!cartItems || cartItems.length === 0) {
