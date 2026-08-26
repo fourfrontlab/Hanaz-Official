@@ -1116,7 +1116,7 @@ h4 {
    ========================================================================== */
 .floating-whatsapp {
   position: fixed;
-  bottom: var(--space-lg);
+  bottom: var(--space-3xl);
   left: var(--space-lg);
   width: 48px;
   height: 48px;
