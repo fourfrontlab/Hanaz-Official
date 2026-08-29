@@ -35,7 +35,7 @@
   --container-width: 1200px;
   --nav-height: 88px;
   --nav-height-shrunk: 64px;
-  --announcement-h: 32px;
+  --announcement-h: 0px;
 
   /* Video carousel card width */
   --vc-card-w: 340px;
