@@ -398,7 +398,7 @@
     async function loadCollectionProducts() {
       const { data, error } = await window.supabase
         .from('products')
-        .select('id, title, sale_price, image_urls, category')
+        .select('id, title, sale_price, image_urls, category, size')
         .eq('in_stock', true);
 
       if (error || !data) { console.error(error); return; }
