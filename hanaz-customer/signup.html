@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account | Hanaz Official</title>
+  <meta name="description" content="Create your Hanaz Official account to start your personalized skincare journey and track your orders.">
+
+  <link rel="canonical" href="https://www.hanazofficial.store/signup.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.hanazofficial.store/signup.html">
+  <meta property="og:title" content="Create Account | Hanaz Official">
+  <meta property="og:description" content="Join Hanaz Official and start your personalized skincare journey.">
+  <meta property="og:image" content="https://www.hanazofficial.store/images/vitamin-c-serum.jpg">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+
+<body class="fade-in-page">
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <button class="hamburger-btn" id="hamburger-btn"
+        aria-label="Open menu"><span></span><span></span><span></span></button>
+      <a href="index.html" class="nav-logo"><img src="images/hanaz-logo.jpg" alt="Hanaz Official"></a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Shop</a></li>
+        <li><a href="collections.html">Regimens</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li id="nav-auth-item"><a href="login.html" id="nav-auth-link">Login</a></li>
+      </ul>
+
+      <div class="nav-icons">
+        <a href="collections.html" class="btn btn-sm btn-primary nav-cta-desktop"
+          style="border-radius:var(--radius-pill); border: 1px solid var(--text-heading);">Build My Regimen</a>
+        <button class="nav-icon-btn" aria-label="Search"><svg viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg></button>
+        <button class="nav-icon-btn" data-open-cart aria-label="Shopping cart">
+          <svg viewBox="0 0 24 24">
+            <circle cx="9" cy="21" r="1" />
+            <circle cx="20" cy="21" r="1" />
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+          </svg>
+          <span class="cart-badge" id="cart-badge-nav">0</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile nav -->
+  <div class="overlay" id="mobile-nav-overlay"></div>
+  <div class="mobile-nav-drawer" id="mobile-nav-drawer">
+    <div class="mobile-nav-header"><a href="index.html" class="nav-logo"><img src="images/hanaz-logo.jpg"
+          alt="Hanaz Official"></a><button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu"><svg
+          viewBox="0 0 24 24">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg></button></div>
+    <div class="mobile-nav-links">
+      <a href="index.html">Home</a>
+      <a href="products.html">Shop</a>
+      <a href="collections.html">Regimens</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About Us</a>
+      <a href="login.html" id="mobile-nav-auth-link">Login</a>
+    </div>
+  </div>
+
+  <!-- Cart drawer -->
+  <div class="overlay" id="cart-overlay"></div>
+  <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-drawer-header">
+      <h3>Shopping Cart</h3><button class="cart-close-btn" aria-label="Close cart"><svg viewBox="0 0 24 24">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg></button>
+    </div>
+    <div class="cart-drawer-body"></div>
+    <div class="cart-drawer-footer">
+      <div class="cart-subtotal"><span>Subtotal</span><strong>Rs. 0</strong></div>
+      <p class="cart-note">Shipping &amp; taxes calculated at checkout</p>
+      <a href="checkout.html" class="btn btn-primary btn-checkout">Check out</a>
+      <a href="products.html" class="btn btn-secondary btn-block">View Cart</a>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Floating WhatsApp -->
+  <a href="https://wa.me/923225386807" class="floating-whatsapp" target="_blank" rel="noopener"
+    aria-label="Chat with us on WhatsApp">
+    <svg viewBox="0 0 24 24">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+  </a>
+
+  <main>
+    <div class="auth-page">
+      <div class="auth-card">
+        <span class="auth-card__eyebrow">Hanaz Official</span>
+        <h1 class="auth-card__title">Create Your Account</h1>
+        <p class="auth-card__subtitle">Join Hanaz and start your skincare journey today.</p>
+
+        <!-- Global message -->
+        <div class="auth-message" id="auth-message" role="alert" aria-live="polite">
+          <svg id="auth-msg-icon" viewBox="0 0 24 24"></svg>
+          <span id="auth-msg-text"></span>
+        </div>
+
+        <!-- Sign Up form -->
+        <form class="auth-form" id="signup-form" novalidate>
+
+          <div class="auth-field">
+            <label for="signup-name">Full Name</label>
+            <div class="auth-input-wrap">
+              <input type="text" id="signup-name" name="name" placeholder="Your full name"
+                autocomplete="name" required>
+            </div>
+            <span class="auth-field-error" id="signup-name-error"></span>
+          </div>
+
+          <div class="auth-field">
+            <label for="signup-email">Email Address</label>
+            <div class="auth-input-wrap">
+              <input type="email" id="signup-email" name="email" placeholder="your@email.com"
+                autocomplete="email" required>
+            </div>
+            <span class="auth-field-error" id="signup-email-error"></span>
+          </div>
+
+          <div class="auth-field">
+            <label for="signup-password">Password</label>
+            <div class="auth-input-wrap">
+              <input type="password" id="signup-password" name="password" placeholder="Min. 8 characters"
+                autocomplete="new-password" required>
+              <button type="button" class="auth-pw-toggle" id="signup-pw-toggle" aria-label="Show password">
+                <svg class="icon-eye" viewBox="0 0 24 24">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+                <svg class="icon-eye-off" viewBox="0 0 24 24">
+                  <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                  <line x1="1" y1="1" x2="23" y2="23"></line>
+                </svg>
+              </button>
+            </div>
+            <span class="auth-field-error" id="signup-password-error"></span>
+          </div>
+
+          <div class="auth-field">
+            <label for="signup-confirm">Confirm Password</label>
+            <div class="auth-input-wrap">
+              <input type="password" id="signup-confirm" name="confirm" placeholder="Re-enter your password"
+                autocomplete="new-password" required>
+              <button type="button" class="auth-pw-toggle" id="signup-confirm-toggle" aria-label="Show password">
+                <svg class="icon-eye" viewBox="0 0 24 24">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+                <svg class="icon-eye-off" viewBox="0 0 24 24">
+                  <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                  <line x1="1" y1="1" x2="23" y2="23"></line>
+                </svg>
+              </button>
+            </div>
+            <span class="auth-field-error" id="signup-confirm-error"></span>
+          </div>
+
+          <button type="submit" class="auth-submit" id="signup-btn">
+            <span class="auth-spinner"></span>
+            <span class="auth-btn-text">Create Account</span>
+          </button>
+
+        </form>
+
+        <!-- Switch to Login -->
+        <div class="auth-switch">
+          Already have an account? <a href="login.html">Login</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-newsletter">
+          <h3>Join Our Skincare Community</h3>
+          <p>Subscribe for exclusive deals, skincare tips, and new product launches straight to your inbox.</p>
+          <form class="newsletter-form" id="footer-newsletter-form">
+            <input type="email" placeholder="Enter your email" required aria-label="Email address">
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+        <div class="footer-social footer-col">
+          <h4>Follow Us</h4>
+          <div class="social-links" style="display: flex; flex-direction: row; gap: 16px; align-items: center;">
+            <a href="https://instagram.com/thehanazofficial" target="_blank" rel="noopener noreferrer"
+              aria-label="Instagram" style="color: inherit; transition: opacity 0.2s; display: inline-flex;"
+              onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+              </svg>
+            </a>
+            <a href="https://facebook.com/thehanaz" target="_blank" rel="noopener noreferrer" aria-label="Facebook"
+              style="color: inherit; transition: opacity 0.2s; display: inline-flex;"
+              onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.351C0 23.407.593 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.323-.593 1.323-1.325V1.325C24 .593 23.407 0 22.675 0z" />
+              </svg>
+            </a>
+            <a href="https://wa.me/923225386807" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"
+              style="color: inherit; transition: opacity 0.2s; display: inline-flex;"
+              onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12.031 0C5.385 0 0 5.386 0 12.03c0 2.115.552 4.17 1.6 6.002L.153 23.238l5.362-1.408c1.782.946 3.791 1.446 5.85 1.446h.005C18.009 23.276 23.394 17.89 23.394 11.246 23.394 4.599 18.009 0 11.365 0h.666zM11.365 19.34h-.005a9.351 9.351 0 01-4.757-1.286l-.341-.202-3.535.928.944-3.447-.222-.352A9.346 9.346 0 011.968 11.245C1.968 6.07 6.182 1.854 11.366 1.854c5.185 0 9.398 4.215 9.398 9.391 0 5.175-4.213 9.395-9.399 9.395zm5.163-7.054c-.283-.142-1.674-.827-1.933-.922-.259-.094-.447-.142-.636.142-.188.283-.73.922-.894 1.112-.165.189-.329.213-.612.071-.282-.142-1.196-.441-2.28-1.409-.842-.753-1.41-1.684-1.574-1.968-.165-.284-.018-.437.123-.578.127-.128.283-.33.424-.495.141-.165.188-.283.282-.472.094-.188.047-.354-.024-.495-.071-.141-.635-1.533-.871-2.1-.23-.556-.464-.48-.636-.489-.165-.008-.353-.01-.541-.01-.188 0-.494.07-.753.353-.259.283-.988.966-.988 2.358 0 1.391 1.012 2.738 1.153 2.926.141.188 1.996 3.048 4.836 4.272.676.29 1.203.463 1.614.593.679.216 1.298.185 1.786.112.544-.08 1.674-.684 1.91-1.345.236-.66.236-1.226.165-1.345-.071-.118-.259-.188-.541-.329z" />
+              </svg>
+            </a>
+            <a href="https://tiktok.com/@thehanazofficial" target="_blank" rel="noopener noreferrer"
+              aria-label="TikTok" style="color: inherit; transition: opacity 0.2s; display: inline-flex;"
+              onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 2.78-1.15 5.54-3.33 7.31-1.9 1.57-4.49 2.15-6.84 1.61-3.25-.68-5.89-3.23-6.52-6.52-.46-2.54.19-5.18 1.68-7.13 1.4-1.85 3.65-2.93 5.92-3.13v4.06c-1.39.23-2.68.99-3.48 2.16-.76 1.08-1 2.45-.63 3.7.35 1.25 1.23 2.32 2.41 2.83 1.26.54 2.75.52 3.98-.07 1.42-.69 2.32-2.14 2.36-3.72.03-4.67.01-9.35.01-14.02h3.36z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-columns">
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Our Commitments</h4>
+          <ul>
+            <li><a href="#">Sustainability</a></li>
+            <li><a href="about.html#our-story">Our Story</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Customer Care</h4>
+          <ul>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="return-policy.html">Return Policy</a></li>
+            <li><a href="shipping-info.html">Shipping Info</a></li>
+            <li><a href="track-order.html">Track Order</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Get in Touch</h4>
+          <ul>
+            <li><a href="https://wa.me/923225386807" target="_blank" rel="noopener">WhatsApp</a></li>
+            <li><a href="https://instagram.com/thehanazofficial" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://facebook.com/thehanaz" target="_blank" rel="noopener">Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Hanaz Official. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="terms.html">Terms &amp; Conditions</a>
+          <a href="privacy.html">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="js/supabase-client.js"></script>
+  <script defer src="js/cart.js"></script>
+  <script defer src="js/main.js"></script>
+  <script defer src="js/auth.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+      // ── Helper: show/hide global message
+      function showMessage(type, text) {
+        const container = document.getElementById('auth-message');
+        const iconEl = document.getElementById('auth-msg-icon');
+        const textEl = document.getElementById('auth-msg-text');
+        container.className = 'auth-message visible ' + type;
+        if (iconEl) {
+          if (type === 'success') {
+            iconEl.innerHTML = '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline>';
+          } else {
+            iconEl.innerHTML = '<circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line>';
+          }
+        }
+        if (textEl) textEl.textContent = text;
+        container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+
+      function hideMessage() {
+        document.getElementById('auth-message').className = 'auth-message';
+      }
+
+      function showFieldError(id, msg) {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.textContent = msg;
+        el.classList.add('visible');
+        const inputId = id.replace('-error', '');
+        const input = document.getElementById(inputId);
+        if (input) input.classList.add('error');
+      }
+
+      function clearFieldErrors() {
+        document.querySelectorAll('.auth-field-error').forEach(el => {
+          el.textContent = '';
+          el.classList.remove('visible');
+        });
+        document.querySelectorAll('.auth-field input').forEach(el => el.classList.remove('error'));
+      }
+
+      // ── Password visibility toggles
+      function setupPwToggle(toggleId, inputId) {
+        const toggle = document.getElementById(toggleId);
+        const input = document.getElementById(inputId);
+        if (!toggle || !input) return;
+        toggle.addEventListener('click', function () {
+          const isText = input.type === 'text';
+          input.type = isText ? 'password' : 'text';
+          toggle.classList.toggle('show-pw', !isText);
+          toggle.setAttribute('aria-label', isText ? 'Show password' : 'Hide password');
+        });
+      }
+      setupPwToggle('signup-pw-toggle', 'signup-password');
+      setupPwToggle('signup-confirm-toggle', 'signup-confirm');
+
+      // ── Sign Up Form
+      document.getElementById('signup-form').addEventListener('submit', async function (e) {
+        e.preventDefault();
+        clearFieldErrors();
+        hideMessage();
+
+        const name = document.getElementById('signup-name').value.trim();
+        const email = document.getElementById('signup-email').value.trim();
+        const password = document.getElementById('signup-password').value;
+        const confirm = document.getElementById('signup-confirm').value;
+        let valid = true;
+
+        if (!name) {
+          showFieldError('signup-name-error', 'Please enter your full name.');
+          valid = false;
+        }
+
+        if (!email) {
+          showFieldError('signup-email-error', 'Please enter your email address.');
+          valid = false;
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          showFieldError('signup-email-error', 'Please enter a valid email address.');
+          valid = false;
+        }
+
+        if (!password) {
+          showFieldError('signup-password-error', 'Please enter a password.');
+          valid = false;
+        } else if (password.length < 8) {
+          showFieldError('signup-password-error', 'Password must be at least 8 characters long.');
+          valid = false;
+        } else if (!/[A-Za-z]/.test(password) || !/[0-9]/.test(password)) {
+          showFieldError('signup-password-error', 'Password must contain at least one letter and one number.');
+          valid = false;
+        }
+
+        if (!confirm) {
+          showFieldError('signup-confirm-error', 'Please confirm your password.');
+          valid = false;
+        } else if (password && confirm !== password) {
+          showFieldError('signup-confirm-error', 'Passwords do not match.');
+          valid = false;
+        }
+
+        if (!valid) return;
+
+        const btn = document.getElementById('signup-btn');
+        btn.disabled = true;
+        btn.classList.add('loading');
+
+        try {
+          const { data, error } = await window.supabase.auth.signUp({
+            email,
+            password,
+            options: {
+              data: { full_name: name }
+            }
+          });
+
+          if (error) {
+            showMessage('error', window.HanazAuth.friendlyError(error));
+          } else if (data && data.user) {
+            // Check if email confirmation is required
+            if (data.session) {
+              // Auto-confirmed — redirect to account
+              showMessage('success', 'Your account has been created successfully. Welcome to Hanaz!');
+              setTimeout(() => { window.location.href = 'account.html'; }, 1500);
+            } else {
+              // Email confirmation required
+              showMessage('success', 'Your account has been created successfully! Please check your email to verify your account before logging in.');
+              document.getElementById('signup-form').style.opacity = '0.5';
+              document.getElementById('signup-form').style.pointerEvents = 'none';
+            }
+          }
+        } catch (err) {
+          showMessage('error', window.HanazAuth.friendlyError(err));
+        } finally {
+          btn.disabled = false;
+          btn.classList.remove('loading');
+        }
+      });
+
+      // ── Redirect if already logged in
+      (async function () {
+        if (!window.supabase) return;
+        try {
+          const { data } = await window.supabase.auth.getSession();
+          if (data && data.session) {
+            window.location.href = 'account.html';
+          }
+        } catch (e) {}
+      })();
+
+    });
+  </script>
+
+</body>
+
+</html>

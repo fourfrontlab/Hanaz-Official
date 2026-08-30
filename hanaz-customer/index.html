@@ -35,20 +35,22 @@
 
   <!-- Meta Pixel Code -->
   <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window,document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ?
+        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+      n.queue = []; t = b.createElement(e); t.async = !0;
+      t.src = v; s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '568351333004084');
     fbq('track', 'PageView');
   </script>
   <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=568351333004084&ev=PageView&noscript=1"
-  /></noscript>
+      src="https://www.facebook.com/tr?id=568351333004084&ev=PageView&noscript=1" /></noscript>
   <!-- End Meta Pixel Code -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/home.css">
@@ -69,6 +71,7 @@
         <li><a href="collections.html">Regimens</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="about.html">About Us</a></li>
+        <li id="nav-auth-item"><a href="login.html" id="nav-auth-link">Login</a></li>
       </ul>
 
       <div class="nav-icons">
@@ -105,6 +108,7 @@
       <a href="collections.html">Regimens</a>
       <a href="contact.html">Contact</a>
       <a href="about.html">About Us</a>
+      <a href="login.html" id="mobile-nav-auth-link">Login</a>
     </div>
   </div>
 
@@ -195,9 +199,9 @@
     <section class="seo-intro section-padding" style="padding-top: 60px; padding-bottom: 20px;">
       <div class="container" style="max-width: 800px; text-align: center;">
         <p style="font-size: 1.15rem; color: var(--text-muted); line-height: 1.6;">
-          Discover clinically tested, dermatologist-approved skincare formulations proudly manufactured in Pakistan.
-          From our signature Vitamin C Serum to gentle daily cleansers, our products are crafted to reveal your
-          healthiest, most radiant skin.
+          Skincare built on absolute truth. Proudly manufactured in Pakistan, Hanaz sets a new standard for
+          transparency. Formulated exclusively with dermatologist-grade ingredients, we deliver real, uncompromising
+          results to reveal your most naturally radiant skin
         </p>
       </div>
     </section>
@@ -439,8 +443,8 @@
           </a>
 
           <!-- Congestion -->
-          <a href="pdp-vitamin-c.html?id=hanaz-vitamin-c-serum" class="concern-card"
-            id="concern-congestion" aria-label="Shop for acne and blemishes concerns">
+          <a href="pdp-vitamin-c.html?id=hanaz-vitamin-c-serum" class="concern-card" id="concern-congestion"
+            aria-label="Shop for acne and blemishes concerns">
             <div class="concern-card__img-wrap">
               <img src="images/concern-congestion.webp"
                 alt="Close-up skin showing mild pore congestion — Congestion concern" loading="lazy">
@@ -452,8 +456,8 @@
           </a>
 
           <!-- Texture -->
-          <a href="pdp-face-wash.html?id=0aa58f95-83d6-45f6-a7f3-2c1ed3b3ac39" class="concern-card"
-            id="concern-texture" aria-label="Shop for dryness concerns">
+          <a href="pdp-face-wash.html?id=0aa58f95-83d6-45f6-a7f3-2c1ed3b3ac39" class="concern-card" id="concern-texture"
+            aria-label="Shop for dryness concerns">
             <div class="concern-card__img-wrap">
               <img src="images/concern-texture.webp" alt="Close-up of uneven skin texture — Texture concern"
                 loading="lazy">
@@ -657,6 +661,7 @@
   <script defer src="js/cart.js"></script>
   <script defer src="js/main.js"></script>
   <script defer src="js/home.js"></script>
+  <script defer src="js/auth.js"></script>
   <script>
     async function loadIndexProducts() {
       const { data, error } = await supabase
