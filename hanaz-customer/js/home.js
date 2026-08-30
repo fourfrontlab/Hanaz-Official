@@ -247,7 +247,8 @@
     const numCards = originalCards.length;
 
     // 1. Clone cards for infinite loop
-    originalCards.forEach(c => {
+    const reversedOriginals = [...originalCards].reverse();
+    reversedOriginals.forEach(c => {
         const preClone = c.cloneNode(true);
         preClone.dataset.clone = 'true';
         track.insertBefore(preClone, originalCards[0]);
