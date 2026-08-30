@@ -248,7 +248,7 @@
           
           const { data, error } = await supabase
             .from('products')
-            .select('id, title, image_urls, sale_price, base_price, category')
+            .select('id, title, image_urls, sale_price, base_price, category, size')
             .or(`title.ilike.%${q}%,category.ilike.%${q}%,benefit.ilike.%${q}%`)
             .eq('in_stock', true)
             .limit(5);

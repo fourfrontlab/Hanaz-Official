@@ -30,7 +30,7 @@ window.renderProductGrid = function (products, containerId) {
     const isBestseller = product.is_bestseller;
     const discountPct = product.discount_pct;
     const benefit = product.benefit || '';
-    const size = product.size || '30ml';
+    const size = product.size;
     const safeTitle = title.replace(/'/g, "\\'");
 
     let priceHtml = `<strong>Rs. ${salePrice.toLocaleString()}</strong>`;
@@ -72,9 +72,10 @@ window.renderProductGrid = function (products, containerId) {
             <span class="rating-value">4.9</span>
           </div>
           <p class="product-benefit">${benefit}</p>
+          ${size ? `
           <div class="size-chips">
             <span class="size-chip active">${size}</span>
-          </div>
+          </div>` : ''}
           <div class="price">
             ${priceHtml}
           </div>

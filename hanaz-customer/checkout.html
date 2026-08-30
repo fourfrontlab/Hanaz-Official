@@ -30,11 +30,6 @@
 
 <body class="fade-in-page">
 
-  <!-- ===== UTILITY BAR ===== -->
-  <div class="announcement-bar" id="announcement-bar">
-    <p>Free Shipping on Orders Over Rs. 5,000 - COD Available</p>
-  </div>
-
   <!-- ===== NAVIGATION ===== -->
   <nav class="navbar" id="navbar">
     <div class="container">
@@ -418,13 +413,13 @@
 
         itemsContainer.innerHTML = html;
 
-        // Shipping logic: Free over 5000, else 200
+        // Shipping logic: Always free
         const subtotal = window.HanazCart.getSubtotal();
-        let shipping = subtotal >= 5000 ? 0 : 200;
+        let shipping = 0;
         let total = subtotal + shipping;
 
         subtotalEl.textContent = 'Rs. ' + subtotal.toLocaleString();
-        shippingEl.textContent = shipping === 0 ? 'Free' : 'Rs. ' + shipping.toLocaleString();
+        shippingEl.innerHTML = '<span style="color: var(--color-success, #28a745); font-weight: 600;">Free</span>';
         totalEl.textContent = 'Rs. ' + total.toLocaleString();
       }
 
@@ -583,7 +578,7 @@
             email: document.getElementById('co-email').value,
             address: document.getElementById('co-address').value + ', ' + document.getElementById('co-city').value + (document.getElementById('co-postal').value ? ', ' + document.getElementById('co-postal').value : ''),
             paymentMethod: document.querySelector('input[name="payment_method"]:checked').value,
-            total: window.HanazCart.getSubtotal() + (window.HanazCart.getSubtotal() >= 5000 ? 0 : 200)
+            total: window.HanazCart.getSubtotal()
           };
 
           // Map radio-button values → lowercase DB-safe strings

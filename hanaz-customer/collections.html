@@ -39,11 +39,6 @@
 
 <body class="fade-in-page">
 
-  <!-- ===== UTILITY BAR ===== -->
-  <div class="announcement-bar" id="announcement-bar">
-    <p>Free Shipping on Orders Over Rs. 5,000 - COD Available</p>
-  </div>
-
   <!-- ===== NAVIGATION ===== -->
   <nav class="navbar" id="navbar">
     <div class="container">
@@ -398,7 +393,7 @@
     async function loadCollectionProducts() {
       const { data, error } = await window.supabase
         .from('products')
-        .select('id, title, sale_price, image_urls, category')
+        .select('id, title, sale_price, image_urls, category, size')
         .eq('in_stock', true);
 
       if (error || !data) { console.error(error); return; }
