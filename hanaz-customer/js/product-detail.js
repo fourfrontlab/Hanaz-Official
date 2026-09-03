@@ -375,6 +375,57 @@
     });
   }
 
+  /* ========================================================================
+     9. MOBILE PRODUCT INFORMATION ACCORDION
+     Targets .pdp-info-acc-item inside .pdp-mobile-info-accordion
+     Completely separate from initAccordions() which handles .accordion-header
+     Multiple sections can be open simultaneously (independent, not grouped)
+     ======================================================================== */
+  function initMobileInfoAccordion() {
+    const items = document.querySelectorAll('.pdp-mobile-info-accordion .pdp-info-acc-item');
+    if (!items.length) return;
+
+    items.forEach(function(item) {
+      const header = item.querySelector('.pdp-info-acc-header');
+      const body = item.querySelector('.pdp-info-acc-body');
+      const inner = item.querySelector('.pdp-info-acc-inner');
+      const icon = item.querySelector('.pdp-info-acc-icon');
+
+      if (!header || !body || !inner || header.dataset.pdpAccInit) return;
+      header.dataset.pdpAccInit = 'true';
+
+      header.addEventListener('click', function() {
+        const isOpen = item.classList.contains('pdp-info-acc-open');
+
+        if (isOpen) {
+          // Close
+          item.classList.remove('pdp-info-acc-open');
+          header.setAttribute('aria-expanded', 'false');
+          body.style.maxHeight = '0';
+          if (icon) icon.textContent = '+';
+        } else {
+          // Open
+          item.classList.add('pdp-info-acc-open');
+          header.setAttribute('aria-expanded', 'true');
+          body.style.maxHeight = inner.scrollHeight + 'px';
+          if (icon) icon.textContent = '−';
+        }
+      });
+    });
+
+    // Recalculate maxHeight on resize for open panels
+    window.addEventListener('resize', function() {
+      const openItems = document.querySelectorAll('.pdp-mobile-info-accordion .pdp-info-acc-item.pdp-info-acc-open');
+      openItems.forEach(function(item) {
+        const body = item.querySelector('.pdp-info-acc-body');
+        const inner = item.querySelector('.pdp-info-acc-inner');
+        if (body && inner) {
+          body.style.maxHeight = inner.scrollHeight + 'px';
+        }
+      });
+    });
+  }
+
   function init() {
     initGallery();
     initQty();
@@ -384,6 +435,7 @@
     saveRecentlyViewed();
     initStickyCart();
     initPdpFaq();
+    initMobileInfoAccordion();
   }
 
   window.initPDP = init;
