@@ -141,9 +141,17 @@
                   </div>
                 </div>
                 <div class="form-row">
-                  <div class="form-group">
+                  <div class="form-group city-autocomplete-group">
                     <label for="co-city">City</label>
-                    <input type="text" id="co-city" required placeholder="Islamabad">
+                    <div class="city-input-wrapper">
+                      <input type="text" id="co-city" required placeholder="Type or select your city" autocomplete="off">
+                      <button type="button" class="city-dropdown-toggle" id="co-city-toggle" aria-label="Toggle city list" tabindex="-1">
+                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                      </button>
+                      <ul class="city-suggestions-list" id="city-suggestions" role="listbox" aria-label="City suggestions"></ul>
+                    </div>
                     <span class="error-msg" id="co-city-error"></span>
                   </div>
                 </div>
@@ -516,6 +524,205 @@
           });
         }
       });
+
+      // ── City Autocomplete & Searchable Dropdown ──────────────────────────────
+      const PAKISTAN_CITIES = [
+        { name: "Islamabad", province: "Federal" },
+        { name: "Rawalpindi", province: "Punjab" },
+        { name: "Lahore", province: "Punjab" },
+        { name: "Karachi", province: "Sindh" },
+        { name: "Faisalabad", province: "Punjab" },
+        { name: "Multan", province: "Punjab" },
+        { name: "Peshawar", province: "KPK" },
+        { name: "Quetta", province: "Balochistan" },
+        { name: "Sialkot", province: "Punjab" },
+        { name: "Gujranwala", province: "Punjab" },
+        { name: "Hyderabad", province: "Sindh" },
+        { name: "Abbottabad", province: "KPK" },
+        { name: "Bahawalpur", province: "Punjab" },
+        { name: "Sargodha", province: "Punjab" },
+        { name: "Sukkur", province: "Sindh" },
+        { name: "Gujrat", province: "Punjab" },
+        { name: "Mardan", province: "KPK" },
+        { name: "Sahiwal", province: "Punjab" },
+        { name: "Sheikhupura", province: "Punjab" },
+        { name: "Jhang", province: "Punjab" },
+        { name: "Rahim Yar Khan", province: "Punjab" },
+        { name: "Kasur", province: "Punjab" },
+        { name: "Dera Ghazi Khan", province: "Punjab" },
+        { name: "Mirpur", province: "AJK" },
+        { name: "Muzaffarabad", province: "AJK" },
+        { name: "Okara", province: "Punjab" },
+        { name: "Chiniot", province: "Punjab" },
+        { name: "Kamoke", province: "Punjab" },
+        { name: "Hafizabad", province: "Punjab" },
+        { name: "Sadiqabad", province: "Punjab" },
+        { name: "Burewala", province: "Punjab" },
+        { name: "Jacobabad", province: "Sindh" },
+        { name: "Mingora (Swat)", province: "KPK" },
+        { name: "Jhelum", province: "Punjab" },
+        { name: "Khanewal", province: "Punjab" },
+        { name: "Wah Cantonment", province: "Punjab" },
+        { name: "Taxila", province: "Punjab" },
+        { name: "Kohat", province: "KPK" },
+        { name: "Nawabshah", province: "Sindh" },
+        { name: "Attock", province: "Punjab" },
+        { name: "Mansehra", province: "KPK" },
+        { name: "Dera Ismail Khan", province: "KPK" },
+        { name: "Gwadar", province: "Balochistan" },
+        { name: "Larkana", province: "Sindh" },
+        { name: "Turbat", province: "Balochistan" },
+        { name: "Chakwal", province: "Punjab" },
+        { name: "Nowshera", province: "KPK" },
+        { name: "Wazirabad", province: "Punjab" },
+        { name: "Swabi", province: "KPK" },
+        { name: "Khuzdar", province: "Balochistan" }
+      ];
+
+      const cityInput = document.getElementById('co-city');
+      const cityToggle = document.getElementById('co-city-toggle');
+      const cityList = document.getElementById('city-suggestions');
+      const cityWrapper = cityInput ? cityInput.closest('.city-input-wrapper') : null;
+      let activeCityIndex = -1;
+
+      function renderCitySuggestions(query = '') {
+        if (!cityList) return;
+        const q = query.trim().toLowerCase();
+        let matches = [];
+
+        if (q.length === 0) {
+          matches = PAKISTAN_CITIES;
+        } else {
+          matches = PAKISTAN_CITIES.filter(c => c.name.toLowerCase().includes(q));
+        }
+
+        if (matches.length === 0) {
+          cityList.innerHTML = `<li class="city-suggestions-empty">Press enter to use "<strong>${escapeHtml(query.trim())}</strong>"</li>`;
+        } else {
+          cityList.innerHTML = matches.map(c => {
+            let highlighted = c.name;
+            if (q.length > 0) {
+              const regex = new RegExp(`(${q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+              highlighted = c.name.replace(regex, '<mark>$1</mark>');
+            }
+            return `
+              <li class="city-suggestion-item" data-city="${escapeHtml(c.name)}" role="option" tabindex="-1">
+                <span>${highlighted}</span>
+                <span class="city-tag">${c.province}</span>
+              </li>
+            `;
+          }).join('');
+        }
+
+        activeCityIndex = -1;
+      }
+
+      function openCityDropdown(query = '') {
+        if (!cityList || !cityWrapper) return;
+        renderCitySuggestions(query);
+        cityList.classList.add('show');
+        cityWrapper.classList.add('open');
+      }
+
+      function closeCityDropdown() {
+        if (!cityList || !cityWrapper) return;
+        cityList.classList.remove('show');
+        cityWrapper.classList.remove('open');
+        activeCityIndex = -1;
+      }
+
+      function selectCity(cityName) {
+        if (!cityInput) return;
+        cityInput.value = cityName;
+        closeCityDropdown();
+        validateField('co-city');
+      }
+
+      function escapeHtml(str) {
+        return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+      }
+
+      if (cityInput && cityList && cityWrapper) {
+        cityInput.addEventListener('focus', () => {
+          openCityDropdown(cityInput.value);
+        });
+
+        cityInput.addEventListener('input', () => {
+          openCityDropdown(cityInput.value);
+        });
+
+        if (cityToggle) {
+          cityToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (cityList.classList.contains('show')) {
+              closeCityDropdown();
+            } else {
+              cityInput.focus();
+              openCityDropdown(cityInput.value);
+            }
+          });
+        }
+
+        cityList.addEventListener('click', (e) => {
+          const item = e.target.closest('.city-suggestion-item');
+          if (item && item.dataset.city) {
+            selectCity(item.dataset.city);
+          }
+        });
+
+        cityInput.addEventListener('keydown', (e) => {
+          const items = cityList.querySelectorAll('.city-suggestion-item');
+          if (!cityList.classList.contains('show') || !items.length) {
+            if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+              openCityDropdown(cityInput.value);
+              e.preventDefault();
+            }
+            return;
+          }
+
+          if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            activeCityIndex = (activeCityIndex + 1) % items.length;
+            updateActiveItem(items);
+          } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            activeCityIndex = (activeCityIndex - 1 + items.length) % items.length;
+            updateActiveItem(items);
+          } else if (e.key === 'Enter') {
+            if (activeCityIndex >= 0 && items[activeCityIndex]) {
+              e.preventDefault();
+              selectCity(items[activeCityIndex].dataset.city);
+            } else if (items.length > 0 && cityInput.value.trim().length >= 2) {
+              const firstCity = items[0].dataset.city;
+              if (firstCity && firstCity.toLowerCase().startsWith(cityInput.value.trim().toLowerCase())) {
+                e.preventDefault();
+                selectCity(firstCity);
+              } else {
+                closeCityDropdown();
+              }
+            } else {
+              closeCityDropdown();
+            }
+          } else if (e.key === 'Escape') {
+            closeCityDropdown();
+          }
+        });
+
+        function updateActiveItem(items) {
+          items.forEach((it, idx) => {
+            it.classList.toggle('active', idx === activeCityIndex);
+            if (idx === activeCityIndex) {
+              it.scrollIntoView({ block: 'nearest' });
+            }
+          });
+        }
+
+        document.addEventListener('click', (e) => {
+          if (!cityWrapper.contains(e.target)) {
+            closeCityDropdown();
+          }
+        });
+      }
 
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
