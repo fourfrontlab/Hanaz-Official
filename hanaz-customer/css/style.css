@@ -1,7 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
-
 /* ==========================================================================
    GLOBAL DESIGN SYSTEM — "The Ordinary" spec
+   Font loaded via <link> in HTML for parallel loading (not @import)
    ========================================================================== */
 
 :root {
@@ -164,13 +163,15 @@ h4 {
 
 .btn-primary {
   border: 1px solid var(--text-heading);
-  background-color: var(--bg-card);
-  color: var(--text-heading);
+  background-color: var(--text-heading);
+  color: var(--bg-card);
+  font-weight: 700;
 }
 
 .btn-primary:hover {
-  background-color: var(--text-heading);
-  color: var(--bg-card);
+  background-color: #222222;
+  color: #ffffff;
+  border-color: #222222;
 }
 
 .btn-secondary {

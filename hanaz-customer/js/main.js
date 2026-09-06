@@ -6,28 +6,8 @@
   'use strict';
 
   /* ========================================================================
-     1. TOAST NOTIFICATIONS
+     1. TOAST NOTIFICATIONS — defined in cart.js (loads first via defer order)
      ======================================================================== */
-  window.HanazToast = function (message) {
-    const container = document.getElementById('toast-container');
-    if (!container) return;
-
-    const toast = document.createElement('div');
-    toast.className = 'toast';
-    toast.innerHTML = `<svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg> <span>${message}</span>`;
-    
-    container.appendChild(toast);
-
-    setTimeout(() => {
-      toast.classList.add('hiding');
-      toast.addEventListener('animationend', () => {
-        if (toast.parentNode) toast.parentNode.removeChild(toast);
-      });
-    }, 3000);
-  };
-
-  /* ========================================================================
-
 
   /* ========================================================================
      3. UI INTERACTIONS

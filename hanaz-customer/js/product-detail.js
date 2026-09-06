@@ -385,7 +385,7 @@
     const items = document.querySelectorAll('.pdp-mobile-info-accordion .pdp-info-acc-item');
     if (!items.length) return;
 
-    items.forEach(function(item) {
+    items.forEach(function(item, index) {
       const header = item.querySelector('.pdp-info-acc-header');
       const body = item.querySelector('.pdp-info-acc-body');
       const inner = item.querySelector('.pdp-info-acc-inner');
@@ -393,6 +393,14 @@
 
       if (!header || !body || !inner || header.dataset.pdpAccInit) return;
       header.dataset.pdpAccInit = 'true';
+
+      // Default expand Description (first item or item marked open)
+      if (item.classList.contains('pdp-info-acc-open') || index === 0) {
+        item.classList.add('pdp-info-acc-open');
+        header.setAttribute('aria-expanded', 'true');
+        body.style.maxHeight = (inner.scrollHeight + 30) + 'px';
+        if (icon) icon.textContent = '−';
+      }
 
       header.addEventListener('click', function() {
         const isOpen = item.classList.contains('pdp-info-acc-open');
@@ -407,7 +415,7 @@
           // Open
           item.classList.add('pdp-info-acc-open');
           header.setAttribute('aria-expanded', 'true');
-          body.style.maxHeight = inner.scrollHeight + 'px';
+          body.style.maxHeight = (inner.scrollHeight + 30) + 'px';
           if (icon) icon.textContent = '−';
         }
       });

@@ -24,6 +24,8 @@
     src="https://www.facebook.com/tr?id=568351333004084&ev=PageView&noscript=1"
   /></noscript>
   <!-- End Meta Pixel Code -->
+  <!-- Google Font (moved from CSS @import for performance) -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/checkout.css">
 </head>
@@ -126,13 +128,6 @@
                     <span class="error-msg" id="co-phone-error"></span>
                   </div>
                 </div>
-                <div class="form-row">
-                  <div class="form-group" style="flex: 1;">
-                    <label for="co-email">Email</label>
-                    <input type="email" id="co-email" required placeholder="jane@example.com">
-                    <span class="error-msg" id="co-email-error"></span>
-                  </div>
-                </div>
               </fieldset>
 
               <!-- Shipping Address -->
@@ -150,11 +145,6 @@
                     <label for="co-city">City</label>
                     <input type="text" id="co-city" required placeholder="Islamabad">
                     <span class="error-msg" id="co-city-error"></span>
-                  </div>
-                  <div class="form-group">
-                    <label for="co-postal">Postal Code (Optional)</label>
-                    <input type="text" id="co-postal" placeholder="44000">
-                    <span class="error-msg" id="co-postal-error"></span>
                   </div>
                 </div>
               </fieldset>
@@ -186,7 +176,7 @@
                         <p><strong>Bank:</strong> Allied Bank</p>
                         <p><strong>Account Number:</strong> 0010114171250023</p>
                         <p><strong>Account Title:</strong> Syed Shoaib Badshah</p>
-                        <p class="payment-note">Note: p\Please share your transaction receipt on this number 03189454884
+                        <p class="payment-note">Note: Please share your transaction receipt on this number 03189454884
                           or Our team will contact you in some time. Thankyou.</p>
                       </div>
                     </div>
@@ -469,7 +459,7 @@
         radio.addEventListener('change', updatePaymentAccordion);
       });
 
-      // Validation rules
+      // Validation rules (NO email, NO postal code)
       const validators = {
         'co-name': {
           validate: (val) => val.trim().length >= 2,
@@ -482,13 +472,6 @@
           },
           message: "Please enter a valid phone number (e.g. 03XX XXXXXXX)."
         },
-        'co-email': {
-          validate: (val) => {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return emailRegex.test(val.trim());
-          },
-          message: "Please enter a valid email address."
-        },
         'co-address': {
           validate: (val) => val.trim().length >= 5,
           message: "Please enter your complete shipping address."
@@ -496,13 +479,6 @@
         'co-city': {
           validate: (val) => val.trim().length > 0,
           message: "Please enter your city."
-        },
-        'co-postal': {
-          validate: (val) => {
-            if (val.trim().length === 0) return true;
-            return /^\d{5}$/.test(val.trim());
-          },
-          message: "Postal code should be 5 digits."
         }
       };
 
@@ -576,10 +552,9 @@
 
         try {
           const formData = {
-            name: document.getElementById('co-name').value,
-            phone: document.getElementById('co-phone').value,
-            email: document.getElementById('co-email').value,
-            address: document.getElementById('co-address').value + ', ' + document.getElementById('co-city').value + (document.getElementById('co-postal').value ? ', ' + document.getElementById('co-postal').value : ''),
+            name: document.getElementById('co-name').value.trim(),
+            phone: document.getElementById('co-phone').value.trim(),
+            address: document.getElementById('co-address').value.trim() + ', ' + document.getElementById('co-city').value.trim(),
             paymentMethod: document.querySelector('input[name="payment_method"]:checked').value,
             total: window.HanazCart.getSubtotal()
           };
@@ -607,7 +582,6 @@
             order_number: orderNumber,
             customer_name: formData.name,
             phone: formData.phone,
-            email: formData.email,
             address: formData.address,
             payment_method: normalizedPaymentMethod,
             total_amount: formData.total,

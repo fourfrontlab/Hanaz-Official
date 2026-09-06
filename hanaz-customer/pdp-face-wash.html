@@ -66,7 +66,28 @@
   }
   </script>
 
-  <!-- Meta Pixel Code -->
+  <!-- Preconnect to critical third-party origins (saves ~200-400ms each on mobile 4G) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://xipbscxjsfzgkslckpjk.supabase.co" crossorigin>
+  <link rel="preconnect" href="https://connect.facebook.net" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+  <!-- Google Font — loaded via <link> instead of CSS @import for parallel loading -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+
+  <!-- LCP image preload — tells browser to fetch product image before it parses body HTML -->
+  <link rel="preload" as="image" href="images/product-face-cleanser.jpg" fetchpriority="high">
+
+  <!-- Critical CSS — loaded first for above-the-fold rendering -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/product-detail.css">
+
+  <!-- Consultation drawer CSS — deferred (only needed on button click, below the fold) -->
+  <link rel="stylesheet" href="css/consultation-drawer.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="css/consultation-drawer.css"></noscript>
+
+  <!-- Meta Pixel Code (moved after CSS so stylesheets start loading first) -->
   <script>
     !function (f, b, e, v, n, t, s) {
       if (f.fbq) return; n = f.fbq = function () {
@@ -85,9 +106,6 @@
   <noscript><img height="1" width="1" style="display:none"
       src="https://www.facebook.com/tr?id=568351333004084&ev=PageView&noscript=1" /></noscript>
   <!-- End Meta Pixel Code -->
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/product-detail.css">
-  <link rel="stylesheet" href="css/consultation-drawer.css">
 </head>
 
 <body class="fade-in-page">
@@ -97,7 +115,7 @@
     <div class="container">
       <button class="hamburger-btn" id="hamburger-btn"
         aria-label="Open menu"><span></span><span></span><span></span></button>
-      <a href="index.html" class="nav-logo"><img src="images/hanaz-logo.jpg" alt="Hanaz Official"></a>
+      <a href="index.html" class="nav-logo"><img src="images/hanaz-logo.jpg" alt="Hanaz Official" width="639" height="391"></a>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="products.html">Shop</a></li>
@@ -129,7 +147,7 @@
   <div class="overlay" id="mobile-nav-overlay"></div>
   <div class="mobile-nav-drawer" id="mobile-nav-drawer">
     <div class="mobile-nav-header">
-      <a href="index.html" class="nav-logo"><img src="images/hanaz-logo.jpg" alt="Hanaz Official"></a>
+      <a href="index.html" class="nav-logo"><img src="images/hanaz-logo.jpg" alt="Hanaz Official" width="639" height="391"></a>
       <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu">
         <svg viewBox="0 0 24 24">
           <line x1="18" y1="6" x2="6" y2="18" />
@@ -214,11 +232,29 @@
           <div class="pdp-info">
             <h1 id="pdp-title">Hanaz Vitamin C Face Cleanser</h1>
 
+            <!-- Social proof rating above fold -->
+            <div class="pdp-rating-summary">
+              <div class="pdp-rating-stars">★★★★★</div>
+              <a href="#pdp-reviews" class="pdp-rating-count">5.0 (Reviews)</a>
+            </div>
+
             <!-- Price -->
             <div class="pdp-price-row" id="pdp-price-container">
               <span class="pdp-sale-price" id="dynamic-sale-price">Rs. 1,000</span>
               <span class="pdp-original-price"
                 style="text-decoration: line-through; color: var(--text-muted); margin-left: 8px;">Rs. 2,000</span>
+            </div>
+
+            <!-- Free Shipping highlight under price -->
+            <div class="pdp-shipping-highlight">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8">
+                <polyline points="20 12 20 22 4 22 4 12" />
+                <rect x="2" y="7" width="20" height="5" />
+                <line x1="12" y1="22" x2="12" y2="7" />
+                <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z" />
+                <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z" />
+              </svg>
+              <span>Free shipping &amp; returns on all orders</span>
             </div>
 
             <!-- Dermatologist badge -->
@@ -249,18 +285,6 @@
               Book Free Consultation
             </button>
 
-            <!-- WhatsApp as Share-like action or secondary action below -->
-            <div class="pdp-share-row">
-              <span class="pdp-share-label">Order via:</span>
-              <a href="https://wa.me/923225386807" class="btn-whatsapp-icon-link" id="pdp-whatsapp-link" target="_blank"
-                rel="noopener" aria-label="Chat on WhatsApp">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path
-                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-                </svg>
-              </a>
-            </div>
-
             <!-- Delivery info -->
             <div class="pdp-delivery">
               <div class="pdp-delivery-row">
@@ -270,17 +294,7 @@
                   <circle cx="5.5" cy="18.5" r="2.5" />
                   <circle cx="18.5" cy="18.5" r="2.5" />
                 </svg>
-                Estimated delivery: 3–5 business days
-              </div>
-              <div class="pdp-delivery-row">
-                <svg class="pdp-delivery-icon" viewBox="0 0 24 24" aria-hidden="true">
-                  <polyline points="20 12 20 22 4 22 4 12" />
-                  <rect x="2" y="7" width="20" height="5" />
-                  <line x1="12" y1="22" x2="12" y2="7" />
-                  <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z" />
-                  <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z" />
-                </svg>
-                Free shipping &amp; returns on all orders
+                Estimated delivery: 3–5 business days nationwide
               </div>
             </div>
 
@@ -431,11 +445,11 @@ Skin Type:
         <!-- ════ MOBILE ACCORDION (hidden on desktop, shown on mobile only) ════ -->
         <div class="pdp-mobile-info-accordion" aria-label="Product information">
 
-          <!-- 1. Description -->
-          <div class="pdp-info-acc-item" id="pdp-acc-intro">
-            <button class="pdp-info-acc-header" aria-expanded="false" type="button">
+          <!-- 1. Description (Expanded by default) -->
+          <div class="pdp-info-acc-item pdp-info-acc-open" id="pdp-acc-intro">
+            <button class="pdp-info-acc-header" aria-expanded="true" type="button">
               <span class="pdp-info-acc-title">Description</span>
-              <span class="pdp-info-acc-icon" aria-hidden="true">+</span>
+              <span class="pdp-info-acc-icon" aria-hidden="true">−</span>
             </button>
             <div class="pdp-info-acc-body">
               <div class="pdp-info-acc-inner">
@@ -574,7 +588,7 @@ Skin Type:
           <!-- Card 1 -->
           <button class="htuc-card" data-drawer="drawer-how-to-use" aria-haspopup="dialog">
             <div class="htuc-card-img image-wrapper">
-              <img src="images/htuc-howto.jpg" id="htuc-img-howto" alt="How to use" class="ratio-image" loading="lazy">
+              <img src="images/htuc-howto.jpg" id="htuc-img-howto" alt="How to use" class="ratio-image" loading="lazy" width="600" height="600">
             </div>
             <div class="htuc-card-body">
               <h3 class="htuc-card-title">How to Use</h3>
@@ -592,7 +606,7 @@ Skin Type:
           <button class="htuc-card" data-drawer="drawer-skin-safety" aria-haspopup="dialog">
             <div class="htuc-card-img image-wrapper">
               <img src="images/htuc-safety.webp" id="htuc-img-safety" alt="Skin and safety" class="ratio-image"
-                loading="lazy">
+                loading="lazy" width="600" height="600">
             </div>
             <div class="htuc-card-body">
               <h3 class="htuc-card-title">Skin &amp; Safety</h3>
@@ -609,7 +623,7 @@ Skin Type:
           <!-- Card 3 -->
           <button class="htuc-card" data-drawer="drawer-storage-care" aria-haspopup="dialog">
             <div class="htuc-card-img">
-              <img src="images/htuc-storage.webp" id="htuc-img-storage" alt="Storage and care" loading="lazy">
+              <img src="images/htuc-storage.webp" id="htuc-img-storage" alt="Storage and care" loading="lazy" width="600" height="600">
             </div>
             <div class="htuc-card-body">
               <h3 class="htuc-card-title">Storage &amp; Care</h3>
@@ -901,7 +915,7 @@ Skin Type:
     <!-- ════════════════════════════════════════════
          REVIEWS
          ════════════════════════════════════════════ -->
-    <section class="reviews-section section-padding reveal">
+    <section class="reviews-section section-padding reveal" id="pdp-reviews">
       <div class="container">
         <div class="section-header" style="display:flex; justify-content:space-between; align-items:flex-end;">
           <div>
@@ -942,7 +956,7 @@ Skin Type:
     <div class="sticky-cart-bar" id="sticky-cart-bar">
       <div class="container sticky-cart-inner">
         <div class="sticky-cart-info">
-          <img src="" id="sticky-cart-img" alt="" class="sticky-cart-img" style="display:none">
+          <img src="" id="sticky-cart-img" alt="" class="sticky-cart-img" width="48" height="48" style="display:none">
           <div>
             <h4 class="sticky-cart-title" id="sticky-cart-title">Loading...</h4>
             <div class="sticky-cart-price" id="sticky-cart-price"></div>
