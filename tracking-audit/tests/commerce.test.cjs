@@ -10,6 +10,7 @@ test('atomic commerce, authoritative values, consent, retries and backend-only p
   const results=await Promise.all(Array.from({length:8},()=>submit('checkout',order(),key)));first=results[0];results.forEach(r=>assert.deepEqual(r,first));
   assert.equal(first.event.name,'Purchase');assert.equal(first.event.data.value,4197);assert.equal(first.event.data.num_items,3);assert.equal(first.payment_status,'unpaid');
   assert.equal((await db.query('select count(*)::int n from orders')).rows[0].n,1);
+  assert.equal((await db.query('select status from orders limit 1')).rows[0].status,'Pending');
   const out=(await db.query('select * from hanaz_meta_outbox')).rows;assert.equal(out.length,1);assert.equal(out[0].payload.event_id,first.event.id);assert.equal(out[0].payload.event_name,'Purchase');assert.equal(out[0].payload.action_source,'website');
  });
  await t.test('modified duplicate, forged total and unavailable product roll back fully',async()=>{
@@ -29,7 +30,7 @@ test('atomic commerce, authoritative values, consent, retries and backend-only p
   assert.equal((await db.query('select count(*)::int n from hanaz_meta_outbox')).rows[0].n,2);
  });
  await t.test('failed/cancelled manual payment never qualifies',async()=>{
-  const r=await submit('checkout',order('bank_deposit'));await db.query("update orders set status='cancelled',payment_status='paid' where order_number=$1",[r.order_number]);
+  const r=await submit('checkout',order('bank_deposit'));await db.query("update orders set status='Cancelled',payment_status='paid' where order_number=$1",[r.order_number]);
   assert.equal((await db.query('select count(*)::int n from hanaz_meta_outbox')).rows[0].n,2);
  });
  await t.test('declined consent preserves order creation and suppresses pending jobs',async()=>{
@@ -58,7 +59,7 @@ test('atomic commerce, authoritative values, consent, retries and backend-only p
  });
  await t.test('persistent endpoint rate limits bound submissions',async()=>{for(let i=0;i<30;i++)assert.equal(await rpc('hanaz_rate_limit',{p_bucket:'test'}),true);assert.equal(await rpc('hanaz_rate_limit',{p_bucket:'test'}),false);});
  await t.test('cancelled COD retries never return a cached browser Purchase',async()=>{
-  const k=randomUUID(),r=await submit('checkout',order(),k);await db.query("update orders set status='cancelled' where order_number=$1",[r.order_number]);assert.equal((await submit('checkout',order(),k)).event,undefined);
+  const k=randomUUID(),r=await submit('checkout',order(),k);await db.query("update orders set status='Cancelled' where order_number=$1",[r.order_number]);assert.equal((await submit('checkout',order(),k)).event,undefined);
  });
  await t.test('retry expiry, exhausted attempts, environment isolation and revoked leased jobs',async()=>{
   await db.exec("update hanaz_meta_outbox set status='dead' where status='sending'");
@@ -93,4 +94,14 @@ test('normalization, URL hygiene, config fail-closed and Meta transport',async()
  assert.equal(r.outcome,'sent');assert.ok(sent.url.endsWith('/v26.0/568351333004084/events'));assert.ok(!sent.url.includes(env.META_ACCESS_TOKEN));assert.equal(JSON.parse(sent.init.body).test_event_code,'LOCAL_TEST');
  assert.equal((await worker.deliver(payload,{env,fetcher:async()=>{throw Error('offline')}})).outcome,'retry');
  assert.equal((await worker.deliver(payload,{env,fetcher:async()=>new Response('{"error":{"code":190}}',{status:400})})).outcome,'dead');
+});
+
+test('production inventory trigger is preserved and insufficient or hidden stock is rejected',async()=>{
+ const {db,rpc}=await database(),session=randomUUID();
+ const submit=()=>rpc('hanaz_submit',{p_session:session,p_action:'checkout',p_key:randomUUID(),p_data:order(),p_context:{...ctx,enabled:false}});
+ await db.exec('update products set stock_quantity=1');await assert.rejects(submit());assert.equal((await db.query('select count(*)::int n from orders')).rows[0].n,0);
+ await db.exec('update products set stock_quantity=10,is_active=false');await assert.rejects(submit());
+ await db.exec('update products set is_active=true');await submit();
+ assert.equal((await db.query('select stock_quantity from products where id=$1',[order().items[0].id])).rows[0].stock_quantity,8);
+ await db.close();
 });

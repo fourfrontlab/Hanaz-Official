@@ -2,7 +2,7 @@
 -- This migration does not replace products, orders, order_items, contact_messages or Auth.
 begin;
 -- Fail early if the existing contract differs. No customer data is returned.
-select id,title,sale_price,cost_price,in_stock from public.products limit 0;
+select id,title,sale_price,cost_price,in_stock,stock_quantity,is_active from public.products limit 0;
 select id,order_number,customer_name,phone,address,payment_method,payment_status,status,total_amount from public.orders limit 0;
 select order_id,product_id,title_snapshot,qty,price_at_order,cost_at_order from public.order_items limit 0;
 select full_name,email,subject,message from public.contact_messages limit 0;
@@ -110,8 +110,8 @@ begin
  if p_action='checkout' then
   if jsonb_array_length(p_data->'items') not between 1 and 30 or p_data->>'payment_method' not in ('cod','bank_deposit','easypaisa','jazzcash') then raise exception 'Invalid checkout'; end if;
   for item in select value from jsonb_array_elements(p_data->'items') order by value->>'id' loop
-   select * into prod from public.products where id=(item->>'id')::uuid for share;
-   if not found or prod.in_stock is not true or prod.sale_price is null or prod.sale_price<=0 or (item->>'qty')::int not between 1 and 10 then raise exception 'Unavailable product'; end if;
+   select * into prod from public.products where id=(item->>'id')::uuid for update;
+   if not found or prod.in_stock is not true or prod.is_active is not true or prod.stock_quantity < (item->>'qty')::int or prod.sale_price is null or prod.sale_price<=0 or (item->>'qty')::int not between 1 and 10 then raise exception 'Unavailable product'; end if;
    if exists(select 1 from jsonb_array_elements(items) j where j->>'id'=prod.id::text) then raise exception 'Duplicate product'; end if;
    total=total+prod.sale_price*(item->>'qty')::int;
    items=items||jsonb_build_object('id',prod.id,'title',prod.title,'price',prod.sale_price,'cost',coalesce(prod.cost_price,0),'qty',(item->>'qty')::int);
@@ -123,7 +123,7 @@ begin
   method=p_data->>'payment_method';
   -- Never inherit a paid default or accept payment/order status from clients.
   insert into public.orders(id,order_number,customer_name,phone,address,payment_method,payment_status,status,total_amount)
-  values(oid,number,p_data->>'name',p_data->>'phone',p_data->>'address',method,'unpaid','pending',total);
+  values(oid,number,p_data->>'name',p_data->>'phone',p_data->>'address',method,'unpaid','Pending',total);
   insert into public.order_items(order_id,product_id,title_snapshot,qty,price_at_order,cost_at_order)
   select oid,(j->>'id')::uuid,j->>'title',(j->>'qty')::int,(j->>'price')::numeric,(j->>'cost')::numeric from jsonb_array_elements(items) j;
   insert into public.hanaz_order_tracking(order_id,session_id,consent_at_action,context)
