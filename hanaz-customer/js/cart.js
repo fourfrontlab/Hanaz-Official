@@ -12,6 +12,7 @@
 
     const toast = document.createElement('div');
     toast.className = 'toast';
+    toast.setAttribute('role', 'status');
     toast.innerHTML = `<svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg> <span>${message}</span>`;
     
     container.appendChild(toast);
@@ -74,25 +75,17 @@
     isLoaded: true, // It loads synchronously now
     
     add: function (item) {
+      if (!item || !/^[0-9a-f-]{36}$/i.test(item.id) || !Number.isFinite(item.price) || item.price <= 0 || !Number.isInteger(item.qty) || item.qty < 1 || item.qty > 10) return false;
+      const prior = cartState.items.map(i => ({...i}));
+      if ((cartState.items.find(i => i.id === item.id)?.qty || 0) + item.qty > 10) { window.HanazToast('Maximum 10 of each item per order'); return false; }
       const existing = cartState.items.find(i => i.id === item.id);
       if (existing) {
         existing.qty += item.qty;
       } else {
         cartState.items.push(item);
       }
-      saveCart();
-      
-      // --- Meta Pixel AddToCart ---
-      if (typeof fbq === 'function') {
-        fbq('track', 'AddToCart', {
-          content_ids: [item.id],
-          content_name: item.name,
-          content_type: 'product',
-          value: item.price,
-          currency: 'PKR'
-        });
-      }
-      // --- End Meta Pixel AddToCart ---
+      try { saveCart(); } catch { cartState.items = prior; cartState.subtotal = prior.reduce((s,i)=>s+i.price*i.qty,0); window.HanazToast('Could not save your cart. Please allow essential site storage.'); return false; }
+      window.HanazTracking?.addToCart(item);
 
       if (window.HanazToast) window.HanazToast("Item added to cart");
       this.openDrawer();
@@ -100,6 +93,7 @@
     
     updateQty: function (index, newQty) {
       if (index >= 0 && index < cartState.items.length) {
+        if (!Number.isInteger(newQty) || newQty > 10) return;
         if (newQty > 0) {
           cartState.items[index].qty = newQty;
         } else {
@@ -117,7 +111,7 @@
     },
     
     getItems: function () {
-      return [...cartState.items];
+      return cartState.items.map(item => ({...item}));
     },
     
     getSubtotal: function () {

@@ -1,0 +1,21 @@
+{
+  "name": "hanaz-audit-work",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test tests/commerce.test.cjs tests/build.test.cjs",
+    "preview": "node tests/preview.cjs",
+    "test:browser": "node tests/browser.cjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@electric-sql/pglite": "^0.5.8",
+    "@playwright/test": "^1.63.0",
+    "agent-browser": "^0.37.1",
+    "prettier": "^3.9.6"
+  }
+}

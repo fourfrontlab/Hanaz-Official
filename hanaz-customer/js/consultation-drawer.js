@@ -99,10 +99,11 @@
   }
 
   /* ── Form submission ─────────────────────────────────────────── */
-  function handleFormSubmit(e) {
+  async function handleFormSubmit(e) {
     e.preventDefault();
 
     const form = e.target;
+    if (form.dataset.submitting === "true" || !form.reportValidity()) return;
     const submitBtn = form.querySelector('.cd-submit-btn');
     const checkbox = document.getElementById('cd-agree');
 
@@ -121,22 +122,18 @@
       submitBtn.textContent = 'Submitting…';
     }
 
-    // Simulate async submit (replace with real API call)
-    setTimeout(() => {
-      form.reset();
-      if (submitBtn) {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Book Consultation';
-      }
-      showScreen('success');
-
-      // Re-trigger checkmark animation by cloning SVG
-      const icon = document.querySelector('.cd-success-icon');
-      if (icon) {
-        const fresh = icon.cloneNode(true);
-        icon.parentNode.replaceChild(fresh, icon);
-      }
-    }, 800);
+    form.dataset.submitting = 'true';
+    let status = form.querySelector('.form-status');
+    if (!status) { status = document.createElement('p');status.className='form-status';status.setAttribute('role','status');form.appendChild(status); }
+    try {
+      const fields = Object.fromEntries(new FormData(form));
+      const request = {kind:'consultation',name:fields.fullName,phone:fields.phone,email:fields.email || '',message:Object.entries(fields).filter(([k])=>!['fullName','email','phone','agree'].includes(k)).map(([k,v])=>k+': '+v).join('\n') || 'Consultation requested'};
+      const key = await window.HanazTracking.requestKey('consultation',request);
+      await window.HanazTracking.submit('lead',request,key);
+      window.HanazTracking.clearRequest('consultation');
+      form.reset();status.textContent='';showScreen('success');
+    } catch(err) { status.textContent=err.message || 'Your request could not be saved. Please retry.'; }
+    finally { form.dataset.submitting='false';if(submitBtn){submitBtn.disabled=false;submitBtn.textContent='Book Consultation';} }
   }
 
   /* ── Focus trap ─────────────────────────────────────────────── */
