@@ -98,26 +98,14 @@
     // Footer Newsletter
     const footerForm = document.getElementById('footer-newsletter-form');
     if (footerForm) {
-      footerForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const originalHTML = footerForm.innerHTML;
-        
-        footerForm.style.transition = 'opacity 0.3s ease';
-        footerForm.style.opacity = '0';
-        
-        setTimeout(() => {
-          footerForm.innerHTML = `<div style="display:flex; align-items:center; gap:8px; color:var(--bg-card);"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> <span>You're subscribed</span></div>`;
-          footerForm.style.opacity = '1';
-          
-          setTimeout(() => {
-            footerForm.style.opacity = '0';
-            setTimeout(() => {
-              footerForm.innerHTML = originalHTML;
-              footerForm.reset();
-              footerForm.style.opacity = '1';
-            }, 300);
-          }, 4000);
-        }, 300);
+      footerForm.addEventListener('submit', async (e) => {
+        e.preventDefault();if(footerForm.dataset.submitting==='true'||!footerForm.reportValidity())return;
+        footerForm.dataset.submitting='true';const btn=footerForm.querySelector('button');if(btn)btn.disabled=true;
+        let status=footerForm.querySelector('.form-status');if(!status){status=document.createElement('p');status.className='form-status';status.setAttribute('role','status');footerForm.appendChild(status);}
+        status.textContent='Submitting…';
+        try{const request={kind:'newsletter',email:footerForm.querySelector('input[type=email]').value};const key=await window.HanazTracking.requestKey('newsletter',request);const result=await window.HanazTracking.submit('lead',request,key);try{window.HanazTracking.confirmed(result);}catch{}window.HanazTracking.clearRequest('newsletter');status.textContent='Your subscription request has been received.';footerForm.reset();}
+        catch(err){status.textContent=err.message||'Unable to save your request. Please retry.';}
+        finally{footerForm.dataset.submitting='false';if(btn)btn.disabled=false;}
       });
     }
   }

@@ -1,0 +1,46 @@
+[
+  {
+    "name": "one page view, genuine navigation, rendered product and quantity-aware cart",
+    "status": "passed"
+  },
+  {
+    "name": "COD backend confirmation, duplicate submits, shared event ID, refresh and direct visit",
+    "status": "passed"
+  },
+  {
+    "name": "manual transfer remains unpaid without Purchase, instructions preserved",
+    "status": "passed"
+  },
+  {
+    "name": "lost checkout response retries original order and conversion rather than duplicating",
+    "status": "passed"
+  },
+  {
+    "name": "declined consent: cart and COD work with neither Pixel nor CAPI conversion",
+    "status": "passed"
+  },
+  {
+    "name": "contact acceptance and failure, no false Lead, no raw form fields in local storage",
+    "status": "passed"
+  },
+  {
+    "name": "newsletter is actually saved before acknowledgement",
+    "status": "passed"
+  },
+  {
+    "name": "mobile product/cart/checkout, tap targets and consultation persist without health tracking",
+    "status": "passed"
+  },
+  {
+    "name": "privacy withdrawal suppresses queued conversion and unsafe URLs never initialize Pixel",
+    "status": "passed"
+  },
+  {
+    "name": "failed cart persistence does not emit AddToCart or mutate cart",
+    "status": "passed"
+  },
+  {
+    "name": "mobile menu, legacy product link, auth validation and safe order lookup",
+    "status": "passed"
+  }
+]

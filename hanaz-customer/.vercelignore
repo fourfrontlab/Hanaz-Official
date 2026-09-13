@@ -1,0 +1,6 @@
+.env*
+node_modules
+temp_live_index.html
+patch.diff
+remove_bar.js
+README.md

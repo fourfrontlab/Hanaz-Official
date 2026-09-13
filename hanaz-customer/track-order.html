@@ -7,23 +7,7 @@
   <title>Track Order | Hanaz Official</title>
   <meta name="robots" content="noindex, follow">
   <meta name="description" content="Track your Hanaz Official order status.">
-  <!-- Meta Pixel Code -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window,document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '568351333004084');
-    fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=568351333004084&ev=PageView&noscript=1"
-  /></noscript>
-  <!-- End Meta Pixel Code -->
+  
   <!-- Google Font (moved from CSS @import for performance) -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="css/style.css">
@@ -49,6 +33,8 @@
     .order-item-price { font-weight: 600; }
     .error-msg { color: #dc3545; background: #f8d7da; padding: 12px 16px; border-radius: var(--radius); margin-bottom: 24px; display: none; border: 1px solid #f5c6cb; }
   </style>
+  <link rel="stylesheet" href="css/tracking.css?v=20260913">
+  <script defer src="js/tracking.js?v=20260913"></script>
 </head>
 
 <body class="fade-in-page">
@@ -256,9 +242,9 @@
   </footer>
 
   <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script defer src="js/supabase-client.js"></script>
-  <script defer src="js/cart.js"></script>
-  <script defer src="js/main.js"></script>
+  <script defer src="js/supabase-client.js?v=20260913"></script>
+  <script defer src="js/cart.js?v=20260913"></script>
+  <script defer src="js/main.js?v=20260913"></script>
   <script defer src="js/auth.js"></script>
   <script defer src="js/track-order.js"></script>
 </body>
