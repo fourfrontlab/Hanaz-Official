@@ -25,7 +25,7 @@
     "@type": "Product",
     "name": "Hanaz Vitamin C Face Cleanser",
     "image": "https://www.hanazofficial.store/images/hanaz-logo.jpg",
-    "description": "Revitalize your skin with the Hanaz Vitamin C Face Cleanser. Gently removes impurities while brightening your complexion. high-quality ingredients Active. Available in Pakistan.",
+    "description": "Melt away dullness without compromising your skin barrier. Powered by Advanced Stable Vitamin C, Niacinamide, and Pure Vitamin E, this gentle daily cleanser effectively lifts away excess oil without stripping moisture.",
     "brand": {
       "@type": "Brand",
       "name": "Hanaz Official"
@@ -205,7 +205,7 @@
         <span class="sep">&rsaquo;</span>
         <a href="products.html">Shop</a>
         <span class="sep">&rsaquo;</span>
-        <span id="pdp-breadcrumb-title">...</span>
+        <span id="pdp-breadcrumb-title">Hanaz Vitamin C Face Cleanser</span>
       </nav>
     </div>
 
@@ -230,7 +230,7 @@
 
           <!-- RIGHT: Product info -->
           <div class="pdp-info">
-            <h1 id="pdp-title">Hanaz Vitamin C Face Cleanser</h1>
+            <h1 id="pdp-title">Hanaz Vitamin C Face Cleanser - 100 ml</h1>
 
             <!-- Social proof rating above fold -->
             <div class="pdp-rating-summary">
@@ -356,7 +356,7 @@
             <div class="pdp-desc-block" id="pdp-block-intro">
               <h2 class="pdp-desc-title">PRODUCT DESCRIPTION</h2>
               <div id="pdp-description-content">
-                <p>Revitalize your skin with the Hanaz Vitamin C Face Cleanser. Gently removes impurities while brightening your complexion. high-quality ingredients Active. Available in Pakistan.</p>
+                <p>Melt away dullness without compromising your skin barrier. Powered by Advanced Stable Vitamin C, Niacinamide, and Pure Vitamin E, this gentle daily cleanser effectively lifts away excess oil without stripping moisture.</p>
               </div>
             </div>
 
@@ -453,7 +453,7 @@ Skin Type:
             </button>
             <div class="pdp-info-acc-body">
               <div class="pdp-info-acc-inner">
-                <div class="pdp-info-text-content" id="pdp-mobile-description-content">Revitalize your skin with the Hanaz Vitamin C Face Cleanser. Gently removes impurities while brightening your complexion. high-quality ingredients Active. Available in Pakistan.</div>
+                <div class="pdp-info-text-content" id="pdp-mobile-description-content">Melt away dullness without compromising your skin barrier. Powered by Advanced Stable Vitamin C, Niacinamide, and Pure Vitamin E, this gentle daily cleanser effectively lifts away excess oil without stripping moisture.</div>
               </div>
             </div>
           </div>
@@ -1523,8 +1523,8 @@ Skin Type:
       // 1. Breadcrumb & Title
       const breadcrumb = document.getElementById('pdp-breadcrumb-title');
       const title = document.getElementById('pdp-title');
-      if (breadcrumb) breadcrumb.textContent = product.title;
-      if (title) title.textContent = product.title;
+      // if (breadcrumb) breadcrumb.textContent = product.title;
+      // if (title) title.textContent = product.title;
 
       // 2. Price
       const priceCont = document.getElementById('pdp-price-container');
@@ -1547,7 +1547,7 @@ Skin Type:
 
       // 4. Product Information Sections (Cleanser)
       const DEFAULT_CLEANSER_DATA = {
-        description: 'Revitalize your skin with the Hanaz Vitamin C Face Cleanser. Gently removes impurities while brightening your complexion. high-quality ingredients Active. Available in Pakistan.',
+        description: 'Melt away dullness without compromising your skin barrier. Powered by Advanced Stable Vitamin C, Niacinamide, and Pure Vitamin E, this gentle daily cleanser effectively lifts away excess oil without stripping moisture.',
 
         full_ingredients: 'AQUA/WATER • GLYCERIN • COCAMIDOPROPYL BETAINE • PROPANEDIOL • SODIUM COCOYL ISETHIONATE • NIACINAMIDE • SODIUM ASCORBYL PHOSPHATE • PEG-40 HYDROGENATED CASTOR OIL • SIMMONDSIA CHINENSIS (JOJOBA) SEED OIL • PROPYLENE GLYCOL • PEG-150 PENTAERYTHRITYL TETRASTEARATE (AND) PPG-2 HYDROXYETHYL COCAMIDE • POLYSORBATE 20 • POLYSORBATE 80 • TOCOPHEROL • DISODIUM EDTA • PHENOXYETHANOL (AND) ETHYLHEXYLGLYCERIN • SODIUM HYDROXIDE • PARFUM/FRAGRANCE',
 
@@ -1708,8 +1708,8 @@ Skin Type:
       // document.title = product.title + ' | Hanaz Official';
 
       const metaDesc = document.getElementById('seo-desc');
-      const cleanDesc = product.description ? product.description.replace(/<[^>]*>/g, '').substring(0, 160) : 'Shop ' + product.title + ' at Hanaz Official.';
-      if (metaDesc) metaDesc.setAttribute('content', cleanDesc);
+      const cleanDesc = "Melt away dullness without compromising your skin barrier. Powered by Advanced Stable Vitamin C, Niacinamide, and Pure Vitamin E, this gentle daily cleanser effectively lifts away excess oil without stripping moisture.";
+      // if (metaDesc) metaDesc.setAttribute('content', cleanDesc);
 
       const canonical = document.getElementById('seo-canonical');
       if (canonical) canonical.setAttribute('href', currentUrl);

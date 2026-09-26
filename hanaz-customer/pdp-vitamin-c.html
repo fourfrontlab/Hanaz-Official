@@ -199,7 +199,7 @@
         <span class="sep">&rsaquo;</span>
         <a href="products.html">Shop</a>
         <span class="sep">&rsaquo;</span>
-        <span id="pdp-breadcrumb-title">...</span>
+        <span id="pdp-breadcrumb-title">Hanaz Vitamin C Serum</span>
       </nav>
     </div>
 
@@ -221,7 +221,7 @@
 
           <!-- RIGHT: Product info -->
           <div class="pdp-info">
-            <h1 id="pdp-title">Hanaz Vitamin C Serum</h1>
+            <h1 id="pdp-title">Hanaz Vitamin C Serum - 30 ml</h1>
 
             <!-- Social proof rating above fold -->
             <div class="pdp-rating-summary">
@@ -351,12 +351,10 @@
               <h2>Key Ingredients</h2>
               <div class="pdp-ingredient-list" id="pdp-ingredients-content">
                 <ul style="list-style: disc; margin-left: 20px; line-height: 1.6; color: var(--text-muted);">
-                  <li><strong>Vitamin C (3-O-Ethyl Ascorbic Acid):</strong> Stable vitamin C that brightens and evens skin tone</li>
-                  <li><strong>Niacinamide:</strong> Calms redness and refines pores</li>
-                  <li><strong>Hyaluronic Acid:</strong> Locks in moisture for plump, hydrated skin</li>
-                  <li><strong>Glycolic Acid:</strong> Gently exfoliates for smoother texture</li>
-                  <li><strong>Ferulic Acid:</strong> Protects against free radicals</li>
-                  <li><strong>Green Tea &amp; Aloe Vera:</strong> Soothes and nourishes</li>
+                  <li><strong>5% 3-O-Ethyl Ascorbic Acid:</strong> Fades dark spots & boosts deep radiance.</li>
+                  <li><strong>Sodium Hyaluronate:</strong> Drows moisture deep to plump and smooth.</li>
+                  <li><strong>Pure Vitamin E:</strong> Neutralizes deep oxidative stress and pollution.</li>
+                  <li><strong>Mohist Glycerin:</strong> Locks in essential moisture for a soft, non-sticky finish.</li>
                 </ul>
                 <p style="margin-top: 10px; color: var(--text-muted);">Fragrance-free, paraben-free. Dermatologist and PCSIR tested.</p>
               </div>
@@ -391,16 +389,20 @@
               <div class="pdp-info-acc-inner">
                 <div class="pdp-ingredient-list" id="pdp-mobile-ingredients-content">
                   <div class="pdp-ingredient-item">
-                    <div class="pdp-ingredient-name">Vitamin C (3-O-Ethyl Ascorbic Acid)</div>
-                    <p class="pdp-ingredient-desc">Stable vitamin C that brightens and evens skin tone</p>
+                    <div class="pdp-ingredient-name">5% 3-O-Ethyl Ascorbic Acid</div>
+                    <p class="pdp-ingredient-desc">Fades dark spots & boosts deep radiance.</p>
                   </div>
                   <div class="pdp-ingredient-item">
-                    <div class="pdp-ingredient-name">Niacinamide</div>
-                    <p class="pdp-ingredient-desc">Calms redness and refines pores</p>
+                    <div class="pdp-ingredient-name">Sodium Hyaluronate</div>
+                    <p class="pdp-ingredient-desc">Drows moisture deep to plump and smooth.</p>
                   </div>
                   <div class="pdp-ingredient-item">
-                    <div class="pdp-ingredient-name">Hyaluronic Acid</div>
-                    <p class="pdp-ingredient-desc">Locks in moisture for plump, hydrated skin</p>
+                    <div class="pdp-ingredient-name">Pure Vitamin E</div>
+                    <p class="pdp-ingredient-desc">Neutralizes deep oxidative stress and pollution.</p>
+                  </div>
+                  <div class="pdp-ingredient-item">
+                    <div class="pdp-ingredient-name">Mohist Glycerin</div>
+                    <p class="pdp-ingredient-desc">Locks in essential moisture for a soft, non-sticky finish.</p>
                   </div>
                 </div>
               </div>
@@ -1354,8 +1356,8 @@
       // 1. Breadcrumb & Title
       const breadcrumb = document.getElementById('pdp-breadcrumb-title');
       const title = document.getElementById('pdp-title');
-      if (breadcrumb) breadcrumb.textContent = product.title;
-      if (title) title.textContent = product.title;
+      // if (breadcrumb) breadcrumb.textContent = product.title;
+      // if (title) title.textContent = product.title;
 
       // 2. Price
       const priceCont = document.getElementById('pdp-price-container');
@@ -1435,8 +1437,8 @@
       // document.title = product.title + ' | Hanaz Official';
       
       const metaDesc = document.getElementById('seo-desc');
-      const cleanDesc = product.description ? product.description.replace(/<[^>]*>/g, '').substring(0, 160) : 'Shop ' + product.title + ' at Hanaz Official.';
-      if (metaDesc) metaDesc.setAttribute('content', cleanDesc);
+      const cleanDesc = "Shop the Hanaz Vitamin C Serum with 5% 3-O-Ethyl Ascorbic Acid. Clinically tested to brighten and hydrate dull skin. Available in Pakistan.";
+      // if (metaDesc) metaDesc.setAttribute('content', cleanDesc);
 
       const canonical = document.getElementById('seo-canonical');
       if (canonical) canonical.setAttribute('href', currentUrl);
