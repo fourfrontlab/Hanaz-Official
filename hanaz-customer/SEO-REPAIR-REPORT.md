@@ -37,19 +37,38 @@ The product pages use client-side JavaScript to fetch data from Supabase, which 
 
 To ensure consistency and prevent the old, incorrect data from flashing or replacing the corrected SEO, the site owner MUST update the `products` table in Supabase.
 
-### Required Database Updates:
+### Required Database Updates (Run in Supabase SQL Editor):
 
-**For Vitamin C Serum (ID: `7ff4066c-ca6d-4fc2-8405-46289d66f05f`)**
-- **`title`**: `Hanaz Vitamin C Serum`
-- **`description`**: `Brightening antioxidant serum with 5% 3-O-Ethyl Ascorbic Acid, Sodium Hyaluronate, and Vitamin E. 30 ml. Available in Pakistan.`
-- **`ingredients`** (JSON array): Update the objects to remove any mention of Niacinamide, SAP, Ferulic Acid, Glycolic Acid, Green Tea, or Aloe Vera. Ensure it lists `3-O-Ethyl Ascorbic Acid (5%)`.
+```sql
+-- 1. Create a recoverable backup of the affected fields
+CREATE TABLE IF NOT EXISTS products_seo_backup_20260926 AS 
+SELECT id, title, description, ingredients 
+FROM products 
+WHERE id IN (
+  '7ff4066c-ca6d-4fc2-8405-46289d66f05f', 
+  '0aa58f95-83d6-45f6-a7f3-2c1ed3b3ac39'
+);
 
-**For Face Wash (ID: `0aa58f95-83d6-45f6-a7f3-2c1ed3b3ac39`)**
-- **`title`**: `HANAZ C-Active Brightening Cleanser & Face Wash`
-- **`description`**: `Brightening face wash with 3% Niacinamide and 1% Sodium Ascorbyl Phosphate. Gently removes impurities while brightening your complexion. 100 ml. Available in Pakistan.`
-- **`ingredients`** (JSON array): Ensure it accurately reflects `Sodium Ascorbyl Phosphate (1%)` and `Niacinamide (3%)`.
+-- 2. Update Vitamin C Serum
+UPDATE products 
+SET 
+  title = 'Hanaz Vitamin C Serum',
+  description = 'Brightening antioxidant serum with 5% 3-O-Ethyl Ascorbic Acid, Sodium Hyaluronate, and Vitamin E. 30 ml. Available in Pakistan.',
+  -- Adjust the syntax below if ingredients is a JSONB array in your schema
+  ingredients = 'AQUA / WATER • 3-O-ETHYL ASCORBIC ACID • GLYCERIN • SODIUM HYALURONATE • POLYSORBATE 20 • TOCOPHEROL • DISODIUM EDTA • PHENOXYETHANOL'
+WHERE id = '7ff4066c-ca6d-4fc2-8405-46289d66f05f';
 
-*Do NOT change prices, stock, IDs, or any unrelated order data.*
+-- 3. Update Face Wash
+UPDATE products 
+SET 
+  title = 'HANAZ C-Active Brightening Cleanser & Face Wash',
+  description = 'Brightening face wash with 3% Niacinamide and 1% Sodium Ascorbyl Phosphate. Gently removes impurities while brightening your complexion. 100 ml. Available in Pakistan.',
+  -- Adjust the syntax below if ingredients is a JSONB array in your schema
+  ingredients = 'AQUA/WATER • GLYCERIN • COCAMIDOPROPYL BETAINE • PROPANEDIOL • SODIUM COCOYL ISETHIONATE • NIACINAMIDE • SODIUM ASCORBYL PHOSPHATE • PEG-40 HYDROGENATED CASTOR OIL • SIMMONDSIA CHINENSIS (JOJOBA) SEED OIL • PROPYLENE GLYCOL • PEG-150 PENTAERYTHRITYL TETRASTEARATE (AND) PPG-2 HYDROXYETHYL COCAMIDE • POLYSORBATE 20 • POLYSORBATE 80 • TOCOPHEROL • DISODIUM EDTA • PHENOXYETHANOL (AND) ETHYLHEXYLGLYCERIN • SODIUM HYDROXIDE • PARFUM/FRAGRANCE'
+WHERE id = '0aa58f95-83d6-45f6-a7f3-2c1ed3b3ac39';
+```
+
+*(Note: Prices, stock, IDs, and order-related data are left completely untouched.)*
 
 ---
 

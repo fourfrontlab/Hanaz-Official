@@ -1,11 +1,4 @@
 User-agent: *
 Allow: /
 
-Disallow: /checkout.html
-Disallow: /track-order.html
-Disallow: /account.html
-Disallow: /login.html
-Disallow: /signup.html
-Disallow: /complaint.html
-
 Sitemap: https://www.hanazofficial.store/sitemap.xml
