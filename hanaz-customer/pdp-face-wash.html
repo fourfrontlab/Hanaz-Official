@@ -9,11 +9,11 @@
     content="Revitalize your skin with the Hanaz Vitamin C Face Cleanser. Gently removes impurities while brightening your complexion. Dermatologist tested. Available in Pakistan.">
 
   <link rel="canonical" id="seo-canonical"
-    href="https://www.hanazofficial.store/product-detail.html?id=hanaz-brightening-face-wash">
+    href="https://www.hanazofficial.store/pdp-face-wash.html">
 
   <meta property="og:type" content="product">
   <meta property="og:url" id="seo-og-url"
-    content="https://www.hanazofficial.store/product-detail.html?id=hanaz-brightening-face-wash">
+    content="https://www.hanazofficial.store/pdp-face-wash.html">
   <meta property="og:title" id="seo-og-title" content="Hanaz Vitamin C Face Cleanser | Hanaz Official">
   <meta property="og:description" id="seo-og-desc"
     content="Revitalize your skin with the Hanaz Vitamin C Face Cleanser. Gently removes impurities while brightening your complexion. Dermatologist tested. Available in Pakistan.">
@@ -1712,7 +1712,7 @@ Skin Type:
       if (metaDesc) metaDesc.setAttribute('content', cleanDesc);
 
       const canonical = document.getElementById('seo-canonical');
-      // if (canonical) canonical.setAttribute('href', currentUrl);
+      if (canonical) canonical.setAttribute('href', currentUrl);
 
       const ogUrl = document.getElementById('seo-og-url');
       if (ogUrl) ogUrl.setAttribute('content', currentUrl);
@@ -1723,8 +1723,10 @@ Skin Type:
       const ogDesc = document.getElementById('seo-og-desc');
       if (ogDesc) ogDesc.setAttribute('content', cleanDesc);
 
+      let finalImg = images.length > 0 ? (images[0].startsWith('http') ? images[0] : window.location.origin + '/' + images[0]) : "https://www.hanazofficial.store/images/placeholder.jpg";
+
       const ogImage = document.getElementById('seo-og-image');
-      if (ogImage && images.length > 0) ogImage.setAttribute('content', window.location.origin + '/' + images[0]);
+      if (ogImage) ogImage.setAttribute('content', finalImg);
 
       // 6b. Structured Data Injection
       const schemaScript = document.getElementById('seo-schema-product');
@@ -1733,7 +1735,7 @@ Skin Type:
           "@context": "https://schema.org",
           "@type": "Product",
           "name": product.title,
-          "image": images.length > 0 ? (window.location.origin + '/' + images[0]) : "https://www.hanazofficial.store/images/placeholder.jpg",
+          "image": finalImg,
           "description": cleanDesc,
           "brand": {
             "@type": "Brand",
