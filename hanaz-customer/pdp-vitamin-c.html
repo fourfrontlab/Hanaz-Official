@@ -1423,8 +1423,9 @@
       }
 
       // 6. Dynamic SEO Injection
-      const currentUrl = 'https://www.hanazofficial.store/product-detail.html?id=' + product.id;
-      document.title = product.title + ' | Hanaz Official';
+      const currentUrl = window.location.origin + window.location.pathname + '?id=' + product.id;
+      // We don't overwrite document.title here to preserve the static SEO title containing the size and ingredients
+      // document.title = product.title + ' | Hanaz Official';
       
       const metaDesc = document.getElementById('seo-desc');
       const cleanDesc = product.description ? product.description.replace(/<[^>]*>/g, '').substring(0, 160) : 'Shop ' + product.title + ' at Hanaz Official.';

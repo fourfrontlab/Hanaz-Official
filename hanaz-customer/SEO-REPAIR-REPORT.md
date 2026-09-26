@@ -1,187 +1,86 @@
 # Hanaz Official — SEO Repair Report
 
 **Date:** 2026-09-26  
-**Commit:** `67db802` (pushed to `main`)  
 **Repository:** fourfrontlab/Hanaz-Official  
 **Production:** https://www.hanazofficial.store/
 
 ---
 
-## 1. Before-State Findings
+## 1. Before-State Findings & Fixes Applied (Local Code)
 
-### Product Content Errors (Critical)
-| Issue | Location | Incorrect | Correct (Owner-Confirmed) |
-|-------|----------|-----------|---------------------------|
-| Vitamin C form | Serum page title, meta, schema, body, FAQ | "10% SAP" / "10% Ethyl-Ascorbic Acid" | 5% 3-O-Ethyl Ascorbic Acid |
-| False ingredients (serum) | Serum key ingredients list | Niacinamide, Glycolic Acid, Ferulic Acid, Green Tea, Aloe Vera | Not present in formulation |
-| Missing full ingredients | Serum page | Not listed | AQUA / WATER • 3-O-ETHYL ASCORBIC ACID • GLYCERIN • SODIUM HYALURONATE • POLYSORBATE 20 • TOCOPHEROL • DISODIUM EDTA • PHENOXYETHANOL |
-| Face wash name | All references | "Hanaz Vitamin C Face Cleanser" | HANAZ C-Active Brightening Cleanser and Face Wash |
-| Missing concentrations | Face wash key ingredients | "Vitamin C (SAP)" / "Niacinamide" (no %) | Sodium Ascorbyl Phosphate (1%), Niacinamide (3%) |
-| Face wash breadcrumb schema | pdp-face-wash.html line 63 | "Vitamin C Serum" | "C-Active Brightening Cleanser and Face Wash" |
-| Product schema image (face wash) | pdp-face-wash.html | hanaz-logo.jpg (brand logo) | vitamin-c-facewash.webp (actual product) |
-| Missing sizes | Both product pages | Not stated | Serum: 30 ml, Face Wash: 100 ml |
+### Product Content Errors (Owner-Confirmed Formulation)
+| Issue | Incorrect | Corrected To |
+|-------|-----------|--------------|
+| Vitamin C form | "10% SAP" / "10% Ethyl-Ascorbic Acid" | 5% 3-O-Ethyl Ascorbic Acid |
+| False ingredients (serum) | Niacinamide, Glycolic Acid, Ferulic Acid, Green Tea, Aloe Vera | Removed from formulation |
+| Missing full ingredients | Not listed | Added full INCI (AQUA / WATER • 3-O-ETHYL ASCORBIC ACID • GLYCERIN...) |
+| Face wash name | "Hanaz Vitamin C Face Cleanser" | HANAZ C-Active Brightening Cleanser & Face Wash |
+| Missing concentrations | "Vitamin C (SAP)" / "Niacinamide" | Sodium Ascorbyl Phosphate (1%), Niacinamide (3%) |
+| Face wash schema & image | "Vitamin C Serum", logo used as image | "C-Active Brightening Cleanser & Face Wash", actual product image used |
+| Substantive claims | "Clinically tested" across multiple pages | "Premium", "High-Quality Active Ingredients", "Expertly formulated" (neutral/factual wording) |
 
-### URL and Redirect Issues
-| Legacy URL | Before | After |
-|------------|--------|-------|
-| /pages/our-story | 404 | 301 to /about.html |
-| /pages/contact | 404 | 301 to /contact.html |
-| /products/hanaz-vitamin-c-serum | 301 to /products.html (generic) | 301 to /pdp-vitamin-c.html?id=... (actual serum) |
-| Canonical URLs (serum) | product-detail.html?id=hanaz-vitamin-c-serum | pdp-vitamin-c.html?id=7ff4066c-... |
-| Canonical URLs (face wash) | product-detail.html?id=0aa58f95-... | pdp-face-wash.html?id=0aa58f95-... |
-| /index.html to / | Preserved from c88799d | Preserved |
-
-### Homepage SEO
-- No H1 tag - critical for search engines
-- Organization schema missing alternateName and sameAs
-- No WebSite structured data
-- "Clinically tested" claims across 6 pages (unsubstantiated)
-
-### Sitemap Issues
-- All 14 URLs had fake lastmod 2023-11-01
-- Serum URL used non-existent slug product-detail.html?id=hanaz-vitamin-c-serum
-- Face wash used product-detail.html URL instead of pdp-face-wash.html
-
-### Crawl/Robots Issues
-- Private pages not blocked: account.html, login.html, signup.html, complaint.html
+### URL, Redirect, and Crawl Issues
+| Issue | Before | After |
+|-------|--------|-------|
+| Legacy URLs (404) | `/pages/our-story`, `/pages/contact` | 301 to `/about.html` and `/contact.html` (via `vercel.json`) |
+| Legacy Product URL | `/products/hanaz-vitamin-c-serum` | 301 to `pdp-vitamin-c.html` |
+| Canonical URLs | Overridden by JS to non-existent slugs | Preserved correct pathname in JS, static HTML updated |
+| Homepage SEO | Missing H1, WebSite schema, sameAs | Added H1, WebSite schema, Organization alternateName and sameAs |
+| Sitemap | Fake 2023-11-01 dates, wrong URLs | Dates removed, canonical URLs used |
+| Private Page Indexing | Not protected | Added `<meta name="robots" content="noindex">` to `login.html`, `signup.html`, `account.html`, `checkout.html`, `track-order.html`, `complaint.html` |
 
 ---
 
-## 2. Files Changed
+## 2. Supabase Metadata Override (Action Required)
 
-| File | Changes |
-|------|---------|
-| pdp-vitamin-c.html | Title, meta, OG, canonical, schema, description, ingredients list, FAQ - all corrected to 5% 3-O-Ethyl Ascorbic Acid |
-| pdp-face-wash.html | Title, meta, OG, canonical, schema, breadcrumb, H1, ingredient concentrations |
-| index.html | Added H1, WebSite schema, Organization alternateName + sameAs, updated meta descriptions |
-| about.html | Replaced "clinically tested" with "dermatologist-grade" |
-| products.html | Replaced "clinically tested" with "dermatologist-grade" |
-| sitemap.xml | Replaced all URLs with canonical versions, removed fake lastmod dates |
-| robots.txt | Added Disallow for private/account pages |
-| vercel.json | Added redirects: /pages/our-story, /pages/contact, /products/hanaz-vitamin-c-serum |
-| eg.html | Removed (test file) |
+The product pages use client-side JavaScript to fetch data from Supabase, which currently overwrites the SEO metadata (`document.title`, `metaDesc`, `ogTitle`, `ogDesc`, and `schemaScript`) on page load. While I have updated the static HTML, **the JavaScript will inject the database values on runtime**. 
 
----
+To ensure consistency and prevent the old, incorrect data from flashing or replacing the corrected SEO, the site owner MUST update the `products` table in Supabase.
 
-## 3. Product Information Source
+### Required Database Updates:
 
-All product details are **owner-confirmed** (not independently laboratory-verified):
-- Serum: Hanaz Vitamin C Serum, 30 ml, 5% 3-O-Ethyl Ascorbic Acid
-- Face Wash: HANAZ C-Active Brightening Cleanser and Face Wash, 100 ml, 3% Niacinamide + 1% SAP
+**For Vitamin C Serum (ID: `7ff4066c-ca6d-4fc2-8405-46289d66f05f`)**
+- **`title`**: `Hanaz Vitamin C Serum`
+- **`description`**: `Brightening antioxidant serum with 5% 3-O-Ethyl Ascorbic Acid, Sodium Hyaluronate, and Vitamin E. 30 ml. Available in Pakistan.`
+- **`ingredients`** (JSON array): Update the objects to remove any mention of Niacinamide, SAP, Ferulic Acid, Glycolic Acid, Green Tea, or Aloe Vera. Ensure it lists `3-O-Ethyl Ascorbic Acid (5%)`.
+
+**For Face Wash (ID: `0aa58f95-83d6-45f6-a7f3-2c1ed3b3ac39`)**
+- **`title`**: `HANAZ C-Active Brightening Cleanser & Face Wash`
+- **`description`**: `Brightening face wash with 3% Niacinamide and 1% Sodium Ascorbyl Phosphate. Gently removes impurities while brightening your complexion. 100 ml. Available in Pakistan.`
+- **`ingredients`** (JSON array): Ensure it accurately reflects `Sodium Ascorbyl Phosphate (1%)` and `Niacinamide (3%)`.
+
+*Do NOT change prices, stock, IDs, or any unrelated order data.*
 
 ---
 
-## 4. Validation Results
+## 3. Vercel Deployment & Environment Variables
 
-| Check | Result |
-|-------|--------|
-| No "10% SAP" remaining in serum page | PASS |
-| No false ingredients (Ferulic, Glycolic, Green Tea, Aloe Vera) | PASS |
-| No Niacinamide reference in serum page | PASS |
-| Face wash breadcrumb fixed | PASS |
-| "Clinically tested" removed from all pages | PASS |
-| Fake 2023-11-01 lastmod removed | PASS |
-| Sitemap uses canonical URLs | PASS |
-| Homepage has H1 | PASS |
-| WebSite schema present | PASS |
-| sameAs social profiles added | PASS |
-| Legacy redirects configured | PASS |
-| robots.txt blocks private pages | PASS |
-| /index.html to / preserved | PASS |
+The previous production deployment failed because Vercel was missing critical environment variables. 
+The build script (`scripts/check-commerce.cjs`) strictly checks for: `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `SITE_ORIGIN`, and `SESSION_SECRET`. 
+
+Since the previous build only flagged `SUPABASE_SERVICE_ROLE_KEY` and `SESSION_SECRET` as missing, it implies that `SUPABASE_URL` and `SITE_ORIGIN` are already present in the Vercel environment.
+
+### Exact Manual Steps to Fix Vercel Build (Do NOT bypass):
+1. Log into your Vercel Dashboard and go to the **Hanaz Official** project.
+2. Navigate to **Settings** → **Environment Variables**.
+3. Check if `SESSION_SECRET` exists. If it exists, **DO NOT overwrite or rotate it** (doing so would invalidate existing user sessions). If it does *not* exist, add it (must be at least 32 random characters).
+4. Add `SUPABASE_SERVICE_ROLE_KEY`. This must be the server-side, `service_role` key from your Supabase project (do not use the public `anon` key).
+5. Once these variables are saved, trigger a new deployment from the latest `main` commit.
 
 ---
 
-## 5. Commit and Deployment
+## 4. Post-Deployment Verification (Live Checks)
 
-- **Commit:** 67db802 pushed to main on 2026-09-26
-- **Push:** Successful to fourfrontlab/Hanaz-Official
-- **Deployment:** Pending - the Vercel build requires SUPABASE_SERVICE_ROLE_KEY and SESSION_SECRET environment variables
+Once the Vercel build succeeds and is live, perform the following verification:
 
-**IMPORTANT:** The previous production deployment failed because SUPABASE_SERVICE_ROLE_KEY and SESSION_SECRET were not configured in Vercel. The build script check-commerce.cjs will fail without them. These must be set in Vercel encrypted environment settings before the build can succeed.
+1. **Redirect Status:** Navigate to `https://www.hanazofficial.store/products/hanaz-vitamin-c-serum` and ensure it permanently (301) redirects to the new `pdp-vitamin-c.html` URL.
+2. **Canonicals & Sitemap:** Check `https://www.hanazofficial.store/sitemap.xml` to ensure the correct URLs are present. View the source of the homepage and product pages to ensure canonicals match.
+3. **JavaScript Execution:** Wait for the page to fully load (so Supabase data is fetched). Inspect the `<title>`, `<meta name="description">`, and JSON-LD schema to confirm the DB is serving the newly corrected data (no "10% SAP").
+4. **Layout & Commerce Smoke Test:** Check mobile responsiveness, click "Add to Cart", and navigate to checkout to ensure commerce flows are unaffected.
 
-### Deployment Prerequisites (Manual Steps Required)
+## 5. Search Console Action
 
-1. Go to Vercel Dashboard > Project Settings > Environment Variables
-2. Add the following server-side variables:
-   - SUPABASE_URL - your Supabase project URL
-   - SUPABASE_SERVICE_ROLE_KEY - your Supabase service role key (secret)
-   - SESSION_SECRET - at least 32 random characters
-   - SITE_ORIGIN - https://www.hanazofficial.store
-3. Redeploy from the latest commit
-
-The SEO changes (HTML, sitemap, redirects, robots.txt) are all static files and will be served correctly once the build succeeds.
-
----
-
-## 6. Search Console Status
-
-- **Domain property:** hanazofficial.store - verified
-- **Dashboard:** Currently "Processing data" - metrics unavailable (not zero)
-- **Sitemap submission:** Submit https://www.hanazofficial.store/sitemap.xml once the deployment is live
-- **URL inspection:** Request indexing for the following after deployment:
-  - https://www.hanazofficial.store/ (homepage with new H1)
-  - https://www.hanazofficial.store/pdp-vitamin-c.html?id=7ff4066c-ca6d-4fc2-8405-46289d66f05f
-  - https://www.hanazofficial.store/pdp-face-wash.html?id=0aa58f95-83d6-45f6-a7f3-2c1ed3b3ac39
-
-### Search Console Manual Steps After Deployment
-
-1. Go to Google Search Console > Sitemaps
-2. Check existing sitemap submissions - if the old sitemap was submitted, it will auto-update
-3. If no sitemap is submitted, add https://www.hanazofficial.store/sitemap.xml
-4. Use URL Inspection to request indexing for the 3 key URLs above
-5. Do NOT repeatedly submit indexing requests - one submission per URL is sufficient
-
----
-
-## 7. Remaining Manual Steps
-
-| Step | Owner | Reason |
-|------|-------|--------|
-| Set Vercel environment variables | Site owner | Required for build to succeed |
-| Redeploy on Vercel | Site owner | After environment variables are set |
-| Submit sitemap in Search Console | Site owner | After deployment is confirmed live |
-| Request indexing for key URLs | Site owner | After sitemap submission |
-| Verify live deployment | Site owner | Confirm changes are live on production |
-| Update Supabase product records | Site owner | JS dynamically overwrites SEO from DB - see note below |
-
----
-
-## 8. Measurement Plan
-
-### Baseline
-Search Console reports are currently processing - **measurement remains pending**.
-Record the first available data as the "before" baseline.
-
-### Metrics to Track (Google Search Console > Performance)
-
-| Metric | Filter | Date Range |
-|--------|--------|------------|
-| Clicks | Query contains "hanaz" | Compare 28-day periods before/after deployment |
-| Impressions | Query contains "hanaz" | Same |
-| CTR | Query contains "hanaz" | Same |
-| Average Position | Query contains "hanaz" | Same |
-| Clicks | Query contains "hanaz official" | Same |
-| Clicks | Query contains "hanazofficial" | Same |
-| Clicks | Country = Pakistan | Same |
-| Impressions | Country = Pakistan | Same |
-
-### Recommended Review Schedule
-- Week 1-2: Check indexing status of key URLs
-- Week 3-4: First meaningful comparison (28 days post-deployment)
-- Week 6-8: Full impact assessment with seasonal adjustments
-
-### Flagged Items (Not Amplified)
-
-The following existing content may constitute unsupported claims and should be reviewed by the site owner:
-- "5.0 (Reviews)" rating display with 5 stars on both product pages - these appear to be hardcoded, not from actual customer reviews
-- "Verified Buyer" review cards (Sarah M., Ahmed K., Fatima R.) - cannot confirm these are genuine verified purchases
-- "DERMATOLOGIST GRADE ACTIVE" badge - the products contain dermatologist-grade ingredients, but this badge might imply dermatologist endorsement
-- "Fragrance-free" claim on serum page - the owner-supplied ingredient list does not contain PARFUM/FRAGRANCE, so this appears accurate for the serum
-
-These were NOT removed (they pre-existed and are the owner's responsibility to verify), but they are flagged as potentially unsupported.
-
----
-
-## 9. JS Dynamic SEO Override Note
-
-The serum page (pdp-vitamin-c.html lines ~1425-1469) contains JavaScript that dynamically overwrites title, meta description, canonical, OG tags, and Product schema from Supabase product data at runtime. The initial server-rendered HTML now has correct values, but if the Supabase products table contains outdated data (e.g., "10% SAP"), the client-side JS will overwrite the corrected HTML. The Supabase product records should also be updated to match.
+After the corrected sitemap is live and verified:
+1. Open Google Search Console.
+2. Submit `https://www.hanazofficial.store/sitemap.xml`.
+3. Use the URL Inspection Tool to request indexing for the homepage and the two product URLs.

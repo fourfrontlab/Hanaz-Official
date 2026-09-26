@@ -412,7 +412,7 @@ Skin Type:
             <div class="pdp-desc-block" id="pdp-block-safety">
               <h2>PRODUCT SAFETY</h2>
               <div id="pdp-safety-content">
-                <div class="pdp-info-text-content">✦ Advanced Dermatologist-Grade Ingredients
+                <div class="pdp-info-text-content">✦ High-Quality Active Ingredients
 ✦ Paraben-Free &amp; Silicone-Free
 ✦ Sulfate-Free &amp; Soap-Free
 ✦ 0% Harsh Chemicals
@@ -536,7 +536,7 @@ Skin Type:
             </button>
             <div class="pdp-info-acc-body">
               <div class="pdp-info-acc-inner">
-                <div class="pdp-info-text-content" id="pdp-mobile-safety-content">✦ Advanced Dermatologist-Grade Ingredients
+                <div class="pdp-info-text-content" id="pdp-mobile-safety-content">✦ High-Quality Active Ingredients
 ✦ Paraben-Free &amp; Silicone-Free
 ✦ Sulfate-Free &amp; Soap-Free
 ✦ 0% Harsh Chemicals
@@ -1541,7 +1541,7 @@ Skin Type:
 
         recommended_for: 'Skin Concern:\n\n✦ Lack of radiance & dullness\n✦ Environmental stress & daily pollution\n✦ Clogged pores & excess oil\n✦ Everyday dirt & buildup\n\nSkin Type:\n\n✦ All Skin Types',
 
-        product_safety: '✦ Advanced Dermatologist-Grade Ingredients\n✦ Paraben-Free & Silicone-Free\n✦ Sulfate-Free & Soap-Free\n✦ 0% Harsh Chemicals\n✦ Advanced Stable-C Technology\n✦ Triple Antioxidant Formula\n✦ Optimized Skin-Friendly pH\n✦ Non-comedogenic Formula'
+        product_safety: '✦ High-Quality Active Ingredients\n✦ Paraben-Free & Silicone-Free\n✦ Sulfate-Free & Soap-Free\n✦ 0% Harsh Chemicals\n✦ Advanced Stable-C Technology\n✦ Triple Antioxidant Formula\n✦ Optimized Skin-Friendly pH\n✦ Non-comedogenic Formula'
       };
 
       // 1. Description
@@ -1690,8 +1690,9 @@ Skin Type:
       }
 
       // 6. Dynamic SEO Injection
-      const currentUrl = 'https://www.hanazofficial.store/product-detail.html?id=' + product.id;
-      document.title = product.title + ' | Hanaz Official';
+      const currentUrl = window.location.origin + window.location.pathname + '?id=' + product.id;
+      // We don't overwrite document.title here to preserve the static SEO title
+      // document.title = product.title + ' | Hanaz Official';
 
       const metaDesc = document.getElementById('seo-desc');
       const cleanDesc = product.description ? product.description.replace(/<[^>]*>/g, '').substring(0, 160) : 'Shop ' + product.title + ' at Hanaz Official.';
