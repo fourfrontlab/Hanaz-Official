@@ -4,6 +4,8 @@ async function checkCommerce(env = process.env, request = fetch) {
     .filter(name => !env[name]?.trim());
   if (missing.length) throw new Error('Checkout backend is not configured. Set server environment variables: ' + missing.join(', ') + '. The existing deployment must remain live.');
   let origin, database;
+  if (env.SITE_ORIGIN) env.SITE_ORIGIN = env.SITE_ORIGIN.replace(/\/$/, '');
+  if (env.SUPABASE_URL) env.SUPABASE_URL = env.SUPABASE_URL.replace(/\/$/, '');
   try { origin = new URL(env.SITE_ORIGIN); database = new URL(env.SUPABASE_URL); } catch { throw new Error('Invalid checkout origin or Supabase URL.'); }
   if (origin.protocol !== 'https:' || origin.origin !== env.SITE_ORIGIN || database.protocol !== 'https:' || database.origin !== env.SUPABASE_URL)
     throw new Error('SITE_ORIGIN and SUPABASE_URL must be HTTPS origins without paths or credentials.');
