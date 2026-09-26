@@ -1,92 +1,112 @@
 {
-    "headers": [
+  "headers": [
+    {
+      "source": "/images/(.*)",
+      "headers": [
         {
-            "source": "/images/(.*)",
-            "headers": [
-                {
-                    "key": "Cache-Control",
-                    "value": "public, max-age=31536000, immutable"
-                }
-            ]
-        },
-        {
-            "source": "/css/(.*)",
-            "headers": [
-                {
-                    "key": "Cache-Control",
-                    "value": "public, max-age=31536000, immutable"
-                }
-            ]
-        },
-        {
-            "source": "/js/(.*)",
-            "headers": [
-                {
-                    "key": "Cache-Control",
-                    "value": "public, max-age=31536000, immutable"
-                }
-            ]
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
         }
-    ],
-    "redirects": [
+      ]
+    },
+    {
+      "source": "/css/(.*)",
+      "headers": [
         {
-            "source": "/collections/frontpage",
-            "destination": "/products.html",
-            "permanent": true
-        },
-        {
-            "source": "/collections",
-            "destination": "/collections.html",
-            "permanent": true
-        },
-        {
-            "source": "/collections/:match*",
-            "destination": "/collections.html",
-            "permanent": true
-        },
-        {
-            "source": "/products/:match*",
-            "destination": "/products.html",
-            "permanent": true
-        },
-        {
-            "source": "/pages/contact-us",
-            "destination": "/contact.html",
-            "permanent": true
-        },
-        {
-            "source": "/pages/about-us",
-            "destination": "/about.html",
-            "permanent": true
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
         }
-    ],
-    "rewrites": [
+      ]
+    },
+    {
+      "source": "/js/(.*)",
+      "headers": [
         {
-            "source": "/login",
-            "destination": "/login.html"
-        },
-        {
-            "source": "/signup",
-            "destination": "/signup.html"
-        },
-        {
-            "source": "/account",
-            "destination": "/account.html"
-        },
-        {
-            "source": "/product-detail.html",
-            "has": [
-                {
-                    "type": "query",
-                    "key": "id",
-                    "value": "0aa58f95-83d6-45f6-a7f3-2c1ed3b3ac39"
-                }
-            ],
-            "destination": "/pdp-face-wash.html"
-        },
-        {
-            "source": "/product-detail.html",
-            "destination": "/pdp-vitamin-c.html"
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
         }
-    ]
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/collections/frontpage",
+      "destination": "/products.html",
+      "permanent": true
+    },
+    {
+      "source": "/collections",
+      "destination": "/collections.html",
+      "permanent": true
+    },
+    {
+      "source": "/collections/:match*",
+      "destination": "/collections.html",
+      "permanent": true
+    },
+    {
+      "source": "/products/:match*",
+      "destination": "/products.html",
+      "permanent": true
+    },
+    {
+      "source": "/pages/contact-us",
+      "destination": "/contact.html",
+      "permanent": true
+    },
+    {
+      "source": "/pages/about-us",
+      "destination": "/about.html",
+      "permanent": true
+    },
+    {
+      "source": "/products/hanaz-vitamin-c-serum",
+      "destination": "/pdp-vitamin-c.html?id=7ff4066c-ca6d-4fc2-8405-46289d66f05f",
+      "permanent": true
+    },
+    {
+      "source": "/pages/contact",
+      "destination": "/contact.html",
+      "permanent": true
+    },
+    {
+      "source": "/pages/our-story",
+      "destination": "/about.html",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/login",
+      "destination": "/login.html"
+    },
+    {
+      "source": "/signup",
+      "destination": "/signup.html"
+    },
+    {
+      "source": "/account",
+      "destination": "/account.html"
+    },
+    {
+      "source": "/product-detail.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "0aa58f95-83d6-45f6-a7f3-2c1ed3b3ac39"
+        }
+      ],
+      "destination": "/pdp-face-wash.html"
+    },
+    {
+      "source": "/product-detail.html",
+      "destination": "/pdp-vitamin-c.html"
+    }
+  ]
 }
