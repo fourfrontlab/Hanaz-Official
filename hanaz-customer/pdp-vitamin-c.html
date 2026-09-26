@@ -1378,9 +1378,9 @@
 
       // 4. Description & Ingredients
       const descCont = document.getElementById('pdp-description-content');
-      if (descCont) {
-        descCont.innerHTML = product.description ? `<p>${product.description}</p>` : '<p>No description available.</p>';
-      }
+      // if (descCont) {
+      //   descCont.innerHTML = product.description ? `<p>${product.description}</p>` : '<p>No description available.</p>';
+      // }
 
       const ingCont = document.getElementById('pdp-ingredients-content');
       if (ingCont) {
@@ -1405,7 +1405,7 @@
             ingredientsHTML = `<p>${parsedIngredients}</p>`;
           }
         }
-        ingCont.innerHTML = ingredientsHTML;
+        // ingCont.innerHTML = ingredientsHTML;
       }
 
       // 5. Gallery

@@ -60,7 +60,7 @@
       {
         "@type": "ListItem",
         "position": 3,
-        "name": "Vitamin C Serum"
+        "name": "Hanaz Face Wash"
       }
     ]
   }
@@ -1563,8 +1563,8 @@ Skin Type:
       const mobileDescCont = document.getElementById('pdp-mobile-description-content');
       const cleanserDesc = product.description || DEFAULT_CLEANSER_DATA.description;
       const descHTML = `<p>${cleanserDesc}</p>`;
-      if (descCont) descCont.innerHTML = descHTML;
-      if (mobileDescCont) mobileDescCont.innerHTML = cleanserDesc;
+      // if (descCont) descCont.innerHTML = descHTML;
+      // if (mobileDescCont) mobileDescCont.innerHTML = cleanserDesc;
 
       // Extract any pseudo-ingredient entries from existing ingredients JSON so data is never lost
       const pseudoEntries = {};
@@ -1641,20 +1641,20 @@ Skin Type:
       const keyIngHTML = renderKeyIngredients();
       const ingCont = document.getElementById('pdp-ingredients-content');
       const mobileIngCont = document.getElementById('pdp-mobile-ingredients-content');
-      if (ingCont) ingCont.innerHTML = keyIngHTML;
-      if (mobileIngCont) mobileIngCont.innerHTML = keyIngHTML;
+      // if (ingCont) ingCont.innerHTML = keyIngHTML;
+      // if (mobileIngCont) mobileIngCont.innerHTML = keyIngHTML;
 
       // Helper to render dedicated section content (Supabase field -> pseudo-entry -> default)
       function renderCleanserSection(contentVal, blockContentId, mobileContentId) {
         const desktopCont = document.getElementById(blockContentId);
         const mobileCont = document.getElementById(mobileContentId);
 
-        if (desktopCont) {
-          desktopCont.innerHTML = `<div class="pdp-info-text-content">${escapeHtml(contentVal)}</div>`;
-        }
-        if (mobileCont) {
-          mobileCont.textContent = contentVal;
-        }
+        // if (desktopCont) {
+        //   desktopCont.innerHTML = `<div class="pdp-info-text-content">${escapeHtml(contentVal)}</div>`;
+        // }
+        // if (mobileCont) {
+        //   mobileCont.textContent = contentVal;
+        // }
       }
 
       // 3. Full Ingredients List
