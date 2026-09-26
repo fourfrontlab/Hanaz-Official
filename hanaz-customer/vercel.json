@@ -31,6 +31,11 @@
   ],
   "redirects": [
     {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/collections/frontpage",
       "destination": "/products.html",
       "permanent": true

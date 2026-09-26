@@ -29,7 +29,7 @@
     const currentPath = window.location.pathname.split('/').pop() || 'index.html';
     document.querySelectorAll('.nav-links a, .mobile-nav-links a').forEach(link => {
       const href = link.getAttribute('href');
-      if (href === currentPath || (currentPath === '' && href === 'index.html')) {
+      if (href === currentPath || (currentPath === 'index.html' && href === '/')) {
         link.classList.add('active');
       }
     });
