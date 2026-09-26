@@ -1488,11 +1488,10 @@ Skin Type:
   <script>
     async function loadProductDetail() {
       const params = new URLSearchParams(window.location.search);
-      const productId = params.get('id');
+      let productId = params.get('id');
 
       if (!productId) {
-        showError();
-        return;
+        productId = '0aa58f95-83d6-45f6-a7f3-2c1ed3b3ac39';
       }
 
       const { data: product, error } = await window.supabase
@@ -1705,7 +1704,7 @@ Skin Type:
       }
 
       // 6. Dynamic SEO Injection
-      const currentUrl = 'https://www.hanazofficial.store/product-detail.html?id=' + product.id;
+      const currentUrl = 'https://www.hanazofficial.store/pdp-face-wash.html';
       // document.title = product.title + ' | Hanaz Official';
 
       const metaDesc = document.getElementById('seo-desc');

@@ -4,24 +4,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title id="seo-title">Hanaz Vitamin C Serum with 5% 3-O-Ethyl Ascorbic Acid | Brightening Skincare</title>
-  <meta name="description" id="seo-desc" content="Shop the Hanaz Vitamin C Serum with 5% 3-O-Ethyl Ascorbic Acid, Niacinamide, and Hyaluronic Acid. Clinically tested to brighten and hydrate dull skin. Available in Pakistan.">
+  <title id="seo-title">Hanaz Vitamin C Serum | Brightening Skincare</title>
+  <meta name="description" id="seo-desc" content="Shop the Hanaz Vitamin C Serum, Niacinamide, and Hyaluronic Acid. Clinically tested to brighten and hydrate dull skin. Available in Pakistan.">
   
   <link rel="canonical" id="seo-canonical" href="https://www.hanazofficial.store/product-detail.html?id=hanaz-vitamin-c-serum">
   
   <meta property="og:type" content="product">
   <meta property="og:url" id="seo-og-url" content="https://www.hanazofficial.store/product-detail.html?id=hanaz-vitamin-c-serum">
-  <meta property="og:title" id="seo-og-title" content="Hanaz Vitamin C Serum with 5% 3-O-Ethyl Ascorbic Acid | Brightening Skincare">
-  <meta property="og:description" id="seo-og-desc" content="Shop the Hanaz Vitamin C Serum with 5% 3-O-Ethyl Ascorbic Acid, Niacinamide, and Hyaluronic Acid. Clinically tested to brighten and hydrate dull skin. Available in Pakistan.">
+  <meta property="og:title" id="seo-og-title" content="Hanaz Vitamin C Serum | Brightening Skincare">
+  <meta property="og:description" id="seo-og-desc" content="Shop the Hanaz Vitamin C Serum, Niacinamide, and Hyaluronic Acid. Clinically tested to brighten and hydrate dull skin. Available in Pakistan.">
   <meta property="og:image" id="seo-og-image" content="https://www.hanazofficial.store/images/vitamin-c-serum.jpg">
 
   <script type="application/ld+json" id="seo-schema-product">
   {
     "@context": "https://schema.org",
     "@type": "Product",
-    "name": "Hanaz Vitamin C Serum with 5% 3-O-Ethyl Ascorbic Acid",
+    "name": "Hanaz Vitamin C Serum",
     "image": "https://www.hanazofficial.store/images/vitamin-c-serum.jpg",
-    "description": "Shop the Hanaz Vitamin C Serum with 5% 3-O-Ethyl Ascorbic Acid, Niacinamide, and Hyaluronic Acid. Clinically tested to brighten and hydrate dull skin. Available in Pakistan.",
+    "description": "Shop the Hanaz Vitamin C Serum, Niacinamide, and Hyaluronic Acid. Clinically tested to brighten and hydrate dull skin. Available in Pakistan.",
     "brand": {
       "@type": "Brand",
       "name": "Hanaz Official"
@@ -1319,11 +1319,10 @@
   <script>
     async function loadProductDetail() {
       const params = new URLSearchParams(window.location.search);
-      const productId = params.get('id');
+      let productId = params.get('id');
 
       if (!productId) {
-        showError();
-        return;
+        productId = '7ff4066c-ca6d-4fc2-8405-46289d66f05f';
       }
 
       const { data: product, error } = await window.supabase
@@ -1432,7 +1431,7 @@
       }
 
       // 6. Dynamic SEO Injection
-      const currentUrl = 'https://www.hanazofficial.store/product-detail.html?id=' + product.id;
+      const currentUrl = 'https://www.hanazofficial.store/pdp-vitamin-c.html';
       // document.title = product.title + ' | Hanaz Official';
       
       const metaDesc = document.getElementById('seo-desc');

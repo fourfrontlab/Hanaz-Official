@@ -66,7 +66,7 @@
     },
     {
       "source": "/products/hanaz-vitamin-c-serum",
-      "destination": "/pdp-vitamin-c.html?id=7ff4066c-ca6d-4fc2-8405-46289d66f05f",
+      "destination": "/pdp-vitamin-c.html",
       "permanent": true
     },
     {
@@ -77,6 +77,54 @@
     {
       "source": "/pages/our-story",
       "destination": "/about.html",
+      "permanent": true
+    },
+    {
+      "source": "/product-detail.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "0aa58f95-83d6-45f6-a7f3-2c1ed3b3ac39"
+        }
+      ],
+      "destination": "/pdp-face-wash.html",
+      "permanent": true
+    },
+    {
+      "source": "/product-detail.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "7ff4066c-ca6d-4fc2-8405-46289d66f05f"
+        }
+      ],
+      "destination": "/pdp-vitamin-c.html",
+      "permanent": true
+    },
+    {
+      "source": "/product-detail.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "hanaz-vitamin-c-serum"
+        }
+      ],
+      "destination": "/pdp-vitamin-c.html",
+      "permanent": true
+    },
+    {
+      "source": "/product-detail.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "id",
+          "value": "hanaz-brightening-face-wash"
+        }
+      ],
+      "destination": "/pdp-face-wash.html",
       "permanent": true
     }
   ],
@@ -92,21 +140,6 @@
     {
       "source": "/account",
       "destination": "/account.html"
-    },
-    {
-      "source": "/product-detail.html",
-      "has": [
-        {
-          "type": "query",
-          "key": "id",
-          "value": "0aa58f95-83d6-45f6-a7f3-2c1ed3b3ac39"
-        }
-      ],
-      "destination": "/pdp-face-wash.html"
-    },
-    {
-      "source": "/product-detail.html",
-      "destination": "/pdp-vitamin-c.html"
     }
   ]
 }
