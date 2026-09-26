@@ -2,85 +2,71 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.hanazofficial.store/</loc>
-    <lastmod>2023-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.hanazofficial.store/products.html</loc>
-    <lastmod>2023-11-01</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.hanazofficial.store/pdp-vitamin-c.html?id=7ff4066c-ca6d-4fc2-8405-46289d66f05f</loc>
-    <lastmod>2023-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.hanazofficial.store/product-detail.html?id=0aa58f95-83d6-45f6-a7f3-2c1ed3b3ac39</loc>
-    <lastmod>2023-11-01</lastmod>
+    <loc>https://www.hanazofficial.store/pdp-vitamin-c.html?id=7ff4066c-ca6d-4fc2-8405-46289d66f05f</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.hanazofficial.store/pdp-face-wash.html?id=0aa58f95-83d6-45f6-a7f3-2c1ed3b3ac39</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.hanazofficial.store/collections.html</loc>
-    <lastmod>2023-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.hanazofficial.store/about.html</loc>
-    <lastmod>2023-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.hanazofficial.store/contact.html</loc>
-    <lastmod>2023-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.hanazofficial.store/faq.html</loc>
-    <lastmod>2023-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.hanazofficial.store/cert-vitamin-c-serum.html</loc>
-    <lastmod>2023-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.hanazofficial.store/cert-face-cleanser.html</loc>
-    <lastmod>2023-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.hanazofficial.store/shipping-info.html</loc>
-    <lastmod>2023-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://www.hanazofficial.store/return-policy.html</loc>
-    <lastmod>2023-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://www.hanazofficial.store/terms.html</loc>
-    <lastmod>2023-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://www.hanazofficial.store/privacy.html</loc>
-    <lastmod>2023-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>

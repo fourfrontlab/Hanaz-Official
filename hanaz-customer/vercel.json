@@ -51,6 +51,11 @@
       "permanent": true
     },
     {
+      "source": "/products/hanaz-vitamin-c-serum",
+      "destination": "/pdp-vitamin-c.html?id=7ff4066c-ca6d-4fc2-8405-46289d66f05f",
+      "permanent": true
+    },
+    {
       "source": "/products/:match*",
       "destination": "/products.html",
       "permanent": true
@@ -61,7 +66,17 @@
       "permanent": true
     },
     {
+      "source": "/pages/contact",
+      "destination": "/contact.html",
+      "permanent": true
+    },
+    {
       "source": "/pages/about-us",
+      "destination": "/about.html",
+      "permanent": true
+    },
+    {
+      "source": "/pages/our-story",
       "destination": "/about.html",
       "permanent": true
     }
