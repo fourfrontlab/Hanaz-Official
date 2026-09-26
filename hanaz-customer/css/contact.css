@@ -80,6 +80,12 @@
 .info-card a:hover {
   opacity: 0.7;
 }
+a.info-card {
+  transition: border-color var(--duration-fast), box-shadow var(--duration-fast);
+}
+a.info-card:hover {
+  border-color: var(--text-heading);
+}
 
 /* Form */
 .contact-form-wrap {
@@ -130,3 +136,4 @@
     padding: var(--space-lg);
   }
 }
+

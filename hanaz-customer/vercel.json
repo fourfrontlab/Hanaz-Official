@@ -75,6 +75,10 @@
       "destination": "/account.html"
     },
     {
+      "source": "/complaint",
+      "destination": "/complaint.html"
+    },
+    {
       "source": "/product-detail.html",
       "has": [
         {
@@ -93,6 +97,9 @@
   "functions": {
     "api/meta-worker.js": {
       "maxDuration": 60
+    },
+    "api/complaints.js": {
+      "maxDuration": 30
     }
   }
 }
