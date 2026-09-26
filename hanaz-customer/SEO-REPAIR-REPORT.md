@@ -72,19 +72,15 @@ WHERE id = '0aa58f95-83d6-45f6-a7f3-2c1ed3b3ac39';
 
 ---
 
-## 3. Vercel Deployment & Environment Variables
+## 3. Vercel Deployment & Environment Variables (Status: FAILING)
 
-The previous production deployment failed because Vercel was missing critical environment variables. 
-The build script (`scripts/check-commerce.cjs`) strictly checks for: `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `SITE_ORIGIN`, and `SESSION_SECRET`. 
+The latest build on Vercel (`f950cbd` and `222ae25`) is **still failing**. Although `SUPABASE_SERVICE_ROLE_KEY` and `SESSION_SECRET` were added, the `check-commerce.cjs` preflight script is crashing the build because one of the following is true in your Vercel environment or Supabase instance:
 
-Since the previous build only flagged `SUPABASE_SERVICE_ROLE_KEY` and `SESSION_SECRET` as missing, it implies that `SUPABASE_URL` and `SITE_ORIGIN` are already present in the Vercel environment.
+1. **Invalid Secret Length:** Your `SESSION_SECRET` is less than 32 characters long.
+2. **Invalid Server Key:** Your `SUPABASE_SERVICE_ROLE_KEY` is not a valid server-side service role key (it must be a JWT containing `"role": "service_role"` or start with `sb_secret_`). Do NOT use the `anon` public key here.
+3. **Database Unreachable or Missing Functions:** The script attempts to connect to `SUPABASE_URL` and verify the existence of required backend RPC functions (`hanaz_submit`, `hanaz_rate_limit`, `hanaz_claim_events`, `hanaz_event_allowed`, `hanaz_finish_event`, `hanaz_is_commerce_admin`). If these checkout migrations are missing in your Supabase database, or the DB is unreachable, the build will purposefully fail.
 
-### Exact Manual Steps to Fix Vercel Build (Do NOT bypass):
-1. Log into your Vercel Dashboard and go to the **Hanaz Official** project.
-2. Navigate to **Settings** → **Environment Variables**.
-3. Check if `SESSION_SECRET` exists. If it exists, **DO NOT overwrite or rotate it** (doing so would invalidate existing user sessions). If it does *not* exist, add it (must be at least 32 random characters).
-4. Add `SUPABASE_SERVICE_ROLE_KEY`. This must be the server-side, `service_role` key from your Supabase project (do not use the public `anon` key).
-5. Once these variables are saved, trigger a new deployment from the latest `main` commit.
+**Action Required:** You must review your Vercel logs (`npx vercel inspect <deployment-id> --logs`) to see the exact error message from the script, fix the corresponding issue (e.g. run your database migrations, or fix the key), and then redeploy. **Do not bypass the readiness checks.**
 
 ---
 
