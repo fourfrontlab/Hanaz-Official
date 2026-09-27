@@ -50,11 +50,6 @@
       "permanent": true
     },
     {
-      "source": "/products/:match*",
-      "destination": "/products.html",
-      "permanent": true
-    },
-    {
       "source": "/pages/contact-us",
       "destination": "/contact.html",
       "permanent": true
@@ -65,11 +60,6 @@
       "permanent": true
     },
     {
-      "source": "/products/hanaz-vitamin-c-serum",
-      "destination": "/pdp-vitamin-c.html",
-      "permanent": true
-    },
-    {
       "source": "/pages/contact",
       "destination": "/contact.html",
       "permanent": true
@@ -77,6 +67,21 @@
     {
       "source": "/pages/our-story",
       "destination": "/about.html",
+      "permanent": true
+    },
+    {
+      "source": "/products/hanaz-vitamin-c-serum",
+      "destination": "/pdp-vitamin-c.html",
+      "permanent": true
+    },
+    {
+      "source": "/products/hanaz-brightening-face-wash",
+      "destination": "/pdp-face-wash.html",
+      "permanent": true
+    },
+    {
+      "source": "/products/:match*",
+      "destination": "/products.html",
       "permanent": true
     },
     {
