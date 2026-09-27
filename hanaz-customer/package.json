@@ -1,0 +1,5 @@
+{
+  "name": "hanaz-storefront", "private": true, "version": "1.1.0",
+  "engines": { "node": "24.x" }, "type": "commonjs",
+  "scripts": { "build": "node scripts/check-commerce.cjs && node scripts/configure-public.cjs" }
+}

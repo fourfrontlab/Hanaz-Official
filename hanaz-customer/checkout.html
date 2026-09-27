@@ -8,27 +8,13 @@
   <title>Checkout | Hanaz Official</title>
   <meta name="robots" content="noindex, follow">
   <meta name="description" content="Secure checkout for Hanaz Official skincare products.">
-  <!-- Meta Pixel Code -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window,document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '568351333004084');
-    fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=568351333004084&ev=PageView&noscript=1"
-  /></noscript>
-  <!-- End Meta Pixel Code -->
+  
   <!-- Google Font (moved from CSS @import for performance) -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/checkout.css">
+  <link rel="stylesheet" href="css/tracking.css?v=20260913">
+  <script defer src="js/tracking.js?v=20260913"></script>
 </head>
 
 <body class="fade-in-page">
@@ -38,9 +24,9 @@
     <div class="container">
       <button class="hamburger-btn" id="hamburger-btn"
         aria-label="Open menu"><span></span><span></span><span></span></button>
-      <a href="index.html" class="nav-logo"><img src="images/hanaz-logo.jpg" alt="Hanaz Official"></a>
+      <a href="/" class="nav-logo"><img src="images/hanaz-logo.jpg" alt="Hanaz Official"></a>
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
+        <li><a href="/">Home</a></li>
         <li><a href="products.html">Shop</a></li>
         <li><a href="collections.html">Regimens</a></li>
         <li><a href="contact.html">Contact</a></li>
@@ -69,12 +55,12 @@
   <!-- Mobile nav & cart -->
   <div class="overlay" id="mobile-nav-overlay"></div>
   <div class="mobile-nav-drawer" id="mobile-nav-drawer">
-    <div class="mobile-nav-header"><a href="index.html" class="nav-logo"><img src="images/hanaz-logo.jpg"
+    <div class="mobile-nav-header"><a href="/" class="nav-logo"><img src="images/hanaz-logo.jpg"
           alt="Hanaz Official"></a><button class="mobile-nav-close" id="mobile-nav-close"><svg viewBox="0 0 24 24">
           <line x1="18" y1="6" x2="6" y2="18" />
           <line x1="6" y1="6" x2="18" y2="18" />
         </svg></button></div>
-    <div class="mobile-nav-links"><a href="index.html">Home</a><a href="products.html">Shop</a><a
+    <div class="mobile-nav-links"><a href="/">Home</a><a href="products.html">Shop</a><a
         href="collections.html">Regimens</a><a href="contact.html">Contact</a><a href="about.html">About Us</a>
       <a href="login.html" id="mobile-nav-auth-link">Login</a></div>
   </div>
@@ -97,7 +83,7 @@
 
   <main id="checkout-main">
     <div class="breadcrumb container">
-      <a href="index.html">Home</a>
+      <a href="/">Home</a>
       <span class="sep">/</span>
       <a href="products.html">Shop</a>
       <span class="sep">/</span>
@@ -268,11 +254,11 @@
           <h1>Order Confirmed!</h1>
           <p class="order-number-display" style="font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem;">Order <span
               id="confirmed-order-number"></span></p>
-          <p>Thank you for your purchase. We've received your order and will contact you shortly to confirm delivery
+          <p id="confirmed-order-message">Thank you for your purchase. We've received your order and will contact you shortly to confirm delivery
             details.</p>
           <div style="display: flex; gap: 16px; justify-content: center; margin-top: 24px; flex-wrap: wrap;">
             <a href="track-order.html" id="track-order-btn" class="btn btn-primary">Track Your Order</a>
-            <a href="index.html" class="btn btn-secondary">Return to Home</a>
+            <a href="/" class="btn btn-secondary">Return to Home</a>
           </div>
         </div>
 
@@ -331,7 +317,7 @@
         <div class="footer-col">
           <h4>Company</h4>
           <ul>
-            <li><a href="index.html#our-story">About Us</a></li>
+            <li><a href="/#our-story">About Us</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
@@ -339,7 +325,7 @@
           <h4>Our Commitments</h4>
           <ul>
             <li><a href="#">Sustainability</a></li>
-            <li><a href="index.html#our-story">Our Story</a></li>
+            <li><a href="/#our-story">Our Story</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -371,9 +357,9 @@
   </footer>
 
   <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script defer src="js/supabase-client.js"></script>
-  <script defer src="js/cart.js"></script>
-  <script defer src="js/main.js"></script>
+  <script defer src="js/supabase-client.js?v=20260913"></script>
+  <script defer src="js/cart.js?v=20260913"></script>
+  <script defer src="js/main.js?v=20260913"></script>
   <script defer src="js/auth.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -390,7 +376,6 @@
         if (!window.HanazCart) return;
 
         const cartItems = window.HanazCart.getItems();
-        console.log("DEBUG: Checkout cart items loaded from window.HanazCart.getItems():", cartItems);
 
         if (!cartItems || cartItems.length === 0) {
           grid.innerHTML = '<div style="text-align:center; padding: 60px 20px; grid-column: 1 / -1;"><p style="margin-bottom:24px;">Your cart is empty.</p><a href="products.html" class="btn btn-primary">Continue Shopping</a></div>';
@@ -427,21 +412,7 @@
 
       renderCheckout();
       
-      // --- Meta Pixel InitiateCheckout ---
-      if (typeof fbq === 'function' && window.HanazCart) {
-        const initialCartItems = window.HanazCart.getItems();
-        if (initialCartItems && initialCartItems.length > 0) {
-          const initialSubtotal = window.HanazCart.getSubtotal();
-          
-          fbq('track', 'InitiateCheckout', {
-            content_ids: initialCartItems.map(i => i.id),
-            content_type: 'product',
-            value: initialSubtotal,
-            currency: 'PKR'
-          });
-        }
-      }
-      // --- End Meta Pixel InitiateCheckout ---
+      window.HanazTracking?.beginCheckout(window.HanazCart?.getItems() || []);
 
       window.addEventListener('hanazCartUpdated', renderCheckout);
 
@@ -728,6 +699,7 @@
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
+        if (form.dataset.submitting === 'true') return;
         // Perform final validation on all fields
         let isFormValid = true;
         let firstInvalidField = null;
@@ -755,6 +727,8 @@
         }
 
         const submitBtn = form.querySelector('button[type="submit"]');
+        form.dataset.submitting = 'true';
+        submitBtn.setAttribute('aria-busy', 'true');
         submitBtn.disabled = true;
         submitBtn.textContent = 'Processing...';
 
@@ -767,93 +741,20 @@
             total: window.HanazCart.getSubtotal()
           };
 
-          // Map radio-button values → lowercase DB-safe strings
-          const getValidPaymentMethod = (method) => {
-            const map = {
-              'COD': 'cod',
-              'Allied Bank': 'bank_deposit',
-              'EasyPaisa': 'easypaisa',
-              'JazzCash': 'jazzcash'
-            };
-            return map[method] || method.toLowerCase();
-          };
-
-          const normalizedPaymentMethod = getValidPaymentMethod(formData.paymentMethod);
-
-          const orderNumber = 'HO-' + Date.now();
-
-          // Generate client-side UUID so we don't need a SELECT-back (anon role has INSERT but not SELECT)
-          const orderId = crypto.randomUUID();
-
-          const orderPayload = {
-            id: orderId,
-            order_number: orderNumber,
-            customer_name: formData.name,
-            phone: formData.phone,
-            address: formData.address,
-            payment_method: normalizedPaymentMethod,
-            total_amount: formData.total,
-          };
-
-          // Debug: log full payload before sending
-          console.log('DEBUG: Order payload being sent to Supabase:', JSON.stringify(orderPayload, null, 2));
-          console.log('DEBUG: Raw radio value:', formData.paymentMethod, '→ Normalized:', normalizedPaymentMethod);
-
-          const { error: orderError } = await window.supabase
-            .from('orders')
-            .insert(orderPayload);
-
-          if (orderError) {
-            console.error('Order insert failed — full error object:', orderError);
-            console.error('Error message:', orderError.message);
-            console.error('Error code:', orderError.code);
-            console.error('Error details:', orderError.details);
-            console.error('Error hint:', orderError.hint);
-            alert('Failed to place order. Please try again or contact support.');
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Place Order';
-            return;
+          const paymentMethods = {'COD':'cod','Allied Bank':'bank_deposit','EasyPaisa':'easypaisa','JazzCash':'jazzcash'};
+          const request = { name:formData.name,phone:formData.phone,address:formData.address,payment_method:paymentMethods[formData.paymentMethod],expected_total:formData.total,items:cartItems.map(i=>({id:i.id,qty:i.qty})) };
+          const requestKey = await window.HanazTracking.requestKey('checkout',request);
+          const result = await window.HanazTracking.submit('checkout',request,requestKey);
+          const orderNumber = result.order_number;
+          // Only the accepted backend response can supply a Purchase ID and values.
+          try { window.HanazTracking.confirmed(result); } catch {}
+          document.getElementById('confirmed-order-message').textContent = result.payment_method === 'cod'
+            ? 'Your cash-on-delivery order has been accepted. Payment is due on delivery.'
+            : 'Your order has been received and is awaiting payment verification. Please follow these payment instructions.';
+          if (result.payment_method !== 'cod') {
+            const details = document.querySelector('input[name="payment_method"]:checked').closest('.payment-method-item').querySelector('.payment-method-details');
+            if (details) { const copy = details.cloneNode(true);copy.removeAttribute('id');copy.style.display='block';success.appendChild(copy); }
           }
-
-          const orderItems = cartItems.map(item => ({
-            order_id: orderId,
-            product_id: item.id,
-            title_snapshot: item.name,
-            qty: item.qty,
-            price_at_order: item.price,
-            cost_at_order: item.cost_price || 0,
-          }));
-
-          console.log('DEBUG: Order items payload:', JSON.stringify(orderItems, null, 2));
-
-          const { error: itemsError } = await window.supabase
-            .from('order_items')
-            .insert(orderItems);
-
-          if (itemsError) {
-            console.error('Order items insert failed — full error object:', itemsError);
-            console.error('Error message:', itemsError.message);
-            console.error('Error code:', itemsError.code);
-            console.error('Error details:', itemsError.details);
-            console.error('Error hint:', itemsError.hint);
-            alert('There was an issue processing your order items. Please contact support.');
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Place Order';
-            return;
-          }
-
-          console.log('DEBUG: Order placed successfully! Order #', orderNumber, '| ID:', orderId);
-
-          // --- Meta Pixel Purchase ---
-          if (typeof fbq === 'function') {
-            fbq('track', 'Purchase', {
-              content_ids: cartItems.map(item => item.id),
-              content_type: 'product',
-              value: formData.total,
-              currency: 'PKR'
-            }, { eventID: orderNumber });
-          }
-          // --- End Meta Pixel Purchase ---
 
           // Show success state
           document.getElementById('confirmed-order-number').textContent = orderNumber;
@@ -863,7 +764,8 @@
 
           // Clear cart
           if (window.HanazCart && window.HanazCart.clear) {
-            window.HanazCart.clear();
+            try { window.HanazCart.clear(); } catch {}
+            window.HanazTracking.clearRequest('checkout');
           } else {
             localStorage.removeItem('hanazCart');
           }
@@ -871,12 +773,12 @@
           window.scrollTo({ top: 0, behavior: 'smooth' });
 
         } catch (err) {
-          console.error('Unexpected error during order submission:', err);
-          console.log('Error name:', err.name, '| Error message:', err.message);
-          console.log('Full error stack:', err.stack);
-          alert('An unexpected error occurred. Please try again or contact support.');
+          alert(err.message || 'We could not confirm your order. Please retry with the same details.');
           submitBtn.disabled = false;
           submitBtn.textContent = 'Place Order';
+        } finally {
+          form.dataset.submitting = 'false';
+          submitBtn.removeAttribute('aria-busy');
         }
       });
 
@@ -885,3 +787,4 @@
 </body>
 
 </html>
+

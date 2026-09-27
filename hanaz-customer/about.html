@@ -17,30 +17,14 @@
     content="Learn about Hanaz Official — our story, mission, and commitment to premium, expertly formulated skincare crafted in Pakistan.">
   <meta property="og:image" content="https://www.hanazofficial.store/images/vitamin-c-serum.jpg">
 
-  <!-- Meta Pixel Code -->
-  <script>
-    !function (f, b, e, v, n, t, s) {
-      if (f.fbq) return; n = f.fbq = function () {
-        n.callMethod ?
-          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-      };
-      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
-      n.queue = []; t = b.createElement(e); t.async = !0;
-      t.src = v; s = b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t, s)
-    }(window, document, 'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '568351333004084');
-    fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=568351333004084&ev=PageView&noscript=1" /></noscript>
-  <!-- End Meta Pixel Code -->
+  
   <!-- Google Font (moved from CSS @import for performance) -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/about.css">
   <link rel="stylesheet" href="css/certificate.css">
+  <link rel="stylesheet" href="css/tracking.css?v=20260913">
+  <script defer src="js/tracking.js?v=20260913"></script>
 </head>
 
 <body class="fade-in-page">
@@ -50,10 +34,10 @@
     <div class="container">
       <button class="hamburger-btn" id="hamburger-btn"
         aria-label="Open menu"><span></span><span></span><span></span></button>
-      <a href="index.html" class="nav-logo"><img src="images/hanaz-logo.jpg" alt="Hanaz Official"></a>
+      <a href="/" class="nav-logo"><img src="images/hanaz-logo.jpg" alt="Hanaz Official"></a>
 
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
+        <li><a href="/">Home</a></li>
         <li><a href="products.html">Shop</a></li>
         <li><a href="collections.html">Regimens</a></li>
         <li><a href="contact.html">Contact</a></li>
@@ -83,14 +67,14 @@
   <!-- Mobile nav -->
   <div class="overlay" id="mobile-nav-overlay"></div>
   <div class="mobile-nav-drawer" id="mobile-nav-drawer">
-    <div class="mobile-nav-header"><a href="index.html" class="nav-logo"><img src="images/hanaz-logo.jpg"
+    <div class="mobile-nav-header"><a href="/" class="nav-logo"><img src="images/hanaz-logo.jpg"
           alt="Hanaz Official"></a><button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu"><svg
           viewBox="0 0 24 24">
           <line x1="18" y1="6" x2="6" y2="18" />
           <line x1="6" y1="6" x2="18" y2="18" />
         </svg></button></div>
     <div class="mobile-nav-links">
-      <a href="index.html">Home</a>
+      <a href="/">Home</a>
       <a href="products.html">Shop</a>
       <a href="collections.html">Regimens</a>
       <a href="contact.html">Contact</a>
@@ -138,7 +122,7 @@
         <div class="story-page-header">
           <h1>Our Story</h1>
           <nav class="story-breadcrumb" aria-label="Breadcrumb">
-            <a href="index.html">Home</a>
+            <a href="/">Home</a>
             <span class="sep">&rsaquo;</span>
             <span>Our Story</span>
           </nav>
@@ -377,8 +361,8 @@
     </div>
   </footer>
 
-  <script defer src="js/cart.js"></script>
-  <script defer src="js/main.js"></script>
+  <script defer src="js/cart.js?v=20260913"></script>
+  <script defer src="js/main.js?v=20260913"></script>
   <script defer src="js/auth.js"></script>
   <script>
     // ── Certification Slider ──────────────────────────────

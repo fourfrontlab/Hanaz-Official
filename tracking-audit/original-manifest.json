@@ -1,0 +1,374 @@
+[
+  {
+    "path": "hanaz-customer\\.gitattributes",
+    "sha256": "d8fb0de4792538f93822b2c0d235604921299d5e54a3d6ec7a6cb34536e8bf1e"
+  },
+  {
+    "path": "hanaz-customer\\404.html",
+    "sha256": "4399daac6e023fbf73ef51bc25d89f03621061526f090558b42c985c55a104d8"
+  },
+  {
+    "path": "hanaz-customer\\about.html",
+    "sha256": "10dc3cb45a01b7692f417ba56969898886780ddc387c45b4d2fa9eb6ff1e4742"
+  },
+  {
+    "path": "hanaz-customer\\account.html",
+    "sha256": "a63ca02b816af296e49f2c1a2d8950798cc08f2c4187dc55e2fed899d83a247d"
+  },
+  {
+    "path": "hanaz-customer\\cert-face-cleanser.html",
+    "sha256": "48e4804f71a188511852a605e16a4a8d59e963a897dc741da93149fa383e4980"
+  },
+  {
+    "path": "hanaz-customer\\cert-vitamin-c-serum.html",
+    "sha256": "7028102c9ddde08ab5e846ec2f4cc77caac712c79dc1b0eb94844ee64c1febd2"
+  },
+  {
+    "path": "hanaz-customer\\certificate-detail.html",
+    "sha256": "185f66b94ff7b027edb2e15d1387119421173c391616dfdcc62b6523a55f0928"
+  },
+  {
+    "path": "hanaz-customer\\checkout.html",
+    "sha256": "52403fce8d334ed0b99085de0dbb9a93d9c6a1a3d86373e238ec40aa0dbecf4c"
+  },
+  {
+    "path": "hanaz-customer\\collections.html",
+    "sha256": "7efd4625eca066f4f5c47d74c633d4b3d0d6374d0ba3db714dd9c686843f425e"
+  },
+  {
+    "path": "hanaz-customer\\contact.html",
+    "sha256": "3c7376f943fdc78d1e33ffdd19a9fe58cc8fecfd88001a2b932798a0d1e24900"
+  },
+  {
+    "path": "hanaz-customer\\css\\about.css",
+    "sha256": "0c64694b4accbf8689fa7068489609539c81e8e5c21e302438b87a17e64d8181"
+  },
+  {
+    "path": "hanaz-customer\\css\\auth.css",
+    "sha256": "d581a1dc02b88203cfae5f68008f7b0d8b4a00afeec71367fd01347259bad029"
+  },
+  {
+    "path": "hanaz-customer\\css\\certificate.css",
+    "sha256": "220412bbf3b2f3a21e16de3c5b551b9f54aafb3490331ce75da747ca9304e10d"
+  },
+  {
+    "path": "hanaz-customer\\css\\checkout.css",
+    "sha256": "d2f1cb9999569f4c6af1f056836bfe95c8cd0a642099c141534e3316112b72de"
+  },
+  {
+    "path": "hanaz-customer\\css\\collections.css",
+    "sha256": "396a569c0f62d0c077117db35881f6dd30853d4e587c64de362ab30940bae1f6"
+  },
+  {
+    "path": "hanaz-customer\\css\\consultation-drawer.css",
+    "sha256": "8e98336bc18cd07cac8896d50bac4d096ae7e050bd72c0262fbec75b34df9b78"
+  },
+  {
+    "path": "hanaz-customer\\css\\contact.css",
+    "sha256": "e68b9ed18bdc868c60c18cb82c69b0f4be0f1b7d8d515fd959e2a057a9188ef1"
+  },
+  {
+    "path": "hanaz-customer\\css\\home.css",
+    "sha256": "aaa85290c72e5a93aacaf6c1e7c5afbdf85d41b23d807ba075cbac4cca5b0083"
+  },
+  {
+    "path": "hanaz-customer\\css\\product-detail.css",
+    "sha256": "8e657a2ab770f4e47f559556dd30bd42022a07db161b1aa5329a2f036e573097"
+  },
+  {
+    "path": "hanaz-customer\\css\\products.css",
+    "sha256": "74904db8f39f46258b325b868322d212de087dd60bdde8a3d825f6bb12b70c7f"
+  },
+  {
+    "path": "hanaz-customer\\css\\style.css",
+    "sha256": "87b0093dd92c319d85f5362c51a8a74d3beb2f0c9229e27261e28059d869d64a"
+  },
+  {
+    "path": "hanaz-customer\\faq.html",
+    "sha256": "c7ac96f4befaf49f739ddd9874e725bf2fd0266634ab69d923c387b8523076b4"
+  },
+  {
+    "path": "hanaz-customer\\images\\acne.webp",
+    "sha256": "c4318938ee20b629a28d4638a88f77a5d9c7c51487cc92100b2ba52ab1c85eb8"
+  },
+  {
+    "path": "hanaz-customer\\images\\acne2.webp",
+    "sha256": "92e4763d2e4b5b9eeb6e1f810bd67b584f8af4362d424ebaa14127aafba094d5"
+  },
+  {
+    "path": "hanaz-customer\\images\\Banner 1.webp",
+    "sha256": "c8768752f040d1e47154cada876cb2c439f92790d039a560c03aa8632e4fb92b"
+  },
+  {
+    "path": "hanaz-customer\\images\\Banner 2.webp",
+    "sha256": "7975d921c7f9a7c4545c8be228681bae1fe36b43f3e1574225f871c97a9e6ce8"
+  },
+  {
+    "path": "hanaz-customer\\images\\Banner 3.jpeg",
+    "sha256": "1cca7e7bb1df748ace172d9861d48b42a7e5b074bef8b122eeb5a18a04795778"
+  },
+  {
+    "path": "hanaz-customer\\images\\bodai.webp",
+    "sha256": "05b2c61a605f84b14faf1eaea100b92340b0eea6a0597f212eb1649ebfc2cbac"
+  },
+  {
+    "path": "hanaz-customer\\images\\brand-story.webp",
+    "sha256": "42ef9e69e13570271215fce698f3bce54c52149da7d4b0f5bba08ff5bffbebda"
+  },
+  {
+    "path": "hanaz-customer\\images\\concern-aging.webp",
+    "sha256": "b59577ecfeec0886d6a3b57f6bb3c58a4c9e8bd19626c84f7afcdddc1a98e928"
+  },
+  {
+    "path": "hanaz-customer\\images\\concern-brightening.webp",
+    "sha256": "05718f2f4a91e15728a97492fdff2d30c1ff45b3861e10fb05027e66e19aec0b"
+  },
+  {
+    "path": "hanaz-customer\\images\\concern-congestion.webp",
+    "sha256": "35b7f1f322f599aef8ba63448fe2f494c9f1b3afc30fcab4867e64def033cf20"
+  },
+  {
+    "path": "hanaz-customer\\images\\concern-dryness.webp",
+    "sha256": "3a2227fc34129e3108783cdce17c99cc00d3ed5643025f6f06fc81b8fd744140"
+  },
+  {
+    "path": "hanaz-customer\\images\\concern-dullness.webp",
+    "sha256": "9ce5c02557f7f3e9f735fbad656c54ba2a5fcd37be61c60438b88e62480e7f74"
+  },
+  {
+    "path": "hanaz-customer\\images\\concern-hydration.webp",
+    "sha256": "1eccafca06ed99d6b3a31bd871650a4b1955bb79d524c66bc3d5ff89fda0d336"
+  },
+  {
+    "path": "hanaz-customer\\images\\concern-redness.webp",
+    "sha256": "293ef4bbbdc4adbda507fbeda93439cac3f62f6c7f6231410d61b7c177a7101b"
+  },
+  {
+    "path": "hanaz-customer\\images\\concern-texture.webp",
+    "sha256": "5ced0c6d0f021d997966b96dcbfaebad8a56476560ff3ad87284dafa8372bae5"
+  },
+  {
+    "path": "hanaz-customer\\images\\dermatologist-consult.webp",
+    "sha256": "d617d870d30b09cdfc11c3fdd30fe6c596133af23a4dd62f3748745a21db5987"
+  },
+  {
+    "path": "hanaz-customer\\images\\dermatologist-consultation.webp",
+    "sha256": "e7d107eb4395b76206cb37d2958a959294c575b92ccd419cdbde7e5ec261117d"
+  },
+  {
+    "path": "hanaz-customer\\images\\Gemini_Generated_Image_99ae3f99ae3f99ae.webp",
+    "sha256": "a6b83828ff0970222f5974bf24328662192dfacba9977f20b264e7aa790a11b0"
+  },
+  {
+    "path": "hanaz-customer\\images\\Gemini_Generated_Image_lyz3vglyz3vglyz3.webp",
+    "sha256": "ffe93dac6f00be31e198dfa19ed03c351ceab76d798929290b7123d4fb406233"
+  },
+  {
+    "path": "hanaz-customer\\images\\Gemini_Generated_Image_s326us326us326us.webp",
+    "sha256": "b49faf7aa039a0a0ef0078d5bbfd231ceac1280be6ebc54b4cd1dbc7a69991a6"
+  },
+  {
+    "path": "hanaz-customer\\images\\hanaz-logo.jpg",
+    "sha256": "5d45de7178c30e05345dc63dfd606b8d9507920db18ee4b177f07dfb13539d4d"
+  },
+  {
+    "path": "hanaz-customer\\images\\hanaz_banner.webp",
+    "sha256": "efed968f8cccbde73b38cf338a4bcca27da01d8b3d5399a60f9302b44be3975d"
+  },
+  {
+    "path": "hanaz-customer\\images\\hero-banner.webp",
+    "sha256": "a25ef7d401d7d2bfc451cc18b3715fe0da416a95664a4003b57fd7a19c76920a"
+  },
+  {
+    "path": "hanaz-customer\\images\\hero-cod-delivery.webp",
+    "sha256": "16c5d5ab410fe94e7e9467c3bec7a6bc0f7126fd7a9b7ea26a9664a920c7e748"
+  },
+  {
+    "path": "hanaz-customer\\images\\hero-skin-quiz.webp",
+    "sha256": "346c9930b16cd67e5cb446ece16cb13f9ee58ef8323a3c359f52f1f2bc49a9f4"
+  },
+  {
+    "path": "hanaz-customer\\images\\how-to-use.jpg",
+    "sha256": "66c9f263e574fabf9e1a07e9e169199418509e7dde032e97fa093a22c60d0ebb"
+  },
+  {
+    "path": "hanaz-customer\\images\\htuc-howto.jpg",
+    "sha256": "2d399d1f9905ae6fa771221b513b6fd887c9ccd8f57ec3f3fdffd399c35077bf"
+  },
+  {
+    "path": "hanaz-customer\\images\\htuc-safety.webp",
+    "sha256": "5a52a4fd0949fc5091b711d904bb2be288ca47f31d1d469d6b31a65b606e4260"
+  },
+  {
+    "path": "hanaz-customer\\images\\htuc-storage.webp",
+    "sha256": "9c8d3bb860bb45e903088389c5fb17eef327452482f4b42b3c9cbb2a1fdbb7e7"
+  },
+  {
+    "path": "hanaz-customer\\images\\hy.jpg",
+    "sha256": "493b6df1d4a97234c536dd04a2156770ff1ff012fd4329e5d4a91b9b1784f48c"
+  },
+  {
+    "path": "hanaz-customer\\images\\hy2.jpg",
+    "sha256": "3476134c4e81776c8f9230327d5911deee430e7ad5c3f48d8c3feb1e1f95e787"
+  },
+  {
+    "path": "hanaz-customer\\images\\se.jpg",
+    "sha256": "adc4ee0491f7ca68d958ca368669c0ff526ef2699a2c8a1f24e6dcc81e608d14"
+  },
+  {
+    "path": "hanaz-customer\\images\\se2.jpg",
+    "sha256": "84898bf0afad5051451f29255d1b84ff9e742eaefe198c3289b15436045cc3e2"
+  },
+  {
+    "path": "hanaz-customer\\images\\vitamin-c-facewash.webp",
+    "sha256": "f337520e643f391a39d4ecbf8b2c7b8b0eca0b4b8bc01902f9f1dd81039ffaa5"
+  },
+  {
+    "path": "hanaz-customer\\images\\vitaminc c certificates\\dermal safety certificate.png",
+    "sha256": "c173b724ce42a8bc0c0be6f65e502f812840974ce46476650ee1972640d4c09d"
+  },
+  {
+    "path": "hanaz-customer\\images\\vitaminc c certificates\\microbial safety image.png",
+    "sha256": "9f923ff40e4db421ea4b8389d3586d858b377460711d317c19cfeafdc018bc29"
+  },
+  {
+    "path": "hanaz-customer\\images\\zwana.webp",
+    "sha256": "4c7fb586214588df1ac43c2893e1ed805831ac214bb507ea68f33f4ce6df36b3"
+  },
+  {
+    "path": "hanaz-customer\\index.html",
+    "sha256": "0bcc57e2c924d1745b3636c56e4d8229bbbc43f9f4c04d9281d9428439f4afad"
+  },
+  {
+    "path": "hanaz-customer\\js\\auth.js",
+    "sha256": "05796f5554362e4e63353f0707ba3183cde0ad78b234600326a639ab7b37ec7f"
+  },
+  {
+    "path": "hanaz-customer\\js\\cart.js",
+    "sha256": "e803336bd815a88f6cdf14234a4653fde95268b0e15da6031b2d7e78618d4f1d"
+  },
+  {
+    "path": "hanaz-customer\\js\\consultation-drawer.js",
+    "sha256": "0d0ca6ac1a06befefa0ae3fc3848948c8303849e21aa858c7866bb4311ea8ea0"
+  },
+  {
+    "path": "hanaz-customer\\js\\home.js",
+    "sha256": "4c7de24de55024e6643e9c35484846b309ad7b94f089dd0e458053dab15024d4"
+  },
+  {
+    "path": "hanaz-customer\\js\\inject-cart.js",
+    "sha256": "1389bea782415c7a370bfcf700170a2cd30d81a2f234cf44d55ddbbfbffacaf2"
+  },
+  {
+    "path": "hanaz-customer\\js\\main.js",
+    "sha256": "0f7ccaec4dbab845a71d217fe36dce9a59aef983b4787a0c03fd269a44732493"
+  },
+  {
+    "path": "hanaz-customer\\js\\product-detail.js",
+    "sha256": "9428a4954f233e8841ac9e994f002e8d1af939cb3f4bbbe9dc2bf5aa2cf9ce8f"
+  },
+  {
+    "path": "hanaz-customer\\js\\products-grid.js",
+    "sha256": "37839888ada06073af47b83a5ae1efc32744d2e8c3337bd4cf46c4332a27be46"
+  },
+  {
+    "path": "hanaz-customer\\js\\products.js",
+    "sha256": "fdea05972009fcaa7a413d0a6fb30a3521254bd7eab4f0c943fc21f85fec64bb"
+  },
+  {
+    "path": "hanaz-customer\\js\\supabase-client.js",
+    "sha256": "05d33dffd94412bab7e5450e49a59a41a005226d2e8bfbca100426de64d7c537"
+  },
+  {
+    "path": "hanaz-customer\\js\\track-order.js",
+    "sha256": "9679ead9adb8850a5a9d1be7f0d5dc504ae2e75a8c5af2de98af8c59273482bc"
+  },
+  {
+    "path": "hanaz-customer\\login.html",
+    "sha256": "3387ec05756b3b282b9df72ae40a972d4353419eb477224e27b512f8e193e101"
+  },
+  {
+    "path": "hanaz-customer\\patch.diff",
+    "sha256": "24f1c88fe61495d872d094d8964382b6e1c3ecdf0728b3c90905369a2c76ffd9"
+  },
+  {
+    "path": "hanaz-customer\\pdp-face-wash.html",
+    "sha256": "46a8a3d3f9239887de7fc893c418f046dae560c6a296115c2fb972147e521bb3"
+  },
+  {
+    "path": "hanaz-customer\\pdp-vitamin-c.html",
+    "sha256": "8f7bd4304df743b3ddfe23ba677313554d0070a24ab63999ca9a2b0a0ab5e841"
+  },
+  {
+    "path": "hanaz-customer\\privacy.html",
+    "sha256": "b68c03d4a6744000ebbd0f2c84c6267b5a1761d3908bb5e754d7f8a93cb1f27c"
+  },
+  {
+    "path": "hanaz-customer\\products.html",
+    "sha256": "fde458f83919e2aa300b3d4e033b37c9a403cd3d4f99bc0bf6c56346acb9e4a1"
+  },
+  {
+    "path": "hanaz-customer\\README.md",
+    "sha256": "6c1f751b5da0927d8a86530d05d5b7190756bf02121c9c2c6b20d22fcfb5ec48"
+  },
+  {
+    "path": "hanaz-customer\\remove_bar.js",
+    "sha256": "f7b865e1ef72c203d5660b920fc2a64bc020ec4d33468af334ef6644448099ba"
+  },
+  {
+    "path": "hanaz-customer\\return-policy.html",
+    "sha256": "89eaedc30b2bd07123ee5344cfcf9fc6850cd365f32c1583676158c8c4bd71cb"
+  },
+  {
+    "path": "hanaz-customer\\robots.txt",
+    "sha256": "7b47e60ad63fed8890a7eb26ebd9d314be5cf5040ce099a17e01ccbb1e37d36a"
+  },
+  {
+    "path": "hanaz-customer\\shipping-info.html",
+    "sha256": "7cd3559ecbcb140f0041219404fc97d305320cca72c504e6756d2f2ffd00ea0e"
+  },
+  {
+    "path": "hanaz-customer\\signup.html",
+    "sha256": "53b9d536a5d40646865a953fe99ed92a14dd0e462e148c46c934436b6d0ad6eb"
+  },
+  {
+    "path": "hanaz-customer\\sitemap.xml",
+    "sha256": "7d2d81fd4d9d83d997d0b6456fff94cf1f0ba885b97886697dfc081ce9343ef9"
+  },
+  {
+    "path": "hanaz-customer\\temp_live_index.html",
+    "sha256": "5eb8233825ba2c56aab1636c25e43bfacdd6b08f89f8bd000dd468d87aca96ac"
+  },
+  {
+    "path": "hanaz-customer\\terms.html",
+    "sha256": "70f13add66ded2bfcda5640ada09974e97976b8ea97df75a62e57e694173f23d"
+  },
+  {
+    "path": "hanaz-customer\\track-order.html",
+    "sha256": "6e7145ba81e2e1591163173dadac4cd42879efaadafb87054dd3bbcef618e8f0"
+  },
+  {
+    "path": "hanaz-customer\\vercel.json",
+    "sha256": "b8a98262ec0f32d73354cb86140987181afe053a32b365d6803907b7ee5bcc8f"
+  },
+  {
+    "path": "hanaz-customer\\videos\\video1.mp4",
+    "sha256": "acb50dc34852c746734fee6f366d3ce154ca818bd499d6da2c79fdb0e413e154"
+  },
+  {
+    "path": "hanaz-customer\\videos\\video2.mp4",
+    "sha256": "6dbe769c078a66c30c6a165af13a480b149c993581a3e3a080fdcae2d7f9b6fd"
+  },
+  {
+    "path": "hanaz-customer\\videos\\video3.mp4",
+    "sha256": "e8ebc3cc89db9d70d0cbec8a08473f1ce6313b6bcbc0db5b12da3878afb187fd"
+  },
+  {
+    "path": "hanaz-customer\\videos\\video4.mp4",
+    "sha256": "6e5240f1c4d5a5b3fa191368d639e9dc668e69686bcc38a5f5d8dd02a96d9784"
+  },
+  {
+    "path": "hanaz-customer\\videos\\video5.mov",
+    "sha256": "adf68ccb3450e529eba2760ee088667cb4759d3354531bb9413c38fa1080ff37"
+  }
+]

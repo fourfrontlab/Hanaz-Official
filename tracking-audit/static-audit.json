@@ -1,0 +1,277 @@
+{
+  "originalFilesVerified": 93,
+  "changedOriginal": [],
+  "legacyPixelLocations": [
+    {
+      "file": "404.html",
+      "ids": [
+        "568351333004084"
+      ]
+    },
+    {
+      "file": "about.html",
+      "ids": [
+        "568351333004084"
+      ]
+    },
+    {
+      "file": "cert-face-cleanser.html",
+      "ids": [
+        "568351333004084"
+      ]
+    },
+    {
+      "file": "cert-vitamin-c-serum.html",
+      "ids": [
+        "568351333004084"
+      ]
+    },
+    {
+      "file": "certificate-detail.html",
+      "ids": [
+        "568351333004084"
+      ]
+    },
+    {
+      "file": "checkout.html",
+      "ids": [
+        "568351333004084"
+      ]
+    },
+    {
+      "file": "collections.html",
+      "ids": [
+        "568351333004084"
+      ]
+    },
+    {
+      "file": "contact.html",
+      "ids": [
+        "568351333004084"
+      ]
+    },
+    {
+      "file": "faq.html",
+      "ids": [
+        "568351333004084"
+      ]
+    },
+    {
+      "file": "index.html",
+      "ids": [
+        "568351333004084"
+      ]
+    },
+    {
+      "file": "pdp-face-wash.html",
+      "ids": [
+        "568351333004084"
+      ]
+    },
+    {
+      "file": "pdp-vitamin-c.html",
+      "ids": [
+        "568351333004084"
+      ]
+    },
+    {
+      "file": "privacy.html",
+      "ids": [
+        "568351333004084"
+      ]
+    },
+    {
+      "file": "products.html",
+      "ids": [
+        "568351333004084"
+      ]
+    },
+    {
+      "file": "return-policy.html",
+      "ids": [
+        "568351333004084"
+      ]
+    },
+    {
+      "file": "shipping-info.html",
+      "ids": [
+        "568351333004084"
+      ]
+    },
+    {
+      "file": "terms.html",
+      "ids": [
+        "568351333004084"
+      ]
+    },
+    {
+      "file": "track-order.html",
+      "ids": [
+        "568351333004084"
+      ]
+    }
+  ],
+  "originalPixelIds": [
+    "568351333004084"
+  ],
+  "inlineScriptsParsed": 18,
+  "findings": [],
+  "changedFiles": [
+    {
+      "file": ".env.example",
+      "sha256": "0f4067582039469ffff57a44aab62f553285ce20a18b502bd99c8a3c0274def8"
+    },
+    {
+      "file": ".gitignore",
+      "sha256": "db9dd82ce0257afa85725b8ded065c7f6726dbe0a32c61c40af6b5afd46bf9b7"
+    },
+    {
+      "file": ".vercelignore",
+      "sha256": "157fb1118b8cf0fd6b732df6eb6f7c95ee07d01fffeb81f61728bc6c4511b284"
+    },
+    {
+      "file": "404.html",
+      "sha256": "b961a5ff2002a285ffa62e95d0c6f88bff8b20862e3c5c070de7f030181eff6c"
+    },
+    {
+      "file": "about.html",
+      "sha256": "3b9e50f04e1143095ab038576c2947a20dd28b3bcd2b745df0ed536ff4ea1ed1"
+    },
+    {
+      "file": "account.html",
+      "sha256": "7b483ed498d45db7223ebfb497acb497730a075233f24caa93c83a0a1cb9aef8"
+    },
+    {
+      "file": "api/commerce.js",
+      "sha256": "40d5d83e888b6b392ecc4574366f8843eafd16f0b0ffbdd3692ab4d87f87a10c"
+    },
+    {
+      "file": "api/meta-worker.js",
+      "sha256": "625af3517232aa7c14610be532fb7469c7f68287d2ee9c50eb28a74b77384e67"
+    },
+    {
+      "file": "cert-face-cleanser.html",
+      "sha256": "7aeeb6332ebf126f757fa41bafa82a1cd90fe87983f385d3b034908631d3d19e"
+    },
+    {
+      "file": "cert-vitamin-c-serum.html",
+      "sha256": "3affb17e4a4135d14adfabeddd2a9e1b9055f6601ee997c18f84746f90921dd6"
+    },
+    {
+      "file": "certificate-detail.html",
+      "sha256": "5ec5bd95330dba26c8bcd2d87a4d8bb8db5ad99db6cf8328d65aa8baf198123d"
+    },
+    {
+      "file": "checkout.html",
+      "sha256": "6001d93842c1b25c847c4022dc71cdc69598d3177622d8041444a2ab70d1bd94"
+    },
+    {
+      "file": "collections.html",
+      "sha256": "1f5fb1e5f4d7111e603359af863ab419540b24fad04ecdf56ec1f15409061e59"
+    },
+    {
+      "file": "contact.html",
+      "sha256": "cd69567ff05cbe74ce6415f8f07f2e105b6c1870d8e87b4b2e59c216609fb26e"
+    },
+    {
+      "file": "css/tracking.css",
+      "sha256": "b9a5115c21f22d4df9f2fa298090c707e1d9f402e530f86ae9394ab29cbd18b0"
+    },
+    {
+      "file": "faq.html",
+      "sha256": "f585c6098410b0ed1d33ebf0b0797a6494f85b9a7ac4c86dd1528aa21bb1752c"
+    },
+    {
+      "file": "index.html",
+      "sha256": "4d596e57f5085384768361cab0b620b79569124667043ce5be21d4e07fcaede8"
+    },
+    {
+      "file": "js/cart.js",
+      "sha256": "a7227687ee4931c46ef5d90209e2820f7d3bdd1d4777f7724bbc94d4f0965fe9"
+    },
+    {
+      "file": "js/consultation-drawer.js",
+      "sha256": "e42ea96760f2ba17159daba1f1ca9fdc1486e2e2801dc951cf9bf34c91b58ffe"
+    },
+    {
+      "file": "js/main.js",
+      "sha256": "d5e128d1552da0beff97add9c6777d3c7851b59634e0121d0a367eb18690b9b9"
+    },
+    {
+      "file": "js/product-detail.js",
+      "sha256": "92cd94213d3192977932e98d50379b927d6174a6800df48ba6920d1da1149110"
+    },
+    {
+      "file": "js/tracking.js",
+      "sha256": "47eae4cfc173260c7f48097f65175b195c8f216dc7e275fd2ed85cbf7510a596"
+    },
+    {
+      "file": "login.html",
+      "sha256": "ce10ca1ae628279a392f0c364047fd968cd07ce4b344a21df391615e58fd6a6e"
+    },
+    {
+      "file": "package.json",
+      "sha256": "88679a5a3c35c79b6428f3fcdf68ed7b7f3fa4b504f553601d720d81c3dce139"
+    },
+    {
+      "file": "pdp-face-wash.html",
+      "sha256": "d5c34d252e507c3626f3241eed3548b15220893c995b47ec0868f45c9d62f815"
+    },
+    {
+      "file": "pdp-vitamin-c.html",
+      "sha256": "48ebe709bbbf7cb807234a4bc448a358ed129c45ea766a09e4f3b43238cf5c18"
+    },
+    {
+      "file": "privacy.html",
+      "sha256": "425256e6eb4fba7cbea6307d5583087a57836563c7a93888a0b3861bf1e611c7"
+    },
+    {
+      "file": "products.html",
+      "sha256": "c82d2f75d83c442aec0f195c82aa2ab58a5346c5ed1889f2896ab8393edaf5a9"
+    },
+    {
+      "file": "return-policy.html",
+      "sha256": "dcbe2f5fd2d10113a9ef6705a73a8ed842188d2a5b718efc94a9879502b7da4a"
+    },
+    {
+      "file": "scripts/configure-public.cjs",
+      "sha256": "e50b308183832e48d13039384c0f47c5c869e01e86bb436f67e25cdd64833ef7"
+    },
+    {
+      "file": "server/core.js",
+      "sha256": "249992a5882b8543957c2d89088cf3935737b2e2f9645c9daf2db8d96f145c60"
+    },
+    {
+      "file": "server/meta-worker.js",
+      "sha256": "b4a671d181032617155e65cbb1057eff4205bb5ac70b10f2076f8f5aaecd6648"
+    },
+    {
+      "file": "shipping-info.html",
+      "sha256": "b640127c8adb184eeccc0468f93e2b4f3a9ea5ecb76d6b4a40fa8a6e7fc26ac8"
+    },
+    {
+      "file": "signup.html",
+      "sha256": "6beb8c8812f6147caf27a2fdf7eb0c1d6778be558764dfa47e6a91274cb3fe78"
+    },
+    {
+      "file": "sitemap.xml",
+      "sha256": "7869a4fe1f6a87b97d319e1f9e1a6016c9997038da7bfb1d907fc3fe2c3c2dca"
+    },
+    {
+      "file": "temp_live_index.html",
+      "sha256": "555d5df3c4f4b21e039edff9584afd568bd02fbcd5d5bf20d4510f906954ab66"
+    },
+    {
+      "file": "terms.html",
+      "sha256": "59cfb194189cf9a40afb1d21198e1afbb434cce658f5b797127574ae103bb6cb"
+    },
+    {
+      "file": "track-order.html",
+      "sha256": "244b13bc57f64f30398d1d793c0b3753118247fe11703f3eb953f7d005085be2"
+    },
+    {
+      "file": "vercel.json",
+      "sha256": "611af018dc5fc4f41a4b66c7ffe4003165b6f98b6f32362ecfd4abeb17f6e691"
+    }
+  ]
+}

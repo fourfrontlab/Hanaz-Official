@@ -116,7 +116,8 @@
     const btnMinus = document.getElementById('qty-minus');
     const btnPlus = document.getElementById('qty-plus');
 
-    if (!valEl || !btnMinus || !btnPlus) return;
+    if (!valEl || !btnMinus || !btnPlus || btnPlus.dataset.qtyBound) return;
+    btnPlus.dataset.qtyBound = "true";
 
     function updateVal() {
       valEl.style.opacity = '0';
@@ -184,6 +185,8 @@
     const headers = document.querySelectorAll('.accordion-header');
     
     headers.forEach(header => {
+      if (header.dataset.accordionBound) return;
+      header.dataset.accordionBound = "true";
       header.addEventListener('click', () => {
         const acc = header.closest('.accordion');
         const body = acc.querySelector('.accordion-body');
@@ -278,28 +281,7 @@
       
       localStorage.setItem('hanazRecentlyViewed', JSON.stringify(viewed));
 
-      // --- Meta Pixel ViewContent ---
-      if (typeof fbq === 'function') {
-        const urlParams = new URLSearchParams(window.location.search);
-        // Fallbacks based on page title/url just in case
-        let productId = urlParams.get('id');
-        if (!productId) {
-          if (pageUrl.includes('face-wash') || item.name.toLowerCase().includes('face cleanser')) {
-            productId = '0aa58f95-83d6-45f6-a7f3-2c1ed3b3ac39';
-          } else {
-            productId = 'hanaz-vitamin-c-serum';
-          }
-        }
-        
-        fbq('track', 'ViewContent', {
-          content_name: item.name,
-          content_type: 'product',
-          content_ids: [productId],
-          value: item.price,
-          currency: 'PKR'
-        });
-      }
-      // --- End Meta Pixel ViewContent ---
+      // ViewContent is emitted only after the authoritative product has rendered.
     } catch (e) {}
   }
 

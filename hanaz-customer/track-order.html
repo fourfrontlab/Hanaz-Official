@@ -8,23 +8,7 @@
   <title>Track Order | Hanaz Official</title>
   <meta name="robots" content="noindex, follow">
   <meta name="description" content="Track your Hanaz Official order status.">
-  <!-- Meta Pixel Code -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window,document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '568351333004084');
-    fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=568351333004084&ev=PageView&noscript=1"
-  /></noscript>
-  <!-- End Meta Pixel Code -->
+  
   <!-- Google Font (moved from CSS @import for performance) -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="css/style.css">
@@ -50,6 +34,8 @@
     .order-item-price { font-weight: 600; }
     .error-msg { color: #dc3545; background: #f8d7da; padding: 12px 16px; border-radius: var(--radius); margin-bottom: 24px; display: none; border: 1px solid #f5c6cb; }
   </style>
+  <link rel="stylesheet" href="css/tracking.css?v=20260913">
+  <script defer src="js/tracking.js?v=20260913"></script>
 </head>
 
 <body class="fade-in-page">
@@ -58,9 +44,9 @@
   <nav class="navbar" id="navbar">
     <div class="container">
       <button class="hamburger-btn" id="hamburger-btn" aria-label="Open menu"><span></span><span></span><span></span></button>
-      <a href="index.html" class="nav-logo"><img src="images/hanaz-logo.jpg" alt="Hanaz Official"></a>
+      <a href="/" class="nav-logo"><img src="images/hanaz-logo.jpg" alt="Hanaz Official"></a>
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
+        <li><a href="/">Home</a></li>
         <li><a href="products.html">Shop</a></li>
         <li><a href="collections.html">Regimens</a></li>
         <li><a href="contact.html">Contact</a></li>
@@ -81,8 +67,8 @@
   <!-- Mobile nav & cart -->
   <div class="overlay" id="mobile-nav-overlay"></div>
   <div class="mobile-nav-drawer" id="mobile-nav-drawer">
-    <div class="mobile-nav-header"><a href="index.html" class="nav-logo"><img src="images/hanaz-logo.jpg" alt="Hanaz Official"></a><button class="mobile-nav-close" id="mobile-nav-close"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg></button></div>
-    <div class="mobile-nav-links"><a href="index.html">Home</a><a href="products.html">Shop</a><a href="collections.html">Regimens</a><a href="contact.html">Contact</a><a href="about.html">About Us</a>
+    <div class="mobile-nav-header"><a href="/" class="nav-logo"><img src="images/hanaz-logo.jpg" alt="Hanaz Official"></a><button class="mobile-nav-close" id="mobile-nav-close"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg></button></div>
+    <div class="mobile-nav-links"><a href="/">Home</a><a href="products.html">Shop</a><a href="collections.html">Regimens</a><a href="contact.html">Contact</a><a href="about.html">About Us</a>
       <a href="login.html" id="mobile-nav-auth-link">Login</a></div>
   </div>
   <div class="overlay" id="cart-overlay"></div>
@@ -100,7 +86,7 @@
 
   <main>
     <div class="breadcrumb container">
-      <a href="index.html">Home</a>
+      <a href="/">Home</a>
       <span class="sep">/</span>
       <span>Track Order</span>
     </div>
@@ -257,11 +243,12 @@
   </footer>
 
   <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script defer src="js/supabase-client.js"></script>
-  <script defer src="js/cart.js"></script>
-  <script defer src="js/main.js"></script>
+  <script defer src="js/supabase-client.js?v=20260913"></script>
+  <script defer src="js/cart.js?v=20260913"></script>
+  <script defer src="js/main.js?v=20260913"></script>
   <script defer src="js/auth.js"></script>
   <script defer src="js/track-order.js"></script>
 </body>
 
 </html>
+

@@ -5,23 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Page Not Found | Hanaz Official</title>
   <meta name="robots" content="noindex, follow">
-  <!-- Meta Pixel Code -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window,document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '568351333004084');
-    fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=568351333004084&ev=PageView&noscript=1"
-  /></noscript>
-  <!-- End Meta Pixel Code -->
+  
   <!-- Google Font (moved from CSS @import for performance) -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="css/style.css">
@@ -46,14 +30,16 @@
       max-width: 500px;
     }
   </style>
+  <link rel="stylesheet" href="css/tracking.css?v=20260913">
+  <script defer src="js/tracking.js?v=20260913"></script>
 </head>
 <body class="fade-in-page">
   <!-- ===== NAVIGATION ===== -->
   <nav class="navbar" id="navbar">
     <div class="container">
-      <a href="index.html" class="nav-logo"><img src="images/hanaz-logo.jpg" alt="Hanaz Official"></a>
+      <a href="/" class="nav-logo"><img src="images/hanaz-logo.jpg" alt="Hanaz Official"></a>
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
+        <li><a href="/">Home</a></li>
         <li><a href="products.html">Shop</a></li>
         <li><a href="collections.html">Regimens</a></li>
         <li><a href="contact.html">Contact</a></li>
@@ -70,14 +56,14 @@
         <h2>Page Not Found</h2>
         <p>We're sorry, but the page you were looking for doesn't exist or has been moved.</p>
         <a href="products.html" class="btn btn-primary">Return to Shop</a>
-        <a href="index.html" class="btn btn-secondary" style="margin-left: 10px;">Go to Homepage</a>
+        <a href="/" class="btn btn-secondary" style="margin-left: 10px;">Go to Homepage</a>
       </div>
     </section>
   </main>
 
   <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script defer src="js/supabase-client.js"></script>
-  <script defer src="js/main.js"></script>
+  <script defer src="js/supabase-client.js?v=20260913"></script>
+  <script defer src="js/main.js?v=20260913"></script>
   <script defer src="js/auth.js"></script>
 </body>
 </html>

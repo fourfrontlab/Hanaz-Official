@@ -1,0 +1,42 @@
+[
+  {
+    "file": "",
+    "status": 200,
+    "finalURL": "https://www.hanazofficial.store/",
+    "pixelIds": [
+      "568351333004084"
+    ],
+    "centralTrackingScript": false,
+    "purchase": false,
+    "bytes": 35067
+  },
+  {
+    "file": "checkout.html",
+    "status": 200,
+    "finalURL": "https://www.hanazofficial.store/checkout.html",
+    "pixelIds": [
+      "568351333004084"
+    ],
+    "centralTrackingScript": false,
+    "purchase": true,
+    "bytes": 39709
+  },
+  {
+    "file": "js/cart.js",
+    "status": 200,
+    "finalURL": "https://www.hanazofficial.store/js/cart.js",
+    "pixelIds": [],
+    "centralTrackingScript": false,
+    "purchase": false,
+    "bytes": 8424
+  },
+  {
+    "file": "js/product-detail.js",
+    "status": 200,
+    "finalURL": "https://www.hanazofficial.store/js/product-detail.js",
+    "pixelIds": [],
+    "centralTrackingScript": false,
+    "purchase": false,
+    "bytes": 16013
+  }
+]

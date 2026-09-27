@@ -15,27 +15,13 @@
   <meta property="og:description" content="Get in touch with Hanaz Official for support, product inquiries, and wholesale opportunities in Pakistan.">
   <meta property="og:image" content="https://www.hanazofficial.store/images/vitamin-c-serum.jpg">
 
-  <!-- Meta Pixel Code -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window,document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '568351333004084');
-    fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=568351333004084&ev=PageView&noscript=1"
-  /></noscript>
-  <!-- End Meta Pixel Code -->
+  
   <!-- Google Font (moved from CSS @import for performance) -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/contact.css">
+  <link rel="stylesheet" href="css/tracking.css?v=20260913">
+  <script defer src="js/tracking.js?v=20260913"></script>
 </head>
 
 <body class="fade-in-page">
@@ -45,9 +31,9 @@
     <div class="container">
       <button class="hamburger-btn" id="hamburger-btn"
         aria-label="Open menu"><span></span><span></span><span></span></button>
-      <a href="index.html" class="nav-logo"><img src="images/hanaz-logo.jpg" alt="Hanaz Official"></a>
+      <a href="/" class="nav-logo"><img src="images/hanaz-logo.jpg" alt="Hanaz Official"></a>
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
+        <li><a href="/">Home</a></li>
         <li><a href="products.html">Shop</a></li>
         <li><a href="collections.html">Regimens</a></li>
         <li><a href="contact.html" class="active">Contact</a></li>
@@ -76,12 +62,12 @@
   <!-- Mobile nav & cart -->
   <div class="overlay" id="mobile-nav-overlay"></div>
   <div class="mobile-nav-drawer" id="mobile-nav-drawer">
-    <div class="mobile-nav-header"><a href="index.html" class="nav-logo"><img src="images/hanaz-logo.jpg"
+    <div class="mobile-nav-header"><a href="/" class="nav-logo"><img src="images/hanaz-logo.jpg"
           alt="Hanaz Official"></a><button class="mobile-nav-close" id="mobile-nav-close"><svg viewBox="0 0 24 24">
           <line x1="18" y1="6" x2="6" y2="18" />
           <line x1="6" y1="6" x2="18" y2="18" />
         </svg></button></div>
-    <div class="mobile-nav-links"><a href="index.html">Home</a><a href="products.html">Shop</a><a
+    <div class="mobile-nav-links"><a href="/">Home</a><a href="products.html">Shop</a><a
         href="collections.html">Regimens</a><a href="contact.html">Contact</a><a href="about.html">About Us</a><a href="login.html" id="mobile-nav-auth-link">Login</a></div>
   </div>
   <div class="overlay" id="cart-overlay"></div>
@@ -103,7 +89,7 @@
 
   <main>
     <div class="breadcrumb container">
-      <a href="index.html">Home</a>
+      <a href="/">Home</a>
       <span class="sep">/</span>
       <span>Contact</span>
     </div>
@@ -154,6 +140,19 @@
                 <p>Margla Town, Islamabad<br>Online Store Only</p>
               </div>
             </div>
+
+            <a href="complaint.html" class="info-card" style="text-decoration: none; color: inherit; display: flex; cursor: pointer;">
+              <svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="8" x2="12" y2="12" />
+                <line x1="12" y1="16" x2="12.01" y2="16" />
+              </svg>
+              <div>
+                <h4>Complaint Support</h4>
+                <p>Have an issue with your order or experience?<br>Submit a complaint and our team will review it.</p>
+                <span style="font-size: 13px; font-weight: 500; text-decoration: underline; color: var(--text-heading);">Submit Complaint &rarr;</span>
+              </div>
+            </a>
 
             <div class="map-card"
               style="border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; height: 250px; background: #eee;">
@@ -283,14 +282,16 @@
   </footer>
 
   <script defer src="https://unpkg.com/@supabase/supabase-js@2"></script>
-  <script defer src="js/supabase-client.js"></script>
-  <script defer src="js/cart.js"></script>
-  <script defer src="js/main.js"></script>
+  <script defer src="js/supabase-client.js?v=20260913"></script>
+  <script defer src="js/cart.js?v=20260913"></script>
+  <script defer src="js/main.js?v=20260913"></script>
   <script defer src="js/auth.js"></script>
   <script>
     document.getElementById('contact-form').addEventListener('submit', async function (e) {
       e.preventDefault();
       
+      if (this.dataset.submitting === 'true') return;
+      this.dataset.submitting = 'true';
       const submitBtn = this.querySelector('button[type="submit"]');
       submitBtn.disabled = true;
       submitBtn.textContent = 'Sending...';
@@ -303,39 +304,25 @@
       };
 
       try {
-        console.log('DEBUG: Attempting to insert contact message payload:', formData);
-        const response = await window.supabase
-          .from('contact_messages')
-          .insert(formData);
-
-        console.log('DEBUG: Supabase Raw Response:', response);
-        const { error, data, status, statusText } = response;
-
-        if (error) {
-          console.error('DEBUG: Supabase Insert Error:', error);
-          alert(`There was a problem sending your message. Error: ${error.message || error.code || 'Unknown error'}`);
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Submit';
-          return;
-        }
-
-        console.log('DEBUG: Insert succeeded. HTTP Status:', status, statusText);
-        // Note: data is expected to be null here because Supabase v2 defaults to not returning rows on insert (return=minimal).
-        // Adding .select() would cause a 401 Unauthorized because anonymous users are not allowed to SELECT messages due to RLS.
-
+        const request = {kind:'contact',name:formData.full_name,email:formData.email,subject:formData.subject,message:formData.message};
+        const key = await window.HanazTracking.requestKey('contact',request);
+        const result = await window.HanazTracking.submit('lead',request,key);
+        try { window.HanazTracking.confirmed(result); } catch {}
+        window.HanazTracking.clearRequest('contact');
         this.style.display = 'none';
         document.getElementById('contact-success').style.display = 'block';
         this.reset();
         window.scrollTo({ top: document.querySelector('.contact-form-wrap').offsetTop - 100, behavior: 'smooth' });
       } catch (err) {
-        console.error('Unexpected error:', err);
-        alert('An unexpected error occurred. Please try again.');
+        alert(err.message || 'Unable to send your message. Please retry.');
       } finally {
+        this.dataset.submitting = 'false';
         submitBtn.disabled = false;
         submitBtn.textContent = 'Submit';
       }
     });
   </script>
+
 </body>
 
 </html>
